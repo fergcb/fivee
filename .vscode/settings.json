@@ -4,5 +4,18 @@
   "deno.unstable": true,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "denoland.vscode-deno",
-  "editor.rulers": [100]
+  "editor.rulers": [
+    100
+  ],
+  "conventionalCommits.scopes": [
+    "meta",
+    "graphql",
+    "database",
+    "abilityScores",
+    "damageTypes",
+    "magicSchools",
+    "skills",
+    "sourceBooks",
+    "spells"
+  ]
 }
