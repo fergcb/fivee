@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "start": "deno run --unstable --allow-read --allow-env --allow-net main.ts"
+  },
+  "imports": {
+    "$helpers": "./database/helpers.ts",
+    "$collections/": "./collections/",
+    "$db/": "./database/",
+    "$graphql/": "./api/graphql/"
+  }
+}
