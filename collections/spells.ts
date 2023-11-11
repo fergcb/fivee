@@ -206,10 +206,10 @@ export default collection<Spell>(ID, [
     desc: md`
       You hurl a bubble of acid. Choose one creature you can see within range, or choose two
       creatures you can see within range that are within 5 feet of each other. A target must succeed
-      on a Dexterity saving throw or take {@damage 1d6} acid damage.
+      on a Dexterity saving throw or take %{dice 1d6} acid damage.
 
-      This spell's damage increases by {@dice 1d6} when you reach 5th level ({@damage 2d6}), 11th
-      level ({@damage 3d6}), and 17th level ({@damage 4d6}).
+      This spell's damage increases by %{dice 1d6} when you reach 5th level (%{dice 2d6}), 11th
+      level (%{dice 3d6}), and 17th level (%{dice 4d6}).
     `,
     range: {
       kind: "point",
@@ -356,11 +356,23 @@ export default collection<Spell>(ID, [
       effects of which last for the duration of the spell. While the spell lasts, you can end one
       option as an action to gain the benefits of a different one.
 
-      [object Object]
+      **Aquatic Adaptation.** You adapt your body to an aquatic environment, sprouting gills and
+      growing webbing between your fingers. You can breathe underwater and gain a swimming speed
+      equal to your walking speed.
 
-      [object Object]
+      **Change Appearance.** You transform your appearance. You decide what you look like, including
+      your height, weight, facial features, sound of your voice, hair length, coloration, and
+      distinguishing characteristics, if any. You can make yourself appear as a member of another
+      race, though none of your statistics change. You also can't appear as a creature of a
+      different size than you, and your basic shape stays the same; if you're bipedal, you can't use
+      this spell to become quadrupedal, for instance. At any time for the duration of the spell, you
+      can use your action to change your appearance in this way again.
 
-      [object Object]
+      **Natural Weapons.** You grow claws, fangs, spines, horns, or a different natural weapon of
+      your choice. Your unarmed strikes deal {@dice 1d6} bludgeoning, piercing, or slashing damage,
+      as appropriate to the natural weapon you chose, and you are proficient with your unarmed
+      strikes. Finally, the natural weapon is magic and you have a +1 bonus to the attack and damage
+      rolls you make using it.
     `,
     range: {
       kind: "self",
@@ -392,7 +404,7 @@ export default collection<Spell>(ID, [
     desc: md`
       This spell lets you convince a beast that you mean it no harm. Choose a beast that you can see
       within range. It must see and hear you. If the beast's Intelligence is 4 or higher, the spell
-      fails. Otherwise, the beast must succeed on a Wisdom saving throw or be {@condition charmed}
+      fails. Otherwise, the beast must succeed on a Wisdom saving throw or be %{ref conditions charmed}
       by you for the spell's duration. If you or one of your companions harms the target, the spell
       ends.
     `,
@@ -485,10 +497,9 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "transmutation"),
     desc: md`
       Your magic turns others into beasts. Choose any number of willing creatures that you can see
-      within range. You transform each target into the form of a {@filter Large or smaller beast
-      with a challenge rating of 4 or lower|bestiary|challenge
-      rating=[&0;&4]|type=beast|size=f;d;t;s;m;l|miscellaneous=!swarm}. On subsequent turns, you can
-      use your action to transform affected creatures into new forms.
+      within range. You transform each target into the form of a Large or smaller {@ref monsterTypes
+      beast} with a challenge rating of 4 or lower. On subsequent turns, you can use your action to
+      transform affected creatures into new forms.
 
       The transformation lasts for the duration for each target, or until the target drops to 0 hit
       points or dies. You can choose a different form for each target. A target's game statistics
@@ -497,7 +508,7 @@ export default collection<Spell>(ID, [
       form, and when it reverts to its normal form, it returns to the number of hit points it had
       before it transformed. If it reverts as a result of dropping to 0 hit points, any excess
       damage carries over to its normal form. As long as the excess damage doesn't reduce the
-      creature's normal form to 0 hit points, it isn't knocked {@condition unconscious}. The
+      creature's normal form to 0 hit points, it isn't knocked %{ref conditions unconscious}. The
       creature is limited in the actions it can perform by the nature of its new form, and it can't
       speak or cast spells.
 
@@ -536,8 +547,8 @@ export default collection<Spell>(ID, [
     desc: md`
       This spell creates an undead servant. Choose a pile of bones or a corpse of a Medium or Small
       humanoid within range. Your spell imbues the target with a foul mimicry of life, raising it as
-      an undead creature. The target becomes a {@creature skeleton} if you chose bones or a
-      {@creature zombie} if you chose a corpse (the DM has the creature's game statistics).
+      an undead creature. The target becomes a %{ref monsters skeleton} if you chose bones or a
+      %{ref monsters zombie} if you chose a corpse (the DM has the creature's game statistics).
 
       On each of your turns, you can use a bonus action to mentally command any creature you made
       with this spell if the creature is within 60 feet of you (if you control multiple creatures,
@@ -603,7 +614,13 @@ export default collection<Spell>(ID, [
       creature only defends itself against hostile creatures. Once given an order, the creature
       continues to follow it until its task is complete.
 
-      [object Object]
+      | Size   | HP  | AC  | Attack                     | Str | Dex |
+      | ------ | :-: | :-: | -------------------------- | :-: | :-: |
+      | Tiny   | 20  | 18  | +8 to hit, 1d4 + 4 damage  |  4  | 18  |
+      | Small  | 25  | 16  | +6 to hit, 1d8 + 2 damage  |  6  | 14  |
+      | Medium | 40  | 13  | +5 to hit, 2d6 + 1 damage  | 10  | 12  |
+      | Large  | 50  | 10  | +6 to hit, 2d10 + 2 damage | 14  | 10  |
+      | Huge   | 80  | 10  | +8 to hit, 2d12 + 4 damage | 18  |  6  |
 
       An animated object is a construct with AC, hit points, attacks, Strength, and Dexterity
       determined by its size. Its Constitution is 10 and its Intelligence and Wisdom are 3, and its
@@ -708,19 +725,37 @@ export default collection<Spell>(ID, [
       spell is consumed. While an effect is suppressed, it doesn't function, but the time it spends
       suppressed counts against its duration.
 
-      [object Object]
+      **Targeted Effects.** Spells and other magical effects, such as magic missile and charm
+      person, that target a creature or an object in the sphere have no effect on that target.
 
-      [object Object]
+      **Areas of Magic.** The area of another spell or magical effect, such as fireball, can't
+      extend into the sphere. If the sphere overlaps an area of magic, the part of the area that is
+      covered by the sphere is suppressed. For example, the flames created by a wall of fire are
+      suppressed within the sphere, creating a gap in the wall if the overlap is large enough.
+      **Spells.** Any active spell or other magical effect on a creature or an object in the sphere
+      is suppressed while the creature or object is in it.
 
-      [object Object]
+      **Magic Items.** The properties and powers of magic items are suppressed in the sphere. For
+      example, a +1 longsword in the sphere functions as a nonmagical longsword.
 
-      [object Object]
+      A magic weapon's properties and powers are suppressed if it is used against a target in the
+      sphere or wielded by an attacker in the sphere. If a magic weapon or a piece of magic
+      ammunition fully leaves the sphere (for example, if you fire a magic arrow or throw a magic
+      spear at a target outside the sphere), the magic of the item ceases to be suppressed as soon
+      as it exits.
 
-      [object Object]
+      **Magical Travel.** Teleportation and planar travel fail to work in the sphere, whether the
+      sphere is the destination or the departure point for such magical travel. A portal to another
+      location, world, or plane of existence, as well as an opening to an extradimensional space
+      such as that created by the rope trick spell, temporarily closes while in the sphere.
 
-      [object Object]
+      **Creatures and Objects.** A creature or object summoned or created by magic temporarily winks
+      out of existence in the sphere. Such a creature instantly reappears once the space the
+      creature occupied is no longer within the sphere.
 
-      [object Object]
+      **Dispel Magic.** Spells and magical effects such as dispel magic have no effect on the
+      sphere. Likewise, the spheres created by different antimagic field spells don't nullify each
+      other.
     `,
     range: {
       kind: "self",
@@ -767,11 +802,29 @@ export default collection<Spell>(ID, [
       invest the target with an aura that either attracts or repels the specified creatures for the
       duration. Choose antipathy or sympathy as the aura's effect.
 
-      [object Object]
+      **Antipathy.** The enchantment causes creatures of the kind you designated to feel an intense
+      urge to leave the area and avoid the target. When such a creature can see the target or comes
+      within 60 feet of it, the creature must succeed on a Wisdom saving throw or become frightened.
+      The creature remains frightened while it can see the target or is within 60 feet of it. While
+      frightened by the target, the creature must use its movement to move to the nearest safe spot
+      from which it can't see the target. If the creature moves more than 60 feet from the target
+      and can't see it, the creature is no longer frightened, but the creature becomes frightened
+      again if it regains sight of the target or moves within 60 feet of it.
 
-      [object Object]
+      **Sympathy.** The enchantment causes the specified creatures to feel an intense urge to
+      approach the target while within 60 feet of it or able to see it. When such a creature can see
+      the target or comes within 60 feet of it, the creature must succeed on a Wisdom saving throw
+      or use its movement on each of its turns to enter the area or move within reach of the target.
+      When the creature has done so, it can't willingly move away from the target.
 
-      [object Object]
+      If the target damages or otherwise harms an affected creature, the affected creature can make
+      a Wisdom saving throw to end the effect, as described below.
+
+      **Ending the Effect.** If an affected creature ends its turn while not within 60 feet of the
+      target or able to see it, the creature makes a Wisdom saving throw. On a successful save, the
+      creature is no longer affected by the target and recognizes the feeling of repugnance or
+      attraction as magical. In addition, a creature affected by the spell is allowed another Wisdom
+      saving throw every 24 hours while the spell persists.
 
       A creature that successfully saves against this effect is immune to it for 1 minute, after
       which time it can be affected again.
@@ -812,8 +865,8 @@ export default collection<Spell>(ID, [
     desc: md`
       You create an invisible, magical eye within range that hovers in the air for the duration.
 
-      You mentally receive visual information from the eye, which has normal vision and {@sense
-      darkvision} out to 30 feet. The eye can look in every direction.
+      You mentally receive visual information from the eye, which has normal vision and darkvision
+      out to 30 feet. The eye can look in every direction.
 
       As an action, you can move the eye up to 30 feet in any direction. There is no limit to how
       far away from you the eye can move, but it can't enter another plane of existence. A solid
@@ -899,8 +952,8 @@ export default collection<Spell>(ID, [
       duration. You and the creatures you designate when you cast this spell can open the object
       normally. You can also set a password that, when spoken within 5 feet of the object,
       suppresses this spell for 1 minute. Otherwise, it is impassable until it is broken or the
-      spell is dispelled or suppressed. Casting {@spell knock} on the object suppresses {@spell
-      arcane lock} for 10 minutes.
+      spell is dispelled or suppressed. Casting %{ref spells knock} on the object suppresses {@ref
+      spells arcaneLock} for 10 minutes.
 
       While affected by this spell, the object is more difficult to break or force open; the DC to
       break it or pick any locks on it increases by 10.
@@ -975,13 +1028,13 @@ export default collection<Spell>(ID, [
     desc: md`
       You invoke the power of Hadar, the Dark Hunger. Tendrils of dark energy erupt from you and
       batter all creatures within 10 feet of you. Each creature in that area must make a Strength
-      saving throw. On a failed save, a target takes {@damage 2d6} necrotic damage and can't take
+      saving throw. On a failed save, a target takes %{dice 2d6} necrotic damage and can't take
       reactions until its next turn. On a successful save, the creature takes half damage, but
       suffers no other effect.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 2d6|1-9|1d6} for each slot level above 1st.
+      %{dice 1d6} for each slot level above 1st.
     `,
     range: {
       kind: "self",
@@ -1017,7 +1070,7 @@ export default collection<Spell>(ID, [
     desc: md`
       You and up to eight willing creatures within range project your astral bodies into the Astral
       Plane (the spell fails and the casting is wasted if you are already on that plane). The
-      material body you leave behind is {@condition unconscious} and in a state of suspended
+      material body you leave behind is %{ref conditions unconscious} and in a state of suspended
       animation, it doesn't need food or air and doesn't age.
 
       Your astral body resembles your mortal form in almost every way, replicating your game
@@ -1037,10 +1090,10 @@ export default collection<Spell>(ID, [
       The spell ends for you and your companions when you use your action to dismiss it. When the
       spell ends, the affected creature returns to its physical body, and it awakens.
 
-      The spell might also end early for you or one of your companions. A successful {@spell dispel
-      magic} spell used against an astral or physical body ends the spell for that creature. If a
-      creature's original body or its astral form drops to 0 hit points, the spell ends for that
-      creature. If the spell ends and the silver cord is intact, the cord pulls the creature's
+      The spell might also end early for you or one of your companions. A successful {@ref spells
+      dispelMagic} spell used against an astral or physical body ends the spell for that creature.
+      If a creature's original body or its astral form drops to 0 hit points, the spell ends for
+      that creature. If the spell ends and the silver cord is intact, the cord pulls the creature's
       astral form back to its body, ending its state of suspended animation.
 
       If you are returned to your body prematurely, your companions remain in their astral forms and
@@ -1053,7 +1106,11 @@ export default collection<Spell>(ID, [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "for each creature you affect with this spell, you must provide one jacinth worth at least 1,000 gp and one ornately carved bar of silver worth at least 100 gp, all of which the spell consumes",
+      desc: `
+        for each creature you affect with this spell, you must provide one jacinth worth at least
+        1,000 gp and one ornately carved bar of silver worth at least 100 gp, all of which the spell
+        consumes
+      `,
       consumed: "yes",
       cost: { amount: 1100, currency: "gp" },
     },
@@ -1083,14 +1140,17 @@ export default collection<Spell>(ID, [
       specific course of action that you plan to take within the next 30 minutes. The DM chooses
       from the following possible omens:
 
-      [object Object]
+      - Weal, for good results
+      - Woe, for bad results
+      - Weal and woe, for both good and bad results
+      - Nothing, for results that aren't especially good or bad
 
       The spell doesn't take into account any possible circumstances that might change the outcome,
       such as the casting of additional spells or the loss or gain of a companion.
 
       If you cast the spell two or more times before completing your next long rest, there is a
-      cumulative {@chance 25|||Random reading!|Regular reading} chance for each casting after the
-      first that you get a random reading. The DM makes this roll in secret.
+      cumulative 25 percent chance for each casting after the first that you get a random reading.
+      The DM makes this roll in secret.
     `,
     range: {
       kind: "self",
@@ -1166,9 +1226,9 @@ export default collection<Spell>(ID, [
       Purifying energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the
       aura moves with you, centered on you. Each nonhostile creature in the aura (including you)
       can't become diseased, has resistance to poison damage, and has advantage on saving throws
-      against effects that cause any of the following conditions: {@condition blinded}, {@condition
-      charmed}, {@condition deafened}, {@condition frightened}, {@condition paralyzed}, {@condition
-      poisoned}, and {@condition stunned}.
+      against effects that cause any of the following conditions: %{ref conditions blinded}, {@ref
+      conditions charmed}, %{ref conditions deafened}, %{ref conditions frightened}, {@ref
+      conditions paralyzed}, %{ref conditions poisoned}, and %{ref conditions stunned}.
     `,
     range: {
       kind: "self",
@@ -1207,7 +1267,7 @@ export default collection<Spell>(ID, [
     desc: md`
       Healing energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the
       aura moves with you, centered on you. You can use a bonus action to cause one creature in the
-      aura (including you) to regain {@dice 2d6} hit points.
+      aura (including you) to regain %{dice 2d6} hit points.
     `,
     range: {
       kind: "self",
@@ -1250,12 +1310,12 @@ export default collection<Spell>(ID, [
       ability to speak one language you know. If the target is a plant, it gains the ability to move
       its limbs, roots, vines, creepers, and so forth, and it gains senses similar to a human's.
       Your DM chooses statistics appropriate for the awakened plant, such as the statistics for the
-      {@creature awakened shrub} or the {@creature awakened tree}.
+      %{ref monsters awakenedShrub} or the %{ref monsters awakenedTree}.
 
-      The awakened beast or plant is {@condition charmed} by you for 30 days or until you or your
-      companions do anything harmful to it. When the {@condition charmed} condition ends, the
+      The awakened beast or plant is %{ref conditions charmed} by you for 30 days or until you or your
+      companions do anything harmful to it. When the %{ref conditions charmed} condition ends, the
       awakened creature chooses whether to remain friendly to you, based on how you treated it while
-      it was {@condition charmed}.
+      it was %{ref conditions charmed}.
     `,
     range: {
       kind: "touch",
@@ -1289,7 +1349,7 @@ export default collection<Spell>(ID, [
     desc: md`
       Up to three creatures of your choice that you can see within range must make Charisma saving
       throws. Whenever a target that fails this saving throw makes an attack roll or a saving throw
-      before the spell ends, the target must roll a {@dice d4} and subtract the number rolled from
+      before the spell ends, the target must roll a %{dice d4} and subtract the number rolled from
       the attack roll or saving throw.
     `,
     atHigherLevels: md`
@@ -1333,12 +1393,11 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "abjuration"),
     desc: md`
       The next time you hit a creature with a weapon attack before this spell ends, your weapon
-      crackles with force, and the attack deals an extra {@damage 5d10} force damage to the target.
+      crackles with force, and the attack deals an extra %{dice 5d10} force damage to the target.
       Additionally, if this attack reduces the target to 50 hit points or fewer, you banish it. If
       the target is native to a different plane of existence than the one you're on, the target
       disappears, returning to its home plane. If the target is native to the plane you're on, the
-      creature vanishes into a harmless demiplane. While there, the target is {@condition
-      incapacitated}. It remains there until the spell ends, at which point the target reappears in
+      creature vanishes into a harmless demiplane. While there, the target is %{ref conditions incapacitated}. It remains there until the spell ends, at which point the target reappears in
       the space it left or in the nearest unoccupied space if that space is occupied.
     `,
     range: {
@@ -1373,7 +1432,7 @@ export default collection<Spell>(ID, [
       The target must succeed on a Charisma saving throw or be banished.
 
       If the target is native to the plane of existence you're on, you banish the target to a
-      harmless demiplane. While there, the target is {@condition incapacitated}. The target remains
+      harmless demiplane. While there, the target is %{ref conditions incapacitated}. The target remains
       there until the spell ends, at which point the target reappears in the space it left or in the
       nearest unoccupied space if that space is occupied.
 
@@ -1495,8 +1554,7 @@ export default collection<Spell>(ID, [
       You touch a willing beast. For the duration of the spell, you can use your action to see
       through the beast's eyes and hear what it hears, and continue to do so until you use your
       action to return to your normal senses. While perceiving through the beast's senses, you gain
-      the benefits of any special senses possessed by that creature, though you are {@condition
-      blinded} and {@condition deafened} to your own surroundings.
+      the benefits of any special senses possessed by that creature, though you are %{ref conditions blinded} and %{ref conditions deafened} to your own surroundings.
     `,
     range: {
       kind: "touch",
@@ -1530,18 +1588,24 @@ export default collection<Spell>(ID, [
       for the duration of the spell. When you cast this spell, choose the nature of the curse from
       the following options:
 
-      [object Object]
+      - Choose one ability score. While cursed, the target has disadvantage on ability checks and
+        saving throws made with that ability score.
+      - While cursed, the target has disadvantage on attack rolls against you.
+      - While cursed, the target must make a Wisdom saving throw at the start of each of its turns.
+        If it fails, it wastes its action that turn doing nothing.
+      - While the target is cursed, your attacks and spells deal an extra 1d8 necrotic damage to the
+        target.
 
-      A {@spell remove curse} spell ends this effect. At the DM's option, you may choose an
+      A %{ref spells removeCurse} spell ends this effect. At the DM's option, you may choose an
       alternative curse effect, but it should be no more powerful than those described above. The DM
       has final say on such a curse's effect.
     `,
     atHigherLevels: md`
-      If you cast this spell using a spell slot of 4th level or higher, the duration is {@status
-      concentration}, up to 10 minutes. If you use a spell slot of 5th level or higher, the duration
+      If you cast this spell using a spell slot of 4th level or higher, the duration is
+      concentration, up to 10 minutes. If you use a spell slot of 5th level or higher, the duration
       is 8 hours. If you use a spell slot of 7th level or higher, the duration is 24 hours. If you
       use a 9th level spell slot, the spell lasts until it is dispelled. Using a spell slot of 5th
-      level or higher grants a duration that doesn't require {@status concentration}.
+      level or higher grants a duration that doesn't require concentration.
     `,
     range: {
       kind: "touch",
@@ -1581,24 +1645,40 @@ export default collection<Spell>(ID, [
       mimicking the movements of your own hand.
 
       The hand is an object that has AC 20 and hit points equal to your hit point maximum. If it
-      drops to 0 hit points, the spell ends. It has a Strength of 26 ({@d20 8}) and a Dexterity of
-      10 ({@d20 0}). The hand doesn't fill its space.
+      drops to 0 hit points, the spell ends. It has a Strength of 26 (+8) and a Dexterity of
+      10 (+0). The hand doesn't fill its space.
 
       When you cast the spell and as a bonus action on your subsequent turns, you can move the hand
       up to 60 feet and then cause one of the following effects with it.
 
-      [object Object]
+      **Clenched Fist.** The hand strikes one creature or object within 5 feet of it. Make a melee
+      spell attack for the hand using your game statistics. On a hit, the target takes %{dice 4d8}
+      force damage.
 
-      [object Object]
+      **Forceful Hand.** The hand attempts to push a creature within 5 feet of it in a direction you
+      choose. Make a check with the hand's Strength contested by the Strength (%{ref skills
+      athletics}) check of the target. If the target is Medium or smaller, you have advantage on the
+      check. If you succeed, the hand pushes the target up to 5 feet plus a number of feet equal to
+      five times your spellcasting ability modifier. The hand moves with the target to remain within
+      5 feet of it.
 
-      [object Object]
+      **Grasping Hand.** The hand attempts to grapple a Huge or smaller creature within 5 feet of
+      it. You use the hand's Strength score to resolve the grapple. If the target is Medium or
+      smaller, you have advantage on the check. While the hand is grappling the target, you can use
+      a bonus action to have the hand crush it. When you do so, the target takes bludgeoning damage
+      equal to 2d6 + your spellcasting ability modifier.
 
-      [object Object]
+      **Interposing Hand.** The hand interposes itself between you and a creature you choose until
+      you give the hand a different command. The hand moves to stay between you and the target,
+      providing you with half cover against the target. The target can't move through the hand's
+      space if its Strength score is less than or equal to the hand's Strength score. If its
+      Strength score is higher than the hand's Strength score, the target can move toward you
+      through the hand's space, but that space is difficult terrain for the target.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 6th level or higher, the damage from the
-      clenched fist option increases by {@scaledamage 4d8|5-9|2d8} and the damage from the grasping
-      hand increases by {@scaledamage 2d6|5-9|2d6} for each slot level above 5th.
+      clenched fist option increases by %{dice 2d8} and the damage from the grasping
+      hand increases by %{dice 2d6} for each slot level above 5th.
     `,
     range: {
       kind: "point",
@@ -1638,10 +1718,10 @@ export default collection<Spell>(ID, [
       appears within range and lasts for the duration. You can make a straight wall up to 100 feet
       long, 20 feet high, and 5 feet thick, or a ringed wall up to 60 feet in diameter, 20 feet
       high, and 5 feet thick. The wall provides three-quarters cover to creatures behind it, and its
-      space is {@quickref difficult terrain||3}.
+      space is difficult terrain.
 
       When a creature enters the wall's area for the first time on a turn or starts its turn there,
-      the creature must make a Dexterity saving throw. On a failed save, the creature takes {@damage
+      the creature must make a Dexterity saving throw. On a failed save, the creature takes {@dice
       6d10} slashing damage. On a successful save, the creature takes half as much damage.
     `,
     range: {
@@ -1721,7 +1801,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       You bless up to three creatures of your choice within range. Whenever a target makes an attack
-      roll or a saving throw before the spell ends, the target can roll a {@dice d4} and add the
+      roll or a saving throw before the spell ends, the target can roll a %{dice d4} and add the
       number rolled to the attack roll or saving throw.
     `,
     atHigherLevels: md`
@@ -1761,7 +1841,7 @@ export default collection<Spell>(ID, [
     desc: md`
       Necromantic energy washes over a creature of your choice that you can see within range,
       draining moisture and vitality from it. The target must make a Constitution saving throw. The
-      target takes {@damage 8d8} necrotic damage on a failed save, or half as much damage on a
+      target takes %{dice 8d8} necrotic damage on a failed save, or half as much damage on a
       successful one. This spell has no effect on undead or constructs.
 
       If you target a plant creature or a magical plant, it makes the saving throw with
@@ -1772,7 +1852,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 5th level or higher, the damage increases by
-      {@scaledamage 8d8|4-9|1d8} for each slot level above 4th.
+      %{dice 1d8} for each slot level above 4th.
     `,
     range: {
       kind: "point",
@@ -1821,12 +1901,12 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       The next time you hit a creature with a melee weapon attack during this spell's duration, your
-      weapon flares with bright light, and the attack deals an extra {@damage 3d8} radiant damage to
+      weapon flares with bright light, and the attack deals an extra %{dice 3d8} radiant damage to
       the target. Additionally, the target must succeed on a Constitution saving throw or be
-      {@condition blinded} until the spell ends.
+      %{ref conditions blinded} until the spell ends.
 
-      A creature {@condition blinded} by this spell makes another Constitution saving throw at the
-      end of each of its turns. On a successful save, it is no longer {@condition blinded}.
+      A creature %{ref conditions blinded} by this spell makes another Constitution saving throw at the
+      end of each of its turns. On a successful save, it is no longer %{ref conditions blinded}.
     `,
     range: {
       kind: "self",
@@ -1857,8 +1937,8 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "necromancy"),
     desc: md`
       You can blind or deafen a foe. Choose one creature that you can see within range to make a
-      Constitution saving throw. If it fails, the target is either {@condition blinded} or
-      {@condition deafened} (your choice) for the duration. At the end of each of its turns, the
+      Constitution saving throw. If it fails, the target is either %{ref conditions blinded} or
+      %{ref conditions deafened} (your choice) for the duration. At the end of each of its turns, the
       target can make a Constitution saving throw. On a success, the spell ends.
     `,
     atHigherLevels: md`
@@ -1900,7 +1980,7 @@ export default collection<Spell>(ID, [
     level: 3,
     school: ref("magicSchools", "transmutation"),
     desc: md`
-      Roll a {@dice d20} at the end of each of your turns for the duration of the spell. On a roll
+      Roll a %{dice d20} at the end of each of your turns for the duration of the spell. On a roll
       of 11 or higher, you vanish from your current plane of existence and appear in the Ethereal
       Plane (the spell fails and the casting is wasted if you were already on that plane). At the
       start of your next turn, and when the spell ends if you are on the Ethereal Plane, you return
@@ -1944,8 +2024,7 @@ export default collection<Spell>(ID, [
     desc: md`
       Your body becomes blurred, shifting and wavering to all who can see you. For the duration, any
       creature has disadvantage on attack rolls against you. An attacker is immune to this effect if
-      it doesn't rely on sight, as with blindsight, or can see through illusions, as with {@sense
-      truesight}.
+      it doesn't rely on sight, as with blindsight, or can see through illusions, as with truesight.
     `,
     range: {
       kind: "self",
@@ -1976,14 +2055,14 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       The next time you hit a creature with a weapon attack before this spell ends, the weapon
-      gleams with astral radiance as you strike. The attack deals an extra {@damage 2d6} radiant
-      damage to the target, which becomes visible if it's {@condition invisible}, and the target
-      sheds dim light in a 5-foot radius and can't become {@condition invisible} until the spell
+      gleams with astral radiance as you strike. The attack deals an extra %{dice 2d6} radiant
+      damage to the target, which becomes visible if it's %{ref conditions invisible}, and the target
+      sheds dim light in a 5-foot radius and can't become %{ref conditions invisible} until the spell
       ends.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, the extra damage increases
-      by {@scaledamage 2d6|2-9|1d6} for each slot level above 2nd.
+      by %{dice 1d6} for each slot level above 2nd.
     `,
     range: {
       kind: "self",
@@ -2015,14 +2094,14 @@ export default collection<Spell>(ID, [
     desc: md`
       As you hold your hands with thumbs touching and fingers spread, a thin sheet of flames shoots
       forth from your outstretched fingertips. Each creature in a 15-foot cone must make a Dexterity
-      saving throw. A creature takes {@damage 3d6} fire damage on a failed save, or half as much
+      saving throw. A creature takes %{dice 3d6} fire damage on a failed save, or half as much
       damage on a successful one.
 
       The fire ignites any flammable objects in the area that aren't being worn or carried.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 3d6|1-9|1d6} for each slot level above 1st.
+      %{dice 1d6} for each slot level above 1st.
     `,
     range: {
       kind: "self",
@@ -2085,18 +2164,18 @@ export default collection<Spell>(ID, [
 
       When you cast the spell, choose a point you can see under the cloud. A bolt of lightning
       flashes down from the cloud to that point. Each creature within 5 feet of that point must make
-      a Dexterity saving throw. A creature takes {@damage 3d10} lightning damage on a failed save,
+      a Dexterity saving throw. A creature takes %{dice 3d10} lightning damage on a failed save,
       or half as much damage on a successful one. On each of your turns until the spell ends, you
       can use your action to call down lightning in this way again, targeting the same point or a
       different one.
 
       If you are outdoors in stormy conditions when you cast this spell, the spell gives you control
       over the existing storm instead of creating a new one. Under such conditions, the spell's
-      damage increases by {@dice 1d10}.
+      damage increases by %{dice 1d10}.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 4th or higher level, the damage increases by
-      {@scaledamage 3d10|3-9|1d10} for each slot level above 3rd.
+      %{dice 1d10} for each slot level above 3rd.
     `,
     range: {
       kind: "point",
@@ -2133,8 +2212,7 @@ export default collection<Spell>(ID, [
       throw; a creature can choose to fail this saving throw if it wishes. If a creature fails its
       saving throw, choose one of the following two effects.
 
-      You can suppress any effect causing a target to be {@condition charmed} or {@condition
-      frightened}. When this spell ends, any suppressed effect resumes, provided that its duration
+      You can suppress any effect causing a target to be %{ref conditions charmed} or %{ref conditions frightened}. When this spell ends, any suppressed effect resumes, provided that its duration
       has not expired in the meantime.
 
       Alternatively, you can make a target indifferent about creatures of your choice that it is
@@ -2182,7 +2260,7 @@ export default collection<Spell>(ID, [
       of which must be within 30 feet of the first target. A target can be a creature or an object
       and can be targeted by only one of the bolts.
 
-      A target must make a Dexterity saving throw. The target takes {@damage 10d8} lightning damage
+      A target must make a Dexterity saving throw. The target takes %{dice 10d8} lightning damage
       on a failed save, or half as much damage on a successful one.
     `,
     atHigherLevels: md`
@@ -2236,9 +2314,9 @@ export default collection<Spell>(ID, [
     desc: md`
       You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw,
       and does so with advantage if you or your companions are fighting it. If it fails the saving
-      throw, it is {@condition charmed} by you until the spell ends or until you or your companions
-      do anything harmful to it. The {@condition charmed} creature regards you as a friendly
-      acquaintance. When the spell ends, the creature knows it was {@condition charmed} by you.
+      throw, it is %{ref conditions charmed} by you until the spell ends or until you or your companions
+      do anything harmful to it. The %{ref conditions charmed} creature regards you as a friendly
+      acquaintance. When the spell ends, the creature knows it was %{ref conditions charmed} by you.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, you can target one
@@ -2282,14 +2360,14 @@ export default collection<Spell>(ID, [
     desc: md`
       You create a ghostly, skeletal hand in the space of a creature within range. Make a ranged
       spell attack against the creature to assail it with the chill of the grave. On a hit, the
-      target takes {@damage 1d8} necrotic damage, and it can't regain hit points until the start of
+      target takes %{dice 1d8} necrotic damage, and it can't regain hit points until the start of
       your next turn. Until then, the hand clings to the target.
 
       If you hit an undead target, it also has disadvantage on attack rolls against you until the
       end of your next turn.
 
-      This spell's damage increases by {@dice 1d8} when you reach 5th level ({@damage 2d8}), 11th
-      level ({@damage 3d8}), and 17th level ({@damage 4d8}).
+      This spell's damage increases by %{dice 1d8} when you reach 5th level (%{dice 2d8}), 11th
+      level (%{dice 3d8}), and 17th level (%{dice 4d8}).
     `,
     range: {
       kind: "point",
@@ -2339,11 +2417,11 @@ export default collection<Spell>(ID, [
       You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You
       choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and
       then make a ranged spell attack against the target. If the attack hits, the creature takes
-      {@damage 3d8} damage of the type you chose.
+      %{dice 3d8} damage of the type you chose.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 3d8|1-9|1d8} for each slot level above 1st.
+      %{dice 1d8} for each slot level above 1st.
     `,
     range: {
       kind: "point",
@@ -2378,12 +2456,12 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "necromancy"),
     desc: md`
       A sphere of negative energy ripples out in a 60-foot-radius sphere from a point within range.
-      Each creature in that area must make a Constitution saving throw. A target takes {@damage 8d6}
+      Each creature in that area must make a Constitution saving throw. A target takes %{dice 8d6}
       necrotic damage on a failed save, or half as much damage on a successful one.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 7th level or higher, the damage increases by
-      {@scaledamage 8d6|6-9|2d6} for each slot level above 6th.
+      %{dice 2d6} for each slot level above 6th.
     `,
     range: {
       kind: "point",
@@ -2485,9 +2563,8 @@ export default collection<Spell>(ID, [
       the sensor as if you were in its space. As your action, you can switch between seeing and
       hearing.
 
-      A creature that can see the sensor (such as a creature benefiting from {@spell see
-      invisibility} or {@sense truesight}) sees a luminous, intangible orb about the size of your
-      fist.
+      A creature that can see the sensor (such as a creature benefiting from {@ref spells
+      seeInvisibility} or truesight) sees a luminous, intangible orb about the size of your fist.
     `,
     range: {
       kind: "point",
@@ -2567,12 +2644,12 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       You fill the air with spinning daggers in a cube 5 feet on each side, centered on a point you
-      choose within range. A creature takes {@damage 4d4} slashing damage when it enters the spell's
+      choose within range. A creature takes %{dice 4d4} slashing damage when it enters the spell's
       area for the first time on a turn or starts its turn there.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, the damage increases by
-      {@scaledamage 4d4|2-9|2d4} for each slot level above 2nd.
+      %{dice 2d4} for each slot level above 2nd.
     `,
     range: {
       kind: "point",
@@ -2607,11 +2684,10 @@ export default collection<Spell>(ID, [
     desc: md`
       You create a 20-foot-radius sphere of poisonous, yellow-green fog centered on a point you
       choose within range. The fog spreads around corners. It lasts for the duration or until strong
-      wind disperses the fog, ending the spell. Its area is {@quickref Vision and
-      Light|PHB|2||heavily obscured}.
+      wind disperses the fog, ending the spell. Its area is heavily obscured.
 
       When a creature enters the spell's area for the first time on a turn or starts its turn there,
-      that creature must make a Constitution saving throw. The creature takes {@damage 5d8} poison
+      that creature must make a Constitution saving throw. The creature takes %{dice 5d8} poison
       damage on a failed save, or half as much damage on a successful one. Creatures are affected
       even if they hold their breath or don't need to breathe.
 
@@ -2621,7 +2697,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 6th level or higher, the damage increases by
-      {@scaledamage 5d8|5-9|1d8} for each slot level above 5th.
+      %{dice 1d8} for each slot level above 5th.
     `,
     range: {
       kind: "point",
@@ -2671,20 +2747,20 @@ export default collection<Spell>(ID, [
     level: 1,
     school: ref("magicSchools", "illusion"),
     desc: md`
-      A dazzling array of flashing, colored light springs from your hand. Roll {@dice 6d10}; the
+      A dazzling array of flashing, colored light springs from your hand. Roll %{dice 6d10}; the
       total is how many hit points of creatures this spell can effect. Creatures in a 15-foot cone
       originating from you are affected in ascending order of their current hit points (ignoring
-      {@condition unconscious} creatures and creatures that can't see).
+      %{ref conditions unconscious} creatures and creatures that can't see).
 
       Starting with the creature that has the lowest current hit points, each creature affected by
-      this spell is {@condition blinded} until the end of your next turn. Subtract each creature's
+      this spell is %{ref conditions blinded} until the end of your next turn. Subtract each creature's
       hit points from the total before moving on to the creature with the next lowest hit points. A
       creature's hit points must be equal to or less than the remaining total for that creature to
       be affected.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, roll an additional
-      {@scaledice 6d10|1-9|2d10} for each slot level above 1st.
+      %{dice 2d10} for each slot level above 1st.
     `,
     range: {
       kind: "self",
@@ -2734,15 +2810,18 @@ export default collection<Spell>(ID, [
       described here. If you do so, the DM determines how the target behaves. If the target can't
       follow your command, the spell ends.
 
-      [object Object]
+      **Approach.** The target moves toward you by the shortest and most direct route, ending its
+      turn if it moves within 5 feet of you.
 
-      [object Object]
+      **Drop.** The target drops whatever it is holding and then ends its turn.
 
-      [object Object]
+      **Flee.** The target spends its turn moving away from you by the fastest available means.
 
-      [object Object]
+      **Grovel.** The target falls prone and then ends its turn.
 
-      [object Object]
+      **Halt.** The target doesn't move and takes no actions. A flying creature stays aloft,
+      provided that it is able to do so. If it must move to stay aloft, it flies the minimum
+      distance needed to remain in the air.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, you can affect one
@@ -2794,8 +2873,8 @@ export default collection<Spell>(ID, [
       short phrase as an answer instead.
 
       If you cast the spell two or more times before finishing your next long rest, there is a
-      cumulative {@chance 25|||No answer!|Answer} chance for each casting after the first that you
-      get no answer. The DM makes this roll in secret.
+      cumulative 25 percent chance for each casting after the first that you get no answer. The DM
+      makes this roll in secret.
     `,
     range: {
       kind: "self",
@@ -2837,7 +2916,11 @@ export default collection<Spell>(ID, [
       You instantly gain knowledge of up to three facts of your choice about any of the following
       subjects as they relate to the area:
 
-      [object Object]
+      - terrain and bodies of water
+      - prevalent plants, minerals, animals, or peoples
+      - powerful celestials, fey, fiends, elementals, or undead
+      - influence from other planes of existence
+      - buildings
 
       For example, you could determine the location of powerful undead in the area, the location of
       major sources of safe drinking water, and the location of any nearby towns.
@@ -2946,7 +3029,7 @@ export default collection<Spell>(ID, [
     desc: md`
       Creatures of your choice that you can see within range and that can hear you must make a
       Wisdom saving throw. A target automatically succeeds on this saving throw if it can't be
-      {@condition charmed}. On a failed save, a target is affected by this spell. Until the spell
+      %{ref conditions charmed}. On a failed save, a target is affected by this spell. Until the spell
       ends, you can use a bonus action on each of your turns to designate a direction that is
       horizontal to you. Each affected target must use as much of its movement as possible to move
       in that direction on its next turn. It can take its action before it moves. After moving in
@@ -2991,14 +3074,14 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       A blast of cold air erupts from your hands. Each creature in a 60-foot cone must make a
-      Constitution saving throw. A creature takes {@damage 8d8} cold damage on a failed save, or
+      Constitution saving throw. A creature takes %{dice 8d8} cold damage on a failed save, or
       half as much damage on a successful one.
 
       A creature killed by this spell becomes a frozen statue until it thaws.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 6th level or higher, the damage increases by
-      {@scaledamage 8d8|5-9|1d8} for each slot level above 5th.
+      %{dice 1d8} for each slot level above 5th.
     `,
     range: {
       kind: "self",
@@ -3055,10 +3138,15 @@ export default collection<Spell>(ID, [
       action. Each creature in a 10-foot-radius sphere centered on a point you choose within range
       must succeed on a Wisdom saving throw when you cast this spell or be affected by it.
 
-      An affected target can't take reactions and must roll a {@dice d10} at the start of each of
+      An affected target can't take reactions and must roll a %{dice d10} at the start of each of
       its turns to determine its behavior for that turn.
 
-      [object Object]
+      | d10  | Behavior                                                                                                                                                                                        |
+      | :--: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+      |  1   | The creature uses all its movement to move in a random direction. To determine the direction, roll a d8 and assign a direction to each die face. The creature doesn't take an action this turn. |
+      | 2-6  | The creature doesn't move or take actions this turn.                                                                                                                                            |
+      | 7-8  | The creature uses its action to make a melee attack against a randomly determined creature within its reach. If there is no creature within its reach, the creature does nothing this turn.     |
+      | 9-10 | The creature can act and move normally.                                                                                                                                                         |
 
       At the end of each of its turns, an affected target can make a Wisdom saving throw. If it
       succeeds, this effect ends for that target.
@@ -3106,7 +3194,10 @@ export default collection<Spell>(ID, [
       You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you
       can see within range. Choose one of the following options for what appears:
 
-      [object Object]
+      - One beast of challenge rating 2 or lower
+      - Two beasts of challenge rating 1 or lower
+      - Four beasts of challenge rating 1/2 or lower
+      - Eight beasts of challenge rating 1/4 or lower
 
       Each beast is also considered fey, and it disappears when it drops to 0 hit points or when the
       spell ends.
@@ -3155,7 +3246,7 @@ export default collection<Spell>(ID, [
     desc: md`
       You throw a nonmagical weapon or fire a piece of nonmagical ammunition into the air to create
       a cone of identical weapons that shoot forward and then disappear. Each creature in a 60-foot
-      cone must succeed on a Dexterity saving throw. A creature takes {@damage 3d8} damage on a
+      cone must succeed on a Dexterity saving throw. A creature takes %{dice 3d8} damage on a
       failed save, or half as much damage on a successful one. The damage type is the same as that
       of the weapon or ammunition used as a component.
     `,
@@ -3195,10 +3286,9 @@ export default collection<Spell>(ID, [
     level: 7,
     school: ref("magicSchools", "conjuration"),
     desc: md`
-      You summon a {@filter celestial of challenge rating 4 or lower|bestiary|challenge
-      rating=[&0;&4]|type=celestial|miscellaneous=!swarm}, which appears in an unoccupied space that
-      you can see within range. The celestial disappears when it drops to 0 hit points or when the
-      spell ends.
+      You summon a %{ref monsterTypes celestial} of challenge rating 4 or lower, which appears in an
+      unoccupied space that you can see within range. The celestial disappears when it drops to 0
+      hit points or when the spell ends.
 
       The celestial is friendly to you and your companions for the duration. Roll initiative for the
       celestial, which has its own turns. It obeys any verbal commands that you issue to it (no
@@ -3206,12 +3296,11 @@ export default collection<Spell>(ID, [
       commands to the celestial, it defends itself from hostile creatures but otherwise takes no
       actions.
 
-      The DM has {@creature couatl||the celestial}'s statistics.
+      The DM has the celestial's statistics.
     `,
     atHigherLevels: md`
-      When you cast this spell using a 9th-level spell slot, you summon a {@filter celestial of
-      challenge rating 5 or lower|bestiary|challenge
-      rating=[&0;&5]|type=celestial|miscellaneous=!swarm}.
+      When you cast this spell using a 9th-level spell slot, you summon a celestial of
+      challenge rating 5 or lower.
     `,
     range: {
       kind: "point",
@@ -3244,19 +3333,18 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       You call forth an elemental servant. Choose an area of air, earth, fire, or water that fills a
-      10-foot cube within range. An {@filter elemental of challenge rating 5 or
-      lower|bestiary|challenge rating=[&0;&5]|type=elemental|miscellaneous=!swarm} appropriate to
-      the area you chose appears in an unoccupied space within 10 feet of it. For example, a
-      {@creature fire elemental} emerges from a bonfire, and an {@creature earth elemental} rises up
-      from the ground. The elemental disappears when it drops to 0 hit points or when the spell
-      ends.
+      10-foot cube within range. An %{ref monsterTypes elemental} of challenge rating 5 or
+      lower appropriate to the area you chose appears in an unoccupied space within 10 feet of it.
+      For example, a %{ref monsters fireElemental} emerges from a bonfire, and an {@ref monsters
+      earthElemental} rises up from the ground. The elemental disappears when it drops to 0 hit
+      points or when the spell ends.
 
       The elemental is friendly to you and your companions for the duration. Roll initiative for the
       elemental, which has its own turns. It obeys any verbal commands that you issue to it (no
       action required by you). If you don't issue any commands to the elemental, it defends itself
       from hostile creatures but otherwise takes no actions.
 
-      If your {@status concentration} is broken, the elemental doesn't disappear. Instead, you lose
+      If your concentration is broken, the elemental doesn't disappear. Instead, you lose
       control of the elemental, it becomes hostile toward you and your companions, and it might
       attack. An uncontrolled elemental can't be dismissed by you, and it disappears 1 hour after
       you summoned it.
@@ -3301,12 +3389,10 @@ export default collection<Spell>(ID, [
     level: 6,
     school: ref("magicSchools", "conjuration"),
     desc: md`
-      You summon a {@filter fey creature of challenge rating 6 or lower|bestiary|challenge
-      rating=[&0;&6]|type=fey|miscellaneous=!swarm}, or a fey spirit that takes the form of a
-      {@filter beast of challenge rating 6 or lower|bestiary|challenge
-      rating=[&0;&6]|type=beast|miscellaneous=!swarm}. It appears in an unoccupied space that you
-      can see within range. The fey creature disappears when it drops to 0 hit points or when the
-      spell ends.
+      You summon a %{ref monsterTypes fey} creature of challenge rating 6 or lower, or a fey spirit
+      that takes the form of a %{ref monsterTypes beast} of challenge rating 6 or lower. It appears
+      in an unoccupied space that you can see within range. The fey creature disappears when it
+      drops to 0 hit points or when the spell ends.
 
       The fey creature is friendly to you and your companions for the duration. Roll initiative for
       the creature, which has its own turns. It obeys any verbal commands that you issue to it (no
@@ -3314,7 +3400,7 @@ export default collection<Spell>(ID, [
       commands to the fey creature, it defends itself from hostile creatures but otherwise takes no
       actions.
 
-      If your {@status concentration} is broken, the fey creature doesn't disappear. Instead, you
+      If your concentration is broken, the fey creature doesn't disappear. Instead, you
       lose control of the fey creature, it becomes hostile toward you and your companions, and it
       might attack. An uncontrolled fey creature can't be dismissed by you, and it disappears 1 hour
       after you summoned it.
@@ -3358,7 +3444,10 @@ export default collection<Spell>(ID, [
       You summon elementals that appear in unoccupied spaces that you can see within range. You
       choose one the following options for what appears:
 
-      [object Object]
+      - One elemental of challenge rating 2 or lower
+      - Two elementals of challenge rating 1 or lower
+      - Four elementals of challenge rating 1/2 or lower
+      - Eight elementals of challenge rating 1/4 or lower.
 
       An elemental summoned by this spell disappears when it drops to 0 hit points or when the spell
       ends.
@@ -3409,7 +3498,7 @@ export default collection<Spell>(ID, [
       into the air and choose a point within range. Hundreds of duplicates of the ammunition or
       weapon fall in a volley from above and then disappear. Each creature in a 40-foot-radius,
       20-foot-high cylinder centered on that point must make a Dexterity saving throw. A creature
-      takes {@damage 8d8} damage on a failed save, or half as much damage on a successful one. The
+      takes %{dice 8d8} damage on a failed save, or half as much damage on a successful one. The
       damage type is the same as that of the ammunition or weapon.
     `,
     range: {
@@ -3446,7 +3535,10 @@ export default collection<Spell>(ID, [
       You summon fey creatures that appear in unoccupied spaces that you can see within range.
       Choose one of the following options for what appears:
 
-      [object Object]
+      - One fey creature of challenge rating 2 or lower
+      - Two fey creatures of challenge rating 1 or lower
+      - Four fey creatures of challenge rating 1/2 or lower
+      - Eight fey creatures of challenge rating 1/4 or lower
 
       A summoned creature disappears when it drops to 0 hit points or when the spell ends.
 
@@ -3499,9 +3591,9 @@ export default collection<Spell>(ID, [
       You mentally contact a demigod, the spirit of a long-dead sage, or some other mysterious
       entity from another plane. Contacting this extraplanar intelligence can strain or even break
       your mind. When you cast this spell, make a DC 15 Intelligence saving throw. On a failure, you
-      take {@damage 6d6} psychic damage and are insane until you finish a long rest. While insane,
+      take %{dice 6d6} psychic damage and are insane until you finish a long rest. While insane,
       you can't take actions, can't understand what other creatures say, can't read, and speak only
-      in gibberish. A {@spell greater restoration} spell cast on you ends this effect.
+      in gibberish. A %{ref spells greaterRestoration} spell cast on you ends this effect.
 
       On a successful save, you can ask the entity up to five questions. You must ask your questions
       before the spell ends. The DM answers each question with one word, such as "yes," "no,"
@@ -3543,28 +3635,36 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "necromancy"),
     desc: md`
       Your touch inflicts disease. Make a melee spell attack against a creature within your reach.
-      On a hit, the target is {@condition poisoned}.
+      On a hit, the target is %{ref conditions poisoned}.
 
-      At the end of each of the {@condition poisoned} target's turns, the target must make a
+      At the end of each of the %{ref conditions poisoned} target's turns, the target must make a
       Constitution saving throw. If the target succeeds on three of these saves, it is no longer
-      {@condition poisoned}, and the spell ends. If the target fails three of these saves, the
-      target is no longer {@condition poisoned}, but choose one of the diseases below. The target is
+      %{ref conditions poisoned}, and the spell ends. If the target fails three of these saves, the
+      target is no longer %{ref conditions poisoned}, but choose one of the diseases below. The target is
       subjected to the chosen disease for the spell's duration.
 
       Since this spell induces a natural disease in its target, any effect that removes a disease or
       otherwise ameliorates a disease's effects apply to it.
 
-      [object Object]
+      **Blinding Sickness.** Pain grips the creature's mind, and its eyes turn milky white. The
+      creature has disadvantage on Wisdom checks and Wisdom saving throws and is blinded.
 
-      [object Object]
+      **Filth Fever.** A raging fever sweeps through the creature's body. The creature has
+      disadvantage on Strength checks, Strength saving throws, and attack rolls that use Strength.
 
-      [object Object]
+      **Flesh Rot.** The creature's flesh decays. The creature has disadvantage on Charisma checks
+      and vulnerability to all damage.
 
-      [object Object]
+      **Mindfire.** The creature's mind becomes feverish. The creature has disadvantage on
+      Intelligence checks and Intelligence saving throws, and the creature behaves as if under the
+      effects of the confusion spell during combat.
 
-      [object Object]
+      **Seizure.** The creature is overcome with shaking. The creature has disadvantage on Dexterity
+      checks, Dexterity saving throws, and attack rolls that use Dexterity.
 
-      [object Object]
+      **Slimy Doom.** The creature begins to bleed uncontrollably. The creature has disadvantage on
+      Constitution checks and Constitution saving throws. In addition, whenever the creature takes
+      damage, it is stunned until the end of its next turn.
     `,
     range: {
       kind: "touch",
@@ -3601,9 +3701,9 @@ export default collection<Spell>(ID, [
       and that can target you. You cast that spell—called the contingent spell—as part of casting
       contingency, expending spell slots for both, but the contingent spell doesn't come into
       effect. Instead, it takes effect when a certain circumstance occurs. You describe that
-      circumstance when you cast the two spells. For example, a contingency cast with {@spell water
-      breathing} might stipulate that {@spell water breathing} comes into effect when you are
-      engulfed in water or a similar liquid.
+      circumstance when you cast the two spells. For example, a contingency cast with {@ref spells
+      waterBreathing} might stipulate that %{ref spells waterBreathing} comes into effect when you
+      are engulfed in water or a similar liquid.
 
       The contingent spell takes effect immediately after the circumstance is met for the first
       time, whether or not you want it to, and then contingency ends.
@@ -3686,13 +3786,46 @@ export default collection<Spell>(ID, [
       this spell. As an action on your turn, you can repeat the same effect or choose a different
       one.
 
-      [object Object]
+      **Flood.** You cause the water level of all standing water in the area to rise by as much as
+      20 feet. If the area includes a shore, the flooding water spills over onto dry land.
 
-      [object Object]
+      If you choose an area in a large body of water, you instead create a 20-foot tall wave that
+      travels from one side of the area to the other and then crashes down. Any Huge or smaller
+      vehicles in the wave's path are carried with it to the other side. Any Huge or smaller
+      vehicles struck by the wave have a 25 percent chance of capsizing.
 
-      [object Object]
+      The water level remains elevated until the spell ends or you choose a different effect. If
+      this effect produced a wave, the wave repeats on the start of your next turn while the flood
+      effect lasts.
 
-      [object Object]
+      **Part Water.** You cause water in the area to move apart and create a trench. The trench
+      extends across the spell's area, and the separated water forms a wall to either side. The
+      trench remains until the spell ends or you choose a different effect. The water then slowly
+      fills in the trench over the course of the next round until the normal water level is
+      restored.
+
+      **Redirect Flow.** You cause flowing water in the area to move in a direction you choose, even
+      if the water has to flow over obstacles, up walls, or in other unlikely directions. The water
+      in the area moves as you direct it, but once it moves beyond the spell's area, it resumes its
+      flow based on the terrain conditions. The water continues to move in the direction you chose
+      until the spell ends or you choose a different effect.
+
+      **Whirlpool.** This effect requires a body of water at least 50 feet square and 25 feet deep.
+      You cause a whirlpool to form in the center of the area. The whirlpool forms a vortex that is
+      5 feet wide at the base, up to 50 feet wide at the top, and 25 feet tall. Any creature or
+      object in the water and within 25 feet of the vortex is pulled 10 feet toward it. A creature
+      can swim away from the vortex by making a Strength (Athletics) check against your spell save
+      DC.
+
+      When a creature enters the vortex for the first time on a turn or starts its turn there, it
+      must make a Strength saving throw. On a failed save, the creature takes 2d8 bludgeoning damage
+      and is caught in the vortex until the spell ends. On a successful save, the creature takes
+      half damage, and isn't caught in the vortex. A creature caught in the vortex can use its
+      action to try to swim away from the vortex as described above, but has disadvantage on the
+      Strength (Athletics) check to do so.
+
+      The first time each turn that an object enters the vortex, the object takes 2d8 bludgeoning
+      damage; this damage occurs each round it remains in the vortex.
     `,
     range: {
       kind: "point",
@@ -3748,17 +3881,42 @@ export default collection<Spell>(ID, [
 
       When you cast the spell, you change the current weather conditions, which are determined by
       the DM based on the climate and season. You can change precipitation, temperature, and wind.
-      It takes {@dice 1d4 × 10} minutes for the new conditions to take effect. Once they do so, you
+      It takes %{dice 1d4 × 10} minutes for the new conditions to take effect. Once they do so, you
       can change the conditions again. When the spell ends, the weather gradually returns to normal.
 
       When you change the weather conditions, find a current condition on the following tables and
       change its stage by one, up or down. When changing the wind, you can change its direction.
 
-      [object Object]
+      ##### Precipitation
 
-      [object Object]
+      | Stage | Condition                                  |
+      | :---: | ------------------------------------------ |
+      |   1   | Clear                                      |
+      |   2   | Light clouds                               |
+      |   3   | Overcast or ground fog                     |
+      |   4   | Rain, hail, or snow                        |
+      |   5   | Torrential rain, driving hail, or blizzard |
 
-      [object Object]
+      ##### Temperature
+
+      | Stage | Condition       |
+      | :---: | --------------- |
+      |   1   | Unbearable heat |
+      |   2   | Hot             |
+      |   3   | Warm            |
+      |   4   | Cool            |
+      |   5   | Cold            |
+      |   6   | Arctic cold     |
+
+      ##### Wind
+
+      | Stage | Condition     |
+      | :---: | ------------- |
+      |   1   | Calm          |
+      |   2   | Moderate wind |
+      |   3   | Strong wind   |
+      |   4   | Gale          |
+      |   5   | Storm         |
     `,
     range: {
       kind: "self",
@@ -3799,11 +3957,11 @@ export default collection<Spell>(ID, [
     level: 2,
     school: ref("magicSchools", "transmutation"),
     desc: md`
-      You plant four pieces of nonmagical ammunition—{@item arrow|phb|arrows} or {@item crossbow
-      bolt|phb|crossbow bolts}—in the ground within range and lay magic upon them to protect an
+      You plant four pieces of nonmagical ammunition—%{ref items arrow|arrows} or {@ref items
+      crossbowBolt|crossbow bolts}—in the ground within range and lay magic upon them to protect an
       area. Until the spell ends, whenever a creature other than you comes within 30 feet of the
       ammunition for the first time on a turn or ends its turn there, one piece of ammunition flies
-      up to strike it. The creature must succeed on a Dexterity saving throw or take {@damage 1d6}
+      up to strike it. The creature must succeed on a Dexterity saving throw or take %{dice 1d6}
       piercing damage. The piece of ammunition is then destroyed. The spell ends when no ammunition
       remains.
 
@@ -3917,9 +4075,12 @@ export default collection<Spell>(ID, [
     desc: md`
       You either create or destroy water.
 
-      [object Object]
+      **Create Water.** You create up to 10 gallons of clean water within range in an open
+      container. Alternatively, the water falls as rain in a 30-foot cube within range,
+      extinguishing exposed flames in the area.
 
-      [object Object]
+      **Destroy Water.** You destroy up to 10 gallons of water in an open container within range.
+      Alternatively, you destroy fog in a 30-foot cube within range.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, you create or destroy 10
@@ -3958,7 +4119,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "necromancy"),
     desc: md`
       You can cast this spell only at night. Choose up to three corpses of Medium or Small humanoids
-      within range. Each corpse becomes a {@creature ghoul} under your control. (The DM has game
+      within range. Each corpse becomes a %{ref monsters ghoul} under your control. (The DM has game
       statistics for these creatures.)
 
       As a bonus action on each of your turns, you can mentally command any creature you animated
@@ -3977,11 +4138,11 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a 7th-level spell slot, you can animate or reassert control
-      over four {@creature ghoul||ghouls}. When you cast this spell using an 8th-level spell slot,
-      you can animate or reassert control over five {@creature ghoul||ghouls} or two {@creature
-      ghast||ghasts} or {@creature wight||wights}. When you cast this spell using a 9th-level spell
-      slot, you can animate or reassert control over six {@creature ghoul||ghouls}, three {@creature
-      ghast||ghasts} or {@creature wight||wights}, or two {@creature mummy||mummies}.
+      over four ghouls. When you cast this spell using an 8th-level spell slot, you can animate or
+      reassert control over five ghouls or two %{ref monsters ghast|ghasts} or {@ref monsters wight
+      |wights}. When you cast this spell using a 9th-level spell slot, you can animate or reassert
+      control over six %{ref monsters ghoul|ghouls}, three %{ref monsters ghast|ghasts} or {@ref
+      monsters wight|wights}, or two %{ref monsters mummy|mummies}.
     `,
     range: {
       kind: "point",
@@ -4024,7 +4185,15 @@ export default collection<Spell>(ID, [
       The duration depends on the object's material. If the object is composed of multiple
       materials, use the shortest duration.
 
-      [object Object]
+      ###### Creation
+
+      | Material              | Duration   |
+      | --------------------- | ---------- |
+      | Vegetable matter      | 1 day      |
+      | Stone or crystal      | 12 hours   |
+      | Precious metals       | 1 hour     |
+      | Gems                  | 10 minutes |
+      | Adamantine or mithral | 1 minute   |
 
       Using any material created by this spell as another spell's material component causes that
       spell to fail.
@@ -4065,11 +4234,10 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       One humanoid of your choice that you can see within range must succeed on a Wisdom saving
-      throw or become {@condition charmed} by you for the duration. While the target is {@condition
-      charmed} in this way, a twisted crown of jagged iron appears on its head, and a madness glows
+      throw or become %{ref conditions charmed} by you for the duration. While the target is %{ref conditions charmed} in this way, a twisted crown of jagged iron appears on its head, and a madness glows
       in its eyes.
 
-      The {@condition charmed} target must use its action before moving on each of its turns to make
+      The %{ref conditions charmed} target must use its action before moving on each of its turns to make
       a melee attack against a creature other than itself that you mentally choose. The target can
       act normally on its turn if you choose no creature or if none are within its reach.
 
@@ -4109,7 +4277,7 @@ export default collection<Spell>(ID, [
     desc: md`
       Holy power radiates from you in an aura with a 30-foot radius, awakening boldness in friendly
       creatures. Until the spell ends, the aura moves with you, centered on you. While in the aura,
-      each nonhostile creature in the aura (including you) deals an extra {@damage 1d4} radiant
+      each nonhostile creature in the aura (including you) deals an extra %{dice 1d4} radiant
       damage when it hits with a weapon attack.
     `,
     range: {
@@ -4147,12 +4315,12 @@ export default collection<Spell>(ID, [
     level: 1,
     school: ref("magicSchools", "evocation"),
     desc: md`
-      A creature you touch regains a number of hit points equal to {@dice 1d8} + your spellcasting
+      A creature you touch regains a number of hit points equal to %{dice 1d8} + your spellcasting
       ability modifier. This spell has no effect on undead or constructs.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the healing increases by
-      {@scaledice 1d8|1-9|1d8} for each slot level above 1st.
+      %{dice 1d8} for each slot level above 1st.
     `,
     range: {
       kind: "touch",
@@ -4237,8 +4405,8 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       Magical darkness spreads from a point you choose within range to fill a 15-foot-radius sphere
-      for the duration. The darkness spreads around corners. A creature with {@sense darkvision}
-      can't see through this darkness, and nonmagical light can't illuminate it.
+      for the duration. The darkness spreads around corners. A creature with darkvision can't see
+      through this darkness, and nonmagical light can't illuminate it.
 
       If the point you choose is on an object you are holding or one that isn't being worn or
       carried, the darkness emanates from the object and moves with it. Completely covering the
@@ -4282,7 +4450,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "transmutation"),
     desc: md`
       You touch a willing creature to grant it the ability to see in the dark. For the duration,
-      that creature has {@sense darkvision} out to a range of 60 feet.
+      that creature has darkvision out to a range of 60 feet.
     `,
     range: {
       kind: "touch",
@@ -4395,14 +4563,14 @@ export default collection<Spell>(ID, [
     desc: md`
       A beam of yellow light flashes from your pointing finger, then condenses to linger at a chosen
       point within range as a glowing bead for the duration. When the spell ends, either because
-      your {@status concentration} is broken or because you decide to end it, the bead blossoms with
+      your concentration is broken or because you decide to end it, the bead blossoms with
       a low roar into an explosion of flame that spreads around corners. Each creature in a
       20-foot-radius sphere centered on that point must make a Dexterity saving throw. A creature
       takes fire damage equal to the total accumulated damage on a failed save, or half as much
       damage on a successful one.
 
-      The spell's base damage is {@damage 12d6}. If at the end of your turn the bead has not yet
-      detonated, the damage increases by {@dice 1d6}.
+      The spell's base damage is %{dice 12d6}. If at the end of your turn the bead has not yet
+      detonated, the damage increases by %{dice 1d6}.
 
       If the glowing bead is touched before the interval has expired, the creature touching it must
       make a Dexterity saving throw. On a failed save, the spell ends immediately, causing the bead
@@ -4414,7 +4582,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 8th level or higher, the base damage increases
-      by {@scaledamage 12d6|7-9|1d6} for each slot level above 7th.
+      by %{dice 1d6} for each slot level above 7th.
     `,
     range: {
       kind: "point",
@@ -4509,9 +4677,9 @@ export default collection<Spell>(ID, [
     desc: md`
       You strike the ground, creating a burst of divine energy that ripples outward from you. Each
       creature you choose within 30 feet of you must succeed on a Constitution saving throw or take
-      {@damage 5d6} thunder damage, as well as {@damage 5d6} radiant or necrotic damage (your
-      choice), and be knocked {@condition prone}. A creature that succeeds on its saving throw takes
-      half as much damage and isn't knocked {@condition prone}.
+      %{dice 5d6} thunder damage, as well as %{dice 5d6} radiant or necrotic damage (your
+      choice), and be knocked %{ref conditions prone}. A creature that succeeds on its saving throw takes
+      half as much damage and isn't knocked %{ref conditions prone}.
     `,
     range: {
       kind: "self",
@@ -4583,8 +4751,7 @@ export default collection<Spell>(ID, [
     desc: md`
       For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in
       this way, you can use your action to see a faint aura around any visible creature or object in
-      the area that bears magic, and you learn its {@book school of magic|PHB|10|The Schools of
-      Magic}, if any.
+      the area that bears magic, and you learn its %{query magicSchools|school of magic}, if any.
 
       The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common
       metal, a thin sheet of lead, or 3 feet of wood or dirt.
@@ -4720,7 +4887,7 @@ export default collection<Spell>(ID, [
       carrying capacity. The creature must be within 5 feet of you when you cast this spell.
 
       If you would arrive in a place already occupied by an object or a creature, you and any
-      creature traveling with you each take {@damage 4d6} force damage, and the spell fails to
+      creature traveling with you each take %{dice 4d6} force damage, and the spell fails to
       teleport you.
     `,
     range: {
@@ -4763,7 +4930,8 @@ export default collection<Spell>(ID, [
       you while it was seemingly still in midair.
 
       To discern that you are disguised, a creature can use its action to inspect your appearance
-      and must succeed on an Intelligence ({@skill Investigation}) check against your spell save DC.
+      and must succeed on an Intelligence (%{ref skills investigation}) check against your spell
+      save DC.
     `,
     range: {
       kind: "self",
@@ -4795,15 +4963,15 @@ export default collection<Spell>(ID, [
     desc: md`
       A thin green ray springs from your pointing finger to a target that you can see within range.
       The target can be a creature, an object, or a creation of magical force, such as the wall
-      created by {@spell wall of force}.
+      created by %{ref spells wallOfForce}.
 
       A creature targeted by this spell must make a Dexterity saving throw. On a failed save, the
-      target takes {@damage 10d6 + 40} force damage. The target is disintegrated if this damage
+      target takes %{dice 10d6 + 40} force damage. The target is disintegrated if this damage
       leaves it with 0 hit points.
 
       A disintegrated creature and everything it is wearing and carrying, except magic items, are
       reduced to a pile of fine gray dust. The creature can be restored to life only by means of a
-      {@spell true resurrection} or a {@spell wish} spell.
+      %{ref spells trueResurrection} or a %{ref spells wish} spell.
 
       This spell automatically disintegrates a Large or smaller nonmagical object or a creation of
       magical force. If the target is a Huge or larger object or creation of force, this spell
@@ -4811,7 +4979,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 7th level or higher, the damage increases by
-      {@scaledamage 10d6 + 40|6-9|3d6} for each slot level above 6th.
+      %{dice 3d6} for each slot level above 6th.
     `,
     range: {
       kind: "point",
@@ -4861,9 +5029,15 @@ export default collection<Spell>(ID, [
 
       You can end the spell early by using either of the following special functions.
 
-      [object Object]
+      **Break Enchantment.** As your action, you touch a creature you can reach that is charmed,
+      frightened, or possessed by a celestial, an elemental, a fey, a fiend, or an undead. The
+      creature you touch is no longer charmed, frightened, or possessed by such creatures.
 
-      [object Object]
+      **Dismissal.** As your action, make a melee spell attack against a celestial, an elemental,
+      a fey, a fiend, or an undead you can reach. On a hit, you attempt to drive the creature back
+      to its home plane. The creature must succeed on a Charisma saving throw or be sent back to its
+      home plane (if it isn't there already). If they aren't on their home plane, undead are sent to
+      the Shadowfell, and fey are sent to the Feywild.
     `,
     range: {
       kind: "self",
@@ -4941,15 +5115,15 @@ export default collection<Spell>(ID, [
     desc: md`
       You whisper a discordant melody that only one creature of your choice within range can hear,
       wracking it with terrible pain. The target must make a Wisdom saving throw. On a failed save,
-      it takes {@damage 3d6} psychic damage and must immediately use its reaction, if available, to
+      it takes %{dice 3d6} psychic damage and must immediately use its reaction, if available, to
       move as far as its speed allows away from you. The creature doesn't move into obviously
       dangerous ground, such as a fire or a pit. On a successful save, the target takes half as much
-      damage and doesn't have to move away. A {@condition deafened} creature automatically succeeds
+      damage and doesn't have to move away. A %{ref conditions deafened} creature automatically succeeds
       on the save.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 3d6|1-9|1d6} for each slot level above 1st.
+      %{dice 1d6} for each slot level above 1st.
     `,
     range: {
       kind: "point",
@@ -4986,8 +5160,8 @@ export default collection<Spell>(ID, [
       such as the casting of additional spells or the loss or gain of a companion.
 
       If you cast the spell two or more times before finishing your next long rest, there is a
-      cumulative {@chance 25|||Random reading!|Regular reading} chance for each casting after the
-      first that you get a random reading. The DM makes this roll in secret.
+      cumulative 25 percent chance for each casting after the first that you get a random reading.
+      The DM makes this roll in secret.
     `,
     range: {
       kind: "self",
@@ -5020,7 +5194,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       Your prayer empowers you with divine radiance. Until the spell ends, your weapon attacks deal
-      an extra {@damage 1d4} radiant damage on a hit.
+      an extra %{dice 1d4} radiant damage on a hit.
     `,
     range: {
       kind: "self",
@@ -5055,11 +5229,14 @@ export default collection<Spell>(ID, [
       make a Charisma saving throw. On a failed save, a creature suffers an effect based on its
       current hit points:
 
-      [object Object]
+      - 50 hit points or fewer: deafened for 1 minute
+      - 40 hit points or fewer: deafened and blinded for 10 minutes
+      - 30 hit points or fewer: blinded, deafened, and stunned for 1 hour
+      - 20 hit points or fewer: killed instantly
 
       Regardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails
       its save is forced back to its plane of origin (if it isn't there already) and can't return to
-      your current plane for 24 hours by any means short of a {@spell wish} spell.
+      your current plane for 24 hours by any means short of a %{ref spells wish} spell.
     `,
     range: {
       kind: "point",
@@ -5094,10 +5271,10 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       You attempt to beguile a beast that you can see within range. It must succeed on a Wisdom
-      saving throw or be {@condition charmed} by you for the duration. If you or creatures that are
+      saving throw or be %{ref conditions charmed} by you for the duration. If you or creatures that are
       friendly to you are fighting it, it has advantage on the saving throw.
 
-      While the beast is {@condition charmed}, you have a telepathic link with it as long as the two
+      While the beast is %{ref conditions charmed}, you have a telepathic link with it as long as the two
       of you are on the same plane of existence. You can use this telepathic link to issue commands
       to the creature while you are conscious (no action required), which it does its best to obey.
       You can specify a simple and general course of action, such as "Attack that creature," "Run
@@ -5113,10 +5290,10 @@ export default collection<Spell>(ID, [
       the saving throw succeeds, the spell ends.
     `,
     atHigherLevels: md`
-      When you cast this spell with a 5th-level spell slot, the duration is {@status concentration},
-      up to 10 minutes. When you use a 6th-level spell slot, the duration is {@status
-      concentration}, up to 1 hour. When you use a spell slot of 7th level or higher, the duration
-      is {@status concentration}, up to 8 hours.
+      When you cast this spell with a 5th-level spell slot, the duration is concentration,
+      up to 10 minutes. When you use a 6th-level spell slot, the duration is concentration, up to 1
+      hour. When you use a spell slot of 7th level or higher, the duration is concentration, up to 8
+      hours.
     `,
     range: {
       kind: "point",
@@ -5154,10 +5331,10 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom
-      saving throw or be {@condition charmed} by you for the duration. If you or creatures that are
+      saving throw or be %{ref conditions charmed} by you for the duration. If you or creatures that are
       friendly to you are fighting it, it has advantage on the saving throw.
 
-      While the creature is {@condition charmed}, you have a telepathic link with it as long as the
+      While the creature is %{ref conditions charmed}, you have a telepathic link with it as long as the
       two of you are on the same plane of existence. You can use this telepathic link to issue
       commands to the creature while you are conscious (no action required), which it does its best
       to obey. You can specify a simple and general course of action, such as "Attack that
@@ -5174,7 +5351,7 @@ export default collection<Spell>(ID, [
       the saving throw succeeds, the spell ends.
     `,
     atHigherLevels: md`
-      When you cast this spell with a 9th-level spell slot, the duration is {@status concentration},
+      When you cast this spell with a 9th-level spell slot, the duration is concentration,
       up to 8 hours.
     `,
     range: {
@@ -5213,10 +5390,10 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       You attempt to beguile a humanoid that you can see within range. It must succeed on a Wisdom
-      saving throw or be {@condition charmed} by you for the duration. If you or creatures that are
+      saving throw or be %{ref conditions charmed} by you for the duration. If you or creatures that are
       friendly to you are fighting it, it has advantage on the saving throw.
 
-      While the target is {@condition charmed}, you have a telepathic link with it as long as the
+      While the target is %{ref conditions charmed}, you have a telepathic link with it as long as the
       two of you are on the same plane of existence. You can use this telepathic link to issue
       commands to the creature while you are conscious (no action required), which it does its best
       to obey. You can specify a simple and general course of action, such as "Attack that
@@ -5233,10 +5410,10 @@ export default collection<Spell>(ID, [
       the saving throw succeeds, the spell ends.
     `,
     atHigherLevels: md`
-      When you cast this spell using a 6th-level spell slot, the duration is {@status
-      concentration}, up to 10 minutes. When you use a 7th-level spell slot, the duration is
-      {@status concentration}, up to 1 hour. When you use a spell slot of 8th level or higher, the
-      duration is {@status concentration}, up to 8 hours.
+      When you cast this spell using a 6th-level spell slot, the duration is concentration, up to 10
+      minutes. When you use a 7th-level spell slot, the duration is concentration, up to 1 hour.
+      When you use a spell slot of 8th level or higher, the duration is concentration, up to 8
+      hours.
     `,
     range: {
       kind: "point",
@@ -5286,7 +5463,7 @@ export default collection<Spell>(ID, [
       the item to you, but instead you learn who the creature possessing the object is and roughly
       where that creature is located at that moment.
 
-      {@spell Dispel magic} or a similar effect successfully applied to the sapphire ends this
+      %{ref spells dispelMagic} or a similar effect successfully applied to the sapphire ends this
       spell's effect.
     `,
     range: {
@@ -5338,7 +5515,7 @@ export default collection<Spell>(ID, [
       messenger can deliver a message of no more than ten words and then the target must make a
       Wisdom saving throw. On a failed save, echoes of the phantasmal monstrosity spawn a nightmare
       that lasts the duration of the target's sleep and prevents the target from gaining any benefit
-      from that rest. In addition, when the target wakes up, it takes {@damage 3d6} psychic damage.
+      from that rest. In addition, when the target wakes up, it takes %{dice 3d6} psychic damage.
 
       If you have a body part, lock of hair, clipping from a nail, or similar portion of the
       target's body, the target makes its saving throw with disadvantage.
@@ -5391,7 +5568,14 @@ export default collection<Spell>(ID, [
     desc: md`
       Whispering to the spirits of nature, you create one of the following effects within range:
 
-      [object Object]
+      - You create a tiny, harmless sensory effect that predicts what the weather will be at your
+        location for the next 24 hours. The effect might manifest as a golden orb for clear skies,
+        a cloud for rain, falling snowflakes for snow, and so on. This effect persists for 1 round.
+      - You instantly make a flower blossom, a seed pod open, or a leaf bud bloom.
+      - You create an instantaneous, harmless sensory effect, such as falling leaves, a puff of
+        wind, the sound of a small animal, or the faint odor of skunk. The effect must fit in a
+        5-foot cube.
+      - You instantly light or snuff out a candle, a torch, or a small campfire.
     `,
     range: {
       kind: "point",
@@ -5424,20 +5608,35 @@ export default collection<Spell>(ID, [
       the duration, an intense tremor rips through the ground in a 100-foot-radius circle centered
       on that point and shakes creatures and structures in contact with the ground in that area.
 
-      The ground in the area becomes {@quickref difficult terrain||3}. Each creature on the ground
-      that is {@status concentration||concentrating} must make a Constitution saving throw. On a
-      failed save, the creature's {@status concentration} is broken.
+      The ground in the area becomes difficult terrain. Each creature on the ground that is
+      concentrating must make a Constitution saving throw. On a failed save, the creature's
+      concentration is broken.
 
-      When you cast this spell and at the end of each turn you spend {@status
-      concentration||concentrating} on it, each creature on the ground in the area must make a
-      Dexterity saving throw. On a failed save, the creature is knocked {@condition prone}.
+      When you cast this spell and at the end of each turn you spend concentrating on it, each
+      creature on the ground in the area must make a Dexterity saving throw. On a failed save, the
+      creature is knocked %{ref conditions prone}.
 
       This spell can have additional effects depending on the terrain in the area, as determined by
       the DM.
 
-      [object Object]
+      **Fissures.** Fissures open throughout the spell's area at the start of your next turn after
+      you cast the spell. A total of 1d6 such fissures open in locations chosen by the DM. Each is
+      1d10 × 10 feet deep, 10 feet wide, and extends from one edge of the spell's area to the
+      opposite side. A creature standing on a spot where a fissure opens must succeed on a Dexterity
+      saving throw or fall in. A creature that successfully saves moves with the fissure's edge as
+      it opens.
 
-      [object Object]
+      A fissure that opens beneath a structure causes it to automatically collapse (see below).
+
+      **Structures.** The tremor deals 50 bludgeoning damage to any structure in contact with the
+      ground in the area when you cast the spell and at the start of each of your turns until the
+      spell ends. If a structure drops to 0 hit points, it collapses and potentially damages nearby
+      creatures. A creature within half the distance of a structure's height must make a Dexterity
+      saving throw. On a failed save, the creature takes 5d6 bludgeoning damage, is knocked prone,
+      and is buried in the rubble, requiring a DC 20 Strength (Athletics) check as an action to
+      escape. The DM can adjust the DC higher or lower, depending on the nature of the rubble. On a
+      successful save, the creature takes half as much damage and doesn't fall prone or become
+      buried.
     `,
     range: {
       kind: "point",
@@ -5474,7 +5673,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack
-      against the target. On a hit, the target takes {@damage 1d10} force damage.
+      against the target. On a hit, the target takes %{dice 1d10} force damage.
 
       The spell creates more than one beam when you reach higher levels: two beams at 5th level,
       three beams at 11th level, and four beams at 17th level. You can direct the beams at the same
@@ -5524,13 +5723,13 @@ export default collection<Spell>(ID, [
     desc: md`
       A nonmagical weapon you touch becomes a magic weapon. Choose one of the following damage
       types: acid, cold, fire, lightning, or thunder. For the duration, the weapon has a +1 bonus to
-      attack rolls and deals an extra {@damage 1d4} damage of the chosen type when it hits.
+      attack rolls and deals an extra %{dice 1d4} damage of the chosen type when it hits.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 5th or 6th level, the bonus to attack rolls
-      increases to +2 and the extra damage increases to {@scaledamage 1d4|3-9|2d4}. When you use a
+      increases to +2 and the extra damage increases to %{dice 2d4}. When you use a
       spell slot of 7th level or higher, the bonus increases to +3 and the extra damage increases to
-      {@scaledamage 1d4|3-9|3d4}.
+      %{dice 3d4}.
     `,
     range: {
       kind: "touch",
@@ -5563,17 +5762,20 @@ export default collection<Spell>(ID, [
       You touch a creature and bestow upon it a magical enhancement. Choose one of the following
       effects; the target gains that effect until the spell ends.
 
-      [object Object]
+      **Bear's Endurance.** The target has advantage on Constitution checks. It also gains 2d6
+      temporary hit points, which are lost when the spell ends.
 
-      [object Object]
+      **Bull's Strength.** The target has advantage on Strength checks, and his or her carrying
+      capacity doubles.
 
-      [object Object]
+      **Cat's Grace.** The target has advantage on Dexterity checks. It also doesn't take damage
+      from falling 20 feet or less if it isn't incapacitated.
 
-      [object Object]
+      **Eagle's Splendor.** The target has advantage on Charisma checks.
 
-      [object Object]
+      **Fox's Cunning.** The target has advantage on Intelligence checks.
 
-      [object Object]
+      **Owl's Wisdom.** The target has advantage on Wisdom checks.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, you can target one
@@ -5616,9 +5818,20 @@ export default collection<Spell>(ID, [
       If the target is a creature, everything it is wearing and carrying changes size with it. Any
       item dropped by an affected creature returns to normal size at once.
 
-      [object Object]
+      **Enlarge.** The target's size doubles in all dimensions, and its weight is multiplied by
+      eight. This growth increases its size by one category—from Medium to Large, for example. If
+      there isn't enough room for the target to double its size, the creature or object attains the
+      maximum possible size in the space available. Until the spell ends, the target also has
+      advantage on Strength checks and Strength saving throws. The target's weapons also grow to
+      match its new size. While these weapons are enlarged, the target's attacks with them deal 1d4
+      extra damage.
 
-      [object Object]
+      **Reduce.** The target's size is halved in all dimensions, and its weight is reduced to
+      one-eighth of normal. This reduction decreases its size by one category—from Medium to Small,
+      for example. Until the spell ends, the target also has disadvantage on Strength checks and
+      Strength saving throws. The target's weapons also shrink to match its new size. While these
+      weapons are reduced, the target's attacks with them deal 1d4 less damage (this can't reduce
+      the damage below 1).
     `,
     range: {
       kind: "point",
@@ -5658,18 +5871,18 @@ export default collection<Spell>(ID, [
     desc: md`
       The next time you hit a creature with a weapon attack before this spell ends, a writhing mass
       of thorny vines appears at the point of impact, and the target must succeed on a Strength
-      saving throw or be {@condition restrained} by the magical vines until the spell ends. A Large
+      saving throw or be %{ref conditions restrained} by the magical vines until the spell ends. A Large
       or larger creature has advantage on this saving throw. If the target succeeds on the save, the
       vines shrivel away.
 
-      While {@condition restrained} by this spell, the target takes {@damage 1d6} piercing damage at
-      the start of each of its turns. A creature {@condition restrained} by the vines or one that
+      While %{ref conditions restrained} by this spell, the target takes %{dice 1d6} piercing damage at
+      the start of each of its turns. A creature %{ref conditions restrained} by the vines or one that
       can touch the creature can use its action to make a Strength check against your spell save DC.
       On a success, the target is freed.
     `,
     atHigherLevels: md`
       If you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 1d6|1-9|1d6} for each slot level above 1st.
+      %{dice 1d6} for each slot level above 1st.
     `,
     range: {
       kind: "self",
@@ -5700,13 +5913,13 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       Grasping weeds and vines sprout from the ground in a 20-foot square starting from a point
-      within range. For the duration, these plants turn the ground in the area into {@quickref
-      difficult terrain||3}.
+      within range. For the duration, these plants turn the ground in the area into difficult
+      terrain.
 
       A creature in the area when you cast the spell must succeed on a Strength saving throw or be
-      {@condition restrained} by the entangling plants until the spell ends. A creature {@condition
-      restrained} by the plants can use its action to make a Strength check against your spell save
-      DC. On a success, it frees itself.
+      %{ref conditions restrained} by the entangling plants until the spell ends. A creature {@ref
+      conditions restrained} by the plants can use its action to make a Strength check against your
+      spell save DC. On a success, it frees itself.
 
       When the spell ends, the conjured plants wilt away.
     `,
@@ -5747,11 +5960,11 @@ export default collection<Spell>(ID, [
     desc: md`
       You weave a distracting string of words, causing creatures of your choice that you can see
       within range and that can hear you to make a Wisdom saving throw. Any creature that can't be
-      {@condition charmed} succeeds on this saving throw automatically, and if you or your
+      %{ref conditions charmed} succeeds on this saving throw automatically, and if you or your
       companions are fighting a creature, it has advantage on the save. On a failed save, the target
-      has disadvantage on Wisdom ({@skill Perception}) checks made to perceive any creature other
-      than you until the spell ends or until the target can no longer hear you. The spell ends if
-      you are {@condition incapacitated} or can no longer speak.
+      has disadvantage on Wisdom (%{ref skills perception}) checks made to perceive any creature
+      other than you until the spell ends or until the target can no longer hear you. The spell ends
+      if you are %{ref conditions incapacitated} or can no longer speak.
     `,
     range: {
       kind: "point",
@@ -5844,16 +6057,15 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       Squirming, ebony tentacles fill a 20-foot square on ground that you can see within range. For
-      the duration, these tentacles turn the ground in the area into {@quickref difficult
-      terrain||3}.
+      the duration, these tentacles turn the ground in the area into difficult terrain.
 
       When a creature enters the affected area for the first time on a turn or starts its turn
-      there, the creature must succeed on a Dexterity saving throw or take {@damage 3d6} bludgeoning
-      damage and be {@condition restrained} by the tentacles until the spell ends. A creature that
-      starts its turn in the area and is already {@condition restrained} by the tentacles takes
-      {@damage 3d6} bludgeoning damage.
+      there, the creature must succeed on a Dexterity saving throw or take %{dice 3d6} bludgeoning
+      damage and be %{ref conditions restrained} by the tentacles until the spell ends. A creature that
+      starts its turn in the area and is already %{ref conditions restrained} by the tentacles takes
+      %{dice 3d6} bludgeoning damage.
 
-      A creature {@condition restrained} by the tentacles can use its action to make a Strength or
+      A creature %{ref conditions restrained} by the tentacles can use its action to make a Strength or
       Dexterity check (its choice) against your spell save DC. On a success, it frees itself.
     `,
     range: {
@@ -5891,7 +6103,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "transmutation"),
     desc: md`
       This spell allows you to move at an incredible pace. When you cast this spell, and then as a
-      bonus action on each of your turns until the spell ends, you can take the {@action Dash}
+      bonus action on each of your turns until the spell ends, you can take the Dash
       action.
     `,
     range: {
@@ -5928,11 +6140,16 @@ export default collection<Spell>(ID, [
       turns until the spell ends, you can use your action to target another creature but can't
       target a creature again if it has succeeded on a saving throw against this casting of eyebite.
 
-      [object Object]
+      **Asleep.** The target falls unconscious. It wakes up if it takes any damage or if another
+      creature uses its action to shake the sleeper awake.
 
-      [object Object]
+      **Panicked.** The target is frightened of you. On each of its turns, the frightened creature
+      must take the Dash action and move away from you by the safest and shortest available route,
+      unless there is nowhere to move. If the target moves to a place at least 60 feet away from you
+      where it can no longer see you, this effect ends.
 
-      [object Object]
+      **Sickened.** The target has disadvantage on attack rolls and ability checks. At the end of
+      each of its turns, it can make another Wisdom saving throw. If it succeeds, the effect ends.
     `,
     range: {
       kind: "self",
@@ -6011,7 +6228,7 @@ export default collection<Spell>(ID, [
       10-foot radius.
 
       Any attack roll against an affected creature or object has advantage if the attacker can see
-      it, and the affected creature or object can't benefit from being {@condition invisible}.
+      it, and the affected creature or object can't benefit from being %{ref conditions invisible}.
     `,
     range: {
       kind: "point",
@@ -6043,7 +6260,7 @@ export default collection<Spell>(ID, [
     level: 1,
     school: ref("magicSchools", "necromancy"),
     desc: md`
-      Bolstering yourself with a necromantic facsimile of life, you gain {@dice 1d4 + 4} temporary
+      Bolstering yourself with a necromantic facsimile of life, you gain %{dice 1d4 + 4} temporary
       hit points for the duration.
     `,
     atHigherLevels: md`
@@ -6083,10 +6300,10 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "illusion"),
     desc: md`
       You project a phantasmal image of a creature's worst fears. Each creature in a 30-foot cone
-      must succeed on a Wisdom saving throw or drop whatever it is holding and become {@condition
-      frightened} for the duration.
+      must succeed on a Wisdom saving throw or drop whatever it is holding and become {@ref
+      conditions frightened} for the duration.
 
-      While {@condition frightened} by this spell, a creature must take the {@action Dash} action
+      While %{ref conditions frightened} by this spell, a creature must take the Dash action
       and move away from you by the safest available route on each of its turns, unless there is
       nowhere to move. If the creature ends its turn in a location where it doesn't have line of
       sight to you, the creature can make a Wisdom saving throw. On a successful save, the spell
@@ -6172,7 +6389,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       You blast the mind of a creature that you can see within range, attempting to shatter its
-      intellect and personality. The target takes {@damage 4d6} psychic damage and must make an
+      intellect and personality. The target takes %{dice 4d6} psychic damage and must make an
       Intelligence saving throw.
 
       On a failed save, the creature's Intelligence and Charisma scores become 1. The creature can't
@@ -6182,7 +6399,8 @@ export default collection<Spell>(ID, [
       At the end of every 30 days, the creature can repeat its saving throw against this spell. If
       it succeeds on its saving throw, the spell ends.
 
-      The spell can also be ended by {@spell greater restoration}, {@spell heal}, or {@spell wish}.
+      The spell can also be ended by %{ref spells greaterRestoration}, %{ref spells heal}, or {@ref
+      spells wish}.
     `,
     range: {
       kind: "point",
@@ -6220,10 +6438,10 @@ export default collection<Spell>(ID, [
 
       For the spell's duration, or until you use an action to touch the target and dismiss the
       spell, the target appears dead to all outward inspection and to spells used to determine the
-      target's status. The target is {@condition blinded} and {@condition incapacitated}, and its
+      target's status. The target is %{ref conditions blinded} and %{ref conditions incapacitated}, and its
       speed drops to 0. The target has resistance to all damage except psychic damage. If the target
-      is diseased or {@condition poisoned} when you cast the spell, or becomes diseased or
-      {@condition poisoned} while under the spell's effect, the disease and poison have no effect
+      is diseased or %{ref conditions poisoned} when you cast the spell, or becomes diseased or
+      %{ref conditions poisoned} while under the spell's effect, the disease and poison have no effect
       until the spell ends.
     `,
     range: {
@@ -6255,16 +6473,15 @@ export default collection<Spell>(ID, [
     level: 1,
     school: ref("magicSchools", "conjuration"),
     desc: md`
-      You gain the service of a familiar, a spirit that takes an animal form you choose: {@creature
-      bat}, {@creature cat}, {@creature crab}, {@creature frog} (toad), {@creature hawk}, {@creature
-      lizard}, {@creature octopus}, {@creature owl}, {@creature poisonous snake}, fish ({@creature
-      quipper}), {@creature rat}, {@creature raven}, {@creature sea horse}, {@creature spider}, or
-      {@creature weasel}. Appearing in an unoccupied space within range, the familiar has the
-      statistics of the chosen form, though it is a celestial, fey, or fiend (your choice) instead
-      of a beast.
+      You gain the service of a familiar, a spirit that takes an animal form you choose: {@ref
+      monsters bat}, %{ref monsters cat}, %{ref monsters crab}, %{ref monsters frog} (toad), {@ref
+      monsters hawk}, %{ref monsters lizard}, %{ref monsters octopus}, %{ref monsters owl}, {@ref
+      monsters poisonous snake}, fish (%{ref monsters quipper}), %{ref monsters rat}, {@ref monsters
+      raven}, %{ref monsters seaHorse}, %{ref monsters spider}, or %{ref monsters weasel}.
+      Appearing in an unoccupied space within range, the familiar has the statistics of the chosen
+      form, though it is a celestial, fey, or fiend (your choice) instead of a beast.
 
-      {@note Additional {@filter animal form choices|bestiary|Miscellaneous=Familiar} may be
-      available at the DM's discretion.}
+      Additional animal form choices may be available at the DM's discretion.
 
       Your familiar acts independently of you, but it always obeys your commands. In combat, it
       rolls its own initiative and acts on its own turn. A familiar can't attack, but it can take
@@ -6280,8 +6497,8 @@ export default collection<Spell>(ID, [
       While your familiar is within 100 feet of you, you can communicate with it telepathically.
       Additionally, as an action, you can see through your familiar's eyes and hear what it hears
       until the start of your next turn, gaining the benefits of any special senses that the
-      familiar has. During this time, you are {@condition deafened||deaf} and {@condition
-      blinded||blind} with regard to your own senses.
+      familiar has. During this time, you are %{ref conditions deafened|deaf} and {@ref conditions
+      blinded|blind} with regard to your own senses.
 
       You can't have more than one familiar at a time. If you cast this spell while you already have
       a familiar, you instead cause it to adopt a new form. Choose one of the forms from the above
@@ -6326,12 +6543,12 @@ export default collection<Spell>(ID, [
     desc: md`
       You summon a spirit that assumes the form of an unusually intelligent, strong, and loyal
       steed, creating a long-lasting bond with it. Appearing in an unoccupied space within range,
-      the steed takes on a form that you choose: a {@creature warhorse}, a {@creature pony}, a
-      {@creature camel}, an {@creature elk}, or a {@creature mastiff}. (Your DM might allow other
-      animals to be summoned as steeds.) The steed has the statistics of the chosen form, though it
-      is a celestial, fey, or fiend (your choice) instead of its normal type. Additionally, if your
-      steed has an Intelligence of 5 or less, its Intelligence becomes 6, and it gains the ability
-      to understand one language of your choice that you speak.
+      the steed takes on a form that you choose: a %{ref monsters warhorse}, a %{ref monsters pony},
+      a %{ref monsters camel}, an %{ref monsters elk}, or a %{ref monsters mastiff}. (Your DM might
+      allow other animals to be summoned as steeds.) The steed has the statistics of the chosen
+      form, though it is a celestial, fey, or fiend (your choice) instead of its normal type.
+      Additionally, if your steed has an Intelligence of 5 or less, its Intelligence becomes 6, and
+      it gains the ability to understand one language of your choice that you speak.
 
       Your steed serves you as a mount, both in combat and out, and you have an instinctive bond
       with it that allows you to fight as a seamless unit. While mounted on your steed, you can make
@@ -6419,9 +6636,9 @@ export default collection<Spell>(ID, [
       You sense the presence of any trap within range that is within line of sight. A trap, for the
       purpose of this spell, includes anything that would inflict a sudden or unexpected effect you
       consider harmful or undesirable, which was specifically intended as such by its creator. Thus,
-      the spell would sense an area affected by the {@spell alarm} spell, a {@spell glyph of
-      warding}, or a mechanical pit trap, but it would not reveal a natural weakness in the floor,
-      an unstable ceiling, or a hidden sinkhole.
+      the spell would sense an area affected by the %{ref spells alarm} spell, a {@ref spells
+      glyphOfWarding}, or a mechanical pit trap, but it would not reveal a natural weakness in the
+      floor, an unstable ceiling, or a hidden sinkhole.
 
       This spell merely reveals that a trap is present. You don't learn the location of each trap,
       but you do learn the general nature of the danger posed by a trap you sense.
@@ -6454,12 +6671,12 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "necromancy"),
     desc: md`
       You send negative energy coursing through a creature that you can see within range, causing it
-      searing pain. The target must make a Constitution saving throw. It takes {@damage 7d8 + 30}
+      searing pain. The target must make a Constitution saving throw. It takes %{dice 7d8 + 30}
       necrotic damage on a failed save, or half as much damage on a successful one.
 
-      A humanoid killed by this spell rises at the start of your next turn as a {@creature zombie}
-      that is permanently under your command, following your verbal orders to the best of its
-      ability.
+      A humanoid killed by this spell rises at the start of your next turn as a {@ref monsters
+      zombie} that is permanently under your command, following your verbal orders to the best of
+      its ability.
     `,
     range: {
       kind: "point",
@@ -6489,11 +6706,11 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       You hurl a mote of fire at a creature or object within range. Make a ranged spell attack
-      against the target. On a hit, the target takes {@damage 1d10} fire damage. A flammable object
+      against the target. On a hit, the target takes %{dice 1d10} fire damage. A flammable object
       hit by this spell ignites if it isn't being worn or carried.
 
-      This spell's damage increases by {@dice 1d10} when you reach 5th level ({@damage 2d10}), 11th
-      level ({@damage 3d10}), and 17th level ({@damage 4d10}).
+      This spell's damage increases by %{dice 1d10} when you reach 5th level (%{dice 2d10}), 11th
+      level (%{dice 3d10}), and 17th level (%{dice 4d10}).
     `,
     range: {
       kind: "point",
@@ -6531,8 +6748,8 @@ export default collection<Spell>(ID, [
       damage.
 
       In addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield
-      erupts with flame. The attacker takes {@damage 2d8} fire damage from a warm shield, or
-      {@damage 2d8} cold damage from a cold shield.
+      erupts with flame. The attacker takes %{dice 2d8} fire damage from a warm shield, or
+      %{dice 2d8} cold damage from a cold shield.
     `,
     range: {
       kind: "self",
@@ -6566,7 +6783,7 @@ export default collection<Spell>(ID, [
       A storm made up of sheets of roaring flame appears in a location you choose within range. The
       area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each
       cube must have at least one face adjacent to the face of another cube. Each creature in the
-      area must make a Dexterity saving throw. It takes {@damage 7d10} fire damage on a failed save,
+      area must make a Dexterity saving throw. It takes %{dice 7d10} fire damage on a failed save,
       or half as much damage on a successful one.
 
       The fire damages objects in the area and ignites flammable objects that aren't being worn or
@@ -6601,7 +6818,7 @@ export default collection<Spell>(ID, [
     desc: md`
       A bright streak flashes from your pointing finger to a point you choose within range and then
       blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere
-      centered on that point must make a Dexterity saving throw. A target takes {@damage 8d6} fire
+      centered on that point must make a Dexterity saving throw. A target takes %{dice 8d6} fire
       damage on a failed save, or half as much damage on a successful one.
 
       The fire spreads around corners. It ignites flammable objects in the area that aren't being
@@ -6609,7 +6826,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 4th level or higher, the damage increases by
-      {@scaledamage 8d6|3-9|1d6} for each slot level above 3rd.
+      %{dice 1d6} for each slot level above 3rd.
     `,
     range: {
       kind: "point",
@@ -6647,14 +6864,14 @@ export default collection<Spell>(ID, [
       can evoke the blade again as a bonus action.
 
       You can use your action to make a melee spell attack with the fiery blade. On a hit, the
-      target takes {@damage 3d6} fire damage.
+      target takes %{dice 3d6} fire damage.
 
       The flaming blade sheds bright light in a 10-foot radius and dim light for an additional 10
       feet.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 4th level or higher, the damage increases by
-      {@scaledamage 3d6|2,4,6,8|1d6} for every two slot levels above 2nd.
+      %{dice 1d6} for every two slot levels above 2nd.
     `,
     range: {
       kind: "self",
@@ -6687,12 +6904,12 @@ export default collection<Spell>(ID, [
     desc: md`
       A vertical column of divine fire roars down from the heavens in a location you specify. Each
       creature in a 10-foot-radius, 40-foot-high cylinder centered on a point within range must make
-      a Dexterity saving throw. A creature takes {@damage 4d6} fire damage and {@damage 4d6} radiant
+      a Dexterity saving throw. A creature takes %{dice 4d6} fire damage and %{dice 4d6} radiant
       damage on a failed save, or half as much damage on a successful one.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 6th level or higher, the fire damage or the
-      radiant damage (your choice) increases by {@scaledamage 4d6|5-9|1d6} for each slot level above
+      radiant damage (your choice) increases by %{dice 1d6} for each slot level above
       5th.
     `,
     range: {
@@ -6725,7 +6942,7 @@ export default collection<Spell>(ID, [
     desc: md`
       A 5-foot-diameter sphere of fire appears in an unoccupied space of your choice within range
       and lasts for the duration. Any creature that ends its turn within 5 feet of the sphere must
-      make a Dexterity saving throw. The creature takes {@damage 2d6} fire damage on a failed save,
+      make a Dexterity saving throw. The creature takes %{dice 2d6} fire damage on a failed save,
       or half as much damage on a successful one.
 
       As a bonus action, you can move the sphere up to 30 feet. If you ram the sphere into a
@@ -6738,7 +6955,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, the damage increases by
-      {@scaledamage 2d6|2-9|1d6} for each slot level above 2nd.
+      %{dice 1d6} for each slot level above 2nd.
     `,
     range: {
       kind: "point",
@@ -6776,19 +6993,19 @@ export default collection<Spell>(ID, [
     desc: md`
       You attempt to turn one creature that you can see within range into stone. If the target's
       body is made of flesh, the creature must make a Constitution saving throw. On a failed save,
-      it is {@condition restrained} as its flesh begins to harden. On a successful save, the
+      it is %{ref conditions restrained} as its flesh begins to harden. On a successful save, the
       creature isn't affected.
 
-      A creature {@condition restrained} by this spell must make another Constitution saving throw
+      A creature %{ref conditions restrained} by this spell must make another Constitution saving throw
       at the end of each of its turns. If it successfully saves against this spell three times, the
       spell ends. If it fails its saves three times, it is turned to stone and subjected to the
-      {@condition petrified} condition for the duration. The successes and failures don't need to be
+      %{ref conditions petrified} condition for the duration. The successes and failures don't need to be
       consecutive; keep track of both until the target collects three of a kind.
 
-      If the creature is physically broken while {@condition petrified}, it suffers from similar
+      If the creature is physically broken while %{ref conditions petrified}, it suffers from similar
       deformities if it reverts to its original state.
 
-      If you maintain your {@status concentration} on this spell for the entire possible duration,
+      If you maintain your concentration on this spell for the entire possible duration,
       the creature is turned to stone until the effect is removed.
     `,
     range: {
@@ -6862,7 +7079,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       You create a 20-foot-radius sphere of fog centered on a point within range. The sphere spreads
-      around corners, and its area is {@quickref Vision and Light|PHB|2||heavily obscured}. It lasts
+      around corners, and its area is heavily obscured. It lasts
       for the duration or until a wind of moderate or greater speed (at least 10 miles per hour)
       disperses it.
     `,
@@ -6902,15 +7119,15 @@ export default collection<Spell>(ID, [
     desc: md`
       You create a ward against magical travel that protects up to 40,000 square feet of floor space
       to a height of 30 feet above the floor. For the duration, creatures can't teleport into the
-      area or use portals, such as those created by the {@spell gate} spell, to enter the area. The
+      area or use portals, such as those created by the %{ref spells gate} spell, to enter the area. The
       spell proofs the area against planar travel, and therefore prevents creatures from accessing
-      the area by way of the Astral Plane, Ethereal Plane, Feywild, Shadowfell, or the {@spell plane
-      shift} spell.
+      the area by way of the Astral Plane, Ethereal Plane, Feywild, Shadowfell, or the {@ref spells
+      planeShift} spell.
 
       In addition, the spell damages types of creatures that you choose when you cast it. Choose one
       or more of the following: celestials, elementals, fey, fiends, and undead. When a chosen
       creature enters the spell's area for the first time on a turn or starts its turn there, the
-      creature takes {@damage 5d10} radiant or necrotic damage (your choice when you cast this
+      creature takes %{dice 5d10} radiant or necrotic damage (your choice when you cast this
       spell).
 
       When you cast this spell, you can designate a password. A creature that speaks the password as
@@ -6973,7 +7190,7 @@ export default collection<Spell>(ID, [
       creature can't exit the cage and wastes the use of the spell or effect. The cage also extends
       into the Ethereal Plane, blocking ethereal travel.
 
-      This spell can't be dispelled by {@spell dispel magic}.
+      This spell can't be dispelled by %{ref spells dispelMagic}.
     `,
     range: {
       kind: "point",
@@ -7011,9 +7228,9 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "divination"),
     desc: md`
       You touch a willing creature and bestow a limited ability to see into the immediate future.
-      For the duration, the target can't be {@quickref Surprise|PHB|3|0|surprised} and has advantage
-      on attack rolls, ability checks, and saving throws. Additionally, other creatures have
-      disadvantage on attack rolls against the target for the duration.
+      For the duration, the target can't be surprised and has advantage on attack rolls, ability
+      checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls
+      against the target for the duration.
 
       This spell immediately ends if you cast it again before its duration ends.
     `,
@@ -7047,11 +7264,11 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "abjuration"),
     desc: md`
       You touch a willing creature. For the duration, the target's movement is unaffected by
-      {@quickref difficult terrain||3}, and spells and other magical effects can neither reduce the
-      target's speed nor cause the target to be {@condition paralyzed} or {@condition restrained}.
+      difficult terrain, and spells and other magical effects can neither reduce the target's speed
+      nor cause the target to be %{ref conditions paralyzed} or %{ref conditions restrained}.
 
       The target can also spend 5 feet of movement to automatically escape from nonmagical
-      restraints, such as manacles or a creature that has it {@condition grappled}. Finally, being
+      restraints, such as manacles or a creature that has it %{ref conditions grappled}. Finally, being
       underwater imposes no penalties on the target's movement or attacks.
     `,
     range: {
@@ -7133,7 +7350,7 @@ export default collection<Spell>(ID, [
       nonmagical damage, and it has advantage on Strength, Dexterity, and Constitution saving
       throws. The target can pass through small holes, narrow openings, and even mere cracks, though
       it treats liquids as though they were solid surfaces. The target can't fall and remains
-      hovering in the air even when {@condition stunned} or otherwise {@condition incapacitated}.
+      hovering in the air even when %{ref conditions stunned} or otherwise %{ref conditions incapacitated}.
 
       While in the form of a misty cloud, the target can't talk or manipulate objects, and any
       objects it was carrying or holding can't be dropped, used, or otherwise interacted with. The
@@ -7227,17 +7444,16 @@ export default collection<Spell>(ID, [
     desc: md`
       You place a magical command on a creature that you can see within range, forcing it to carry
       out some service or refrain from some action or course of activity as you decide. If the
-      creature can understand you, it must succeed on a Wisdom saving throw or become {@condition
-      charmed} by you for the duration. While the creature is {@condition charmed} by you, it takes
-      {@damage 5d10} psychic damage each time it acts in a manner directly counter to your
+      creature can understand you, it must succeed on a Wisdom saving throw or become %{ref conditions charmed} by you for the duration. While the creature is %{ref conditions charmed} by you, it takes
+      %{dice 5d10} psychic damage each time it acts in a manner directly counter to your
       instructions, but no more than once each day. A creature that can't understand you is
       unaffected by the spell.
 
       You can issue any command you choose, short of an activity that would result in certain death.
       Should you issue a suicidal command, the spell ends.
 
-      You can end the spell early by using an action to dismiss it. A {@spell remove curse}, {@spell
-      greater restoration}, or {@spell wish} spell also ends it.
+      You can end the spell early by using an action to dismiss it. A %{ref spells removeCurse},
+      %{ref spells greaterRestoration}, or %{ref spells wish} spell also ends it.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 7th or 8th level, the duration is 1 year. When
@@ -7279,7 +7495,7 @@ export default collection<Spell>(ID, [
 
       The spell also effectively extends the time limit on raising the target from the dead, since
       days spent under the influence of this spell don't count against the time limit of spells such
-      as {@spell raise dead}.
+      as %{ref spells raiseDead}.
     `,
     range: {
       kind: "touch",
@@ -7314,9 +7530,9 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "transmutation"),
     desc: md`
       You transform up to ten centipedes, three spiders, five wasps, or one scorpion within range
-      into giant versions of their natural forms for the duration. A centipede becomes a {@creature
-      giant centipede}, a spider becomes a {@creature giant spider}, a wasp becomes a {@creature
-      giant wasp}, and a scorpion becomes a {@creature giant scorpion}.
+      into giant versions of their natural forms for the duration. A centipede becomes a {@ref
+      monsters giantCentipede}, a spider becomes a %{ref monsters giantSpider}, a wasp becomes a
+      %{ref monsters giantWasp}, and a scorpion becomes a %{ref monsters giantScorpion}.
 
       Each creature obeys your verbal commands, and in combat, they act on your turn each round. The
       DM has the statistics for these creatures and resolves their actions and movement.
@@ -7325,7 +7541,7 @@ export default collection<Spell>(ID, [
       until you use an action to dismiss the effect on it.
 
       The DM might allow you to choose different targets. For example, if you transform a bee, its
-      giant version might have the same statistics as a {@creature giant wasp}.
+      giant version might have the same statistics as a %{ref monsters giantWasp}.
     `,
     range: {
       kind: "point",
@@ -7447,8 +7663,8 @@ export default collection<Spell>(ID, [
       object is moved more than 10 feet from where you cast this spell, the glyph is broken, and the
       spell ends without being triggered.
 
-      The glyph is nearly invisible and requires a successful Intelligence ({@skill Investigation})
-      check against your spell save DC to be found.
+      The glyph is nearly invisible and requires a successful Intelligence ({@ref skills
+      investigation}) check against your spell save DC to be found.
 
       You decide what triggers the glyph when you cast the spell. For glyphs inscribed on a surface,
       the most typical triggers include touching or standing on the glyph, removing another object
@@ -7465,13 +7681,24 @@ export default collection<Spell>(ID, [
 
       When you inscribe the glyph, choose explosive runes or a spell glyph.
 
-      [object Object]
+      **Explosive Runes.** When triggered, the glyph erupts with magical energy in a 20-foot-radius
+      sphere centered on the glyph. The sphere spreads around corners. Each creature in the area
+      must make a Dexterity saving throw. A creature takes 5d8 acid, cold, fire, lightning, or
+      thunder damage on a failed saving throw (your choice when you create the glyph), or half as
+      much damage on a successful one.
 
-      [object Object]
+      **Spell Glyph.** You can store a prepared spell of 3rd level or lower in the glyph by casting
+      it as part of creating the glyph. The spell must target a single creature or an area. The
+      spell being stored has no immediate effect when cast in this way. When the glyph is triggered,
+      the stored spell is cast. If the spell has a target, it targets the creature that triggered
+      the glyph. If the spell affects an area, the area is centered on that creature. If the spell
+      summons hostile creatures or creates harmful objects or traps, they appear as close as
+      possible to the intruder and attack it. If the spell requires concentration, it lasts until
+      the end of its full duration.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 4th level or higher, the damage of an explosive
-      runes glyph increases by {@scaledamage 5d8|3-9|1d8} for each slot level above 3rd. If you
+      runes glyph increases by %{dice 1d8} for each slot level above 3rd. If you
       create a spell glyph, you can store any spell of up to the same level as the slot you use for
       the glyph of warding.
     `,
@@ -7578,11 +7805,11 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       Slick grease covers the ground in a 10-foot square centered on a point within range and turns
-      it into {@quickref difficult terrain||3} for the duration.
+      it into difficult terrain for the duration.
 
       When the grease appears, each creature standing in its area must succeed on a Dexterity saving
-      throw or fall {@condition prone}. A creature that enters the area or ends its turn there must
-      also succeed on a Dexterity saving throw or fall {@condition prone}.
+      throw or fall %{ref conditions prone}. A creature that enters the area or ends its turn there must
+      also succeed on a Dexterity saving throw or fall %{ref conditions prone}.
     `,
     range: {
       kind: "point",
@@ -7615,8 +7842,8 @@ export default collection<Spell>(ID, [
     level: 4,
     school: ref("magicSchools", "illusion"),
     desc: md`
-      You or a creature you touch becomes {@condition invisible} until the spell ends. Anything the
-      target is wearing or carrying is {@condition invisible} as long as it is on the target's
+      You or a creature you touch becomes %{ref conditions invisible} until the spell ends. Anything the
+      target is wearing or carrying is %{ref conditions invisible} as long as it is on the target's
       person.
     `,
     range: {
@@ -7648,10 +7875,13 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "abjuration"),
     desc: md`
       You imbue a creature you touch with positive energy to undo a debilitating effect. You can
-      reduce the target's {@condition exhaustion} level by one, or end one of the following effects
+      reduce the target's %{ref conditions exhaustion} level by one, or end one of the following effects
       on the target:
 
-      [object Object]
+      - One effect that charmed or petrified the target
+      - One curse, including the target's attunement to a cursed magic item
+      - Any reduction to one of the target's ability scores
+      - One effect reducing the target's hit point maximum
     `,
     range: {
       kind: "touch",
@@ -7734,16 +7964,33 @@ export default collection<Spell>(ID, [
 
       Guards and wards creates the following effects within the warded area.
 
-      [object Object]
+      **Corridors.** Fog fills all the warded corridors, making them heavily obscured. In addition,
+      at each intersection or branching passage offering a choice of direction, there is a 50
+      percent chance that a creature other than you will believe it is going in the opposite
+      direction from the one it chooses.
 
-      [object Object]
+      **Doors.** All doors in the warded area are magically locked, as if sealed by an arcane lock
+      spell. In addition, you can cover up to ten doors with an illusion (equivalent to the illusory
+      object function of the minor illusion spell) to make them appear as plain sections of wall.
 
-      [object Object]
+      **Stairs.** Webs fill all stairs in the warded area from top to bottom, as the web spell.
+      These strands regrow in 10 minutes if they are burned or torn away while guards and wards
+      lasts.
 
-      [object Object]
+      **Other Spell Effect.** You can place your choice of one of the following magical effects
+      within the warded area of the stronghold.
 
-      The whole warded area radiates magic. A {@spell dispel magic} cast on a specific effect, if
-      successful, removes only that effect.
+      - Place dancing lights in four corridors. You can designate a simple program that the lights
+        repeat as long as guards and wards lasts.
+      - Place magic mouth in two locations.
+      - Place stinking cloud in two locations. The vapors appear in the places you designate; they
+        return within 10 minutes if dispersed by wind while guards and wards lasts.
+      - Place a constant gust of wind in one corridor or room.
+      - Place a suggestion in one location. You select an area of up to 5 feet square, and any
+        creature that enters or passes through the area receives the suggestion mentally.
+
+      The whole warded area radiates magic. A %{ref spells dispelMagic} cast on a specific effect,
+      if successful, removes only that effect.
 
       You can create a permanently guarded and warded structure by casting this spell there every
       day for one year.
@@ -7781,7 +8028,7 @@ export default collection<Spell>(ID, [
     level: 0,
     school: ref("magicSchools", "divination"),
     desc: md`
-      You touch one willing creature. Once before the spell ends, the target can roll a {@dice d4}
+      You touch one willing creature. Once before the spell ends, the target can roll a %{dice d4}
       and add the number rolled to one ability check of its choice. It can roll the die before or
       after making the ability check. The spell then ends.
     `,
@@ -7814,13 +8061,13 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       A flash of light streaks toward a creature of your choice within range. Make a ranged spell
-      attack against the target. On a hit, the target takes {@damage 4d6} radiant damage, and the
+      attack against the target. On a hit, the target takes %{dice 4d6} radiant damage, and the
       next attack roll made against this target before the end of your next turn has advantage,
       thanks to the mystical dim light glittering on the target until then.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 4d6|1-9|1d6} for each slot level above 1st.
+      %{dice 1d6} for each slot level above 1st.
     `,
     range: {
       kind: "point",
@@ -7861,7 +8108,7 @@ export default collection<Spell>(ID, [
 
       The gust disperses gas or vapor, and it extinguishes candles, torches, and similar unprotected
       flames in the area. It causes protected flames, such as those of lanterns, to dance wildly and
-      has a {@chance 50|||Extinguished!|No effect} chance to extinguish them.
+      has a 50 percent chance to extinguish them.
 
       As a bonus action on each of your turns before the spell ends, you can change the direction in
       which the line blasts from you.
@@ -7905,12 +8152,12 @@ export default collection<Spell>(ID, [
       The next time you hit a creature with a ranged weapon attack before the spell ends, this spell
       creates a rain of thorns that sprouts from your ranged weapon or ammunition. In addition to
       the normal effect of the attack, the target of the attack and each creature within 5 feet of
-      it must make a Dexterity saving throw. A creature takes {@damage 1d10} piercing damage on a
+      it must make a Dexterity saving throw. A creature takes %{dice 1d10} piercing damage on a
       failed save, or half as much damage on a successful one.
     `,
     atHigherLevels: md`
       If you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 1d10|1-6|1d10} for each slot level above 1st (to a maximum of {@damage 6d10}).
+      %{dice 1d10} for each slot level above 1st (to a maximum of %{dice 6d10}).
     `,
     range: {
       kind: "self",
@@ -7945,10 +8192,10 @@ export default collection<Spell>(ID, [
       effect a hallow spell. The affected area is subject to the following effects.
 
       First, celestials, elementals, fey, fiends, and undead can't enter the area, nor can such
-      creatures charm, frighten, or possess creatures within it. Any creature {@condition charmed},
-      {@condition frightened}, or possessed by such a creature is no longer {@condition charmed},
-      {@condition frightened}, or possessed upon entering the area. You can exclude one or more of
-      those types of creatures from this effect.
+      creatures charm, frighten, or possess creatures within it. Any creature %{ref conditions
+      charmed}, %{ref conditions frightened}, or possessed by such a creature is no longer %{ref
+      conditions charmed}, %{ref conditions frightened}, or possessed upon entering the area. You
+      can exclude one or more of those types of creatures from this effect.
 
       Second, you can bind an extra effect to the area. Choose the effect from the following list,
       or choose an effect offered by the DM. Some of these effects apply to creatures in the area;
@@ -7958,25 +8205,31 @@ export default collection<Spell>(ID, [
       its turn there, it can make a Charisma saving throw. On a success, the creature ignores the
       extra effect until it leaves the area.
 
-      [object Object]
+      **Courage.** Affected creatures can't be frightened while in the area.
 
-      [object Object]
+      **Darkness.** Darkness fills the area. Normal light, as well as magical light created by
+      spells of a lower level than the slot you used to cast this spell, can't illuminate the area.
 
-      [object Object]
+      **Daylight.** Bright light fills the area. Magical darkness created by spells of a lower level
+      than the slot you used to cast this spell can't extinguish the light.
 
-      [object Object]
+      **Energy Protection.** Affected creatures in the area have resistance to one damage type of
+      your choice, except for bludgeoning, piercing, or slashing.
 
-      [object Object]
+      **Energy Vulnerability.** Affected creatures in the area have vulnerability to one damage
+      type of your choice, except for bludgeoning, piercing, or slashing.
 
-      [object Object]
+      **Everlasting Rest.** Dead bodies interred in the area can't be turned into undead.
 
-      [object Object]
+      **Extradimensional Interference.** Affected creatures can't move or travel using
+      teleportation or by extradimensional or interplanar means.
 
-      [object Object]
+      **Fear.** Affected creatures are frightened while in the area.
 
-      [object Object]
+      **Silence.** No sound can emanate from within the area, and no sound can reach into it.
 
-      [object Object]
+      **Tongues.** Affected creatures can communicate with any other creature in the area, even if
+      they don't share a common language.
     `,
     range: {
       kind: "touch",
@@ -8018,9 +8271,9 @@ export default collection<Spell>(ID, [
 
       The tactile characteristics of the terrain are unchanged, so creatures entering the area are
       likely to see through the illusion. If the difference isn't obvious by touch, a creature
-      carefully examining the illusion can attempt an Intelligence ({@skill Investigation}) check
-      against your spell save DC to disbelieve it. A creature who discerns the illusion for what it
-      is, sees it as a vague image superimposed on the terrain.
+      carefully examining the illusion can attempt an Intelligence (%{ref skills investigation})
+      check against your spell save DC to disbelieve it. A creature who discerns the illusion for
+      what it is, sees it as a vague image superimposed on the terrain.
     `,
     range: {
       kind: "point",
@@ -8057,7 +8310,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "necromancy"),
     desc: md`
       You unleash a virulent disease on a creature that you can see within range. The target must
-      make a Constitution saving throw. On a failed save, it takes {@damage 14d6} necrotic damage,
+      make a Constitution saving throw. On a failed save, it takes %{dice 14d6} necrotic damage,
       or half as much damage on a successful save. The damage can't reduce the target's hit points
       below 1. If the target fails the saving throw, its hit point maximum is reduced for 1 hour by
       an amount equal to the necrotic damage it took. Any effect that removes a disease allows a
@@ -8093,8 +8346,7 @@ export default collection<Spell>(ID, [
       Choose a willing creature that you can see within range. Until the spell ends, the target's
       speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and
       it gains an additional action on each of its turns. That action can be used only to take the
-      {@action Attack} (one weapon attack only), {@action Dash}, {@action Disengage}, {@action
-      Hide}, or {@action Use an Object} action.
+      Attack (one weapon attack only), Dash, Disengage, Hide, or Use an Object action.
 
       When the spell ends, the target can't move or take actions until after its next turn, as a
       wave of lethargy sweeps over it.
@@ -8131,8 +8383,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       Choose a creature that you can see within range. A surge of positive energy washes through the
-      creature, causing it to regain 70 hit points. This spell also ends {@condition
-      blinded||blindness}, {@condition deafened||deafness}, and any diseases affecting the target.
+      creature, causing it to regain 70 hit points. This spell also ends %{ref conditions blinded||blindness}, %{ref conditions deafened||deafness}, and any diseases affecting the target.
       This spell has no effect on constructs or undead.
     `,
     atHigherLevels: md`
@@ -8171,7 +8422,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the healing increases by
-      {@scaledice 1d4|1-9|1d4} for each slot level above 1st.
+      %{dice 1d4} for each slot level above 1st.
     `,
     range: {
       kind: "point",
@@ -8202,7 +8453,7 @@ export default collection<Spell>(ID, [
     desc: md`
       Choose a manufactured metal object, such as a metal weapon or a suit of heavy or medium metal
       armor, that you can see within range. You cause the object to glow red-hot. Any creature in
-      physical contact with the object takes {@damage 2d8} fire damage when you cast the spell.
+      physical contact with the object takes %{dice 2d8} fire damage when you cast the spell.
       Until the spell ends, you can use a bonus action on each of your subsequent turns to cause
       this damage again.
 
@@ -8213,7 +8464,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, the damage increases by
-      {@scaledamage 2d8|2-9|1d8} for each slot level above 2nd.
+      %{dice 1d8} for each slot level above 2nd.
     `,
     range: {
       kind: "point",
@@ -8247,12 +8498,12 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       You point your finger, and the creature that damaged you is momentarily surrounded by hellish
-      flames. The creature must make a Dexterity saving throw. It takes {@damage 2d10} fire damage
+      flames. The creature must make a Dexterity saving throw. It takes %{dice 2d10} fire damage
       on a failed save, or half as much damage on a successful one.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 2d10|1-9|1d10} for each slot level above 1st.
+      %{dice 1d10} for each slot level above 1st.
     `,
     range: {
       kind: "point",
@@ -8288,8 +8539,8 @@ export default collection<Spell>(ID, [
       this hour is over. Up to twelve creatures can partake of the feast.
 
       A creature that partakes of the feast gains several benefits. The creature is cured of all
-      diseases and poison, becomes immune to poison and being {@condition frightened}, and makes all
-      Wisdom saving throws with advantage. Its hit point maximum also increases by {@dice 2d10}, and
+      diseases and poison, becomes immune to poison and being %{ref conditions frightened}, and makes all
+      Wisdom saving throws with advantage. Its hit point maximum also increases by %{dice 2d10}, and
       it gains the same number of hit points. These benefits last for 24 hours.
     `,
     range: {
@@ -8325,7 +8576,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       A willing creature you touch is imbued with bravery. Until the spell ends, the creature is
-      immune to being {@condition frightened} and gains temporary hit points equal to your
+      immune to being %{ref conditions frightened} and gains temporary hit points equal to your
       spellcasting ability modifier at the start of each of its turns. When the spell ends, the
       target loses any remaining temporary hit points from this spell.
     `,
@@ -8362,19 +8613,19 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       You place a curse on a creature that you can see within range. Until the spell ends, you deal
-      an extra {@damage 1d6} necrotic damage to the target whenever you hit it with an attack. Also,
+      an extra %{dice 1d6} necrotic damage to the target whenever you hit it with an attack. Also,
       choose one ability when you cast the spell. The target has disadvantage on ability checks made
       with the chosen ability.
 
       If the target drops to 0 hit points before this spell ends, you can use a bonus action on a
       subsequent turn of yours to curse a new creature.
 
-      A {@spell remove curse} cast on the target ends this spell early.
+      A %{ref spells removeCurse} cast on the target ends this spell early.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your
-      {@status concentration} on the spell for up to 8 hours. When you use a spell slot of 5th level
-      or higher, you can maintain your {@status concentration} on the spell for up to 24 hours.
+      concentration on the spell for up to 8 hours. When you use a spell slot of 5th level
+      or higher, you can maintain your concentration on the spell for up to 24 hours.
     `,
     range: {
       kind: "point",
@@ -8408,7 +8659,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       Choose a creature that you can see within range. The target must succeed on a Wisdom saving
-      throw or be {@condition paralyzed} for the duration. This spell has no effect on undead. At
+      throw or be %{ref conditions paralyzed} for the duration. This spell has no effect on undead. At
       the end of each of its turns, the target can make another Wisdom saving throw. On a success,
       the spell ends on the target.
     `,
@@ -8449,7 +8700,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       Choose a humanoid that you can see within range. The target must succeed on a Wisdom saving
-      throw or be {@condition paralyzed} for the duration. At the end of each of its turns, the
+      throw or be %{ref conditions paralyzed} for the duration. At the end of each of its turns, the
       target can make another Wisdom saving throw. On a success, the spell ends on the target.
     `,
     atHigherLevels: md`
@@ -8493,7 +8744,7 @@ export default collection<Spell>(ID, [
       5-foot radius and have advantage on all saving throws, and other creatures have disadvantage
       on attack rolls against them until the spell ends. In addition, when a fiend or an undead hits
       an affected creature with a melee attack, the aura flashes with brilliant light. The attacker
-      must succeed on a Constitution saving throw or be {@condition blinded} until the spell ends.
+      must succeed on a Constitution saving throw or be %{ref conditions blinded} until the spell ends.
     `,
     range: {
       kind: "self",
@@ -8532,12 +8783,12 @@ export default collection<Spell>(ID, [
       20-foot-radius sphere of blackness and bitter cold appears, centered on a point within range
       and lasting for the duration. This void is filled with a cacophony of soft whispers and
       slurping noises that can be heard up to 30 feet away. No light, magical or otherwise, can
-      illuminate the area, and creatures fully within the area are {@condition blinded}.
+      illuminate the area, and creatures fully within the area are %{ref conditions blinded}.
 
-      The void creates a warp in the fabric of space, and the area is {@quickref difficult
-      terrain||3}. Any creature that starts its turn in the area takes {@damage 2d6} cold damage.
-      Any creature that ends its turn in the area must succeed on a Dexterity saving throw or take
-      {@damage 2d6} acid damage as milky, otherworldly tentacles rub against it.
+      The void creates a warp in the fabric of space, and the area is difficult terrain. Any
+      creature that starts its turn in the area takes %{dice 2d6} cold damage. Any creature that
+      ends its turn in the area must succeed on a Dexterity saving throw or take %{dice 2d6} acid
+      damage as milky, otherworldly tentacles rub against it.
     `,
     range: {
       kind: "point",
@@ -8565,21 +8816,22 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "hunterSMark",
+    id: "huntersMark",
     name: "Hunter's Mark",
     level: 1,
     school: ref("magicSchools", "divination"),
     desc: md`
       You choose a creature you can see within range and mystically mark it as your quarry. Until
-      the spell ends, you deal an extra {@damage 1d6} damage to the target whenever you hit it with
-      a weapon attack, and you have advantage on any Wisdom ({@skill Perception}) or Wisdom ({@skill
-      Survival}) check you make to find it. If the target drops to 0 hit points before this spell
-      ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.
+      the spell ends, you deal an extra %{dice 1d6} damage to the target whenever you hit it with
+      a weapon attack, and you have advantage on any Wisdom (%{ref skills perception}) or Wisdom
+      (%{ref skills survival}) check you make to find it. If the target drops to 0 hit points before
+      this spell ends, you can use a bonus action on a subsequent turn of yours to mark a new
+      creature.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your
-      {@status concentration} on the spell for up to 8 hours. When you use a spell slot of 5th level
-      or higher, you can maintain your {@status concentration} on the spell for up to 24 hours.
+      concentration on the spell for up to 8 hours. When you use a spell slot of 5th level
+      or higher, you can maintain your concentration on the spell for up to 24 hours.
     `,
     range: {
       kind: "point",
@@ -8614,8 +8866,8 @@ export default collection<Spell>(ID, [
       You create a twisting pattern of colors that weaves through the air inside a 30-foot cube
       within range. The pattern appears for a moment and vanishes. Each creature in the area who
       sees the pattern must make a Wisdom saving throw. On a failed save, the creature becomes
-      {@condition charmed} for the duration. While {@condition charmed} by this spell, the creature
-      is {@condition incapacitated} and has a speed of 0.
+      %{ref conditions charmed} for the duration. While %{ref conditions charmed} by this spell, the creature
+      is %{ref conditions incapacitated} and has a speed of 0.
 
       The spell ends for an affected creature if it takes any damage or if someone else uses an
       action to shake the creature out of its stupor.
@@ -8656,15 +8908,15 @@ export default collection<Spell>(ID, [
     desc: md`
       A hail of rock-hard ice pounds to the ground in a 20-foot-radius, 40-foot-high cylinder
       centered on a point within range. Each creature in the cylinder must make a Dexterity saving
-      throw. A creature takes {@damage 2d8} bludgeoning damage and {@damage 4d6} cold damage on a
+      throw. A creature takes %{dice 2d8} bludgeoning damage and %{dice 4d6} cold damage on a
       failed save, or half as much damage on a successful one.
 
-      Hailstones turn the storm's area of effect into {@quickref difficult terrain||3} until the end
-      of your next turn.
+      Hailstones turn the storm's area of effect into difficult terrain until the end of your next
+      turn.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 5th level or higher, the bludgeoning damage
-      increases by {@scaledamage 2d8|4-9|1d8} for each slot level above 4th.
+      increases by %{dice 1d8} for each slot level above 4th.
     `,
     range: {
       kind: "point",
@@ -8747,7 +8999,7 @@ export default collection<Spell>(ID, [
 
       Should the spell be dispelled, the original script and the illusion both disappear.
 
-      A creature with {@sense truesight} can read the hidden message.
+      A creature with truesight can read the hidden message.
     `,
     range: {
       kind: "touch",
@@ -8790,31 +9042,45 @@ export default collection<Spell>(ID, [
 
       When you cast the spell, you choose one of the following forms of imprisonment.
 
-      [object Object]
+      **Burial.** The target is entombed far beneath the earth in a sphere of magical force that is
+      just large enough to contain the target. Nothing can pass through the sphere, nor can any
+      creature teleport or use planar travel to get into or out of it.
 
       The special component for this version of the spell is a small mithral orb.
 
-      [object Object]
+      **Chaining.** Heavy chains, firmly rooted in the ground, hold the target in place. The target
+      is restrained until the spell ends, and it can't move or be moved by any means until then.
 
       The special component for this version of the spell is a fine chain of precious metal.
 
-      [object Object]
+      **Hedged Prison.** The spell transports the target into a tiny demiplane that is warded
+      against teleportation and planar travel. The demiplane can be a labyrinth, a cage, a tower, or
+      any similar confined structure or area of your choice.
 
       The special component for this version of the spell is a miniature representation of the
       prison made from jade.
 
-      [object Object]
+      **Minimus Containment.** The target shrinks to a height of 1 inch and is imprisoned inside a
+      gemstone or similar object. Light can pass through the gemstone normally (allowing the target
+      to see out and other creatures to see in), but nothing else can pass through, even by means of
+      teleportation or planar travel. The gemstone can't be cut or broken while the spell remains in
+      effect.
 
       The special component for this version of the spell is a large, transparent gemstone, such as
       a corundum, diamond, or ruby.
 
-      [object Object]
+      **Slumber.** The target falls asleep and can't be awoken.
 
       The special component for this version of the spell consists of rare soporific herbs.
 
-      [object Object]
+      **Ending the Spell.** During the casting of the spell, in any of its versions, you can specify
+      a condition that will cause the spell to end and release the target. The condition can be as
+      specific or as elaborate as you choose, but the DM must agree that the condition is reasonable
+      and has a likelihood of coming to pass. The conditions can be based on a creature's name,
+      identity, or deity but otherwise must be based on observable actions or qualities and not
+      based on intangibles such as level, class, or hit points.
 
-      A {@spell dispel magic} spell can end the spell only if it is cast as a 9th-level spell,
+      A %{ref spells dispelMagic} spell can end the spell only if it is cast as a 9th-level spell,
       targeting either the prison or the special component used to create it.
 
       You can use a particular special component to create only one prison at a time. If you cast
@@ -8855,12 +9121,12 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       A swirling cloud of smoke shot through with white-hot embers appears in a 20-foot-radius
-      sphere centered on a point within range. The cloud spreads around corners and is {@quickref
-      Vision and Light|PHB|2||heavily obscured}. It lasts for the duration or until a wind of
-      moderate or greater speed (at least 10 miles per hour) disperses it.
+      sphere centered on a point within range. The cloud spreads around corners and is heavily
+      obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10
+      miles per hour) disperses it.
 
       When the cloud appears, each creature in it must make a Dexterity saving throw. A creature
-      takes {@damage 10d8} fire damage on a failed save, or half as much damage on a successful one.
+      takes %{dice 10d8} fire damage on a failed save, or half as much damage on a successful one.
       A creature must also make this saving throw when it enters the spell's area for the first time
       on a turn or ends its turn there.
 
@@ -8898,11 +9164,11 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "necromancy"),
     desc: md`
       Make a melee spell attack against a creature you can reach. On a hit, the target takes
-      {@damage 3d10} necrotic damage.
+      %{dice 3d10} necrotic damage.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 3d10|1-9|1d10} for each slot level above 1st.
+      %{dice 1d10} for each slot level above 1st.
     `,
     range: {
       kind: "touch",
@@ -8931,17 +9197,16 @@ export default collection<Spell>(ID, [
     desc: md`
       Swarming, biting locusts fill a 20-foot-radius sphere centered on a point you choose within
       range. The sphere spreads around corners. The sphere remains for the duration, and its area is
-      {@quickref Vision and Light|PHB|2||lightly obscured}. The sphere's area is {@quickref
-      difficult terrain||3}.
+      lightly obscured. The sphere's area is difficult terrain.
 
       When the area appears, each creature in it must make a Constitution saving throw. A creature
-      takes {@damage 4d10} piercing damage on a failed save, or half as much damage on a successful
+      takes %{dice 4d10} piercing damage on a failed save, or half as much damage on a successful
       one. A creature must also make this saving throw when it enters the spell's area for the first
       time on a turn or ends its turn there.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 6th level or higher, the damage increases by
-      {@scaledamage 4d10|5-9|1d10} for each slot level above 5th.
+      %{dice 1d10} for each slot level above 5th.
     `,
     range: {
       kind: "point",
@@ -8977,8 +9242,8 @@ export default collection<Spell>(ID, [
     level: 2,
     school: ref("magicSchools", "illusion"),
     desc: md`
-      A creature you touch becomes {@condition invisible} until the spell ends. Anything the target
-      is wearing or carrying is {@condition invisible} as long as it is on the target's person. The
+      A creature you touch becomes %{ref conditions invisible} until the spell ends. Anything the target
+      is wearing or carrying is %{ref conditions invisible} as long as it is on the target's person. The
       spell ends for a target that attacks or casts a spell.
     `,
     atHigherLevels: md`
@@ -9014,8 +9279,7 @@ export default collection<Spell>(ID, [
     level: 1,
     school: ref("magicSchools", "transmutation"),
     desc: md`
-      You touch a creature. The creature's {@book jump distance|phb|8|Jumping} is tripled until the
-      spell ends.
+      You touch a creature. The creature's jump distance is tripled until the spell ends.
     `,
     range: {
       kind: "touch",
@@ -9046,14 +9310,14 @@ export default collection<Spell>(ID, [
     level: 2,
     school: ref("magicSchools", "transmutation"),
     desc: md`
-      Choose an object that you can see within range. The object can be a door, a box, a {@item
-      chest|phb}, a set of {@item manacles|phb}, a padlock, or another object that contains a
+      Choose an object that you can see within range. The object can be a door, a box, a {@ref items
+      chest}, a set of %{ref items manacles}, a padlock, or another object that contains a
       mundane or magical means that prevents access.
 
       A target that is held shut by a mundane lock or that is stuck or barred becomes unlocked,
       unstuck, or unbarred. If the object has multiple locks, only one of them is unlocked.
 
-      If you choose a target that is held shut with {@spell arcane lock}, that spell is suppressed
+      If you choose a target that is held shut with %{ref spells arcaneLock}, that spell is suppressed
       for 10 minutes, during which time the target can be opened and shut normally.
 
       When you cast the spell, a loud knock, audible from as far away as 300 feet, emanates from the
@@ -9137,10 +9401,10 @@ export default collection<Spell>(ID, [
       can send the chest back to the Ethereal Plane by using an action and touching both the chest
       and the replica.
 
-      After 60 days, there is a cumulative {@chance 5|||Effect ends!|Effect continues} chance per
-      day that the spell's effect ends. This effect ends if you cast this spell again, if the
-      smaller replica chest is destroyed, or if you choose to end the spell as an action. If the
-      spell ends and the larger chest is on the Ethereal Plane, it is irretrievably lost.
+      After 60 days, there is a cumulative 5 percent chance per day that the spell's effect ends.
+      This effect ends if you cast this spell again, if the smaller replica chest is destroyed, or
+      if you choose to end the spell as an action. If the spell ends and the larger chest is on the
+      Ethereal Plane, it is irretrievably lost.
     `,
     range: {
       kind: "touch",
@@ -9222,8 +9486,8 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "abjuration"),
     desc: md`
       You touch a creature and can end either one disease or one condition afflicting it. The
-      condition can be {@condition blinded}, {@condition deafened}, {@condition paralyzed}, or
-      {@condition poisoned}.
+      condition can be %{ref conditions blinded}, %{ref conditions deafened}, %{ref conditions paralyzed}, or
+      %{ref conditions poisoned}.
     `,
     range: {
       kind: "touch",
@@ -9336,18 +9600,18 @@ export default collection<Spell>(ID, [
     desc: md`
       The next time you make a ranged weapon attack during the spell's duration, the weapon's
       ammunition, or the weapon itself if it's a thrown weapon, transforms into a bolt of lightning.
-      Make the attack roll as normal. The target takes {@damage 4d8} lightning damage on a hit, or
+      Make the attack roll as normal. The target takes %{dice 4d8} lightning damage on a hit, or
       half as much damage on a miss, instead of the weapon's normal damage.
 
       Whether you hit or miss, each creature within 10 feet of the target must make a Dexterity
-      saving throw. Each of these creatures takes {@damage 2d8} lightning damage on a failed save,
+      saving throw. Each of these creatures takes %{dice 2d8} lightning damage on a failed save,
       or half as much damage on a successful one.
 
       The piece of ammunition or weapon then returns to its normal form.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 4th level or higher, the damage for both
-      effects of the spell increases by {@scaledamage 4d8;2d8|3-9|1d8} for each slot level above
+      effects of the spell increases by %{dice 1d8} for each slot level above
       3rd.
     `,
     range: {
@@ -9380,14 +9644,14 @@ export default collection<Spell>(ID, [
     desc: md`
       A stroke of lightning forming a line 100 feet long and 5 feet wide blasts out from you in a
       direction you choose. Each creature in the line must make a Dexterity saving throw. A creature
-      takes {@damage 8d6} lightning damage on a failed save, or half as much damage on a successful
+      takes %{dice 8d6} lightning damage on a failed save, or half as much damage on a successful
       one.
 
       The lightning ignites flammable objects in the area that aren't being worn or carried.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 4th level or higher, the damage increases by
-      {@scaledamage 8d6|3-9|1d6} for each slot level above 3rd.
+      %{dice 1d6} for each slot level above 3rd.
     `,
     range: {
       kind: "self",
@@ -9460,10 +9724,10 @@ export default collection<Spell>(ID, [
       know the direction of its movement.
 
       The spell can locate a specific creature known to you, or the nearest creature of a specific
-      kind (such as a human or a {@creature unicorn}), so long as you have seen such a creature up
+      kind (such as a human or a %{ref monsters unicorn}), so long as you have seen such a creature up
       close—within 30 feet—at least once. If the creature you described or named is in a different
-      form, such as being under the effects of a {@spell polymorph} spell, this spell doesn't locate
-      the creature.
+      form, such as being under the effects of a %{ref spells polymorph} spell, this spell doesn't
+      locate the creature.
 
       This spell can't locate a creature if running water at least 10 feet wide blocks a direct path
       between you and the creature.
@@ -9652,7 +9916,11 @@ export default collection<Spell>(ID, [
       Choose one or more of the following types of creatures: celestials, elementals, fey, fiends,
       or undead. The circle affects a creature of the chosen type in the following ways:
 
-      [object Object]
+      - The creature can't willingly enter the cylinder by nonmagical means. If the creature tries to
+        use teleportation or interplanar travel to do so, it must first succeed on a Charisma saving
+        throw.
+      - The creature has disadvantage on attack rolls against targets within the cylinder.
+      - Targets within the cylinder can't be charmed, frightened, or possessed by the creature.
 
       When you cast this spell, you can elect to cause its magic to operate in the reverse
       direction, preventing a creature of the specified type from leaving the cylinder and
@@ -9705,11 +9973,11 @@ export default collection<Spell>(ID, [
       humanoid's body.
 
       You can attempt to possess any humanoid within 100 feet of you that you can see (creatures
-      warded by a {@spell protection from evil and good} or {@spell magic circle} spell can't be
-      possessed). The target must make a Charisma saving throw. On a failure, your soul moves into
-      the target's body, and the target's soul becomes trapped in the container. On a success, the
-      target resists your efforts to possess it, and you can't attempt to possess it again for 24
-      hours.
+      warded by a %{ref spells protectionFromEvilAndGood} or %{ref spells magicCircle} spell can't
+      be possessed). The target must make a Charisma saving throw. On a failure, your soul moves
+      into the target's body, and the target's soul becomes trapped in the container. On a success,
+      the target resists your efforts to possess it, and you can't attempt to possess it again for
+      24 hours.
 
       Once you possess a creature's body, you control it. Your game statistics are replaced by the
       statistics of the creature, though you retain your alignment and your Intelligence, Wisdom,
@@ -9765,7 +10033,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       You create three glowing darts of magical force. Each dart hits a creature of your choice that
-      you can see within range. A dart deals {@damage 1d4 + 1} force damage to its target. The darts
+      you can see within range. A dart deals %{dice 1d4 + 1} force damage to its target. The darts
       all strike simultaneously, and you can direct them to hit one creature or several.
     `,
     atHigherLevels: md`
@@ -9890,7 +10158,7 @@ export default collection<Spell>(ID, [
       lasts for the duration. It seems completely real, including sounds, smells, and temperature
       appropriate to the thing depicted. You can't create sufficient heat or cold to cause damage, a
       sound loud enough to deal thunder damage or deafen a creature, or a smell that might sicken a
-      creature (like a {@creature troglodyte||troglodyte's} stench).
+      creature (like a %{ref monsters troglodyte|troglodyte's} stench).
 
       As long as you are within range of the illusion, you can use your action to cause the image to
       move to any other spot within range. As the image changes location, you can alter its
@@ -9901,13 +10169,13 @@ export default collection<Spell>(ID, [
 
       Physical interaction with the image reveals it to be an illusion, because things can pass
       through it. A creature that uses its action to examine the image can determine that it is an
-      illusion with a successful Intelligence ({@skill Investigation}) check against your spell save
-      DC. If a creature discerns the illusion for what it is, the creature can see through the
+      illusion with a successful Intelligence (%{ref skills investigation}) check against your spell
+      save DC. If a creature discerns the illusion for what it is, the creature can see through the
       image, and its other sensory qualities become faint to the creature.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 6th level or higher, the spell lasts until
-      dispelled, without requiring your {@status concentration}.
+      dispelled, without requiring your concentration.
     `,
     range: {
       kind: "point",
@@ -9942,12 +10210,12 @@ export default collection<Spell>(ID, [
     desc: md`
       A wave of healing energy washes out from a point of your choice within range. Choose up to six
       creatures in a 30-foot-radius sphere centered on that point. Each target regains hit points
-      equal to {@dice 3d8} + your spellcasting ability modifier. This spell has no effect on undead
+      equal to %{dice 3d8} + your spellcasting ability modifier. This spell has no effect on undead
       or constructs.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 6th level or higher, the healing increases by
-      {@scaledice 3d8|5-9|1d8} for each slot level above 5th.
+      %{dice 1d8} for each slot level above 5th.
     `,
     range: {
       kind: "point",
@@ -9979,7 +10247,7 @@ export default collection<Spell>(ID, [
       A flood of healing energy flows from you into injured creatures around you. You restore up to
       700 hit points, divided as you choose among any number of creatures that you can see within
       range. Creatures healed by this spell are also cured of all diseases and any effect making
-      them {@condition blinded} or {@condition deafened}. This spell has no effect on undead or
+      them %{ref conditions blinded} or %{ref conditions deafened}. This spell has no effect on undead or
       constructs.
     `,
     range: {
@@ -10010,12 +10278,12 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       As you call out words of restoration, up to six creatures of your choice that you can see
-      within range regain hit points equal to {@dice 1d4} + your spellcasting ability modifier. This
+      within range regain hit points equal to %{dice 1d4} + your spellcasting ability modifier. This
       spell has no effect on undead or constructs.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 4th level or higher, the healing increases by
-      {@scaledice 1d4|3-9|1d4} for each slot level above 3rd.
+      %{dice 1d4} for each slot level above 3rd.
     `,
     range: {
       kind: "point",
@@ -10046,7 +10314,7 @@ export default collection<Spell>(ID, [
     desc: md`
       You suggest a course of activity (limited to a sentence or two) and magically influence up to
       twelve creatures of your choice that you can see within range and that can hear and understand
-      you. Creatures that can't be {@condition charmed} are immune to this effect. The suggestion
+      you. Creatures that can't be %{ref conditions charmed} are immune to this effect. The suggestion
       must be worded in such a manner as to make the course of action sound reasonable. Asking the
       creature to stab itself, throw itself onto a spear, immolate itself, or do some other
       obviously harmful act automatically negates the effect of the spell.
@@ -10106,8 +10374,8 @@ export default collection<Spell>(ID, [
       remains there for the duration or until it escapes the maze.
 
       The target can use its action to attempt to escape. When it does so, it makes a DC 20
-      Intelligence check. If it succeeds, it escapes, and the spell ends (a {@creature minotaur} or
-      {@creature goristro} demon automatically succeeds).
+      Intelligence check. If it succeeds, it escapes, and the spell ends (a %{ref monsters minotaur}
+      or %{ref monsters goristro} demon automatically succeeds).
 
       When the spell ends, the target reappears in the space it left or, if that space is occupied,
       in the nearest unoccupied space.
@@ -10147,17 +10415,17 @@ export default collection<Spell>(ID, [
       you step into the stone at a point you can touch. Nothing of your presence remains visible or
       otherwise detectable by nonmagical senses.
 
-      While merged with the stone, you can't see what occurs outside it, and any Wisdom ({@skill
-      Perception}) checks you make to hear sounds outside it are made with disadvantage. You remain
-      aware of the passage of time and can cast spells on yourself while merged in the stone. You
-      can use your movement to leave the stone where you entered it, which ends the spell. You
+      While merged with the stone, you can't see what occurs outside it, and any Wisdom ({@ref
+      skills perception}) checks you make to hear sounds outside it are made with disadvantage. You
+      remain aware of the passage of time and can cast spells on yourself while merged in the stone.
+      You can use your movement to leave the stone where you entered it, which ends the spell. You
       otherwise can't move.
 
       Minor physical damage to the stone doesn't harm you, but its partial destruction or a change
-      in its shape (to the extent that you no longer fit within it) expels you and deals {@damage
+      in its shape (to the extent that you no longer fit within it) expels you and deals {@dice
       6d6} bludgeoning damage to you. The stone's complete destruction (or transmutation into a
       different substance) expels you and deals 50 bludgeoning damage to you. If expelled, you fall
-      {@condition prone} in an unoccupied space closest to where you first entered.
+      %{ref conditions prone} in an unoccupied space closest to where you first entered.
     `,
     range: {
       kind: "touch",
@@ -10188,14 +10456,14 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       A shimmering green arrow streaks toward a target within range and bursts in a spray of acid.
-      Make a ranged spell attack against the target. On a hit, the target takes {@damage 4d4} acid
-      damage immediately and {@damage 2d4} acid damage at the end of its next turn. On a miss, the
+      Make a ranged spell attack against the target. On a hit, the target takes %{dice 4d4} acid
+      damage immediately and %{dice 2d4} acid damage at the end of its next turn. On a miss, the
       arrow splashes the target with acid for half as much of the initial damage and no damage at
       the end of its next turn.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, the damage (both initial
-      and later) increases by {@scaledamage 4d4;2d4|2-9|1d4} for each slot level above 2nd.
+      and later) increases by %{dice 1d4} for each slot level above 2nd.
     `,
     range: {
       kind: "point",
@@ -10302,8 +10570,8 @@ export default collection<Spell>(ID, [
     desc: md`
       Blazing orbs of fire plummet to the ground at four different points you can see within range.
       Each creature in a 40-foot-radius sphere centered on each point you choose must make a
-      Dexterity saving throw. The sphere spreads around corners. A creature takes {@damage 20d6}
-      fire damage and {@damage 20d6} bludgeoning damage on a failed save, or half as much damage on
+      Dexterity saving throw. The sphere spreads around corners. A creature takes %{dice 20d6}
+      fire damage and %{dice 20d6} bludgeoning damage on a failed save, or half as much damage on
       a successful one. A creature in the area of more than one fiery burst is affected only once.
 
       The spell damages objects in the area and ignites flammable objects that aren't being worn or
@@ -10337,9 +10605,9 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "abjuration"),
     desc: md`
       Until the spell ends, one willing creature you touch is immune to psychic damage, any effect
-      that would sense its emotions or read its thoughts, divination spells, and the {@condition
-      charmed} condition. The spell even foils {@spell wish} spells and spells or effects of similar
-      power used to affect the target's mind or to gain information about the target.
+      that would sense its emotions or read its thoughts, divination spells, and the {@ref
+      conditions charmed} condition. The spell even foils %{ref spells wish} spells and spells or effects
+      of similar power used to affect the target's mind or to gain information about the target.
     `,
     range: {
       kind: "touch",
@@ -10383,9 +10651,9 @@ export default collection<Spell>(ID, [
       things can pass through it.
 
       If a creature uses its action to examine the sound or image, the creature can determine that
-      it is an illusion with a successful Intelligence ({@skill Investigation}) check against your
-      spell save DC. If a creature discerns the illusion for what it is, the illusion becomes faint
-      to the creature.
+      it is an illusion with a successful Intelligence (%{ref skills investigation}) check against
+      your spell save DC. If a creature discerns the illusion for what it is, the illusion becomes
+      faint to the creature.
     `,
     range: {
       kind: "point",
@@ -10428,11 +10696,11 @@ export default collection<Spell>(ID, [
       spell doesn't disguise, conceal, or add creatures.
 
       The illusion includes audible, visual, tactile, and olfactory elements, so it can turn clear
-      ground into {@quickref difficult terrain||3} (or vice versa) or otherwise impede movement
+      ground into difficult terrain (or vice versa) or otherwise impede movement
       through the area. Any piece of the illusory terrain (such as a rock or stick) that is removed
       from the spell's area disappears immediately.
 
-      Creatures with {@sense truesight} can see through the illusion to the terrain's true form;
+      Creatures with truesight can see through the illusion to the terrain's true form;
       however, all other elements of the illusion remain, so while the creature is aware of the
       illusion's presence, the creature can still physically interact with the illusion.
     `,
@@ -10480,8 +10748,7 @@ export default collection<Spell>(ID, [
       ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
 
       A creature is unaffected by this spell if it can't see, if it relies on senses other than
-      sight, such as blindsight, or if it can perceive illusions as false, as with {@sense
-      truesight}.
+      sight, such as blindsight, or if it can perceive illusions as false, as with truesight.
     `,
     range: {
       kind: "self",
@@ -10511,7 +10778,7 @@ export default collection<Spell>(ID, [
     level: 5,
     school: ref("magicSchools", "illusion"),
     desc: md`
-      You become {@condition invisible} at the same time that an illusory double of you appears
+      You become %{ref conditions invisible} at the same time that an illusory double of you appears
       where you are standing. The double lasts for the duration, but the invisibility ends if you
       attack or cast a spell.
 
@@ -10520,8 +10787,7 @@ export default collection<Spell>(ID, [
 
       You can see through its eyes and hear through its ears as if you were located where it is. On
       each of your turns as a bonus action, you can switch from using its senses to using your own,
-      or back again. While you are using its senses, you are {@condition blinded} and {@condition
-      deafened} in regard to your own surroundings.
+      or back again. While you are using its senses, you are %{ref conditions blinded} and %{ref conditions deafened} in regard to your own surroundings.
     `,
     range: {
       kind: "self",
@@ -10581,8 +10847,8 @@ export default collection<Spell>(ID, [
     desc: md`
       You attempt to reshape another creature's memories. One creature that you can see must make a
       Wisdom saving throw. If you are fighting the creature, it has advantage on the saving throw.
-      On a failed save, the target becomes {@condition charmed} by you for the duration. The
-      {@condition charmed} target is {@condition incapacitated} and unaware of its surroundings,
+      On a failed save, the target becomes %{ref conditions charmed} by you for the duration. The
+      %{ref conditions charmed} target is %{ref conditions incapacitated} and unaware of its surroundings,
       though it can still hear you. If it takes any damage or is targeted by another spell, this
       spell ends, and none of the target's memories are modified.
 
@@ -10604,7 +10870,7 @@ export default collection<Spell>(ID, [
       in acid, is dismissed, perhaps as a bad dream. The DM might deem a modified memory too
       nonsensical to affect a creature in a significant manner.
 
-      A {@spell remove curse} or {@spell greater restoration} spell cast on the target restores the
+      A %{ref spells removeCurse} or %{ref spells greaterRestoration} spell cast on the target restores the
       creature's true memory.
     `,
     atHigherLevels: md`
@@ -10647,7 +10913,7 @@ export default collection<Spell>(ID, [
 
       When a creature enters the spell's area for the first time on a turn or starts its turn there,
       it is engulfed in ghostly flames that cause searing pain, and it must make a Constitution
-      saving throw. It takes {@damage 2d10} radiant damage on a failed save, or half as much damage
+      saving throw. It takes %{dice 2d10} radiant damage on a failed save, or half as much damage
       on a successful one.
 
       A shapechanger makes its saving throw with disadvantage. If it fails, it also instantly
@@ -10659,7 +10925,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, the damage increases by
-      {@scaledamage 2d10|2-9|1d10} for each slot level above 2nd.
+      %{dice 1d10} for each slot level above 2nd.
     `,
     range: {
       kind: "point",
@@ -10699,14 +10965,14 @@ export default collection<Spell>(ID, [
       remains for the duration, until you dismiss it as an action, or until you move more than 100
       feet away from it.
 
-      The hound is {@condition invisible} to all creatures except you and can't be harmed. When a
+      The hound is %{ref conditions invisible} to all creatures except you and can't be harmed. When a
       Small or larger creature comes within 30 feet of it without first speaking the password that
       you specify when you cast this spell, the hound starts barking loudly. The hound sees
-      {@condition invisible} creatures and can see into the Ethereal Plane. It ignores illusions.
+      %{ref conditions invisible} creatures and can see into the Ethereal Plane. It ignores illusions.
 
       At the start of each of your turns, the hound attempts to bite one creature within 5 feet of
       it that is hostile to you. The hound's attack bonus is equal to your spellcasting ability
-      modifier + your proficiency bonus. On a hit, it deals {@damage 4d8} piercing damage.
+      modifier + your proficiency bonus. On a hit, it deals %{dice 4d8} piercing damage.
     `,
     range: {
       kind: "point",
@@ -10794,7 +11060,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "mordenkainenSPrivateSanctum",
+    id: "mordenkainensPrivateSanctum",
     name: "Mordenkainen's Private Sanctum",
     level: 4,
     school: ref("magicSchools", "abjuration"),
@@ -10806,7 +11072,14 @@ export default collection<Spell>(ID, [
       When you cast the spell, you decide what sort of security the spell provides, choosing any or
       all of the following properties:
 
-      [object Object]
+      - Sound can't pass through the barrier at the edge of the warded area.
+      - The barrier of the warded area appears dark and foggy, preventing vision (including
+        darkvision) through it.
+      - Sensors created by divination spells can't appear inside the protected area or pass through
+        the barrier at its perimeter.
+      - Creatures in the area can't be targeted by divination spells.
+      - Nothing can teleport into or out of the warded area.
+      - Planar travel is blocked within the warded area.
 
       Casting this spell on the same spot every day for a year makes this effect permanent.
     `,
@@ -10852,7 +11125,7 @@ export default collection<Spell>(ID, [
       You create a sword-shaped plane of force that hovers within range. It lasts for the duration.
 
       When the sword appears, you make a melee spell attack against a target of your choice within 5
-      feet of the sword. On a hit, the target takes {@damage 3d10} force damage. Until the spell
+      feet of the sword. On a hit, the target takes %{dice 3d10} force damage. Until the spell
       ends, you can use a bonus action on each of your turns to move the sword up to 20 feet to a
       spot you can see and repeat this attack against the same target or a different one.
     `,
@@ -10899,8 +11172,8 @@ export default collection<Spell>(ID, [
       square's elevation by up to 20 feet, dig a trench up to 20 feet deep, and so on. It takes 10
       minutes for these changes to complete.
 
-      At the end of every 10 minutes you spend {@status concentration||concentrating} on the spell,
-      you can choose a new area of terrain to affect.
+      At the end of every 10 minutes you spend concentrating on the spell, you can choose a new area
+      of terrain to affect.
 
       Because the terrain's transformation occurs slowly, creatures in the area can't usually be
       trapped or injured by the ground's movement.
@@ -10978,7 +11251,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "nystulSMagicAura",
+    id: "nystulsMagicAura",
     name: "Nystul's Magic Aura",
     level: 2,
     school: ref("magicSchools", "illusion"),
@@ -10991,9 +11264,16 @@ export default collection<Spell>(ID, [
       duration. If you cast this spell on the same creature or object every day for 30 days, placing
       the same effect on it each time, the illusion lasts until it is dispelled.
 
-      [object Object]
+      **False Aura.** You change the way the target appears to spells and magical effects, such as
+      detect magic, that detect magical auras. You can make a nonmagical object appear magical, a
+      magical object appear nonmagical, or change the object's magical aura so that it appears to
+      belong to a specific school of magic that you choose. When you use this effect on an object,
+      you can make the false magic apparent to any creature that handles the item.
 
-      [object Object]
+      **Mask.** You change the way the target appears to spells and magical effects that detect
+      creature types, such as a paladin's Divine Sense or the trigger of a symbol spell. You choose
+      a creature type and other spells and magical effects treat the target as if it were a creature
+      of that type or of that alignment.
     `,
     range: {
       kind: "touch",
@@ -11026,7 +11306,7 @@ export default collection<Spell>(ID, [
     desc: md`
       A frigid globe of cold energy streaks from your fingertips to a point of your choice within
       range, where it explodes in a 60-foot-radius sphere. Each creature within the area must make a
-      Constitution saving throw. On a failed save, a creature takes {@damage 10d6} cold damage. On a
+      Constitution saving throw. On a failed save, a creature takes %{dice 10d6} cold damage. On a
       successful save, it takes half as much damage.
 
       If the globe strikes a body of water or a liquid that is principally water (not including
@@ -11044,7 +11324,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 7th level or higher, the damage increases by
-      {@scaledamage 10d6|6-9|1d6} for each slot level above 6th.
+      %{dice 1d6} for each slot level above 6th.
     `,
     range: {
       kind: "point",
@@ -11088,7 +11368,7 @@ export default collection<Spell>(ID, [
       sphere at up to half the creature's speed. Similarly, the globe can be picked up and moved by
       other creatures.
 
-      A {@spell disintegrate} spell targeting the globe destroys it without harming anything inside
+      A %{ref spells disintegrate} spell targeting the globe destroys it without harming anything inside
       it.
     `,
     range: {
@@ -11127,7 +11407,7 @@ export default collection<Spell>(ID, [
     desc: md`
       Choose one creature that you can see within range. The target begins a comic dance in place:
       shuffling, tapping its feet, and capering for the duration. Creatures that can't be
-      {@condition charmed} are immune to this spell.
+      %{ref conditions charmed} are immune to this spell.
 
       A dancing creature must use all its movement to dance without leaving its space and has
       disadvantage on Dexterity saving throws and attack rolls. While the target is affected by this
@@ -11167,7 +11447,7 @@ export default collection<Spell>(ID, [
     desc: md`
       A veil of shadows and silence radiates from you, masking you and your companions from
       detection. For the duration, each creature you choose within 30 feet of you (including you)
-      has a +10 bonus to Dexterity ({@skill Stealth}) checks and can't be tracked except by magical
+      has a +10 bonus to Dexterity (%{ref skills stealth}) checks and can't be tracked except by magical
       means. A creature that receives this bonus leaves behind no tracks or other traces of its
       passage.
     `,
@@ -11252,8 +11532,8 @@ export default collection<Spell>(ID, [
       The phantasm includes sound, temperature, and other stimuli, also evident only to the
       creature.
 
-      The target can use its action to examine the phantasm with an Intelligence ({@skill
-      Investigation}) check against your spell save DC. If the check succeeds, the target realizes
+      The target can use its action to examine the phantasm with an Intelligence ({@ref skills
+      investigation}) check against your spell save DC. If the check succeeds, the target realizes
       that the phantasm is an illusion, and the spell ends.
 
       While a target is affected by the spell, the target treats the phantasm as if it were real.
@@ -11266,7 +11546,7 @@ export default collection<Spell>(ID, [
       An affected target is so convinced of the phantasm's reality that it can even take damage from
       the illusion. A phantasm created to appear as a creature can attack the target. Similarly, a
       phantasm created to appear as fire, a pool of acid, or lava can burn the target. Each round on
-      your turn, the phantasm can deal {@damage 1d6} psychic damage to the target if it is in the
+      your turn, the phantasm can deal %{dice 1d6} psychic damage to the target if it is in the
       phantasm's area or within 5 feet of the phantasm, provided that the illusion is of a creature
       or hazard that could logically deal damage, such as by attacking. The target perceives the
       damage as a type appropriate to the illusion.
@@ -11304,14 +11584,14 @@ export default collection<Spell>(ID, [
     desc: md`
       You tap into the nightmares of a creature you can see within range and create an illusory
       manifestation of its deepest fears, visible only to that creature. The target must make a
-      Wisdom saving throw. On a failed save, the target becomes {@condition frightened} for the
+      Wisdom saving throw. On a failed save, the target becomes %{ref conditions frightened} for the
       duration. At the end of each of the target's turns before the spell ends, the target must
-      succeed on a Wisdom saving throw or take {@damage 4d10} psychic damage. On a successful save,
+      succeed on a Wisdom saving throw or take %{dice 4d10} psychic damage. On a successful save,
       the spell ends.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 5th level or higher, the damage increases by
-      {@scaledamage 4d10|4-9|1d10} for each slot level above 4th.
+      %{dice 1d10} for each slot level above 4th.
     `,
     range: {
       kind: "point",
@@ -11349,10 +11629,10 @@ export default collection<Spell>(ID, [
       is carried more than 10 feet away from the steed.
 
       For the duration, you or a creature you choose can ride the steed. The creature uses the
-      statistics for a {@creature riding horse}, except it has a speed of 100 feet and can travel 10
-      miles in an hour, or 13 miles at a fast pace. When the spell ends, the steed gradually fades,
-      giving the rider 1 minute to dismount. The spell ends if you use an action to dismiss it or if
-      the steed takes any damage.
+      statistics for a %{ref monsters ridingHorse}, except it has a speed of 100 feet and can
+      travel 10 miles in an hour, or 13 miles at a fast pace. When the spell ends, the steed
+      gradually fades, giving the rider 1 minute to dismount. The spell ends if you use an action to
+      dismiss it or if the steed takes any damage.
     `,
     range: {
       kind: "point",
@@ -11385,13 +11665,11 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       You beseech an otherworldly entity for aid. The being must be known to you: a god, a
-      primordial, a demon prince, or some other being of cosmic power. That entity sends a {@filter
-      celestial|bestiary|type=celestial|miscellaneous=!swarm}, an {@filter
-      elemental|bestiary|type=elemental|miscellaneous=!swarm}, or a {@filter
-      fiend|bestiary|type=fiend|miscellaneous=!swarm} loyal to it to aid you, making the creature
-      appear in an unoccupied space within range. If you know a specific creature's name, you can
-      speak that name when you cast this spell to request that creature, though you might get a
-      different creature anyway (DM's choice).
+      primordial, a demon prince, or some other being of cosmic power. That entity sends a {@ref
+      monsterTypes celestial}, an %{ref monsterTypes elemental}, or a %{ref monsterTypes fiend}
+      loyal to it to aid you, making the creature appear in an unoccupied space within range. If you
+      know a specific creature's name, you can speak that name when you cast this spell to request
+      that creature, though you might get a different creature anyway (DM's choice).
 
       When the creature appears, it is under no compulsion to behave in any particular way. You can
       ask the creature to perform a service in exchange for payment, but it isn't obliged to do so.
@@ -11446,17 +11724,14 @@ export default collection<Spell>(ID, [
     level: 5,
     school: ref("magicSchools", "abjuration"),
     desc: md`
-      With this spell, you attempt to bind a {@filter
-      celestial|bestiary|type=celestial|miscellaneous=!swarm}, an {@filter
-      elemental|bestiary|type=elemental|miscellaneous=!swarm}, a {@filter
-      fey|bestiary|type=fey|miscellaneous=!swarm}, or a {@filter
-      fiend|bestiary|type=fiend|miscellaneous=!swarm} to your service. The creature must be within
-      range for the entire casting of the spell. (Typically, the creature is first summoned into the
-      center of an inverted {@spell magic circle} in order to keep it trapped while this spell is
-      cast.) At the completion of the casting, the target must make a Charisma saving throw. On a
-      failed save, it is bound to serve you for the duration. If the creature was summoned or
-      created by another spell, that spell's duration is extended to match the duration of this
-      spell.
+      With this spell, you attempt to bind a %{ref monsterTypes celestial}, an {@ref monsterTypes
+      elemental}, a %{ref monsterTypes fey}, or a %{ref monsterTypes fiend} to your service. The
+      creature must be within range for the entire casting of the spell. (Typically, the creature is
+      first summoned into the center of an inverted %{ref spells magicCircle} in order to keep it
+      trapped while this spell is cast.) At the completion of the casting, the target must make a
+      Charisma saving throw. On a failed save, it is bound to serve you for the duration. If the
+      creature was summoned or created by another spell, that spell's duration is extended to match
+      the duration of this spell.
 
       A bound creature must follow your instructions to the best of its ability. You might command
       the creature to accompany you on an adventure, to guard a location, or to deliver a message.
@@ -11599,11 +11874,11 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       You extend your hand toward a creature you can see within range and project a puff of noxious
-      gas from your palm. The creature must succeed on a Constitution saving throw or take {@damage
+      gas from your palm. The creature must succeed on a Constitution saving throw or take {@dice
       1d12} poison damage.
 
-      This spell's damage increases by {@dice 1d12} when you reach 5th level ({@damage 2d12}), 11th
-      level ({@damage 3d12}), and 17th level ({@damage 4d12}).
+      This spell's damage increases by %{dice 1d12} when you reach 5th level (%{dice 2d12}), 11th
+      level (%{dice 3d12}), and 17th level (%{dice 4d12}).
     `,
     range: {
       kind: "point",
@@ -11637,7 +11912,7 @@ export default collection<Spell>(ID, [
       shapechanger or a creature with 0 hit points.
 
       The transformation lasts for the duration, or until the target drops to 0 hit points or dies.
-      The new form can be {@filter any beast|bestiary|type=beast|miscellaneous=!swarm} whose
+      The new form can be %{ref monsterTypes beast} whose
       challenge rating is equal to or less than the target's (or the target's level, if it doesn't
       have a challenge rating). The target's game statistics, including mental ability scores, are
       replaced by the statistics of the chosen beast. It retains its alignment and personality.
@@ -11686,9 +11961,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       A wave of healing energy washes over the creature you touch. The target regains all its hit
-      points. If the creature is {@condition charmed}, {@condition frightened}, {@condition
-      paralyzed}, or {@condition stunned}, the condition ends. If the creature is {@condition
-      prone}, it can use its reaction to stand up. This spell has no effect on undead or constructs.
+      points. If the creature is %{ref conditions charmed}, %{ref conditions frightened}, %{ref conditions paralyzed}, or %{ref conditions stunned}, the condition ends. If the creature is %{ref conditions prone}, it can use its reaction to stand up. This spell has no effect on undead or constructs.
     `,
     range: {
       kind: "touch",
@@ -11747,10 +12020,9 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "enchantment"),
     desc: md`
       You speak a word of power that can overwhelm the mind of one creature you can see within
-      range, leaving it dumbfounded. If the target has 150 hit points or fewer, it is {@condition
-      stunned}. Otherwise, the spell has no effect.
+      range, leaving it dumbfounded. If the target has 150 hit points or fewer, it is %{ref conditions stunned}. Otherwise, the spell has no effect.
 
-      The {@condition stunned} target must make a Constitution saving throw at the end of each of
+      The %{ref conditions stunned} target must make a Constitution saving throw at the end of each of
       its turns. On a successful save, this stunning effect ends.
     `,
     range: {
@@ -11781,12 +12053,12 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       Up to six creatures of your choice that you can see within range each regain hit points equal
-      to {@dice 2d8} + your spellcasting ability modifier. This spell has no effect on undead or
+      to %{dice 2d8} + your spellcasting ability modifier. This spell has no effect on undead or
       constructs.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, the healing increases by
-      {@scaledice 2d8|2-9|1d8} for each slot level above 2nd.
+      %{dice 1d8} for each slot level above 2nd.
     `,
     range: {
       kind: "point",
@@ -11818,7 +12090,14 @@ export default collection<Spell>(ID, [
       This spell is a minor magical trick that novice spellcasters use for practice. You create one
       of the following magical effects within range:
 
-      [object Object]
+      - You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of
+        wind, faint musical notes, or an odd odor.
+      - You instantaneously light or snuff out a candle, a torch, or a small campfire.
+      - You instantaneously clean or soil an object no larger than 1 cubic foot.
+      - You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.
+      - You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.
+      - You create a nonmagical trinket or an illusory image that can fit in your hand and that
+        lasts until the end of your next turn.
 
       If you cast this spell multiple times, you can have up to three of its non-instantaneous
       effects active at a time, and you can dismiss such an effect as an action.
@@ -11855,23 +12134,30 @@ export default collection<Spell>(ID, [
     desc: md`
       Eight multicolored rays of light flash from your hand. Each ray is a different color and has a
       different power and purpose. Each creature in a 60-foot cone must make a Dexterity saving
-      throw. For each target, roll a {@dice d8} to determine which color ray affects it.
+      throw. For each target, roll a %{dice d8} to determine which color ray affects it.
 
-      [object Object]
-
-      [object Object]
-
-      [object Object]
-
-      [object Object]
-
-      [object Object]
-
-      [object Object]
-
-      [object Object]
-
-      [object Object]
+      1. **Red.** The target takes 10d6 fire damage on a failed save, or half as much damage on a
+         successful one.
+      2. **Orange.** The target takes 10d6 acid damage on a failed save, or half as much damage on a
+         successful one.
+      3. **Yellow.** The target takes 10d6 lightning damage on a failed save, or half as much damage
+         on a successful one.
+      4. **Green.** The target takes 10d6 poison damage on a failed save, or half as much damage on
+         a successful one.
+      5. **Blue.** The target takes 10d6 cold damage on a failed save, or half as much damage on a
+         successful one.
+      6. **Indigo.** On a failed save, the target is restrained. It must then make a Constitution
+         saving throw at the end of each of its turns. If it successfully saves three times, the
+         spell ends. If it fails its save three times, it permanently turns to stone and is
+         subjected to the petrified condition. The successes and failures don't need to be
+         consecutive, keep track of both until the target collects three of a kind.
+      7. **Violet.** On a failed save, the target is blinded. It must then make a Wisdom saving
+         throw at the start of your next turn. A successful save ends the blindness. If it fails
+         that save, the creature is transported to another plane of existence of the DM's choosing
+         and is no longer blinded. (Typically, a creature that is on a plane that isn't its home
+         plane is banished home, while other creatures are usually cast into the Astral or Ethereal
+         planes.)
+      8. **Special.** The target is struck by two rays. Roll twice more, rerolling any 8.
     `,
     range: {
       kind: "self",
@@ -11916,7 +12202,7 @@ export default collection<Spell>(ID, [
       feet. You and creatures you designate at the time you cast the spell can pass through and
       remain near the wall without harm. If another creature that can see the wall moves to within
       20 feet of it or starts its turn there, the creature must succeed on a Constitution saving
-      throw or become {@condition blinded} for 1 minute.
+      throw or become %{ref conditions blinded} for 1 minute.
 
       The wall consists of seven layers, each with a different color. When a creature attempts to
       reach into or pass through the wall, it does so one layer at a time through all the wall's
@@ -11925,21 +12211,31 @@ export default collection<Spell>(ID, [
 
       The wall can be destroyed, also one layer at a time, in order from red to violet, by means
       specific to each layer. Once a layer is destroyed, it remains so for the duration of the
-      spell. An {@spell antimagic field} has no effect on a prismatic wall.
+      spell. An %{ref spells antimagicField} has no effect on a prismatic wall.
 
-      [object Object]
+      **Red.** The creature takes 10d6 fire damage on a failed save, or half as much damage on a
+      successful one. While this layer is in place, nonmagical ranged attacks can't pass through the
+      wall. The layer can be destroyed by dealing at least 25 cold damage to it.
 
-      [object Object]
+      **Orange.** The creature takes 10d6 acid damage on a failed save, or half as much damage on a
+      successful one. While this layer is in place, magical ranged attacks can't pass through the
+      wall. The layer is destroyed by a strong wind.
 
-      [object Object]
+      **Yellow.** The creature takes 10d6 lightning damage on a failed save, or half as much damage
+      on a successful one. This layer can be destroyed by dealing at least 60 force damage to it.
 
-      [object Object]
+      **Green.** The creature takes 10d6 poison damage on a failed save, or half as much damage on a
+      successful one. A passwall spell, or another spell of equal or greater level that can open a
+      portal on a solid surface, destroys this layer.
 
-      [object Object]
+      **Blue.** The creature takes 10d6 cold damage on a failed save, or half as much damage on a
+      successful one. This layer can be destroyed by dealing at least 25 fire damage to it.
 
-      [object Object]
-
-      [object Object]
+      **Indigo.** On a failed save, the creature is restrained. It must then make a Constitution
+      saving throw at the end of each of its turns. If it successfully saves three times, the spell
+      ends. If it fails its save three times, it permanently turns to stone and is subjected to the
+      petrified condition. The successes and failures don't need to be consecutive; keep track of
+      both until the creature collects three of a kind.
     `,
     range: {
       kind: "point",
@@ -11978,10 +12274,10 @@ export default collection<Spell>(ID, [
 
       You can also attack with the flame, although doing so ends the spell. When you cast this
       spell, or as an action on a later turn, you can hurl the flame at a creature within 30 feet of
-      you. Make a ranged spell attack. On a hit, the target takes {@damage 1d8} fire damage.
+      you. Make a ranged spell attack. On a hit, the target takes %{dice 1d8} fire damage.
 
-      This spell's damage increases by {@dice 1d8} when you reach 5th level ({@damage 2d8}), 11th
-      level ({@damage 3d8}), and 17th level ({@damage 4d8}).
+      This spell's damage increases by %{dice 1d8} when you reach 5th level (%{dice 2d8}), 11th
+      level (%{dice 3d8}), and 17th level (%{dice 4d8}).
     `,
     range: {
       kind: "self",
@@ -12028,8 +12324,8 @@ export default collection<Spell>(ID, [
 
       Physical interaction with the image reveals it to be an illusion, because things can pass
       through it. A creature that uses its action to examine the image can determine that it is an
-      illusion with a successful Intelligence ({@skill Investigation}) check against your spell save
-      DC. If a creature discerns the illusion for what it is, the creature can see through the
+      illusion with a successful Intelligence (%{ref skills investigation}) check against your spell
+      save DC. If a creature discerns the illusion for what it is, the creature can see through the
       image, and any noise it makes sounds hollow to the creature.
     `,
     range: {
@@ -12075,13 +12371,13 @@ export default collection<Spell>(ID, [
 
       You can see through its eyes and hear through its ears as if you were in its space. On your
       turn as a bonus action, you can switch from using its senses to using your own, or back again.
-      While you are using its senses, you are {@condition blinded} and {@condition deafened} in
+      While you are using its senses, you are %{ref conditions blinded} and %{ref conditions deafened} in
       regard to your own surroundings.
 
       Physical interaction with the image reveals it to be an illusion, because things can pass
       through it. A creature that uses its action to examine the image can determine that it is an
-      illusion with a successful Intelligence ({@skill Investigation}) check against your spell save
-      DC. If a creature discerns the illusion for what it is, the creature can see through the
+      illusion with a successful Intelligence ({ref skills investigation}) check against your spell
+      save DC. If a creature discerns the illusion for what it is, the creature can see through the
       image, and any noise it makes sounds hollow to the creature.
     `,
     range: {
@@ -12154,9 +12450,7 @@ export default collection<Spell>(ID, [
       creatures: aberrations, celestials, elementals, fey, fiends, and undead.
 
       The protection grants several benefits. Creatures of those types have disadvantage on attack
-      rolls against the target. The target also can't be {@condition charmed}, {@condition
-      frightened}, or possessed by them. If the target is already {@condition charmed}, {@condition
-      frightened}, or possessed by such a creature, the target has advantage on any new saving throw
+      rolls against the target. The target also can't be %{ref conditions charmed}, %{ref conditions frightened}, or possessed by them. If the target is already %{ref conditions charmed}, %{ref conditions frightened}, or possessed by such a creature, the target has advantage on any new saving throw
       against the relevant effect.
     `,
     range: {
@@ -12191,12 +12485,11 @@ export default collection<Spell>(ID, [
     level: 2,
     school: ref("magicSchools", "abjuration"),
     desc: md`
-      You touch a creature. If it is {@condition poisoned}, you neutralize the poison. If more than
+      You touch a creature. If it is %{ref conditions poisoned}, you neutralize the poison. If more than
       one poison afflicts the target, you neutralize one poison that you know is present, or you
       neutralize one at random.
 
-      For the duration, the target has advantage on saving throws against being {@condition
-      poisoned}, and it has resistance to poison damage.
+      For the duration, the target has advantage on saving throws against being %{ref conditions poisoned}, and it has resistance to poison damage.
     `,
     range: {
       kind: "touch",
@@ -12383,11 +12676,11 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       A frigid beam of blue-white light streaks toward a creature within range. Make a ranged spell
-      attack against the target. On a hit, it takes {@damage 1d8} cold damage, and its speed is
+      attack against the target. On a hit, it takes %{dice 1d8} cold damage, and its speed is
       reduced by 10 feet until the start of your next turn.
 
-      The spell's damage increases by {@dice 1d8} when you reach 5th level ({@damage 2d8}), 11th
-      level ({@damage 3d8}), and 17th level ({@damage 4d8}).
+      The spell's damage increases by %{dice 1d8} when you reach 5th level (%{dice 2d8}), 11th
+      level (%{dice 3d8}), and 17th level (%{dice 4d8}).
     `,
     range: {
       kind: "point",
@@ -12417,13 +12710,13 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "necromancy"),
     desc: md`
       A ray of sickening greenish energy lashes out toward a creature within range. Make a ranged
-      spell attack against the target. On a hit, the target takes {@damage 2d8} poison damage and
-      must make a Constitution saving throw. On a failed save, it is also {@condition poisoned}
+      spell attack against the target. On a hit, the target takes %{dice 2d8} poison damage and
+      must make a Constitution saving throw. On a failed save, it is also %{ref conditions poisoned}
       until the end of your next turn.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 2d8|1-9|1d8} for each slot level above 1st.
+      %{dice 1d8} for each slot level above 1st.
     `,
     range: {
       kind: "point",
@@ -12495,10 +12788,25 @@ export default collection<Spell>(ID, [
       to enter that body. If the target's soul isn't free or willing to do so, the spell fails.
 
       The magic fashions a new body for the creature to inhabit, which likely causes the creature's
-      race to change. The DM rolls a {@dice d100} and consults the following table to determine what
+      race to change. The DM rolls a %{dice d100} and consults the following table to determine what
       form the creature takes when restored to life, or the DM chooses a form.
 
-      [object Object]
+      | d100  | Race                |
+      | :---: | ------------------- |
+      | 01-04 | Dragonborn          |
+      | 05-13 | Dwarf, hill         |
+      | 14-21 | Dwarf, mountain     |
+      | 22-25 | Elf, dark           |
+      | 26-34 | Elf, high           |
+      | 35-42 | Elf, wood           |
+      | 43-46 | Gnome, forest       |
+      | 47-52 | Gnome, rock         |
+      | 53-56 | Half-elf            |
+      | 57-60 | Half-orc            |
+      | 61-68 | Halfling, lightfoot |
+      | 69-76 | Halfling, stout     |
+      | 77-96 | Human               |
+      | 97-00 | Tiefling            |
 
       The reincarnated creature recalls its former life and experiences. It retains the capabilities
       it had in its original form, except it exchanges its original race for the new one and changes
@@ -12563,7 +12871,7 @@ export default collection<Spell>(ID, [
     level: 0,
     school: ref("magicSchools", "abjuration"),
     desc: md`
-      You touch one willing creature. Once before the spell ends, the target can roll a {@dice d4}
+      You touch one willing creature. Once before the spell ends, the target can roll a %{dice d4}
       and add the number rolled to one saving throw of its choice. It can roll the die before or
       after making the saving throw. The spell then ends.
     `,
@@ -12768,11 +13076,11 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       Flame-like radiance descends on a creature that you can see within range. The target must
-      succeed on a Dexterity saving throw or take {@damage 1d8} radiant damage. The target gains no
+      succeed on a Dexterity saving throw or take %{dice 1d8} radiant damage. The target gains no
       benefit from cover for this saving throw.
 
-      The spell's damage increases by {@dice 1d8} when you reach 5th level ({@damage 2d8}), 11th
-      level ({@damage 3d8}), and 17th level ({@damage 4d8}).
+      The spell's damage increases by %{dice 1d8} when you reach 5th level (%{dice 2d8}), 11th
+      level (%{dice 3d8}), and 17th level (%{dice 4d8}).
     `,
     range: {
       kind: "point",
@@ -12805,7 +13113,7 @@ export default collection<Spell>(ID, [
       targets the warded creature with an attack or a harmful spell must first make a Wisdom saving
       throw. On a failed save, the creature must choose a new target or lose the attack or spell.
       This spell doesn't protect the warded creature from area effects, such as the explosion of a
-      {@spell fireball}.
+      %{ref spells fireball}.
 
       If the warded creature makes an attack, casts a spell that affects an enemy, or deals damage
       to another creature, this spell ends.
@@ -12844,7 +13152,7 @@ export default collection<Spell>(ID, [
       You create three rays of fire and hurl them at targets within range. You can hurl them at one
       target or several.
 
-      Make a ranged spell attack for each ray. On a hit, the target takes {@damage 2d6} fire damage.
+      Make a ranged spell attack for each ray. On a hit, the target takes %{dice 2d6} fire damage.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, you create one additional
@@ -12882,17 +13190,28 @@ export default collection<Spell>(ID, [
       target and the sort of physical connection you have to it. If a target knows you're casting
       this spell, it can fail the saving throw voluntarily if it wants to be observed.
 
-      [object Object]
+      ##### Knowledge of Target
 
-      [object Object]
+      | Knowledge                                 | Save Modifier |
+      | ----------------------------------------- | :-----------: |
+      | Secondhand (you have heard of the target) |      +5       |
+      | Firsthand (you have met the target)       |      +0       |
+      | Familiar (you know the target well)       |      -5       |
+
+      ##### Connection to Target
+
+      | Connection                                        | Save Modifier |
+      | ------------------------------------------------- | :-----------: |
+      | Likeness or picture                               |      -2       |
+      | Possession or garment                             |      -4       |
+      | Body part, lock of hair, bit of nail, or the like |      -10      |
 
       On a successful save, the target isn't affected, and you can't use this spell against it again
       for 24 hours.
 
       On a failed save, the spell creates an invisible sensor within 10 feet of the target. You can
       see and hear through the sensor as if you were there. The sensor moves with the target,
-      remaining within 10 feet of it for the duration. A creature that can see {@condition
-      invisible} objects sees the sensor as a luminous orb about the size of your fist.
+      remaining within 10 feet of it for the duration. A creature that can see %{ref conditions invisible} objects sees the sensor as a luminous orb about the size of your fist.
 
       Instead of targeting a creature, you can choose a location you have seen before as the target
       of this spell. When you do, the sensor appears at that location and doesn't move.
@@ -12931,16 +13250,16 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       The next time you hit a creature with a melee weapon attack during the spell's duration, your
-      weapon flares with white-hot intensity, and the attack deals an extra {@damage 1d6} fire
+      weapon flares with white-hot intensity, and the attack deals an extra %{dice 1d6} fire
       damage to the target and causes the target to ignite in flames. At the start of each of its
       turns until the spell ends, the target must make a Constitution saving throw. On a failed
-      save, it takes {@damage 1d6} fire damage. On a successful save, the spell ends. If the target
+      save, it takes %{dice 1d6} fire damage. On a successful save, the spell ends. If the target
       or a creature within 5 feet of it uses an action to put out the flames, or if some other
       effect douses the flames (such as the target being submerged in water), the spell ends.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the initial extra damage
-      dealt by the attack increases by {@scaledamage 1d6|1-9|1d6} for each slot level above 1st.
+      dealt by the attack increases by %{dice 1d6} for each slot level above 1st.
     `,
     range: {
       kind: "self",
@@ -12970,7 +13289,7 @@ export default collection<Spell>(ID, [
     level: 2,
     school: ref("magicSchools", "divination"),
     desc: md`
-      For the duration, you see {@condition invisible} creatures and objects as if they were
+      For the duration, you see %{ref conditions invisible} creatures and objects as if they were
       visible, and you can see into the Ethereal Plane. Ethereal creatures and objects appear
       ghostly and translucent.
     `,
@@ -13022,8 +13341,8 @@ export default collection<Spell>(ID, [
       spell to appear thinner than you are, the hand of someone who reaches out to touch you would
       bump into you while it was seemingly still in midair.
 
-      A creature can use its action to inspect a target and make an Intelligence ({@skill
-      Investigation}) check against your spell save DC. If it succeeds, it becomes aware that the
+      A creature can use its action to inspect a target and make an Intelligence ({@ref skills
+      investigation}) check against your spell save DC. If it succeeds, it becomes aware that the
       target is disguised.
     `,
     range: {
@@ -13062,8 +13381,7 @@ export default collection<Spell>(ID, [
       Intelligence scores of at least 1 to understand the meaning of your message.
 
       You can send the message across any distance and even to other planes of existence, but if the
-      target is on a different plane than you, there is a {@chance 5|||Message lost!|Message
-      arrives} chance that the message doesn't arrive.
+      target is on a different plane than you, there is a 5 percent chance that the message doesn't arrive.
     `,
     range: {
       kind: "unlimited",
@@ -13099,15 +13417,16 @@ export default collection<Spell>(ID, [
     desc: md`
       By means of this spell, a willing creature or an object can be hidden away, safe from
       detection for the duration. When you cast the spell and touch the target, it becomes
-      {@condition invisible} and can't be targeted by {@filter divination spells|spells|school=D} or
-      perceived through scrying sensors created by divination spells.
+      %{ref conditions invisible} and can't be targeted by %{ref magicSchools divination}
+      or perceived through scrying sensors created by divination spells.
 
       If the target is a creature, it falls into a state of suspended animation. Time ceases to flow
       for it, and it doesn't grow older.
 
       You can set a condition for the spell to end early. The condition can be anything you choose,
       but it must occur or be visible within 1 mile of the target. Examples include "after 1,000
-      years" or "when the {@creature tarrasque} awakens." This spell also ends if the target takes
+      years" or "when the %{ref monsters tarrasque} awakens." This spell also ends if the target
+      takes
       any damage.
     `,
     range: {
@@ -13158,11 +13477,11 @@ export default collection<Spell>(ID, [
       you return to the number of hit points you had before you transformed. If you revert as a
       result of dropping to 0 hit points, any excess damage carries over to your normal form. As
       long as the excess damage doesn't reduce your normal form to 0 hit points, you aren't knocked
-      {@condition unconscious}.
+      %{ref conditions unconscious}.
 
       You retain the benefit of any features from your class, race, or other source and can use
       them, provided that your new form is physically capable of doing so. You can't use any special
-      senses you have (for example, {@sense darkvision}) unless your new form also has that sense.
+      senses you have (for example, darkvision) unless your new form also has that sense.
       You can only speak if the creature can normally speak.
 
       When you transform, you choose whether your equipment falls to the ground, merges into the new
@@ -13211,7 +13530,7 @@ export default collection<Spell>(ID, [
     desc: md`
       A sudden loud ringing noise, painfully intense, erupts from a point of your choice within
       range. Each creature in a 10-foot-radius sphere centered on that point must make a
-      Constitution saving throw. A creature takes {@damage 3d8} thunder damage on a failed save, or
+      Constitution saving throw. A creature takes %{dice 3d8} thunder damage on a failed save, or
       half as much damage on a successful one. A creature made of inorganic material such as stone,
       crystal, or metal has disadvantage on this saving throw.
 
@@ -13220,7 +13539,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, the damage increases by
-      {@scaledamage 3d8|2-9|1d8} for each slot level above 2nd.
+      %{dice 1d8} for each slot level above 2nd.
     `,
     range: {
       kind: "point",
@@ -13252,7 +13571,7 @@ export default collection<Spell>(ID, [
     desc: md`
       An invisible barrier of magical force appears and protects you. Until the start of your next
       turn, you have a +5 bonus to AC, including against the triggering attack, and you take no
-      damage from {@spell magic missile}.
+      damage from %{ref spells magicMissile}.
     `,
     range: {
       kind: "self",
@@ -13271,8 +13590,10 @@ export default collection<Spell>(ID, [
       {
         unit: "reaction",
         amount: 1,
-        condition:
-          "which you take when you are hit by an attack or targeted by the {@spell magic missile} spell",
+        condition: `
+          which you take when you are hit by an attack or targeted by the %{ref spells magicMissile}
+          spell
+        `,
       },
     ],
     source: source("PHB", 275),
@@ -13321,10 +13642,10 @@ export default collection<Spell>(ID, [
     level: 0,
     school: ref("magicSchools", "transmutation"),
     desc: md`
-      The wood of a {@item club|phb} or {@item quarterstaff|phb} you are holding is imbued with
+      The wood of a %{ref items club} or %{ref items quarterstaff} you are holding is imbued with
       nature's power. For the duration, you can use your spellcasting ability instead of Strength
       for the attack and damage rolls of melee attacks using that weapon, and the weapon's damage
-      die becomes a {@dice d8}. The weapon also becomes magical, if it isn't already. The spell ends
+      die becomes a %{dice d8}. The weapon also becomes magical, if it isn't already. The spell ends
       if you cast it again or if you let go of the weapon.
     `,
     range: {
@@ -13361,11 +13682,11 @@ export default collection<Spell>(ID, [
     desc: md`
       Lightning springs from your hand to deliver a shock to a creature you try to touch. Make a
       melee spell attack against the target. You have advantage on the attack roll if the target is
-      wearing armor made of metal. On a hit, the target takes {@damage 1d8} lightning damage, and it
+      wearing armor made of metal. On a hit, the target takes %{dice 1d8} lightning damage, and it
       can't take reactions until the start of its next turn.
 
-      The spell's damage increases by {@dice 1d8} when you reach 5th level ({@damage 2d8}), 11th
-      level ({@damage 3d8}), and 17th level ({@damage 4d8}).
+      The spell's damage increases by %{dice 1d8} when you reach 5th level (%{dice 2d8}), 11th
+      level (%{dice 3d8}), and 17th level (%{dice 4d8}).
     `,
     range: {
       kind: "touch",
@@ -13394,7 +13715,7 @@ export default collection<Spell>(ID, [
     desc: md`
       For the duration, no sound can be created within or pass through a 20-foot-radius sphere
       centered on a point you choose within range. Any creature or object entirely inside the sphere
-      is immune to thunder damage, and creatures are {@condition deafened} while entirely inside it.
+      is immune to thunder damage, and creatures are %{ref conditions deafened} while entirely inside it.
       Casting a spell that includes a verbal component is impossible there.
     `,
     range: {
@@ -13439,8 +13760,8 @@ export default collection<Spell>(ID, [
 
       Physical interaction with the image reveals it to be an illusion, because things can pass
       through it. A creature that uses its action to examine the image can determine that it is an
-      illusion with a successful Intelligence ({@skill Investigation}) check against your spell save
-      DC. If a creature discerns the illusion for what it is, the creature can see through the
+      illusion with a successful Intelligence (%{ref skills investigation}) check against your spell
+      save DC. If a creature discerns the illusion for what it is, the creature can see through the
       image.
     `,
     range: {
@@ -13524,22 +13845,21 @@ export default collection<Spell>(ID, [
     level: 1,
     school: ref("magicSchools", "enchantment"),
     desc: md`
-      This spell sends creatures into a magical slumber. Roll {@dice 5d8}; the total is how many hit
+      This spell sends creatures into a magical slumber. Roll %{dice 5d8}; the total is how many hit
       points of creatures this spell can affect. Creatures within 20 feet of a point you choose
-      within range are affected in ascending order of their current hit points (ignoring {@condition
-      unconscious} creatures).
+      within range are affected in ascending order of their current hit points (ignoring %{ref conditions unconscious} creatures).
 
       Starting with the creature that has the lowest current hit points, each creature affected by
-      this spell falls {@condition unconscious} until the spell ends, the sleeper takes damage, or
+      this spell falls %{ref conditions unconscious} until the spell ends, the sleeper takes damage, or
       someone uses an action to shake or slap the sleeper awake. Subtract each creature's hit points
       from the total before moving on to the creature with the next lowest hit points. A creature's
       hit points must be equal to or less than the remaining total for that creature to be affected.
 
-      Undead and creatures immune to being {@condition charmed} aren't affected by this spell.
+      Undead and creatures immune to being %{ref conditions charmed} aren't affected by this spell.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, roll an additional
-      {@scaledice 5d8|1-9|2d8} for each slot level above 1st.
+      %{dice 2d8} for each slot level above 1st.
     `,
     range: {
       kind: "point",
@@ -13576,16 +13896,16 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       Until the spell ends, freezing rain and sleet fall in a 20-foot-tall cylinder with a 40-foot
-      radius centered on a point you choose within range. The area is {@quickref Vision and
-      Light|PHB|2||heavily obscured}, and exposed flames in the area are doused.
+      radius centered on a point you choose within range. The area is heavily obscured, and exposed
+      flames in the area are doused.
 
-      The ground in the area is covered with slick ice, making it {@quickref difficult terrain||3}.
-      When a creature enters the spell's area for the first time on a turn or starts its turn there,
-      it must make a Dexterity saving throw. On a failed save, it falls {@condition prone}.
+      The ground in the area is covered with slick ice, making it difficult terrain. When a creature
+      enters the spell's area for the first time on a turn or starts its turn there, it must make a
+      Dexterity saving throw. On a failed save, it falls %{ref conditions prone}.
 
-      If a creature starts its turn in the spell's area and is {@status
-      concentration||concentrating} on a spell, the creature must make a successful Constitution
-      saving throw against your spell save DC or lose {@status concentration}.
+      If a creature starts its turn in the spell's area and is concentrating on a spell, the
+      creature must make a successful Constitution saving throw against your spell save DC or lose
+      concentration.
     `,
     range: {
       kind: "point",
@@ -13629,7 +13949,7 @@ export default collection<Spell>(ID, [
       both. Regardless of the creature's abilities or magic items, it can't make more than one melee
       or ranged attack during its turn.
 
-      If the creature attempts to cast a spell with a casting time of 1 action, roll a {@dice d20}.
+      If the creature attempts to cast a spell with a casting time of 1 action, roll a %{dice d20}.
       On an 11 or higher, the spell doesn't take effect until the creature's next turn, and the
       creature must use its action on that turn to complete the spell. If it can't, the spell is
       wasted.
@@ -13777,10 +14097,10 @@ export default collection<Spell>(ID, [
       events in the spell's area within the past day, gaining information about creatures that have
       passed, weather, and other circumstances.
 
-      You can also turn {@quickref difficult terrain||3} caused by plant growth (such as thickets
-      and undergrowth) into ordinary terrain that lasts for the duration. Or you can turn ordinary
-      terrain where plants are present into {@quickref difficult terrain||3} that lasts for the
-      duration, causing vines and branches to hinder pursuers, for example.
+      You can also turn difficult terrain| caused by plant growth (such as thickets and undergrowth)
+      into ordinary terrain that lasts for the duration. Or you can turn ordinary terrain where
+      plants are present into difficult terrain that lasts for the duration, causing vines and
+      branches to hinder pursuers, for example.
 
       Plants might be able to perform other tasks on your behalf, at the DM's discretion. The spell
       doesn't enable plants to uproot themselves and move about, but they can freely move branches,
@@ -13789,8 +14109,8 @@ export default collection<Spell>(ID, [
       If a plant creature is in the area, you can communicate with it as if you shared a common
       language, but you gain no magical ability to influence it.
 
-      This spell can cause the plants created by the {@spell entangle} spell to release a
-      {@condition restrained} creature.
+      This spell can cause the plants created by the %{ref spells entangle} spell to release a
+      %{ref conditions restrained} creature.
     `,
     range: {
       kind: "self",
@@ -13861,13 +14181,13 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "transmutation"),
     desc: md`
       The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes
-      and thorns. The area becomes {@quickref difficult terrain||3} for the duration. When a
-      creature moves into or within the area, it takes {@damage 2d4} piercing damage for every 5
+      and thorns. The area becomes difficult terrain for the duration. When a
+      creature moves into or within the area, it takes %{dice 2d4} piercing damage for every 5
       feet it travels.
 
       The transformation of the ground is camouflaged to look natural. Any creature that can't see
-      the area at the time the spell is cast must make a Wisdom ({@skill Perception}) check against
-      your spell save DC to recognize the terrain as hazardous before entering it.
+      the area at the time the spell is cast must make a Wisdom (%{ref skills perception}) check
+      against your spell save DC to recognize the terrain as hazardous before entering it.
     `,
     range: {
       kind: "point",
@@ -13910,13 +14230,13 @@ export default collection<Spell>(ID, [
       When you cast this spell, you can designate any number of creatures you can see to be
       unaffected by it. An affected creature's speed is halved in the area, and when the creature
       enters the area for the first time on a turn or starts its turn there, it must make a Wisdom
-      saving throw. On a failed save, the creature takes {@damage 3d8} radiant damage (if you are
-      good or neutral) or {@damage 3d8} necrotic damage (if you are evil). On a successful save, the
+      saving throw. On a failed save, the creature takes %{dice 3d8} radiant damage (if you are
+      good or neutral) or %{dice 3d8} necrotic damage (if you are evil). On a successful save, the
       creature takes half as much damage.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 4th level or higher, the damage increases by
-      {@scaledamage 3d8|3-9|1d8} for each slot level above 3rd.
+      %{dice 1d8} for each slot level above 3rd.
     `,
     range: {
       kind: "self",
@@ -13957,7 +14277,7 @@ export default collection<Spell>(ID, [
       You create a floating, spectral weapon within range that lasts for the duration or until you
       cast this spell again. When you cast the spell, you can make a melee spell attack against a
       creature within 5 feet of the weapon. On a hit, the target takes force damage equal to
-      {@damage 1d8} + your spellcasting ability modifier.
+      %{dice 1d8} + your spellcasting ability modifier.
 
       As a bonus action on your turn, you can move the weapon up to 20 feet and repeat the attack
       against a creature within 5 feet of it.
@@ -13968,7 +14288,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 3rd level or higher, the damage increases by
-      {@scaledamage 1d8|2,4,6,8|1d8} for every two slot levels above 2nd.
+      %{dice 1d8} for every two slot levels above 2nd.
     `,
     range: {
       kind: "point",
@@ -14001,7 +14321,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       The next time you hit a creature with a melee weapon attack during this spell's duration, your
-      weapon pierces both body and mind, and the attack deals an extra {@damage 4d6} psychic damage
+      weapon pierces both body and mind, and the attack deals an extra %{dice 4d6} psychic damage
       to the target. The target must make a Wisdom saving throw. On a failed save, it has
       disadvantage on attack rolls and ability checks, and can't take reactions, until the end of
       its next turn.
@@ -14035,8 +14355,8 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       You create a 20-foot-radius sphere of yellow, nauseating gas centered on a point within range.
-      The cloud spreads around corners, and its area is {@quickref Vision and Light|PHB|2||heavily
-      obscured}. The cloud lingers in the air for the duration.
+      The cloud spreads around corners, and its area is heavily obscured. The cloud lingers in the
+      air for the duration.
 
       Each creature that is completely within the cloud at the start of its turn must make a
       Constitution saving throw against poison. On a failed save, the creature spends its action
@@ -14155,19 +14475,29 @@ export default collection<Spell>(ID, [
       A churning storm cloud forms, centered on a point you can see and spreading to a radius of 360
       feet. Lightning flashes in the area, thunder booms, and strong winds roar. Each creature under
       the cloud (no more than 5,000 feet beneath the cloud) when it appears must make a Constitution
-      saving throw. On a failed save, a creature takes {@damage 2d6} thunder damage and becomes
-      {@condition deafened} for 5 minutes.
+      saving throw. On a failed save, a creature takes %{dice 2d6} thunder damage and becomes
+      %{ref conditions deafened} for 5 minutes.
 
-      Each round you maintain {@status concentration} on this spell, the storm produces different
+      Each round you maintain concentration on this spell, the storm produces different
       effects on your turn.
 
-      [object Object]
+      **Round 2.** Acidic rain falls from the cloud. Each creature and object under the cloud takes
+      1d6 acid damage.
 
-      [object Object]
+      **Round 3.** You call six bolts of lightning from the cloud to strike six creatures or objects
+      of your choice beneath the cloud. A given creature or object can't be struck by more than one
+      bolt. A struck creature must make a Dexterity saving throw. The creature takes 10d6 lightning
+      damage on a failed save, or half as much damage on a successful one.
 
-      [object Object]
+      **Round 4.** Hailstones rain down from the cloud. Each creature under the cloud takes 2d6
+      bludgeoning damage.
 
-      [object Object]
+      **Round 5–10.** Gusts and freezing rain assail the area under the cloud. The area becomes
+      difficult terrain and is heavily obscured. Each creature there takes 1d6 cold damage. Ranged
+      weapon attacks in the area are impossible. The wind and rain count as a severe distraction for
+      the purposes of maintaining concentration on spells. Finally, gusts of strong wind (ranging
+      from 20 to 50 miles per hour) automatically disperse fog, mists, and similar phenomena in the
+      area, whether mundane or magical.
     `,
     range: {
       kind: "sight",
@@ -14199,7 +14529,7 @@ export default collection<Spell>(ID, [
     desc: md`
       You suggest a course of activity (limited to a sentence or two) and magically influence a
       creature you can see within range that can hear and understand you. Creatures that can't be
-      {@condition charmed} are immune to this effect. The suggestion must be worded in such a manner
+      %{ref conditions charmed} are immune to this effect. The suggestion must be worded in such a manner
       as to make the course of action sound reasonable. Asking the creature to stab itself, throw
       itself onto a spear, immolate itself, or do some other obviously harmful act ends the spell.
 
@@ -14250,8 +14580,8 @@ export default collection<Spell>(ID, [
     desc: md`
       A beam of brilliant light flashes out from your hand in a 5-foot-wide, 60-foot-long line. Each
       creature in the line must make a Constitution saving throw. On a failed save, a creature takes
-      {@damage 6d8} radiant damage and is {@condition blinded} until your next turn. On a successful
-      save, it takes half as much damage and isn't {@condition blinded} by this spell. Undead and
+      %{dice 6d8} radiant damage and is %{ref conditions blinded} until your next turn. On a successful
+      save, it takes half as much damage and isn't %{ref conditions blinded} by this spell. Undead and
       oozes have disadvantage on this saving throw.
 
       You can create a new line of radiance as your action on any turn until the spell ends.
@@ -14297,12 +14627,12 @@ export default collection<Spell>(ID, [
     desc: md`
       Brilliant sunlight flashes in a 60-foot radius centered on a point you choose within range.
       Each creature in that light must make a Constitution saving throw. On a failed save, a
-      creature takes {@damage 12d6} radiant damage and is {@condition blinded} for 1 minute. On a
-      successful save, it takes half as much damage and isn't {@condition blinded} by this spell.
+      creature takes %{dice 12d6} radiant damage and is %{ref conditions blinded} for 1 minute. On a
+      successful save, it takes half as much damage and isn't %{ref conditions blinded} by this spell.
       Undead and oozes have disadvantage on this saving throw.
 
-      A creature {@condition blinded} by this spell makes another Constitution saving throw at the
-      end of each of its turns. On a successful save, it is no longer {@condition blinded}.
+      A creature %{ref conditions blinded} by this spell makes another Constitution saving throw at the
+      end of each of its turns. On a successful save, it is no longer %{ref conditions blinded}.
 
       This spell dispels any darkness in its area that was created by a spell.
     `,
@@ -14382,7 +14712,7 @@ export default collection<Spell>(ID, [
       object must remain in its place; if the object is moved more than 10 feet from where you cast
       this spell, the glyph is broken, and the spell ends without being triggered.
 
-      The glyph is nearly invisible, requiring an Intelligence ({@skill Investigation}) check
+      The glyph is nearly invisible, requiring an Intelligence (%{ref skills investigation}) check
       against your spell save DC to find it.
 
       You decide what triggers the glyph when you cast the spell. For glyphs inscribed on a surface,
@@ -14402,21 +14732,35 @@ export default collection<Spell>(ID, [
       effect, as is a creature that enters the sphere for the first time on a turn or ends its turn
       there.
 
-      [object Object]
+      **Death.** Each target must make a Constitution saving throw, taking 10d10 necrotic damage on
+      a failed save, or half as much damage on a successful save.
 
-      [object Object]
+      **Discord.** Each target must make a Constitution saving throw. On a failed save, a target
+      bickers and argues with other creatures for 1 minute. During this time, it is incapable of
+      meaningful communication and has disadvantage on attack rolls and ability checks.
 
-      [object Object]
+      **Fear.** Each target must make a Wisdom saving throw and becomes frightened for 1 minute on a
+      failed save. While frightened, the target drops whatever it is holding and must move at least
+      30 feet away from the glyph on each of its turns, if able.
 
-      [object Object]
+      **Hopelessness.** Each target must make a Charisma saving throw. On a failed save, the target
+      is overwhelmed with despair for 1 minute. During this time, it can't attack or target any
+      creature with harmful abilities, spells, or other magical effects.
 
-      [object Object]
+      **Insanity.** Each target must make an Intelligence saving throw. On a failed save, the target
+      is driven insane for 1 minute. An insane creature can't take actions, can't understand what
+      other creatures say, can't read, and speaks only in gibberish. The DM controls its movement,
+      which is erratic.
 
-      [object Object]
+      **Pain.** Each target must make a Constitution saving throw and becomes incapacitated with
+      excruciating pain for 1 minute on a failed save.
 
-      [object Object]
+      **Sleep.** Each target must make a Wisdom saving throw and falls unconscious for 10 minutes on
+      a failed save. A creature awakens if it takes damage or if someone uses an action to shake or
+      slap it awake.
 
-      [object Object]
+      **Stunning.** Each target must make a Wisdom saving throw and becomes stunned for 1 minute on
+      a failed save.
     `,
     range: {
       kind: "touch",
@@ -14451,7 +14795,7 @@ export default collection<Spell>(ID, [
     desc: md`
       A creature of your choice that you can see within range perceives everything as hilariously
       funny and falls into fits of laughter if this spell affects it. The target must succeed on a
-      Wisdom saving throw or fall {@condition prone}, becoming {@condition incapacitated} and unable
+      Wisdom saving throw or fall %{ref conditions prone}, becoming %{ref conditions incapacitated} and unable
       to stand up for the duration. A creature with an Intelligence score of 4 or less isn't
       affected.
 
@@ -14499,9 +14843,27 @@ export default collection<Spell>(ID, [
       the same target round after round, or choose a new one at any time. If you switch targets, the
       prior target is no longer affected by the spell.
 
-      [object Object]
+      **Creature.** You can try to move a Huge or smaller creature. Make an ability check with your
+      spellcasting ability contested by the creature's Strength check. If you win the contest, you
+      move the creature up to 30 feet in any direction, including upward but not beyond the range of
+      this spell. Until the end of your next turn, the creature is restrained in your telekinetic
+      grip. A creature lifted upward is suspended in mid-air.
 
-      [object Object]
+      On subsequent rounds, you can use your action to attempt to maintain your telekinetic grip on
+      the creature by repeating the contest.
+
+      **Object.** You can try to move an object that weighs up to 1,000 pounds. If the object isn't
+      being worn or carried, you automatically move it up to 30 feet in any direction, but not
+      beyond the range of this spell.
+
+      If the object is worn or carried by a creature, you must make an ability check with your
+      spellcasting ability contested by that creature's Strength check. If you succeed, you pull the
+      object away from that creature and can move it up to 30 feet in any direction but not beyond
+      the range of this spell.
+
+      You can exert fine control on objects with your telekinetic grip, such as manipulating a
+      simple tool, opening a door or a container, stowing or retrieving an item from an open
+      container, or pouring the contents from a vial.
     `,
     range: {
       kind: "point",
@@ -14579,11 +14941,22 @@ export default collection<Spell>(ID, [
 
       The destination you choose must be known to you, and it must be on the same plane of existence
       as you. Your familiarity with the destination determines whether you arrive there
-      successfully. The DM rolls {@dice d100} and consults the table.
+      successfully. The DM rolls %{dice d100} and consults the table.
 
-      [object Object]
+      | Familiarity       | Mishap | Similar Area | Off Target | On Target |
+      | ----------------- | :----: | :----------: | :--------: | :-------: |
+      | Permanent circle  |   —    |      —       |     —      |  01–100   |
+      | Associated object |   —    |      —       |     —      |  01–100   |
+      | Very familiar     | 01–05  |    06–13     |   14–24    |  25–100   |
+      | Seen casually     | 01–33  |    34–43     |   44–53    |  54–100   |
+      | Viewed once       | 01–43  |    44–53     |   54–73    |  74–100   |
+      | Description       | 01–43  |    44–53     |   54–73    |  74–100   |
+      | False destination | 01–50  |    51–100    |     —      |     —     |
 
-      [object Object]
+      **Familiarity.** "Permanent circle" means a permanent teleportation circle whose sigil
+      sequence you know. "Associated object" means that you possess an object taken from the desired
+      destination within the last six months, such as a book from a wizard's library, bed linen from
+      a royal suite, or a chunk of marble from a lich's secret tomb.
 
       "Very familiar" is a place you have been very often, a place you have carefully studied, or a
       place you can see when you cast the spell. "Seen casually" is someplace you have seen more
@@ -14595,13 +14968,26 @@ export default collection<Spell>(ID, [
       sanctum but instead viewed an illusion, or you are attempting to teleport to a familiar
       location that no longer exists.
 
-      [object Object]
+      **On Target.** You and your group (or the target object) appear where you want to.
 
-      [object Object]
+      **Off Target.** You and your group (or the target object) appear a random distance away from
+      the destination in a random direction. Distance off target is 1d10 × 1d10 percent of the
+      distance that was to be traveled. For example, if you tried to travel 120 miles, landed off
+      target, and rolled a 5 and 3 on the two d10s, then you would be off target by 15 percent, or
+      18 miles. The DM determines the direction off target randomly by rolling a d8 and designating
+      1 as north, 2 as northeast, 3 as east, and so on around the points of the compass. If you were
+      teleporting to a coastal city and wound up 18 miles out at sea, you could be in trouble.
 
-      [object Object]
+      **Similar Area.** You and your group (or the target object) wind up in a different area that's
+      visually or thematically similar to the target area. If you are heading for your home
+      laboratory, for example, you might wind up in another wizard's laboratory or in an alchemical
+      supply shop that has many of the same tools and implements as your laboratory. Generally, you
+      appear in the closest similar place, but since the spell has no range limit, you could
+      conceivably wind up anywhere on the plane.
 
-      [object Object]
+      **Mishap.** The spell's unpredictable magic results in a difficult journey. Each teleporting
+      creature (or the target object) takes 3d10 force damage, and the DM rerolls on the table to
+      see where you wind up (multiple mishaps can occur, dealing damage each time).
     `,
     range: {
       kind: "point",
@@ -14731,7 +15117,12 @@ export default collection<Spell>(ID, [
       You manifest a minor wonder, a sign of supernatural power, within range. You create one of the
       following magical effects within range:
 
-      [object Object]
+      - Your voice booms up to three times as loud as normal for 1 minute.
+      - You cause flames to flicker, brighten, dim, or change color for 1 minute.
+      - You cause harmless tremors in the ground for 1 minute.
+      - You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.
+      - You instantaneously cause an unlocked door or window to fly open or slam shut.
+      - You alter the appearance of your eyes for 1 minute.
 
       If you cast this spell multiple times, you can have up to three of its 1-minute effects active
       at a time, and you can dismiss such an effect as an action.
@@ -14768,11 +15159,11 @@ export default collection<Spell>(ID, [
     desc: md`
       You create a long, vine-like whip covered in thorns that lashes out at your command toward a
       creature in range. Make a melee spell attack against the target. If the attack hits, the
-      creature takes {@damage 1d6} piercing damage, and if the creature is Large or smaller, you
+      creature takes %{dice 1d6} piercing damage, and if the creature is Large or smaller, you
       pull the creature up to 10 feet closer to you.
 
-      This spell's damage increases by {@dice 1d6} when you reach 5th level ({@damage 2d6}), 11th
-      level ({@damage 3d6}), and 17th level ({@damage 4d6}).
+      This spell's damage increases by %{dice 1d6} when you reach 5th level (%{dice 2d6}), 11th
+      level (%{dice 3d6}), and 17th level (%{dice 4d6}).
     `,
     range: {
       kind: "point",
@@ -14804,9 +15195,8 @@ export default collection<Spell>(ID, [
     desc: md`
       The first time you hit with a melee weapon attack during this spell's duration, your weapon
       rings with thunder that is audible within 300 feet of you, and the attack deals an extra
-      {@damage 2d6} thunder damage to the target. Additionally, if the target is a creature, it must
-      succeed on a Strength saving throw or be pushed 10 feet away from you and knocked {@condition
-      prone}.
+      %{dice 2d6} thunder damage to the target. Additionally, if the target is a creature, it must
+      succeed on a Strength saving throw or be pushed 10 feet away from you and knocked %{ref conditions prone}.
     `,
     range: {
       kind: "self",
@@ -14837,7 +15227,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating
-      from you must make a Constitution saving throw. On a failed save, a creature takes {@damage
+      from you must make a Constitution saving throw. On a failed save, a creature takes {@dice
       2d8} thunder damage and is pushed 10 feet away from you. On a successful save, the creature
       takes half as much damage and isn't pushed.
 
@@ -14847,7 +15237,7 @@ export default collection<Spell>(ID, [
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the damage increases by
-      {@scaledamage 2d8|1-9|1d8} for each slot level above 1st.
+      %{dice 1d8} for each slot level above 1st.
     `,
     range: {
       kind: "self",
@@ -14882,7 +15272,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "transmutation"),
     desc: md`
       You briefly stop the flow of time for everyone but yourself. No time passes for other
-      creatures, while you take {@dice 1d4 + 1} turns in a row, during which you can use actions and
+      creatures, while you take %{dice 1d4 + 1} turns in a row, during which you can use actions and
       move as normal.
 
       This spell ends if one of the actions you use during this period, or any effects that you
@@ -15032,13 +15422,17 @@ export default collection<Spell>(ID, [
       This spell has no effect on a shapechanger or a creature with 0 hit points. An unwilling
       creature can make a Wisdom saving throw, and if it succeeds, it isn't affected by this spell.
 
-      [object Object]
+      **Creature into Creature.** If you turn a creature into another kind of creature, the new form
+      can be any kind you choose whose challenge rating is equal to or less than the target's
+      (or its level, if the target doesn't have a challenge rating). The target's game statistics,
+      including mental ability scores, are replaced by the statistics of the new form. It retains
+      its alignment and personality.
 
       The target assumes the hit points of its new form, and when it reverts to its normal form, the
       creature returns to the number of hit points it had before it transformed. If it reverts as a
       result of dropping to 0 hit points, any excess damage carries over to its normal form. As long
       as the excess damage doesn't reduce the creature's normal form to 0 hit points, it isn't
-      knocked {@condition unconscious}.
+      knocked %{ref conditions unconscious}.
 
       The creature is limited in the actions it can perform by the nature of its new form, and it
       can't speak, cast spells, or take any other action that requires hands or speech unless its
@@ -15047,12 +15441,20 @@ export default collection<Spell>(ID, [
       The target's gear melds into the new form. The creature can't activate, use, wield, or
       otherwise benefit from any of its equipment.
 
-      [object Object]
+      **Object into Creature.** You can turn an object into any kind of creature, as long as the
+      creature's size is no larger than the object's size and the creature's challenge rating is 9
+      or lower. The creature is friendly to you and your companions. It acts on each of your turns.
+      You decide what action it takes and how it moves. The DM has the creature's statistics and
+      resolves all of its actions and movement.
 
       If the spell becomes permanent, you no longer control the creature. It might remain friendly
       to you, depending on how you have treated it.
 
-      [object Object]
+      **Creature into Object.** If you turn a creature into an object, it transforms along with
+      whatever it is wearing and carrying into that form, as long as the object's size is no larger
+      than the creature's size. The creature's statistics become those of the object, and the
+      creature has no memory of time spent in this form, after the spell ends and it returns to its
+      normal form.
     `,
     range: {
       kind: "point",
@@ -15131,7 +15533,7 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "divination"),
     desc: md`
       This spell gives the willing creature you touch the ability to see things as they actually
-      are. For the duration, the creature has {@sense truesight}, notices secret doors hidden by
+      are. For the duration, the creature has truesight, notices secret doors hidden by
       magic, and can see into the Ethereal Plane, all out to a range of 120 feet.
     `,
     range: {
@@ -15139,7 +15541,10 @@ export default collection<Spell>(ID, [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "an ointment for the eyes that costs 25 gp; is made from mushroom powder, saffron, and fat; and is consumed by the spell",
+      desc: `
+        an ointment for the eyes that costs 25 gp; is made from mushroom powder, saffron, and fat;
+        and is consumed by the spell
+      `,
       consumed: "yes",
       cost: { amount: 25, currency: "gp" },
     },
@@ -15205,21 +15610,21 @@ export default collection<Spell>(ID, [
       wall up to 300 feet long, 300 feet high, and 50 feet thick. The wall lasts for the duration.
 
       When the wall appears, each creature within its area must make a Strength saving throw. On a
-      failed save, a creature takes {@damage 6d10} bludgeoning damage, or half as much damage on a
+      failed save, a creature takes %{dice 6d10} bludgeoning damage, or half as much damage on a
       successful save.
 
       At the start of each of your turns after the wall appears, the wall, along with any creatures
       in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose
-      space the wall enters when it moves must succeed on a Strength saving throw or take {@damage
+      space the wall enters when it moves must succeed on a Strength saving throw or take {@dice
       5d10} bludgeoning damage. A creature can take this damage only once per round. At the end of
       the turn, the wall's height is reduced by 50 feet, and the damage creatures take from the
-      spell on subsequent rounds is reduced by {@dice 1d10}. When the wall reaches 0 feet in height,
+      spell on subsequent rounds is reduced by %{dice 1d10}. When the wall reaches 0 feet in height,
       the spell ends.
 
       A creature caught in the wall can move by swimming. Because of the force of the wave, though,
-      the creature must make a successful Strength ({@skill Athletics}) check against your spell
-      save DC in order to move at all. If it fails the check, it can't move. A creature that moves
-      out of the area falls to the ground.
+      the creature must make a successful Strength (%{ref skills athletics}) check against your
+      spell save DC in order to move at all. If it fails the check, it can't move. A creature that
+      moves out of the area falls to the ground.
     `,
     range: {
       kind: "sight",
@@ -15249,10 +15654,10 @@ export default collection<Spell>(ID, [
     level: 1,
     school: ref("magicSchools", "conjuration"),
     desc: md`
-      This spell creates an {@condition invisible}, mindless, shapeless, Medium force that performs
-      simple tasks at your command until the spell ends. The servant springs into existence in an
-      unoccupied space on the ground within range. It has AC 10, 1 hit point, and a Strength of 2,
-      and it can't attack. If it drops to 0 hit points, the spell ends.
+      This spell creates an %{ref conditions invisible}, mindless, shapeless, Medium force that
+      performs simple tasks at your command until the spell ends. The servant springs into existence
+      in an unoccupied space on the ground within range. It has AC 10, 1 hit point, and a Strength
+      of 2, and it can't attack. If it drops to 0 hit points, the spell ends.
 
       Once on each of your turns as a bonus action, you can mentally command the servant to move up
       to 15 feet and interact with an object. The servant can perform simple tasks that a human
@@ -15299,13 +15704,13 @@ export default collection<Spell>(ID, [
     desc: md`
       The touch of your shadow-wreathed hand can siphon life force from others to heal your wounds.
       Make a melee spell attack against a creature within your reach. On a hit, the target takes
-      {@damage 3d6} necrotic damage, and you regain hit points equal to half the amount of necrotic
+      %{dice 3d6} necrotic damage, and you regain hit points equal to half the amount of necrotic
       damage dealt. Until the spell ends, you can make the attack again on each of your turns as an
       action.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 4th level or higher, the damage increases by
-      {@scaledamage 3d6|3-9|1d6} for each slot level above 3rd.
+      %{dice 1d6} for each slot level above 3rd.
     `,
     range: {
       kind: "self",
@@ -15337,11 +15742,11 @@ export default collection<Spell>(ID, [
     desc: md`
       You unleash a string of insults laced with subtle enchantments at a creature you can see
       within range. If the target can hear you (though it need not understand you), it must succeed
-      on a Wisdom saving throw or take {@damage 1d4} psychic damage and have disadvantage on the
+      on a Wisdom saving throw or take %{dice 1d4} psychic damage and have disadvantage on the
       next attack roll it makes before the end of its next turn.
 
-      This spell's damage increases by {@dice 1d4} when you reach 5th level ({@damage 2d4}), 11th
-      level ({@damage 3d4}), and 17th level ({@damage 4d4}).
+      This spell's damage increases by %{dice 1d4} when you reach 5th level (%{dice 2d4}), 11th
+      level (%{dice 3d4}), and 17th level (%{dice 4d4}).
     `,
     range: {
       kind: "point",
@@ -15375,17 +15780,17 @@ export default collection<Spell>(ID, [
       high, and 1 foot thick. The wall is opaque and lasts for the duration.
 
       When the wall appears, each creature within its area must make a Dexterity saving throw. On a
-      failed save, a creature takes {@damage 5d8} fire damage, or half as much damage on a
+      failed save, a creature takes %{dice 5d8} fire damage, or half as much damage on a
       successful save.
 
-      One side of the wall, selected by you when you cast this spell, deals {@damage 5d8} fire
+      One side of the wall, selected by you when you cast this spell, deals %{dice 5d8} fire
       damage to each creature that ends its turn within 10 feet of that side or inside the wall. A
       creature takes the same damage when it enters the wall for the first time on a turn or ends
       its turn there. The other side of the wall deals no damage.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 5th level or higher, the damage increases by
-      {@scaledamage 5d8|4-9|1d8} for each slot level above 4th.
+      %{dice 1d8} for each slot level above 4th.
     `,
     range: {
       kind: "point",
@@ -15427,9 +15832,9 @@ export default collection<Spell>(ID, [
       when it appears, the creature is pushed to one side of the wall (your choice which side).
 
       Nothing can physically pass through the wall. It is immune to all damage and can't be
-      dispelled by {@spell dispel magic}. A {@spell disintegrate} spell destroys the wall instantly,
-      however. The wall also extends into the Ethereal Plane, blocking ethereal travel through the
-      wall.
+      dispelled by %{ref spells dispelMagic}. A %{ref spellsDisintegrate} spell destroys the wall
+      instantly, however. The wall also extends into the Ethereal Plane, blocking ethereal travel
+      through the wall.
     `,
     range: {
       kind: "point",
@@ -15472,19 +15877,19 @@ export default collection<Spell>(ID, [
 
       If the wall cuts through a creature's space when it appears, the creature within its area is
       pushed to one side of the wall and must make a Dexterity saving throw. On a failed save, the
-      creature takes {@damage 10d6} cold damage, or half as much damage on a successful save.
+      creature takes %{dice 10d6} cold damage, or half as much damage on a successful save.
 
       The wall is an object that can be damaged and thus breached. It has AC 12 and 30 hit points
       per 10-foot section, and it is vulnerable to fire damage. Reducing a 10-foot section of wall
       to 0 hit points destroys it and leaves behind a sheet of frigid air in the space the wall
       occupied. A creature moving through the sheet of frigid air for the first time on a turn must
-      make a Constitution saving throw. That creature takes {@damage 5d6} cold damage on a failed
+      make a Constitution saving throw. That creature takes %{dice 5d6} cold damage on a failed
       save, or half as much damage on a successful one.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 7th level or higher, the damage the wall deals
-      when it appears increases by {@scaledamage 10d6|6-9|2d6}, and the damage from passing through
-      the sheet of frigid air increases by {@scaledamage 5d6|6-9|1d6}, for each slot level above
+      when it appears increases by %{dice 2d6}, and the damage from passing through
+      the sheet of frigid air increases by %{dice 1d6}, for each slot level above
       6th.
     `,
     range: {
@@ -15542,7 +15947,7 @@ export default collection<Spell>(ID, [
       15 and 30 hit points per inch of thickness. Reducing a panel to 0 hit points destroys it and
       might cause connected panels to collapse at the DM's discretion.
 
-      If you maintain your {@status concentration} on this spell for its whole duration, the wall
+      If you maintain your concentration on this spell for its whole duration, the wall
       becomes permanent and can't be dispelled. Otherwise, the wall disappears when the spell ends.
     `,
     range: {
@@ -15582,18 +15987,18 @@ export default collection<Spell>(ID, [
       diameter and is up to 20 feet high and 5 feet thick. The wall blocks line of sight.
 
       When the wall appears, each creature within its area must make a Dexterity saving throw. On a
-      failed save, a creature takes {@damage 7d8} piercing damage, or half as much damage on a
+      failed save, a creature takes %{dice 7d8} piercing damage, or half as much damage on a
       successful save.
 
       A creature can move through the wall, albeit slowly and painfully. For every 1 foot a creature
       moves through the wall, it must spend 4 feet of movement. Furthermore, the first time a
       creature enters the wall on a turn or ends its turn there, the creature must make a Dexterity
-      saving throw. It takes {@damage 7d8} slashing damage on a failed save, or half as much damage
+      saving throw. It takes %{dice 7d8} slashing damage on a failed save, or half as much damage
       on a successful one.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 7th level or higher, both types of damage
-      increase by {@scaledamage 7d8|6-9|1d8} for each slot level above 6th.
+      increase by %{dice 1d8} for each slot level above 6th.
     `,
     range: {
       kind: "point",
@@ -15743,22 +16148,22 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       You conjure a mass of thick, sticky webbing at a point of your choice within range. The webs
-      fill a 20-foot cube from that point for the duration. The webs are {@quickref difficult
-      terrain||3} and lightly obscure their area.
+      fill a 20-foot cube from that point for the duration. The webs are difficult terrain and
+      lightly obscure their area.
 
       If the webs aren't anchored between two solid masses (such as walls or trees) or layered
       across a floor, wall, or ceiling, the conjured web collapses on itself, and the spell ends at
       the start of your next turn. Webs layered over a flat surface have a depth of 5 feet.
 
       Each creature that starts its turn in the webs or that enters them during its turn must make a
-      Dexterity saving throw. On a failed save, the creature is {@condition restrained} as long as
+      Dexterity saving throw. On a failed save, the creature is %{ref conditions restrained} as long as
       it remains in the webs or until it breaks free.
 
-      A creature {@condition restrained} by the webs can use its action to make a Strength check
-      against your spell save DC. If it succeeds, it is no longer {@condition restrained}.
+      A creature %{ref conditions restrained} by the webs can use its action to make a Strength check
+      against your spell save DC. If it succeeds, it is no longer %{ref conditions restrained}.
 
       The webs are flammable. Any 5-foot cube of webs exposed to fire burns away in 1 round, dealing
-      {@damage 2d4} fire damage to any creature that starts its turn in the fire.
+      %{dice 2d4} fire damage to any creature that starts its turn in the fire.
     `,
     range: {
       kind: "point",
@@ -15794,10 +16199,10 @@ export default collection<Spell>(ID, [
       Drawing on the deepest fears of a group of creatures, you create illusory creatures in their
       minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of
       your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes
-      {@condition frightened} for the duration. The illusion calls on the creature's deepest fears,
+      %{ref conditions frightened} for the duration. The illusion calls on the creature's deepest fears,
       manifesting its worst nightmares as an implacable threat. At the end of each of the
-      {@condition frightened} creature's turns, it must succeed on a Wisdom saving throw or take
-      {@damage 4d10} psychic damage. On a successful save, the spell ends for that creature.
+      %{ref conditions frightened} creature's turns, it must succeed on a Wisdom saving throw or take
+      %{dice 4d10} psychic damage. On a successful save, the spell ends for that creature.
     `,
     range: {
       kind: "point",
@@ -15832,8 +16237,8 @@ export default collection<Spell>(ID, [
       You and up to ten willing creatures you can see within range assume a gaseous form for the
       duration, appearing as wisps of cloud. While in this cloud form, a creature has a flying speed
       of 300 feet and has resistance to damage from nonmagical weapons. The only actions a creature
-      can take in this form are the {@action Dash} action or to revert to its normal form. Reverting
-      takes 1 minute, during which time a creature is {@condition incapacitated} and can't move.
+      can take in this form are the Dash action or to revert to its normal form. Reverting
+      takes 1 minute, during which time a creature is %{ref conditions incapacitated} and can't move.
       Until the spell ends, a creature can revert to cloud form, which also requires the 1-minute
       transformation.
 
@@ -15878,7 +16283,7 @@ export default collection<Spell>(ID, [
       duration.
 
       When the wall appears, each creature within its area must make a Strength saving throw. A
-      creature takes {@damage 3d8} bludgeoning damage on a failed save, or half as much damage on a
+      creature takes %{dice 3d8} bludgeoning damage on a failed save, or half as much damage on a
       successful one.
 
       The strong wind keeps fog, smoke, and other gases at bay. Small or smaller flying creatures or
@@ -15928,7 +16333,20 @@ export default collection<Spell>(ID, [
       need to meet any requirements in that spell, including costly components. The spell simply
       takes effect. Alternatively, you can create one of the following effects of your choice:
 
-      [object Object]
+      - You create one object of up to 25,000 gp in value that isn't a magic item. The object can be
+        no more than 300 feet in any dimension, and it appears in an unoccupied space you can see on
+        the ground.
+      - You allow up to twenty creatures that you can see to regain all hit points, and you end all
+        effects on them described in the greater restoration spell.
+      - You grant up to ten creatures that you can see resistance to a damage type you choose.
+      - You grant up to ten creatures you can see immunity to a single spell or other magical effect
+        for 8 hours. For instance, you could make yourself and all your companions immune to a
+        lich's life drain attack.
+      - You undo a single recent event by forcing a reroll of any roll made within the last round
+        (including your last turn). Reality reshapes itself to accommodate the new result. For
+        example, a wish spell could undo an opponent's successful save, a foe's critical hit, or a
+        friend's failed save. You can force the reroll to be made with advantage or disadvantage,
+        and you can choose whether to use the reroll or the original roll.
 
       You might be able to achieve something beyond the scope of the above examples. State your wish
       to the DM as precisely as possible. The DM has great latitude in ruling what occurs in such an
@@ -15942,12 +16360,11 @@ export default collection<Spell>(ID, [
 
       The stress of casting this spell to produce any effect other than duplicating another spell
       weakens you. After enduring that stress, each time you cast a spell until you finish a long
-      rest, you take {@damage 1d10} necrotic damage per level of that spell. This damage can't be
+      rest, you take %{dice 1d10} necrotic damage per level of that spell. This damage can't be
       reduced or prevented in any way. In addition, your Strength drops to 3, if it isn't 3 or lower
-      already, for {@dice 2d4} days. For each of those days that you spend resting and doing nothing
+      already, for %{dice 2d4} days. For each of those days that you spend resting and doing nothing
       more than light activity, your remaining recovery time decreases by 2 days. Finally, there is
-      a {@chance 33|||Unable to cast again!|Able to cast again} chance that you are unable to cast
-      wish ever again if you suffer this stress.
+      a 33 percent chance that you are unable to cast wish ever again if you suffer this stress.
     `,
     range: {
       kind: "self",
@@ -15976,14 +16393,14 @@ export default collection<Spell>(ID, [
     desc: md`
       A beam of crackling, blue energy lances out toward a creature within range, forming a
       sustained arc of lightning between you and the target. Make a ranged spell attack against that
-      creature. On a hit, the target takes {@damage 1d12} lightning damage, and on each of your
-      turns for the duration, you can use your action to deal {@damage 1d12} lightning damage to the
+      creature. On a hit, the target takes %{dice 1d12} lightning damage, and on each of your
+      turns for the duration, you can use your action to deal %{dice 1d12} lightning damage to the
       target automatically. The spell ends if you use your action to do anything else. The spell
       also ends if the target is ever outside the spell's range or if it has total cover from you.
     `,
     atHigherLevels: md`
       When you cast this spell using a spell slot of 2nd level or higher, the initial damage
-      increases by {@scaledamage 1d12|1-9|1d12} for each slot level above 1st.
+      increases by %{dice 1d12} for each slot level above 1st.
     `,
     range: {
       kind: "point",
@@ -16056,8 +16473,8 @@ export default collection<Spell>(ID, [
     school: ref("magicSchools", "evocation"),
     desc: md`
       The next time you hit with a melee weapon attack during this spell's duration, your attack
-      deals an extra {@damage 1d6} psychic damage. Additionally, if the target is a creature, it
-      must make a Wisdom saving throw or be {@condition frightened} of you until the spell ends. As
+      deals an extra %{dice 1d6} psychic damage. Additionally, if the target is a creature, it
+      must make a Wisdom saving throw or be %{ref conditions frightened} of you until the spell ends. As
       an action, the creature can make a Wisdom check against your spell save DC to steel its
       resolve and end this spell.
     `,
