@@ -11,7 +11,7 @@ export interface Cost {
 
 export interface Range {
   distance: number;
-  unit: "feet" | "miles";
+  unit: "foot" | "mile";
 }
 
 export interface Source {

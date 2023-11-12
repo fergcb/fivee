@@ -19,7 +19,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -71,7 +71,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -81,7 +81,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -126,7 +126,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -139,13 +139,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -189,7 +189,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -220,7 +220,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -230,7 +230,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -273,7 +273,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -283,7 +283,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -323,7 +323,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -332,7 +332,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -377,7 +377,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "S", "M"],
@@ -393,7 +393,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -448,7 +448,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -457,7 +457,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -491,7 +491,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 10,
         },
       },
@@ -502,7 +502,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -568,7 +568,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "sphere",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 10,
         },
       },
@@ -583,7 +583,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -637,7 +637,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -650,13 +650,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "days",
+        unit: "day",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 1,
       },
     ],
@@ -681,7 +681,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -691,7 +691,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -726,7 +726,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 500,
     },
     components: ["V", "S"],
@@ -735,7 +735,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -813,7 +813,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -847,7 +847,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 10,
         },
       },
@@ -907,7 +907,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "S", "M"],
@@ -928,7 +928,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 1,
       },
     ],
@@ -975,7 +975,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -999,7 +999,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 30,
         },
       },
@@ -1010,7 +1010,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1041,7 +1041,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 30,
         },
       },
@@ -1052,7 +1052,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1080,7 +1080,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 30,
         },
       },
@@ -1091,7 +1091,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1140,7 +1140,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 8,
       },
     ],
@@ -1164,7 +1164,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -1174,7 +1174,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1215,7 +1215,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1253,7 +1253,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -1266,7 +1266,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1304,7 +1304,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -1329,7 +1329,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -1338,7 +1338,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1371,7 +1371,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -1422,7 +1422,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1488,7 +1488,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -1501,7 +1501,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1532,7 +1532,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S"],
@@ -1541,7 +1541,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1587,7 +1587,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: false,
       },
     ],
@@ -1616,7 +1616,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -1626,7 +1626,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1662,7 +1662,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -1723,7 +1723,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1753,7 +1753,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V"],
@@ -1762,7 +1762,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -1809,7 +1809,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -1841,7 +1841,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1879,7 +1879,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -1914,7 +1914,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "cone",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 15,
         },
       },
@@ -1985,7 +1985,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -1994,7 +1994,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -2028,7 +2028,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -2037,7 +2037,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -2075,7 +2075,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S", "M"],
@@ -2131,7 +2131,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -2140,7 +2140,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -2177,7 +2177,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -2186,7 +2186,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: false,
       },
     ],
@@ -2231,7 +2231,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S", "M"],
@@ -2271,7 +2271,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S", "M"],
@@ -2330,7 +2330,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 30,
         },
       },
@@ -2341,7 +2341,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -2374,7 +2374,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "miles",
+      unit: "mile",
       distance: 1,
     },
     components: ["V", "S", "M"],
@@ -2388,13 +2388,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -2436,7 +2436,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 1,
       },
     ],
@@ -2459,7 +2459,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -2469,7 +2469,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -2507,7 +2507,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -2516,7 +2516,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -2573,7 +2573,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "cone",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 15,
         },
       },
@@ -2588,7 +2588,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: false,
       },
     ],
@@ -2636,7 +2636,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V"],
@@ -2645,7 +2645,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: false,
       },
     ],
@@ -2695,13 +2695,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -2743,7 +2743,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -2769,7 +2769,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V"],
@@ -2778,7 +2778,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -2814,7 +2814,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -2846,7 +2846,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -2855,7 +2855,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -2894,7 +2894,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "cone",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 60,
         },
       },
@@ -2963,7 +2963,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S", "M"],
@@ -2973,7 +2973,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -3022,7 +3022,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -3031,7 +3031,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -3061,7 +3061,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "cone",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 60,
         },
       },
@@ -3110,7 +3110,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S"],
@@ -3119,13 +3119,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -3163,7 +3163,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S", "M"],
@@ -3176,13 +3176,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -3219,7 +3219,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S"],
@@ -3228,13 +3228,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -3272,7 +3272,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S"],
@@ -3281,13 +3281,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -3309,7 +3309,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S", "M"],
@@ -3362,7 +3362,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -3375,7 +3375,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -3416,13 +3416,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -3481,7 +3481,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 7,
-        unit: "days",
+        unit: "day",
         concentration: false,
       },
     ],
@@ -3533,13 +3533,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "days",
+        unit: "day",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -3635,7 +3635,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 300,
     },
     components: ["V", "S", "M"],
@@ -3648,7 +3648,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -3729,7 +3729,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "miles",
+          unit: "mile",
           distance: 5,
         },
       },
@@ -3744,13 +3744,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -3780,7 +3780,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 5,
     },
     components: ["V", "S", "M"],
@@ -3790,7 +3790,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -3820,7 +3820,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["S"],
@@ -3854,7 +3854,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -3895,7 +3895,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -3952,7 +3952,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "S", "M"],
@@ -3969,7 +3969,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -4010,7 +4010,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -4026,7 +4026,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -4053,7 +4053,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -4062,7 +4062,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -4091,7 +4091,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 30,
         },
       },
@@ -4102,7 +4102,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -4178,7 +4178,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -4191,7 +4191,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -4223,7 +4223,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "M"],
@@ -4236,7 +4236,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -4271,7 +4271,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -4302,7 +4302,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -4311,7 +4311,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -4348,7 +4348,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -4392,7 +4392,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S", "M"],
@@ -4405,7 +4405,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -4453,7 +4453,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["S"],
@@ -4462,7 +4462,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -4492,7 +4492,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 30,
         },
       },
@@ -4536,7 +4536,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -4571,7 +4571,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -4607,7 +4607,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -4664,7 +4664,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -4698,7 +4698,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 500,
     },
     components: ["V"],
@@ -4748,7 +4748,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -4789,7 +4789,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -4858,7 +4858,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -4894,7 +4894,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -4933,7 +4933,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V"],
@@ -5011,7 +5011,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -5046,7 +5046,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V"],
@@ -5103,7 +5103,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -5112,7 +5112,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -5162,7 +5162,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -5171,7 +5171,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -5223,7 +5223,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -5232,7 +5232,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -5290,7 +5290,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -5339,13 +5339,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -5385,7 +5385,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -5446,7 +5446,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 500,
     },
     components: ["V", "S", "M"],
@@ -5459,7 +5459,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -5487,7 +5487,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -5546,7 +5546,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -5597,7 +5597,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -5641,7 +5641,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -5651,7 +5651,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -5699,7 +5699,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -5731,7 +5731,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S"],
@@ -5740,7 +5740,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -5774,7 +5774,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -5783,7 +5783,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -5843,7 +5843,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -5876,7 +5876,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S", "M"],
@@ -5889,7 +5889,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -5935,7 +5935,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -5980,7 +5980,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -6022,7 +6022,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -6034,7 +6034,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -6057,7 +6057,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V"],
@@ -6066,7 +6066,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -6110,7 +6110,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -6158,7 +6158,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "cone",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 30,
         },
       },
@@ -6173,7 +6173,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -6203,7 +6203,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "M"],
@@ -6216,7 +6216,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -6253,7 +6253,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S", "M"],
@@ -6317,7 +6317,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -6374,7 +6374,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "S", "M"],
@@ -6391,7 +6391,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 1,
       },
     ],
@@ -6428,7 +6428,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -6440,7 +6440,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -6477,13 +6477,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "days",
+        unit: "day",
         concentration: true,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -6508,7 +6508,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -6543,7 +6543,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -6585,13 +6585,14 @@ export const phbSpells: Entry<Spell>[] = [
       You hurl a mote of fire at a creature or object within range. Make a ranged spell attack
       against the target. On a hit, the target takes %{dice 1d10} fire damage. A flammable object
       hit by this spell ignites if it isn't being worn or carried.
-
+    `,
+    atHigherLevels: md`
       This spell's damage increases by %{dice 1d10} when you reach 5th level (%{dice 2d10}), 11th
       level (%{dice 3d10}), and 17th level (%{dice 4d10}).
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -6653,7 +6654,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -6683,7 +6684,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S"],
@@ -6736,7 +6737,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S", "M"],
@@ -6809,7 +6810,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -6840,7 +6841,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -6903,7 +6904,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -6916,7 +6917,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -6954,7 +6955,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -6967,7 +6968,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -7008,7 +7009,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -7038,7 +7039,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -7047,7 +7048,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -7100,13 +7101,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "days",
+        unit: "day",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -7143,7 +7144,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 100,
     },
     components: ["V", "S", "M"],
@@ -7157,7 +7158,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -7193,13 +7194,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -7233,7 +7234,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -7271,7 +7272,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -7318,7 +7319,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -7358,7 +7359,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -7372,7 +7373,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -7411,7 +7412,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V"],
@@ -7420,13 +7421,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 30,
-        unit: "days",
+        unit: "day",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -7464,7 +7465,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "days",
+        unit: "day",
         concentration: false,
       },
     ],
@@ -7499,7 +7500,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -7508,7 +7509,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -7540,7 +7541,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -7576,7 +7577,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 10,
         },
       },
@@ -7591,7 +7592,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -7674,7 +7675,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 1,
       },
     ],
@@ -7730,7 +7731,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -7739,7 +7740,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -7767,7 +7768,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -7777,7 +7778,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -7814,7 +7815,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -7883,7 +7884,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V"],
@@ -7892,7 +7893,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -7982,13 +7983,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -8014,7 +8015,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -8044,7 +8045,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -8053,7 +8054,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: false,
       },
     ],
@@ -8111,7 +8112,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "line",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 60,
         },
       },
@@ -8123,7 +8124,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -8166,7 +8167,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -8247,7 +8248,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 24,
       },
     ],
@@ -8280,7 +8281,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 300,
     },
     components: ["V", "S", "M"],
@@ -8293,13 +8294,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -8321,7 +8322,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -8370,7 +8371,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -8380,7 +8381,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -8409,7 +8410,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -8452,7 +8453,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V"],
@@ -8508,7 +8509,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -8518,7 +8519,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -8568,7 +8569,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -8628,7 +8629,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -8645,7 +8646,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -8676,7 +8677,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -8712,7 +8713,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S", "M"],
@@ -8722,7 +8723,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -8753,7 +8754,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S", "M"],
@@ -8763,7 +8764,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -8798,7 +8799,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -8808,7 +8809,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -8853,7 +8854,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -8885,7 +8886,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S", "M"],
@@ -8895,7 +8896,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -8928,7 +8929,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V"],
@@ -8937,7 +8938,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -8967,7 +8968,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["S", "M"],
@@ -8980,7 +8981,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -9018,7 +9019,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 300,
     },
     components: ["V", "S", "M"],
@@ -9092,7 +9093,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -9132,13 +9133,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "days",
+        unit: "day",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -9206,7 +9207,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -9224,7 +9225,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -9257,7 +9258,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S"],
@@ -9266,7 +9267,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -9366,7 +9367,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 300,
     },
     components: ["V", "S", "M"],
@@ -9379,7 +9380,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -9434,7 +9435,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -9465,7 +9466,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -9499,7 +9500,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V"],
@@ -9553,7 +9554,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -9628,7 +9629,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "hemisphere",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 10,
         },
       },
@@ -9640,13 +9641,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -9703,7 +9704,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -9716,7 +9717,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -9753,7 +9754,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -9802,7 +9803,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -9837,7 +9838,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "line",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 100,
         },
       },
@@ -9941,7 +9942,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -9981,7 +9982,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -10016,7 +10017,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -10049,7 +10050,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -10080,7 +10081,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -10089,7 +10090,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -10131,7 +10132,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "S", "M"],
@@ -10145,13 +10146,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -10223,7 +10224,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -10251,7 +10252,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -10296,7 +10297,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -10314,7 +10315,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -10343,7 +10344,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -10388,7 +10389,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -10398,7 +10399,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -10428,7 +10429,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -10471,7 +10472,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -10512,7 +10513,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V"],
@@ -10575,7 +10576,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "M"],
@@ -10588,7 +10589,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -10624,7 +10625,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -10633,7 +10634,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -10678,7 +10679,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -10709,7 +10710,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S", "M"],
@@ -10777,7 +10778,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -10800,7 +10801,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -10810,7 +10811,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: false,
       },
     ],
@@ -10840,7 +10841,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "miles",
+      unit: "mile",
       distance: 1,
     },
     components: ["V", "S"],
@@ -10893,7 +10894,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -10932,7 +10933,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["S", "M"],
@@ -10942,7 +10943,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -10988,13 +10989,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "days",
+        unit: "day",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -11034,7 +11035,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -11073,7 +11074,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -11155,7 +11156,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -11164,7 +11165,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -11209,7 +11210,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -11222,7 +11223,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -11277,7 +11278,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -11290,7 +11291,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -11345,7 +11346,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 300,
     },
     components: ["V", "S", "M"],
@@ -11359,13 +11360,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -11403,7 +11404,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -11416,13 +11417,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -11444,7 +11445,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -11458,7 +11459,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -11512,7 +11513,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -11525,7 +11526,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 2,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -11562,7 +11563,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -11610,7 +11611,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -11653,7 +11654,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 300,
     },
     components: ["V", "S", "M"],
@@ -11712,7 +11713,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -11725,7 +11726,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -11761,7 +11762,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V"],
@@ -11770,7 +11771,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -11808,7 +11809,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -11838,7 +11839,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -11848,7 +11849,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -11897,7 +11898,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -11907,7 +11908,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -11939,7 +11940,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -11948,7 +11949,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -11994,7 +11995,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -12003,13 +12004,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -12057,7 +12058,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -12069,7 +12070,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -12106,7 +12107,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -12120,13 +12121,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 1,
       },
     ],
@@ -12210,7 +12211,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S"],
@@ -12226,7 +12227,7 @@ export const phbSpells: Entry<Spell>[] = [
         amount: 1,
       },
       {
-        unit: "hours",
+        unit: "hour",
         amount: 8,
       },
     ],
@@ -12248,7 +12249,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "S"],
@@ -12314,7 +12315,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -12324,7 +12325,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -12382,7 +12383,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V"],
@@ -12415,7 +12416,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V"],
@@ -12450,7 +12451,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V"],
@@ -12462,7 +12463,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -12505,7 +12506,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "S"],
@@ -12514,7 +12515,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -12565,7 +12566,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "cone",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 60,
         },
       },
@@ -12653,7 +12654,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -12662,7 +12663,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -12702,7 +12703,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -12759,7 +12760,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -12811,7 +12812,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "miles",
+      unit: "mile",
       distance: 500,
     },
     components: ["V", "S", "M"],
@@ -12825,7 +12826,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "days",
+        unit: "day",
         concentration: true,
       },
     ],
@@ -12856,7 +12857,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -12895,7 +12896,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -12929,7 +12930,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -12953,7 +12954,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "S"],
@@ -13012,7 +13013,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 1,
       },
     ],
@@ -13035,7 +13036,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -13048,7 +13049,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -13076,7 +13077,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -13085,7 +13086,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -13116,7 +13117,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -13167,7 +13168,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -13211,13 +13212,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -13282,7 +13283,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 1,
       },
     ],
@@ -13338,7 +13339,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -13392,7 +13393,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 1,
       },
     ],
@@ -13419,7 +13420,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 100,
     },
     components: ["V", "S", "M"],
@@ -13429,7 +13430,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -13514,7 +13515,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -13542,7 +13543,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -13595,7 +13596,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -13605,7 +13606,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -13635,7 +13636,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -13705,13 +13706,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 10,
       },
     ],
@@ -13750,7 +13751,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -13786,7 +13787,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -13827,7 +13828,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S"],
@@ -13836,7 +13837,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -13876,7 +13877,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: false,
       },
     ],
@@ -13989,7 +13990,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -14023,7 +14024,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -14083,7 +14084,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: false,
       },
     ],
@@ -14111,7 +14112,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -14124,7 +14125,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -14162,7 +14163,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -14236,7 +14237,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -14245,7 +14246,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -14282,7 +14283,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -14292,7 +14293,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -14348,7 +14349,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 12,
       },
     ],
@@ -14379,7 +14380,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S", "M"],
@@ -14392,7 +14393,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -14425,7 +14426,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S", "M"],
@@ -14438,7 +14439,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -14475,7 +14476,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -14485,7 +14486,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -14552,7 +14553,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -14584,7 +14585,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "S", "M"],
@@ -14594,7 +14595,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -14638,7 +14639,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 30,
         },
       },
@@ -14649,7 +14650,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -14682,7 +14683,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -14712,7 +14713,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S", "M"],
@@ -14725,7 +14726,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -14764,7 +14765,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "radius",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 15,
         },
       },
@@ -14776,7 +14777,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -14813,7 +14814,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -14822,7 +14823,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -14875,7 +14876,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -14908,7 +14909,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 90,
     },
     components: ["V", "S", "M"],
@@ -14921,7 +14922,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -14998,7 +14999,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -15053,7 +15054,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -15105,7 +15106,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "M"],
@@ -15118,7 +15119,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -15158,7 +15159,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "line",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 60,
         },
       },
@@ -15170,7 +15171,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -15216,7 +15217,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 150,
     },
     components: ["V", "S", "M"],
@@ -15278,7 +15279,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -15372,7 +15373,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -15397,7 +15398,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -15410,7 +15411,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -15464,7 +15465,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -15473,7 +15474,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -15512,7 +15513,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -15588,7 +15589,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V"],
@@ -15633,7 +15634,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "M"],
@@ -15647,13 +15648,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -15682,7 +15683,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -15692,7 +15693,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -15726,7 +15727,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V"],
@@ -15735,7 +15736,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],
@@ -15764,7 +15765,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -15804,7 +15805,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -15841,7 +15842,7 @@ export const phbSpells: Entry<Spell>[] = [
       shape: {
         kind: "cube",
         size: {
-          unit: "feet",
+          unit: "foot",
           distance: 15,
         },
       },
@@ -15938,7 +15939,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -15964,7 +15965,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 10,
     },
     components: ["V", "S"],
@@ -15973,7 +15974,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: false,
       },
     ],
@@ -16012,7 +16013,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -16077,7 +16078,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -16090,7 +16091,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -16138,7 +16139,7 @@ export const phbSpells: Entry<Spell>[] = [
     ],
     castingTimes: [
       {
-        unit: "hours",
+        unit: "hour",
         amount: 1,
       },
     ],
@@ -16172,7 +16173,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -16197,7 +16198,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["S"],
@@ -16206,7 +16207,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "rounds",
+        unit: "round",
         concentration: true,
       },
     ],
@@ -16254,13 +16255,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 6,
-        unit: "rounds",
+        unit: "round",
         concentration: true,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -16289,7 +16290,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -16302,7 +16303,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -16340,7 +16341,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -16387,7 +16388,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V"],
@@ -16448,7 +16449,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -16458,7 +16459,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -16506,7 +16507,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -16519,7 +16520,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -16562,7 +16563,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -16572,7 +16573,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -16637,7 +16638,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -16647,7 +16648,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -16687,7 +16688,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -16697,7 +16698,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -16756,7 +16757,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -16781,7 +16782,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -16791,7 +16792,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 24,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -16820,7 +16821,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -16830,7 +16831,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
@@ -16869,7 +16870,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S", "M"],
@@ -16879,7 +16880,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "hours",
+        unit: "hour",
         concentration: true,
       },
     ],
@@ -16908,7 +16909,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S"],
@@ -16917,7 +16918,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -16955,7 +16956,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -16965,13 +16966,13 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 8,
-        unit: "hours",
+        unit: "hour",
         concentration: false,
       },
     ],
     castingTimes: [
       {
-        unit: "minutes",
+        unit: "minute",
         amount: 1,
       },
     ],
@@ -17001,7 +17002,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 120,
     },
     components: ["V", "S", "M"],
@@ -17014,7 +17015,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -17125,7 +17126,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 30,
     },
     components: ["V", "S", "M"],
@@ -17138,7 +17139,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -17168,7 +17169,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 5,
     },
     components: ["V"],
@@ -17208,7 +17209,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 1,
-        unit: "minutes",
+        unit: "minute",
         concentration: true,
       },
     ],
@@ -17239,7 +17240,7 @@ export const phbSpells: Entry<Spell>[] = [
     `,
     range: {
       kind: "point",
-      unit: "feet",
+      unit: "foot",
       distance: 60,
     },
     components: ["V", "S"],
@@ -17248,7 +17249,7 @@ export const phbSpells: Entry<Spell>[] = [
       {
         kind: "time",
         amount: 10,
-        unit: "minutes",
+        unit: "minute",
         concentration: false,
       },
     ],

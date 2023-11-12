@@ -40,7 +40,7 @@ export type SpellDuration =
       | {
           kind: "time";
           amount: number;
-          unit: "rounds" | "minutes" | "hours" | "days" | "weeks";
+          unit: "round" | "minute" | "hour" | "day" | "week";
           concentration: boolean;
         }
     ) & { until?: ("dispelled" | "long rest" | "short rest" | "triggered")[] });
@@ -51,10 +51,10 @@ export interface CastingTime {
     | "action"
     | "bonus action"
     | "reaction"
-    | "minutes"
-    | "hours"
-    | "days"
-    | "weeks";
+    | "minute"
+    | "hour"
+    | "day"
+    | "week";
   condition?: string;
 }
 
@@ -123,7 +123,7 @@ export default collection<Spell>({
         _: unknown,
         { id }: SpellArgs,
         { db }: ResolverContext
-      ): Promise<Spell> {
+      ): Promise<Spell | null> {
         return await db.get(ID, id);
       },
       async spells(

@@ -59,7 +59,7 @@ export class Database {
   public async get<T extends Document>(
     collectionId: CollectionID,
     docId: string
-  ): Promise<T> {
+  ): Promise<T | null> {
     if (this.kv === null) {
       throw new Error("Database called before initialisation.");
     }
@@ -174,3 +174,5 @@ export class Database {
     );
   }
 }
+
+export default new Database();

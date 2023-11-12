@@ -5,5 +5,3 @@ export const resolvers = merge(
   {},
   ...Object.values(collections).map((col) => col.resolvers)
 );
-
-console.log(resolvers.Query);

@@ -1,0 +1,46 @@
+<article {{cn "spell"}}>
+  <h1 {{cn "spell__name"}}>{{spell.name}}</h1>
+  <p {{cn "spell__level-school-ritual"}}>
+    {{#if spell.isLevelled}}
+      <span {{cn "spell__level"}}>{{ordinal spell.level}}-level</span>
+    {{/if}}
+    <span {{cn "spell__school"}}>{{spell.school.name}}</span>
+    {{#if spell.isCantrip}}
+      <span {{cn "spell__level"}}>cantrip</span>
+    {{/if}}
+    {{#if spell.ritual}}
+      <span {{cn "spell__ritual"}}>(ritual)</span>
+    {{/if}}
+  </p>
+  <dl {{cn "spell__metadata"}}>
+    <div {{cn "spell__casting-time"}}>
+      <dt {{cn "spell__metadata__key"}}>Casting Time</dt>
+      <dd {{cn "spell__metadata__value"}}>{{spell.castingTime}}</dd>
+    </div>
+    <div {{cn "spell__range"}}>
+      <dt {{cn "spell__metadata__key"}}>Range</dt>
+      <dd {{cn "spell__metadata__value"}}>{{spell.range}}</dd>
+    </div>
+    <div {{cn "spell__components"}}>
+      <dt {{cn "spell__metadata__key"}}>Components</dt>
+      <dd {{cn "spell__metadata__value"}}>
+        {{join spell.components ", "}}
+        {{#if spell.materials}}
+          <span {{cn "spell__materials"}}>({{spell.materials}})</span>
+        {{/if}}
+      </dd>
+    </div>
+    <div {{cn "spell__duration"}}>
+      <dt {{cn "spell__metadata__key"}}>Duration</dt>
+      <dd {{cn "spell__metadata__value"}}>{{spell.duration}}</dd>
+    </div>
+  </dl>
+  <section {{cn "spell__description"}}>
+    {{{md spell.desc }}}
+    {{#if spell.atHigherLevels}}
+      <p {{cn "spell__higher-levels"}}>
+        {{{mdi spell.atHigherLevels}}}
+      </p>
+    {{/if}}
+  </section>
+</article>
