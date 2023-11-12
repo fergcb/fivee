@@ -1,0 +1,67 @@
+type SpellDuration {
+  kind: String!
+  unit: String
+  upTo: Boolean
+  until: [String!]
+}
+
+type CastingTime {
+  amount: Int!
+  unit: String!
+}
+
+scalar DamageAtLevel
+
+type DamageProgression {
+  kind: String!
+  damageAtSlotLevel: DamageAtLevel
+  damageAtCharacterLevel: DamageAtLevel
+}
+
+type SpellDamage {
+  damageType: DamageType
+  damageProgression: DamageProgression!
+}
+
+interface ISpellAttack {
+  kind: String!
+}
+
+type MeleeOrRangedSpellAttack implements ISpellAttack {
+  kind: String!
+  damage: SpellDamage
+}
+
+type SavingThrowSpellAttack implements ISpellAttack {
+  kind: String!
+  damage: SpellDamage
+  saveType: AbilityScore
+  effectOnSave: String
+}
+
+type HealingSpellAttack implements ISpellAttack {
+  kind: String!
+  healingAtSlotLevel: DamageAtLevel
+}
+
+type Spell {
+  id: String!
+  name: String!
+  level: Int!
+  school: MagicSchool!
+  desc: String!
+  atHigherLevels: String
+  range: Range!
+  components: [String!]!
+  materials: String
+  ritual: Boolean!
+  durations: [SpellDuration!]!
+  castingTimes: [CastingTime!]!
+  attack: ISpellAttack,
+  source: Source!
+}
+
+extend type Query {
+  spells: [Spell]
+  spell(id: String!): Spell
+}

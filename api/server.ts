@@ -1,19 +1,19 @@
-import { ApolloServer } from "npm:@apollo/server@^4.1";
+import { ApolloServer } from "npm:@apollo/server@^4.9";
 import { startStandaloneServer } from "npm:@apollo/server@4.9/standalone";
 
-import typeDefs from "$graphql/typeDefs.ts";
-import * as resolvers from "$graphql/resolvers.ts";
 import { Database } from "$db/database.ts";
-import { ResolverContext } from "$graphql/context.ts";
+
+import { typeDefs } from "$graphql/typeDefs.ts";
+import { resolvers } from "$graphql/resolvers.ts";
+
+export interface ResolverContext {
+  db: Database;
+}
 
 async function start(db: Database) {
   const server = new ApolloServer<ResolverContext>({
     typeDefs,
-    resolvers: {
-      Query: {
-        ...resolvers,
-      },
-    },
+    resolvers,
   });
 
   const { url } = await startStandaloneServer<ResolverContext>(server, {

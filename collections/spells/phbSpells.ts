@@ -1,203 +1,9 @@
-import { ResolverContext } from "$graphql/context.ts";
-import { collection } from "$collections/_collection.ts";
-import { BaseDocument, Cost, Range, Source } from "$collections/_common.ts";
-import { MagicSchool } from "$collections/magicSchools.ts";
-import { AbilityScore } from "$collections/abilityScores.ts";
+import { ref, md, dice, source } from "$helpers";
+import { Entry } from "$db/resolver.ts";
+import { Spell } from "$collections/spells/collection.ts";
 import { DamageType } from "$collections/damageTypes.ts";
-import { dice, ref, source } from "$helpers";
-import { md } from "$helpers";
 
-export const ID = "spells";
-
-/*
- * TypeScript Types
- */
-
-export type SpellRange =
-  | (Range & { kind: "point" })
-  | {
-      kind: "self";
-      shape?: {
-        kind: "sphere" | "radius" | "cone" | "line" | "hemisphere" | "cube";
-        size: Range;
-      };
-    }
-  | { kind: "touch" }
-  | { kind: "special" }
-  | { kind: "sight" }
-  | { kind: "unlimited" };
-
-export interface SpellMaterials {
-  desc: string;
-  cost?: Cost;
-  consumed: "yes" | "no" | "optional";
-}
-
-export type SpellDuration =
-  | { kind: "instantaneous" }
-  | { kind: "special" }
-  | ((
-      | { kind: "permanent" }
-      | {
-          kind: "time";
-          amount: number;
-          unit: "rounds" | "minutes" | "hours" | "days" | "weeks";
-          concentration: boolean;
-        }
-    ) & { until?: ("dispelled" | "long rest" | "short rest" | "triggered")[] });
-
-export interface CastingTime {
-  amount: number;
-  unit:
-    | "action"
-    | "bonus action"
-    | "reaction"
-    | "minutes"
-    | "hours"
-    | "days"
-    | "weeks";
-  condition?: string;
-}
-
-export type DamageProgression =
-  | {
-      kind: "cantrip";
-      damageAtCharacterLevel: { [key: number]: string };
-    }
-  | {
-      kind: "levelled";
-      damageAtSlotLevel: { [key: number]: string };
-    };
-
-export type SpellAttack =
-  | {
-      kind: "ranged" | "melee";
-      damage?: {
-        damageType: DamageType;
-        damageProgression: DamageProgression;
-      };
-    }
-  | {
-      kind: "savingThrow";
-      saveType: AbilityScore;
-      effectOnSave: "noEffect" | "halfDamage" | "special";
-      damage?: {
-        damageType: DamageType;
-        damageProgression: DamageProgression;
-      };
-    }
-  | {
-      kind: "healing";
-      healingAtSlotLevel: { [key: number]: string };
-    };
-
-export interface Spell extends BaseDocument {
-  name: string;
-  level: number;
-  school: MagicSchool;
-  desc: string;
-  atHigherLevels?: string;
-  range: SpellRange;
-  components: ("V" | "S" | "M")[];
-  materials?: SpellMaterials;
-  ritual: boolean;
-  durations: SpellDuration[];
-  castingTimes: CastingTime[];
-  attack?: SpellAttack;
-  source: Source;
-}
-
-/*
- * GraphQL TypeDefs
- */
-
-export const typeDefs = `#graphql
-
-  type SpellDuration {
-    kind: String!
-    unit: String
-    upTo: Boolean
-    until: [String!]
-  }
-
-  type CastingTime {
-    amount: Int!
-    unit: String!
-  }
-
-  scalar DamageAtLevel
-
-  type DamageProgression {
-    kind: String!
-    damageAtSlotLevel: DamageAtLevel
-    damageAtCharacterLevel: DamageAtLevel
-  }
-
-  type SpellDamage {
-    damageType: DamageType!
-    damageProgression: DamageProgression!
-  }
-
-  type SpellAttack {
-    kind: String!
-    saveType: AbilityScore
-    effectOnSave: String
-    damage: SpellDamage
-    healingAtSlotLevel: DamageAtLevel
-  }
-
-  type Spell {
-    id: String!
-    name: String!
-    level: Int!
-    school: MagicSchool!
-    desc: String!
-    atHigherLevels: String
-    range: Range!
-    components: [String!]!
-    materials: String
-    ritual: Boolean!
-    durations: [SpellDuration!]!
-    castingTimes: [CastingTime!]!
-    attack: SpellAttack,
-    source: Source!
-  }
-
-  extend type Query {
-    spells: [Spell]
-    spell(id: String!): Spell
-  }
-`;
-
-/*
- * GraphQL Resolvers
- */
-
-interface SpellArgs {
-  id: string;
-}
-
-export async function oneResolver(
-  _parent: unknown,
-  { id }: SpellArgs,
-  { db }: ResolverContext
-): Promise<Spell> {
-  return await db.get(ID, id);
-}
-
-export async function manyResolver(
-  _parent: unknown,
-  _args: never,
-  { db }: ResolverContext
-): Promise<Spell[]> {
-  return await db.list(ID);
-}
-
-/*
- * Data
- */
-
-export default collection<Spell>(ID, [
+export const phbSpells: Entry<Spell>[] = [
   {
     id: "acidSplash",
     name: "Acid Splash",
@@ -232,7 +38,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "acid"),
+        damageType: ref<DamageType>("damageTypes", "acid"),
         damageProgression: {
           kind: "cantrip",
           damageAtCharacterLevel: {
@@ -1635,7 +1441,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "bigbySHand",
+    id: "bigbysHand",
     name: "Bigby's Hand",
     level: 5,
     school: ref("magicSchools", "evocation"),
@@ -1748,7 +1554,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "slashing"),
+        damageType: ref<DamageType>("damageTypes", "slashing"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -1875,7 +1681,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "necrotic"),
+        damageType: ref<DamageType>("damageTypes", "necrotic"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -2129,7 +1935,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "fire"),
+        damageType: ref<DamageType>("damageTypes", "fire"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -2292,7 +2098,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "lightning"),
+        damageType: ref<DamageType>("damageTypes", "lightning"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -2393,7 +2199,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "ranged",
       damage: {
-        damageType: ref("damageTypes", "necrotic"),
+        damageType: ref<DamageType>("damageTypes", "necrotic"),
         damageProgression: {
           kind: "cantrip",
           damageAtCharacterLevel: {
@@ -2489,7 +2295,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "necrotic"),
+        damageType: ref<DamageType>("damageTypes", "necrotic"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -2723,7 +2529,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "poison"),
+        damageType: ref<DamageType>("damageTypes", "poison"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -3110,7 +2916,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "cold"),
+        damageType: ref<DamageType>("damageTypes", "cold"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -3855,7 +3661,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "bludgeoning"),
+        damageType: ref<DamageType>("damageTypes", "bludgeoning"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -4270,7 +4076,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "crusaderSMantle",
+    id: "crusadersMantle",
     name: "Crusader's Mantle",
     level: 3,
     school: ref("magicSchools", "evocation"),
@@ -4612,7 +4418,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "fire"),
+        damageType: ref<DamageType>("damageTypes", "fire"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -5003,7 +4809,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "force"),
+        damageType: ref<DamageType>("damageTypes", "force"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -5445,7 +5251,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "drawmijSInstantSummons",
+    id: "drawmijsInstantSummons",
     name: "Drawmij's Instant Summons",
     level: 6,
     school: ref("magicSchools", "conjuration"),
@@ -5546,7 +5352,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "savingThrow",
       damage: {
-        damageType: ref("damageTypes", "psychic"),
+        damageType: ref<DamageType>("damageTypes", "psychic"),
         damageProgression: {
           kind: "levelled",
           damageAtSlotLevel: {
@@ -5700,7 +5506,7 @@ export default collection<Spell>(ID, [
     attack: {
       kind: "ranged",
       damage: {
-        damageType: ref("damageTypes", "force"),
+        damageType: ref<DamageType>("damageTypes", "force"),
         damageProgression: {
           kind: "cantrip",
           damageAtCharacterLevel: {
@@ -6051,7 +5857,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "evardSBlackTentacles",
+    id: "evardsBlackTentacles",
     name: "Evard's Black Tentacles",
     level: 4,
     school: ref("magicSchools", "conjuration"),
@@ -6093,6 +5899,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "bludgeoning"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            4: dice("3d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 238),
   },
 
@@ -6170,6 +5990,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 238),
   },
 
@@ -6251,6 +6076,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 239),
   },
 
@@ -6290,6 +6120,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "healing",
+      healingAtSlotLevel: {
+        1: dice("1d4 + 4"),
+        2: dice("1d4 + 9"),
+        3: dice("1d4 + 14"),
+        4: dice("1d4 + 19"),
+        5: dice("1d4 + 24"),
+        6: dice("1d4 + 29"),
+        7: dice("1d4 + 34"),
+        8: dice("1d4 + 39"),
+        9: dice("1d4 + 44"),
+      },
+    },
     source: source("PHB", 239),
   },
 
@@ -6339,6 +6183,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 239),
   },
 
@@ -6424,6 +6273,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "psychic"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            8: dice("4d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "int"),
+      effectOnSave: "special",
+    },
     source: source("PHB", 239),
   },
 
@@ -6696,6 +6559,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "necrotic"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            7: dice("7d8 + 30"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 241),
   },
 
@@ -6730,6 +6607,21 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "ranged",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "fire"),
+        damageProgression: {
+          kind: "cantrip",
+          damageAtCharacterLevel: {
+            1: dice("1d10"),
+            5: dice("2d10"),
+            11: dice("3d10"),
+            17: dice("4d10"),
+          },
+        },
+      },
+    },
     source: source("PHB", 242),
   },
 
@@ -6807,6 +6699,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "fire"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            7: dice("7d10"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 242),
   },
 
@@ -6850,6 +6756,26 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "fire"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            3: dice("8d6"),
+            4: dice("9d6"),
+            5: dice("10d6"),
+            6: dice("11d6"),
+            7: dice("12d6"),
+            8: dice("13d6"),
+            9: dice("14d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 241),
   },
 
@@ -6931,6 +6857,24 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "fire"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            5: dice("4d6 + 4d6"),
+            6: dice("4d6 + 5d6"),
+            7: dice("4d6 + 6d6"),
+            8: dice("4d6 + 7d6"),
+            9: dice("4d6 + 8d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 242),
   },
 
@@ -7033,6 +6977,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 243),
   },
 
@@ -7481,6 +7430,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 244),
   },
 
@@ -7833,6 +7787,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 246),
   },
 
@@ -7943,6 +7902,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "radiant"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            4: dice("20"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 246),
   },
 
@@ -8090,6 +8063,26 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "ranged",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "radiant"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            1: dice("4d6"),
+            2: dice("5d6"),
+            3: dice("6d6"),
+            4: dice("7d6"),
+            5: dice("8d6"),
+            6: dice("9d6"),
+            7: dice("10d6"),
+            8: dice("11d6"),
+            9: dice("12d6"),
+          },
+        },
+      },
+    },
     source: source("PHB", 248),
   },
 
@@ -8140,6 +8133,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "str"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 248),
   },
 
@@ -8253,6 +8251,11 @@ export default collection<Spell>(ID, [
         amount: 24,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "cha"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 249),
   },
 
@@ -8334,6 +8337,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "necrotic"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            6: dice("14d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 249),
   },
 
@@ -8408,6 +8425,15 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "healing",
+      healingAtSlotLevel: {
+        6: dice("70"),
+        7: dice("80"),
+        8: dice("90"),
+        9: dice("100"),
+      },
+    },
     source: source("PHB", 250),
   },
 
@@ -8442,6 +8468,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "healing",
+      healingAtSlotLevel: {
+        1: dice("1d4 + MOD"),
+        2: dice("2d4 + MOD"),
+        3: dice("3d4 + MOD"),
+        4: dice("4d4 + MOD"),
+        5: dice("5d4 + MOD"),
+        6: dice("6d4 + MOD"),
+        7: dice("7d4 + MOD"),
+        8: dice("8d4 + MOD"),
+        9: dice("9d4 + MOD"),
+      },
+    },
     source: source("PHB", 250),
   },
 
@@ -8488,6 +8528,27 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "fire"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            2: dice("2d8"),
+            3: dice("3d8"),
+            4: dice("4d8"),
+            5: dice("5d8"),
+            6: dice("6d8"),
+            7: dice("7d8"),
+            8: dice("8d8"),
+            9: dice("9d8"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "special",
+    },
     source: source("PHB", 250),
   },
 
@@ -8525,6 +8586,28 @@ export default collection<Spell>(ID, [
           "which you take in response to being damaged by a creature within 60 feet of you that you can see",
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "fire"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            1: dice("2d10"),
+            2: dice("3d10"),
+            3: dice("4d10"),
+            4: dice("5d10"),
+            5: dice("6d10"),
+            6: dice("7d10"),
+            7: dice("8d10"),
+            8: dice("9d10"),
+            9: dice("10d10"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 250),
   },
 
@@ -8690,6 +8773,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 251),
   },
 
@@ -8730,6 +8818,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 251),
   },
 
@@ -8897,6 +8990,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 252),
   },
 
@@ -8940,6 +9038,25 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "bludgeoning"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            4: dice("2d8 + 4d6"),
+            5: dice("3d8 + 4d6"),
+            6: dice("4d8 + 4d6"),
+            7: dice("5d8 + 4d6"),
+            8: dice("6d8 + 4d6"),
+            9: dice("7d8 + 4d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 252),
   },
 
@@ -9111,6 +9228,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 252),
   },
 
@@ -9154,6 +9276,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "fire"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            8: dice("10d8"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 253),
   },
 
@@ -9186,6 +9322,26 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "melee",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "necrotic"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            1: dice("3d10"),
+            2: dice("4d10"),
+            3: dice("5d10"),
+            4: dice("6d10"),
+            5: dice("7d10"),
+            6: dice("8d10"),
+            7: dice("9d10"),
+            8: dice("10d10"),
+            9: dice("11d10"),
+          },
+        },
+      },
+    },
     source: source("PHB", 253),
   },
 
@@ -9233,6 +9389,24 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "piercing"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            5: dice("4d10"),
+            6: dice("5d10"),
+            7: dice("6d10"),
+            8: dice("7d10"),
+            9: dice("8d10"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 254),
   },
 
@@ -9387,7 +9561,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "leomundSSecretChest",
+    id: "leomundsSecretChest",
     name: "Leomund's Secret Chest",
     level: 4,
     school: ref("magicSchools", "conjuration"),
@@ -9431,7 +9605,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "leomundSTinyHut",
+    id: "leomundsTinyHut",
     name: "Leomund's Tiny Hut",
     level: 3,
     school: ref("magicSchools", "evocation"),
@@ -9589,6 +9763,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 255),
   },
 
@@ -9680,6 +9859,26 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "lightning"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            3: dice("8d6"),
+            4: dice("9d6"),
+            5: dice("10d6"),
+            6: dice("11d6"),
+            7: dice("12d6"),
+            8: dice("13d6"),
+            9: dice("14d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 255),
   },
 
@@ -9956,6 +10155,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "cha"),
+      effectOnSave: "special",
+    },
     source: source("PHB", 256),
   },
 
@@ -10023,6 +10227,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "cha"),
+      effectOnSave: "special",
+    },
     source: source("PHB", 257),
   },
 
@@ -10235,6 +10444,16 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "healing",
+      healingAtSlotLevel: {
+        5: dice("3d8 + MOD"),
+        6: dice("4d8 + MOD"),
+        7: dice("5d8 + MOD"),
+        8: dice("6d8 + MOD"),
+        9: dice("7d8 + MOD"),
+      },
+    },
     source: source("PHB", 258),
   },
 
@@ -10268,6 +10487,12 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "healing",
+      healingAtSlotLevel: {
+        9: dice("700"),
+      },
+    },
     source: source("PHB", 258),
   },
 
@@ -10303,6 +10528,18 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "healing",
+      healingAtSlotLevel: {
+        3: dice("1d4 + MOD"),
+        4: dice("2d4 + MOD"),
+        5: dice("3d4 + MOD"),
+        6: dice("4d4 + MOD"),
+        7: dice("5d4 + MOD"),
+        8: dice("6d4 + MOD"),
+        9: dice("7d4 + MOD"),
+      },
+    },
     source: source("PHB", 258),
   },
 
@@ -10361,6 +10598,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 258),
   },
 
@@ -10450,7 +10692,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "melfSAcidArrow",
+    id: "melfsAcidArrow",
     name: "Melf's Acid Arrow",
     level: 2,
     school: ref("magicSchools", "evocation"),
@@ -10487,6 +10729,25 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "ranged",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "acid"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            2: dice("4d4"),
+            3: dice("5d4"),
+            4: dice("6d4"),
+            5: dice("7d4"),
+            6: dice("8d4"),
+            7: dice("9d4"),
+            8: dice("10d4"),
+            9: dice("11d4"),
+          },
+        },
+      },
+    },
     source: source("PHB", 259),
   },
 
@@ -10595,6 +10856,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "fire"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            9: dice("20d6 + 20d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 259),
   },
 
@@ -10899,6 +11174,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 261),
   },
 
@@ -10952,11 +11232,32 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "radiant"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            2: dice("2d10"),
+            3: dice("3d10"),
+            4: dice("4d10"),
+            5: dice("5d10"),
+            6: dice("6d10"),
+            7: dice("7d10"),
+            8: dice("8d10"),
+            9: dice("9d10"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 261),
   },
 
   {
-    id: "mordenkainenSFaithfulHound",
+    id: "mordenkainensFaithfulHound",
     name: "Mordenkainen's Faithful Hound",
     level: 4,
     school: ref("magicSchools", "conjuration"),
@@ -10999,11 +11300,23 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "melee",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "piercing"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            4: dice("4d8"),
+          },
+        },
+      },
+    },
     source: source("PHB", 261),
   },
 
   {
-    id: "mordenkainenSMagnificentMansion",
+    id: "mordenkainensMagnificentMansion",
     name: "Mordenkainen's Magnificent Mansion",
     level: 7,
     school: ref("magicSchools", "conjuration"),
@@ -11117,7 +11430,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "mordenkainenSSword",
+    id: "mordenkainensSword",
     name: "Mordenkainen's Sword",
     level: 7,
     school: ref("magicSchools", "evocation"),
@@ -11155,6 +11468,18 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "melee",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "force"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            7: dice("3d10"),
+          },
+        },
+      },
+    },
     source: source("PHB", 262),
   },
 
@@ -11299,7 +11624,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "otilukeSFreezingSphere",
+    id: "otilukesFreezingSphere",
     name: "Otiluke's Freezing Sphere",
     level: 6,
     school: ref("magicSchools", "evocation"),
@@ -11345,11 +11670,25 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "cold"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            6: dice("10d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 263),
   },
 
   {
-    id: "otilukeSResilientSphere",
+    id: "otilukesResilientSphere",
     name: "Otiluke's Resilient Sphere",
     level: 4,
     school: ref("magicSchools", "evocation"),
@@ -11396,11 +11735,16 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 264),
   },
 
   {
-    id: "ottoSIrresistibleDance",
+    id: "ottosIrresistibleDance",
     name: "Otto's Irresistible Dance",
     level: 6,
     school: ref("magicSchools", "enchantment"),
@@ -11614,6 +11958,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "psychic"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            4: dice("4d10"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 265),
   },
 
@@ -11772,6 +12130,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "cha"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 265),
   },
 
@@ -11820,6 +12183,9 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "melee",
+    },
     source: source("PHB", 266),
   },
 
@@ -11898,6 +12264,23 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "poison"),
+        damageProgression: {
+          kind: "cantrip",
+          damageAtCharacterLevel: {
+            1: dice("1d12"),
+            5: dice("2d12"),
+            11: dice("3d12"),
+            17: dice("4d12"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 266),
   },
 
@@ -11951,6 +12334,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 266),
   },
 
@@ -12078,6 +12466,19 @@ export default collection<Spell>(ID, [
         amount: 10,
       },
     ],
+    attack: {
+      kind: "healing",
+      healingAtSlotLevel: {
+        2: dice("2d8 + MOD"),
+        3: dice("3d8 + MOD"),
+        4: dice("4d8 + MOD"),
+        5: dice("5d8 + MOD"),
+        6: dice("6d8 + MOD"),
+        7: dice("7d8 + MOD"),
+        8: dice("8d8 + MOD"),
+        9: dice("9d8 + MOD"),
+      },
+    },
     source: source("PHB", 267),
   },
 
@@ -12182,6 +12583,19 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            7: dice("10d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "special",
+    },
     source: source("PHB", 267),
   },
 
@@ -12298,6 +12712,21 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "ranged",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "fire"),
+        damageProgression: {
+          kind: "cantrip",
+          damageAtCharacterLevel: {
+            1: dice("1d8"),
+            5: dice("2d8"),
+            11: dice("3d8"),
+            17: dice("4d8"),
+          },
+        },
+      },
+    },
     source: source("PHB", 269),
   },
 
@@ -12591,7 +13020,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "rarySTelepathicBond",
+    id: "rarysTelepathicBond",
     name: "Rary's Telepathic Bond",
     level: 5,
     school: ref("magicSchools", "divination"),
@@ -12666,6 +13095,9 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "ranged",
+    },
     source: source("PHB", 271),
   },
 
@@ -12700,6 +13132,21 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "ranged",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "cold"),
+        damageProgression: {
+          kind: "cantrip",
+          damageAtCharacterLevel: {
+            1: dice("1d8"),
+            5: dice("2d8"),
+            11: dice("3d8"),
+            17: dice("4d8"),
+          },
+        },
+      },
+    },
     source: source("PHB", 271),
   },
 
@@ -12774,6 +13221,12 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "healing",
+      healingAtSlotLevel: {
+        7: dice("4d8 + 15"),
+      },
+    },
     source: source("PHB", 271),
   },
 
@@ -12986,6 +13439,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "special",
+    },
     source: source("PHB", 272),
   },
 
@@ -13100,6 +13558,23 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "radiant"),
+        damageProgression: {
+          kind: "cantrip",
+          damageAtCharacterLevel: {
+            1: dice("1d8"),
+            5: dice("2d8"),
+            11: dice("3d8"),
+            17: dice("4d8"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 272),
   },
 
@@ -13240,6 +13715,11 @@ export default collection<Spell>(ID, [
         amount: 10,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 273),
   },
 
@@ -13560,6 +14040,27 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "thunder"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            2: dice("3d8"),
+            3: dice("4d8"),
+            4: dice("5d8"),
+            5: dice("6d8"),
+            6: dice("7d8"),
+            7: dice("8d8"),
+            8: dice("9d8"),
+            9: dice("10d8"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 275),
   },
 
@@ -13704,6 +14205,21 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "melee",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "lightning"),
+        damageProgression: {
+          kind: "cantrip",
+          damageAtCharacterLevel: {
+            1: dice("1d8"),
+            5: dice("2d8"),
+            11: dice("3d8"),
+            17: dice("4d8"),
+          },
+        },
+      },
+    },
     source: source("PHB", 275),
   },
 
@@ -13979,6 +14495,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 277),
   },
 
@@ -14311,6 +14832,25 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "melee",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "force"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            2: dice("1d8 + MOD"),
+            3: dice("1d8 + MOD"),
+            4: dice("2d8 + MOD"),
+            5: dice("2d8 + MOD"),
+            6: dice("3d8 + MOD"),
+            7: dice("3d8 + MOD"),
+            8: dice("4d8 + MOD"),
+            9: dice("4d8 + MOD"),
+          },
+        },
+      },
+    },
     source: source("PHB", 278),
   },
 
@@ -14391,6 +14931,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 278),
   },
 
@@ -14518,6 +15063,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "thunder"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            9: dice("2d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 279),
   },
 
@@ -14569,6 +15128,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 279),
   },
 
@@ -14616,6 +15180,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "radiant"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            6: dice("6d8"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 279),
   },
 
@@ -14655,6 +15233,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "radiant"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            8: dice("12d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 279),
   },
 
@@ -14788,7 +15380,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "tashaSHideousLaughter",
+    id: "tashasHideousLaughter",
     name: "Tasha's Hideous Laughter",
     level: 1,
     school: ref("magicSchools", "enchantment"),
@@ -14828,6 +15420,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 280),
   },
 
@@ -15064,7 +15661,7 @@ export default collection<Spell>(ID, [
   },
 
   {
-    id: "tenserSFloatingDisk",
+    id: "tensersFloatingDisk",
     name: "Tenser's Floating Disk",
     level: 1,
     school: ref("magicSchools", "conjuration"),
@@ -15262,6 +15859,28 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "thunder"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            1: dice("2d8"),
+            2: dice("3d8"),
+            3: dice("4d8"),
+            4: dice("5d8"),
+            5: dice("6d8"),
+            6: dice("7d8"),
+            7: dice("8d8"),
+            8: dice("9d8"),
+            9: dice("10d8"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "con"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 282),
   },
 
@@ -15731,6 +16350,24 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "melee",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "necrotic"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            3: dice("3d6"),
+            4: dice("4d6"),
+            5: dice("5d6"),
+            6: dice("6d6"),
+            7: dice("7d6"),
+            8: dice("8d6"),
+            9: dice("9d6"),
+          },
+        },
+      },
+    },
     source: source("PHB", 285),
   },
 
@@ -15766,6 +16403,23 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "psychic"),
+        damageProgression: {
+          kind: "cantrip",
+          damageAtCharacterLevel: {
+            1: dice("1d4"),
+            5: dice("2d4"),
+            11: dice("3d4"),
+            17: dice("4d4"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 285),
   },
 
@@ -15814,6 +16468,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "fire"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            4: dice("5d8"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 285),
   },
 
@@ -15914,6 +16582,23 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "cold"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            6: dice("10d6"),
+            7: dice("12d6"),
+            8: dice("14d6"),
+            9: dice("16d6"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 285),
   },
 
@@ -16022,6 +16707,23 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "piercing"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            6: dice("7d8"),
+            7: dice("8d8"),
+            8: dice("9d8"),
+            9: dice("10d8"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "dex"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 287),
   },
 
@@ -16225,6 +16927,11 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      saveType: ref("abilityScores", "wis"),
+      effectOnSave: "noEffect",
+    },
     source: source("PHB", 288),
   },
 
@@ -16317,6 +17024,20 @@ export default collection<Spell>(ID, [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "savingThrow",
+      damage: {
+        damageType: ref<DamageType>("damageTypes", "bludgeoning"),
+        damageProgression: {
+          kind: "levelled",
+          damageAtSlotLevel: {
+            3: dice("3d8"),
+          },
+        },
+      },
+      saveType: ref("abilityScores", "str"),
+      effectOnSave: "halfDamage",
+    },
     source: source("PHB", 288),
   },
 
@@ -16539,4 +17260,4 @@ export default collection<Spell>(ID, [
     ],
     source: source("PHB", 289),
   },
-]);
+];

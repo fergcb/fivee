@@ -13,56 +13,56 @@ export interface SourceBook extends BaseDocument {
 }
 
 /*
- * GraphQL TypeDefs
- */
-
-export const typeDefs = `#graphql
-  type SourceBook {
-    id: String!
-    name: String!
-  }
-
-  extend type Query {
-    sourceBooks: [SourceBook]
-    sourceBook(id: String!): SourceBook
-  }
-`;
-
-/*
- * GraphQL Resolvers
+ * Resolver Parameter Types
  */
 
 interface SourceBookArgs {
   id: string;
 }
 
-export async function oneResolver(
-  _parent: unknown,
-  { id }: SourceBookArgs,
-  { db }: ResolverContext,
-): Promise<SourceBook> {
-  return await db.get(ID, id);
-}
-
-export async function manyResolver(
-  _parent: unknown,
-  _args: never,
-  { db }: ResolverContext,
-): Promise<SourceBook[]> {
-  return await db.list(ID);
-}
-
 /*
  * Data
  */
 
-export default collection<SourceBook>(ID, [
-  {
-    id: "PHB",
-    name: "Player's Handbook",
+export default collection<SourceBook>({
+  id: ID,
+  typeDefs: `#graphql
+    type SourceBook {
+      id: String!
+      name: String!
+    }
+
+    extend type Query {
+      sourceBooks: [SourceBook]
+      sourceBook(id: String!): SourceBook
+    }
+  `,
+  resolvers: {
+    Query: {
+      async sourceBook(
+        _parent: unknown,
+        { id }: SourceBookArgs,
+        { db }: ResolverContext
+      ): Promise<SourceBook> {
+        return await db.get(ID, id);
+      },
+      async sourceBooks(
+        _parent: unknown,
+        _args: never,
+        { db }: ResolverContext
+      ): Promise<SourceBook[]> {
+        return await db.list(ID);
+      },
+    },
   },
-  {
-    id: "SRD",
-    name: "System Reference Document 5.1",
-  },
-]);
+  entries: [
+    {
+      id: "PHB",
+      name: "Player's Handbook",
+    },
+    {
+      id: "SRD",
+      name: "System Reference Document 5.1",
+    },
+  ],
+});

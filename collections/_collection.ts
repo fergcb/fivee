@@ -1,25 +1,38 @@
 import { Entry } from "../database/resolver.ts";
 import { Document } from "$db/documents.ts";
+import { ResolverContext } from "$graphql/context.ts";
+import { ApolloServerOptions } from "npm:@apollo/server@^4.9";
 
 export class Collection<Doc extends Document> {
   constructor(
     public readonly id: string,
-    public readonly entries: Entry<Doc>[],
+    public readonly typeDefs: ApolloServerOptions<ResolverContext>["typeDefs"],
+    public readonly resolvers: ApolloServerOptions<ResolverContext>["resolvers"],
+    public readonly entries: Entry<Doc>[]
   ) {}
 }
 
-export function collection<T extends Document>(
-  collectionId: string,
-  entries: Entry<T>[],
-) {
+interface CollectionOptions<T extends Document> {
+  id: string;
+  typeDefs: ApolloServerOptions<ResolverContext>["typeDefs"];
+  resolvers: ApolloServerOptions<ResolverContext>["resolvers"];
+  entries: Entry<T>[];
+}
+
+export function collection<T extends Document>({
+  id,
+  entries,
+  typeDefs,
+  resolvers,
+}: CollectionOptions<T>) {
   const ids = new Set<string>();
 
-  for (const { id } of entries) {
-    if (ids.has(id)) {
-      throw new Error(`Duplicate id '${id}' in collection '${collectionId}'.`);
+  for (const { id: entryId } of entries) {
+    if (ids.has(entryId)) {
+      throw new Error(`Duplicate id '${entryId}' in collection '${id}'.`);
     }
     ids.add(id);
   }
 
-  return new Collection<T>(collectionId, entries);
+  return new Collection<T>(id, typeDefs, resolvers, entries);
 }

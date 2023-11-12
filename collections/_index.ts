@@ -20,7 +20,10 @@ import {
   ID as sourceBooksID,
 } from "$collections/sourceBooks.ts";
 
-import { default as spells, ID as spellsID } from "$collections/spells.ts";
+import {
+  default as spells,
+  ID as spellsID,
+} from "$collections/spells/collection.ts";
 
 export type CollectionID =
   | typeof abilityScoresID

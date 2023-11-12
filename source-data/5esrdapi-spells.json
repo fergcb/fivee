@@ -1,0 +1,4850 @@
+{
+  "data": {
+    "spells": [
+      {
+        "index": "compulsion",
+        "name": "Compulsion",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "arcane-sword",
+        "name": "Arcane Sword",
+        "attack_type": "MELEE",
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "3d10",
+              "level": 7
+            }
+          ],
+          "damage_type": {
+            "index": "force"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "conjure-celestial",
+        "name": "Conjure Celestial",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "acid-splash",
+        "name": "Acid Splash",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": [
+            {
+              "damage": "1d6",
+              "level": 1
+            },
+            {
+              "damage": "2d6",
+              "level": 5
+            },
+            {
+              "damage": "3d6",
+              "level": 11
+            },
+            {
+              "damage": "4d6",
+              "level": 17
+            }
+          ],
+          "damage_at_slot_level": null,
+          "damage_type": {
+            "index": "acid"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "animal-shapes",
+        "name": "Animal Shapes",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "acid-arrow",
+        "name": "Acid Arrow",
+        "attack_type": "RANGED",
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "4d4",
+              "level": 2
+            },
+            {
+              "damage": "5d4",
+              "level": 3
+            },
+            {
+              "damage": "6d4",
+              "level": 4
+            },
+            {
+              "damage": "7d4",
+              "level": 5
+            },
+            {
+              "damage": "8d4",
+              "level": 6
+            },
+            {
+              "damage": "9d4",
+              "level": 7
+            },
+            {
+              "damage": "10d4",
+              "level": 8
+            },
+            {
+              "damage": "11d4",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "acid"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "continual-flame",
+        "name": "Continual Flame",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "create-food-and-water",
+        "name": "Create Food and Water",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "cure-wounds",
+        "name": "Cure Wounds",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": [
+          {
+            "healing": "1d8 + MOD",
+            "level": 1
+          },
+          {
+            "healing": "2d8 + MOD",
+            "level": 2
+          },
+          {
+            "healing": "3d8 + MOD",
+            "level": 3
+          },
+          {
+            "healing": "4d8 + MOD",
+            "level": 4
+          },
+          {
+            "healing": "5d8 + MOD",
+            "level": 5
+          },
+          {
+            "healing": "6d8 + MOD",
+            "level": 6
+          },
+          {
+            "healing": "7d8 + MOD",
+            "level": 7
+          },
+          {
+            "healing": "8d8 + MOD",
+            "level": 8
+          },
+          {
+            "healing": "9d8 + MOD",
+            "level": 9
+          }
+        ],
+        "dc": null
+      },
+      {
+        "index": "dominate-person",
+        "name": "Dominate Person",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "OTHER",
+          "type": {
+            "index": "wis"
+          },
+          "desc": "Each time the target takes damage, it makes a new wisdom saving throw against the spell. If the saving throw succeeds, the spell ends."
+        }
+      },
+      {
+        "index": "create-undead",
+        "name": "Create Undead",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "freezing-sphere",
+        "name": "Freezing Sphere",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "10d6",
+              "level": 6
+            }
+          ],
+          "damage_type": {
+            "index": "cold"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "dancing-lights",
+        "name": "Dancing Lights",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "haste",
+        "name": "Haste",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "hideous-laughter",
+        "name": "Hideous Laughter",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "disintegrate",
+        "name": "Disintegrate",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "10d6 + 40",
+              "level": 6
+            }
+          ],
+          "damage_type": {
+            "index": "force"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "druidcraft",
+        "name": "Druidcraft",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "banishment",
+        "name": "Banishment",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "cha"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "eyebite",
+        "name": "Eyebite",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": "On failure, the target can be affected by one of the following effects of your choice for the duration. [Asleep. The target falls unconscious. It wakes up if it takes any damage or if another creature uses its action to shake the sleeper awake.] [Panicked. The target is frightened of you. On each of its turns, the frightened creature must take the Dash action and move away from you by the safest and shortest available route, unless there is nowhere to move. If the target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends.] [Sickened. The target has disadvantage on attack rolls and ability checks. At the end of each of its turns, it can make another wisdom saving throw. If it succeeds, the effect ends.]"
+        }
+      },
+      {
+        "index": "flesh-to-stone",
+        "name": "Flesh to Stone",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "con"
+          },
+          "desc": "On a failed save, the target is restrained as its flesh begins to harden."
+        }
+      },
+      {
+        "index": "calm-emotions",
+        "name": "Calm Emotions",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "cha"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "gentle-repose",
+        "name": "Gentle Repose",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "grease",
+        "name": "Grease",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "clairvoyance",
+        "name": "Clairvoyance",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "create-or-destroy-water",
+        "name": "Create or Destroy Water",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "enthrall",
+        "name": "Enthrall",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "faerie-fire",
+        "name": "Faerie Fire",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "faithful-hound",
+        "name": "Faithful Hound",
+        "attack_type": "MELEE",
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "4d8",
+              "level": 4
+            }
+          ],
+          "damage_type": {
+            "index": "piercing"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "forbiddance",
+        "name": "Forbiddance",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "guards-and-wards",
+        "name": "Guards and Wards",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "animate-dead",
+        "name": "Animate Dead",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "chain-lightning",
+        "name": "Chain Lightning",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "10d8",
+              "level": 6
+            }
+          ],
+          "damage_type": {
+            "index": "lightning"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "delayed-blast-fireball",
+        "name": "Delayed Blast Fireball",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "12d6",
+              "level": 7
+            },
+            {
+              "damage": "13d6",
+              "level": 8
+            },
+            {
+              "damage": "14d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "detect-thoughts",
+        "name": "Detect Thoughts",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "enhance-ability",
+        "name": "Enhance Ability",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "expeditious-retreat",
+        "name": "Expeditious Retreat",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "find-familiar",
+        "name": "Find Familiar",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "fog-cloud",
+        "name": "Fog Cloud",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "greater-restoration",
+        "name": "Greater Restoration",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "healing-word",
+        "name": "Healing Word",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": [
+          {
+            "healing": "1d4 + MOD",
+            "level": 1
+          },
+          {
+            "healing": "2d4 + MOD",
+            "level": 2
+          },
+          {
+            "healing": "3d4 + MOD",
+            "level": 3
+          },
+          {
+            "healing": "4d4 + MOD",
+            "level": 4
+          },
+          {
+            "healing": "5d4 + MOD",
+            "level": 5
+          },
+          {
+            "healing": "6d4 + MOD",
+            "level": 6
+          },
+          {
+            "healing": "7d4 + MOD",
+            "level": 7
+          },
+          {
+            "healing": "8d4 + MOD",
+            "level": 8
+          },
+          {
+            "healing": "9d4 + MOD",
+            "level": 9
+          }
+        ],
+        "dc": null
+      },
+      {
+        "index": "astral-projection",
+        "name": "Astral Projection",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "blindness-deafness",
+        "name": "Blindness/Deafness",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "augury",
+        "name": "Augury",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "bless",
+        "name": "Bless",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "chill-touch",
+        "name": "Chill Touch",
+        "attack_type": "RANGED",
+        "damage": {
+          "damage_at_character_level": [
+            {
+              "damage": "1d8",
+              "level": 1
+            },
+            {
+              "damage": "2d8",
+              "level": 5
+            },
+            {
+              "damage": "3d8",
+              "level": 11
+            },
+            {
+              "damage": "4d8",
+              "level": 17
+            }
+          ],
+          "damage_at_slot_level": null,
+          "damage_type": {
+            "index": "necrotic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "circle-of-death",
+        "name": "Circle of Death",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "8d6",
+              "level": 6
+            },
+            {
+              "damage": "10d6",
+              "level": 7
+            },
+            {
+              "damage": "12d6",
+              "level": 8
+            },
+            {
+              "damage": "14d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "necrotic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "commune-with-nature",
+        "name": "Commune With Nature",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "conjure-minor-elementals",
+        "name": "Conjure Minor Elementals",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "contagion",
+        "name": "Contagion",
+        "attack_type": "MELEE",
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "OTHER",
+          "type": {
+            "index": "con"
+          },
+          "desc": "After succeeding on three of these saving throws, the creature recovers from the disease, and the spell ends."
+        }
+      },
+      {
+        "index": "demiplane",
+        "name": "Demiplane",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "fire-storm",
+        "name": "Fire Storm",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "7d10",
+              "level": 7
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "guiding-bolt",
+        "name": "Guiding Bolt",
+        "attack_type": "RANGED",
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "4d6",
+              "level": 1
+            },
+            {
+              "damage": "5d6",
+              "level": 2
+            },
+            {
+              "damage": "6d6",
+              "level": 3
+            },
+            {
+              "damage": "7d6",
+              "level": 4
+            },
+            {
+              "damage": "8d6",
+              "level": 5
+            },
+            {
+              "damage": "9d6",
+              "level": 6
+            },
+            {
+              "damage": "10d6",
+              "level": 7
+            },
+            {
+              "damage": "11d6",
+              "level": 8
+            },
+            {
+              "damage": "12d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "radiant"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "gust-of-wind",
+        "name": "Gust of Wind",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "str"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "bestow-curse",
+        "name": "Bestow Curse",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": "On fail, become cursed for the duration of the spell."
+        }
+      },
+      {
+        "index": "alter-self",
+        "name": "Alter Self",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "alarm",
+        "name": "Alarm",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "blade-barrier",
+        "name": "Blade Barrier",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "6d10",
+              "level": 6
+            }
+          ],
+          "damage_type": {
+            "index": "slashing"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "command",
+        "name": "Command",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "creation",
+        "name": "Creation",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "detect-evil-and-good",
+        "name": "Detect Evil and Good",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "earthquake",
+        "name": "Earthquake",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "flame-blade",
+        "name": "Flame Blade",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "3d6",
+              "level": 2
+            },
+            {
+              "damage": "4d6",
+              "level": 4
+            },
+            {
+              "damage": "5d6",
+              "level": 6
+            },
+            {
+              "damage": "6d6",
+              "level": 8
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "forcecage",
+        "name": "Forcecage",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "foresight",
+        "name": "Foresight",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "gate",
+        "name": "Gate",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "harm",
+        "name": "Harm",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "14d6",
+              "level": 6
+            }
+          ],
+          "damage_type": {
+            "index": "necrotic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "black-tentacles",
+        "name": "Black Tentacles",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "3d6",
+              "level": 4
+            }
+          ],
+          "damage_type": {
+            "index": "bludgeoning"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "dex"
+          },
+          "desc": "A creature restrained by the tentacles can use its action to make a Strength or Dexterity check (its choice) against your spell save DC. On a success, it frees itself."
+        }
+      },
+      {
+        "index": "conjure-woodland-beings",
+        "name": "Conjure Woodland Beings",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "daylight",
+        "name": "Daylight",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "false-life",
+        "name": "False Life",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": [
+          {
+            "healing": "1d4 + 4",
+            "level": 1
+          },
+          {
+            "healing": "1d4 + 9",
+            "level": 2
+          },
+          {
+            "healing": "1d4 + 14",
+            "level": 3
+          },
+          {
+            "healing": "1d4 + 19",
+            "level": 4
+          },
+          {
+            "healing": "1d4 + 24",
+            "level": 5
+          },
+          {
+            "healing": "1d4 + 29",
+            "level": 6
+          },
+          {
+            "healing": "1d4 + 34",
+            "level": 7
+          },
+          {
+            "healing": "1d4 + 39",
+            "level": 8
+          },
+          {
+            "healing": "1d4 + 44",
+            "level": 9
+          }
+        ],
+        "dc": null
+      },
+      {
+        "index": "detect-magic",
+        "name": "Detect Magic",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "glibness",
+        "name": "Glibness",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "globe-of-invulnerability",
+        "name": "Globe of Invulnerability",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "heat-metal",
+        "name": "Heat Metal",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d8",
+              "level": 2
+            },
+            {
+              "damage": "3d8",
+              "level": 3
+            },
+            {
+              "damage": "4d8",
+              "level": 4
+            },
+            {
+              "damage": "5d8",
+              "level": 5
+            },
+            {
+              "damage": "6d8",
+              "level": 6
+            },
+            {
+              "damage": "7d8",
+              "level": 7
+            },
+            {
+              "damage": "8d8",
+              "level": 8
+            },
+            {
+              "damage": "9d8",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "OTHER",
+          "type": {
+            "index": "con"
+          },
+          "desc": "Can choose to not drop the object"
+        }
+      },
+      {
+        "index": "barkskin",
+        "name": "Barkskin",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "divination",
+        "name": "Divination",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "divine-favor",
+        "name": "Divine Favor",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "1d4",
+              "level": 1
+            }
+          ],
+          "damage_type": {
+            "index": "radiant"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "giant-insect",
+        "name": "Giant Insect",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "heal",
+        "name": "Heal",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": [
+          {
+            "healing": "70",
+            "level": 6
+          },
+          {
+            "healing": "80",
+            "level": 7
+          },
+          {
+            "healing": "90",
+            "level": 8
+          },
+          {
+            "healing": "100",
+            "level": 9
+          }
+        ],
+        "dc": null
+      },
+      {
+        "index": "antipathy-sympathy",
+        "name": "Antipathy/Sympathy",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "awaken",
+        "name": "Awaken",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "bane",
+        "name": "Bane",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "cha"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "blink",
+        "name": "Blink",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "burning-hands",
+        "name": "Burning Hands",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "3d6",
+              "level": 1
+            },
+            {
+              "damage": "4d6",
+              "level": 2
+            },
+            {
+              "damage": "5d6",
+              "level": 3
+            },
+            {
+              "damage": "6d6",
+              "level": 4
+            },
+            {
+              "damage": "7d6",
+              "level": 5
+            },
+            {
+              "damage": "8d6",
+              "level": 6
+            },
+            {
+              "damage": "9d6",
+              "level": 7
+            },
+            {
+              "damage": "10d6",
+              "level": 8
+            },
+            {
+              "damage": "11d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "clone",
+        "name": "Clone",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "color-spray",
+        "name": "Color Spray",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "dimension-door",
+        "name": "Dimension Door",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "4d6",
+              "level": 4
+            }
+          ],
+          "damage_type": {
+            "index": "force"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "etherealness",
+        "name": "Etherealness",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "flame-strike",
+        "name": "Flame Strike",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "4d6 + 4d6",
+              "level": 5
+            },
+            {
+              "damage": "4d6 + 5d6",
+              "level": 6
+            },
+            {
+              "damage": "4d6 + 6d6",
+              "level": 7
+            },
+            {
+              "damage": "4d6 + 7d6",
+              "level": 8
+            },
+            {
+              "damage": "4d6 + 8d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "hellish-rebuke",
+        "name": "Hellish Rebuke",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d10",
+              "level": 1
+            },
+            {
+              "damage": "3d10",
+              "level": 2
+            },
+            {
+              "damage": "4d10",
+              "level": 3
+            },
+            {
+              "damage": "5d10",
+              "level": 4
+            },
+            {
+              "damage": "6d10",
+              "level": 5
+            },
+            {
+              "damage": "7d10",
+              "level": 6
+            },
+            {
+              "damage": "8d10",
+              "level": 7
+            },
+            {
+              "damage": "9d10",
+              "level": 8
+            },
+            {
+              "damage": "10d10",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "heroes-feast",
+        "name": "Heroes' Feast",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "counterspell",
+        "name": "Counterspell",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "dominate-monster",
+        "name": "Dominate Monster",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": "On failure, the creature is charmed by you for the duration."
+        }
+      },
+      {
+        "index": "find-steed",
+        "name": "Find Steed",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "fire-bolt",
+        "name": "Fire Bolt",
+        "attack_type": "RANGED",
+        "damage": {
+          "damage_at_character_level": [
+            {
+              "damage": "1d10",
+              "level": 1
+            },
+            {
+              "damage": "2d10",
+              "level": 5
+            },
+            {
+              "damage": "3d10",
+              "level": 11
+            },
+            {
+              "damage": "4d10",
+              "level": 17
+            }
+          ],
+          "damage_at_slot_level": null,
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "geas",
+        "name": "Geas",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "hallow",
+        "name": "Hallow",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "cha"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "aid",
+        "name": "Aid",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": [
+          {
+            "healing": "5",
+            "level": 2
+          },
+          {
+            "healing": "10",
+            "level": 3
+          },
+          {
+            "healing": "15",
+            "level": 4
+          },
+          {
+            "healing": "20",
+            "level": 5
+          },
+          {
+            "healing": "25",
+            "level": 6
+          },
+          {
+            "healing": "30",
+            "level": 7
+          },
+          {
+            "healing": "35",
+            "level": 8
+          },
+          {
+            "healing": "40",
+            "level": 9
+          }
+        ],
+        "dc": null
+      },
+      {
+        "index": "animal-friendship",
+        "name": "Animal Friendship",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "antilife-shell",
+        "name": "Antilife Shell",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "animal-messenger",
+        "name": "Animal Messenger",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "arcane-eye",
+        "name": "Arcane Eye",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "arcane-hand",
+        "name": "Arcane Hand",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "arcane-lock",
+        "name": "Arcane Lock",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "blight",
+        "name": "Blight",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "8d8",
+              "level": 4
+            },
+            {
+              "damage": "9d8",
+              "level": 5
+            },
+            {
+              "damage": "10d8",
+              "level": 6
+            },
+            {
+              "damage": "11d8",
+              "level": 7
+            },
+            {
+              "damage": "12d8",
+              "level": 8
+            },
+            {
+              "damage": "13d8",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "necrotic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "blur",
+        "name": "Blur",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "call-lightning",
+        "name": "Call Lightning",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "3d10",
+              "level": 3
+            },
+            {
+              "damage": "4d10",
+              "level": 4
+            },
+            {
+              "damage": "5d10",
+              "level": 5
+            },
+            {
+              "damage": "6d10",
+              "level": 6
+            },
+            {
+              "damage": "7d10",
+              "level": 7
+            },
+            {
+              "damage": "8d10",
+              "level": 8
+            },
+            {
+              "damage": "9d10",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "lightning"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "comprehend-languages",
+        "name": "Comprehend Languages",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "confusion",
+        "name": "Confusion",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "contact-other-plane",
+        "name": "Contact Other Plane",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "OTHER",
+          "type": {
+            "index": "int"
+          },
+          "desc": "On a failure, you take 6d6 psychic damage and are insane until you finish a long rest."
+        }
+      },
+      {
+        "index": "enlarge-reduce",
+        "name": "Enlarge/Reduce",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "fabricate",
+        "name": "Fabricate",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "feather-fall",
+        "name": "Feather Fall",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "find-the-path",
+        "name": "Find the Path",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "fire-shield",
+        "name": "Fire Shield",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d8",
+              "level": 4
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "flaming-sphere",
+        "name": "Flaming Sphere",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d6",
+              "level": 2
+            },
+            {
+              "damage": "3d6",
+              "level": 3
+            },
+            {
+              "damage": "4d6",
+              "level": 4
+            },
+            {
+              "damage": "5d6",
+              "level": 5
+            },
+            {
+              "damage": "6d6",
+              "level": 6
+            },
+            {
+              "damage": "7d6",
+              "level": 7
+            },
+            {
+              "damage": "8d6",
+              "level": 8
+            },
+            {
+              "damage": "9d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "greater-invisibility",
+        "name": "Greater Invisibility",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "beacon-of-hope",
+        "name": "Beacon of Hope",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "charm-person",
+        "name": "Charm Person",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "cloudkill",
+        "name": "Cloudkill",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "5d8",
+              "level": 5
+            },
+            {
+              "damage": "6d8",
+              "level": 6
+            },
+            {
+              "damage": "7d8",
+              "level": 7
+            },
+            {
+              "damage": "8d8",
+              "level": 8
+            },
+            {
+              "damage": "9d8",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "poison"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": "Creatures are affected even if they hold their breath or don't need to breathe."
+        }
+      },
+      {
+        "index": "darkvision",
+        "name": "Darkvision",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "death-ward",
+        "name": "Death Ward",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "disguise-self",
+        "name": "Disguise Self",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "feeblemind",
+        "name": "Feeblemind",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "4d6",
+              "level": 8
+            }
+          ],
+          "damage_type": {
+            "index": "psychic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "OTHER",
+          "type": {
+            "index": "int"
+          },
+          "desc": "The target always takes the damage. On a failed save, the creature's Intelligence and Charisma scores become 1."
+        }
+      },
+      {
+        "index": "fly",
+        "name": "Fly",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "glyph-of-warding",
+        "name": "Glyph of Warding",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "goodberry",
+        "name": "Goodberry",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "guardian-of-faith",
+        "name": "Guardian of Faith",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "20",
+              "level": 4
+            }
+          ],
+          "damage_type": {
+            "index": "radiant"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "guidance",
+        "name": "Guidance",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "hold-monster",
+        "name": "Hold Monster",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "antimagic-field",
+        "name": "Antimagic Field",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "branding-smite",
+        "name": "Branding Smite",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d6",
+              "level": 2
+            },
+            {
+              "damage": "3d6",
+              "level": 3
+            },
+            {
+              "damage": "4d6",
+              "level": 4
+            },
+            {
+              "damage": "5d6",
+              "level": 5
+            },
+            {
+              "damage": "6d6",
+              "level": 6
+            },
+            {
+              "damage": "7d6",
+              "level": 7
+            },
+            {
+              "damage": "8d6",
+              "level": 8
+            },
+            {
+              "damage": "9d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "radiant"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "commune",
+        "name": "Commune",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "divine-word",
+        "name": "Divine Word",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "cha"
+          },
+          "desc": "On a failed save, a creature suffers an effect based on its current hit points."
+        }
+      },
+      {
+        "index": "dispel-magic",
+        "name": "Dispel Magic",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "dominate-beast",
+        "name": "Dominate Beast",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "dream",
+        "name": "Dream",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "3d6",
+              "level": 5
+            }
+          ],
+          "damage_type": {
+            "index": "psychic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": "On a failed save, echoes of the phantasmal monstrosity spawn a nightmare that lasts the duration of the target's sleep and prevents the target from gaining any benefit from that rest."
+        }
+      },
+      {
+        "index": "floating-disk",
+        "name": "Floating Disk",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "freedom-of-movement",
+        "name": "Freedom of Movement",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "hallucinatory-terrain",
+        "name": "Hallucinatory Terrain",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "animate-objects",
+        "name": "Animate Objects",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "arcanists-magic-aura",
+        "name": "Arcanist's Magic Aura",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "cone-of-cold",
+        "name": "Cone of Cold",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "8d8",
+              "level": 5
+            },
+            {
+              "damage": "9d8",
+              "level": 6
+            },
+            {
+              "damage": "10d8",
+              "level": 7
+            },
+            {
+              "damage": "11d8",
+              "level": 8
+            },
+            {
+              "damage": "12d8",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "cold"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": "A creature killed by this spell becomes a frozen statue until it thaws."
+        }
+      },
+      {
+        "index": "conjure-elemental",
+        "name": "Conjure Elemental",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "conjure-fey",
+        "name": "Conjure Fey",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "control-water",
+        "name": "Control Water",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d8",
+              "level": 4
+            }
+          ],
+          "damage_type": {
+            "index": "bludgeoning"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "str"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "control-weather",
+        "name": "Control Weather",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "darkness",
+        "name": "Darkness",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "detect-poison-and-disease",
+        "name": "Detect Poison and Disease",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "dispel-evil-and-good",
+        "name": "Dispel Evil and Good",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "OTHER",
+          "type": {
+            "index": "cha"
+          },
+          "desc": "The creature must succeed on a charisma saving throw or be sent back to its home plane (if it isn't there already)"
+        }
+      },
+      {
+        "index": "eldritch-blast",
+        "name": "Eldritch Blast",
+        "attack_type": "RANGED",
+        "damage": {
+          "damage_at_character_level": [
+            {
+              "damage": "1d10",
+              "level": 1
+            },
+            {
+              "damage": "1d10",
+              "level": 5
+            },
+            {
+              "damage": "1d10",
+              "level": 11
+            },
+            {
+              "damage": "1d10",
+              "level": 17
+            }
+          ],
+          "damage_at_slot_level": null,
+          "damage_type": {
+            "index": "force"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "fear",
+        "name": "Fear",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": "On fail, A creature drop whatever it is holding and become frightened for the duration."
+        }
+      },
+      {
+        "index": "gaseous-form",
+        "name": "Gaseous Form",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "conjure-animals",
+        "name": "Conjure Animals",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "contingency",
+        "name": "Contingency",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "entangle",
+        "name": "Entangle",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "str"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "find-traps",
+        "name": "Find Traps",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "finger-of-death",
+        "name": "Finger of Death",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "7d8 + 30",
+              "level": 7
+            }
+          ],
+          "damage_type": {
+            "index": "necrotic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "fireball",
+        "name": "Fireball",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "8d6",
+              "level": 3
+            },
+            {
+              "damage": "9d6",
+              "level": 4
+            },
+            {
+              "damage": "10d6",
+              "level": 5
+            },
+            {
+              "damage": "11d6",
+              "level": 6
+            },
+            {
+              "damage": "12d6",
+              "level": 7
+            },
+            {
+              "damage": "13d6",
+              "level": 8
+            },
+            {
+              "damage": "14d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "heroism",
+        "name": "Heroism",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "invisibility",
+        "name": "Invisibility",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "imprisonment",
+        "name": "Imprisonment",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": "If the creature succeeds, it is immune to this spell if you cast it again"
+        }
+      },
+      {
+        "index": "hypnotic-pattern",
+        "name": "Hypnotic Pattern",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": "On a failed save, the creature becomes charmed for the duration."
+        }
+      },
+      {
+        "index": "light",
+        "name": "Light",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "hunters-mark",
+        "name": "Hunter's Mark",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "lesser-restoration",
+        "name": "Lesser Restoration",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "mage-armor",
+        "name": "Mage Armor",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "moonbeam",
+        "name": "Moonbeam",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d10",
+              "level": 2
+            },
+            {
+              "damage": "3d10",
+              "level": 3
+            },
+            {
+              "damage": "4d10",
+              "level": 4
+            },
+            {
+              "damage": "5d10",
+              "level": 5
+            },
+            {
+              "damage": "6d10",
+              "level": 6
+            },
+            {
+              "damage": "7d10",
+              "level": 7
+            },
+            {
+              "damage": "8d10",
+              "level": 8
+            },
+            {
+              "damage": "9d10",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "radiant"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "protection-from-poison",
+        "name": "Protection from Poison",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "revivify",
+        "name": "Revivify",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "seeming",
+        "name": "Seeming",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "shocking-grasp",
+        "name": "Shocking Grasp",
+        "attack_type": "MELEE",
+        "damage": {
+          "damage_at_character_level": [
+            {
+              "damage": "1d8",
+              "level": 1
+            },
+            {
+              "damage": "2d8",
+              "level": 5
+            },
+            {
+              "damage": "3d8",
+              "level": 11
+            },
+            {
+              "damage": "4d8",
+              "level": 17
+            }
+          ],
+          "damage_at_slot_level": null,
+          "damage_type": {
+            "index": "lightning"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "spike-growth",
+        "name": "Spike Growth",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "spirit-guardians",
+        "name": "Spirit Guardians",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "symbol",
+        "name": "Symbol",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "wall-of-force",
+        "name": "Wall of Force",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "legend-lore",
+        "name": "Legend Lore",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "mass-cure-wounds",
+        "name": "Mass Cure Wounds",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": [
+          {
+            "healing": "3d8 + MOD",
+            "level": 5
+          },
+          {
+            "healing": "4d8 + MOD",
+            "level": 6
+          },
+          {
+            "healing": "5d8 + MOD",
+            "level": 7
+          },
+          {
+            "healing": "6d8 + MOD",
+            "level": 8
+          },
+          {
+            "healing": "7d8 + MOD",
+            "level": 9
+          }
+        ],
+        "dc": null
+      },
+      {
+        "index": "prayer-of-healing",
+        "name": "Prayer of Healing",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": [
+          {
+            "healing": "2d8 + MOD",
+            "level": 2
+          },
+          {
+            "healing": "3d8 + MOD",
+            "level": 3
+          },
+          {
+            "healing": "4d8 + MOD",
+            "level": 4
+          },
+          {
+            "healing": "5d8 + MOD",
+            "level": 5
+          },
+          {
+            "healing": "6d8 + MOD",
+            "level": 6
+          },
+          {
+            "healing": "7d8 + MOD",
+            "level": 7
+          },
+          {
+            "healing": "8d8 + MOD",
+            "level": 8
+          },
+          {
+            "healing": "9d8 + MOD",
+            "level": 9
+          }
+        ],
+        "dc": null
+      },
+      {
+        "index": "prestidigitation",
+        "name": "Prestidigitation",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "produce-flame",
+        "name": "Produce Flame",
+        "attack_type": "RANGED",
+        "damage": {
+          "damage_at_character_level": [
+            {
+              "damage": "1d8",
+              "level": 1
+            },
+            {
+              "damage": "2d8",
+              "level": 5
+            },
+            {
+              "damage": "3d8",
+              "level": 11
+            },
+            {
+              "damage": "4d8",
+              "level": 17
+            }
+          ],
+          "damage_at_slot_level": null,
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "see-invisibility",
+        "name": "See Invisibility",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "shatter",
+        "name": "Shatter",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "3d8",
+              "level": 2
+            },
+            {
+              "damage": "4d8",
+              "level": 3
+            },
+            {
+              "damage": "5d8",
+              "level": 4
+            },
+            {
+              "damage": "6d8",
+              "level": 5
+            },
+            {
+              "damage": "7d8",
+              "level": 6
+            },
+            {
+              "damage": "8d8",
+              "level": 7
+            },
+            {
+              "damage": "9d8",
+              "level": 8
+            },
+            {
+              "damage": "10d8",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "thunder"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "sunburst",
+        "name": "Sunburst",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "12d6",
+              "level": 8
+            }
+          ],
+          "damage_type": {
+            "index": "radiant"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": "On failure, the creature is also blinded for 1 minute."
+        }
+      },
+      {
+        "index": "true-seeing",
+        "name": "True Seeing",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "illusory-script",
+        "name": "Illusory Script",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "magic-circle",
+        "name": "Magic Circle",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "OTHER",
+          "type": {
+            "index": "cha"
+          },
+          "desc": "If the creature tries to use teleportation or interplanar travel to do so, it must first succeed on a Charisma saving throw."
+        }
+      },
+      {
+        "index": "mirage-arcane",
+        "name": "Mirage Arcane",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "private-sanctum",
+        "name": "Private Sanctum",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "ray-of-enfeeblement",
+        "name": "Ray of Enfeeblement",
+        "attack_type": "RANGED",
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "resurrection",
+        "name": "Resurrection",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "time-stop",
+        "name": "Time Stop",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "tongues",
+        "name": "Tongues",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "transport-via-plants",
+        "name": "Transport via Plants",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "tree-stride",
+        "name": "Tree Stride",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "wall-of-ice",
+        "name": "Wall of Ice",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "10d6",
+              "level": 6
+            },
+            {
+              "damage": "12d6",
+              "level": 7
+            },
+            {
+              "damage": "14d6",
+              "level": 8
+            },
+            {
+              "damage": "16d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "cold"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "magic-jar",
+        "name": "Magic Jar",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "OTHER",
+          "type": {
+            "index": "cha"
+          },
+          "desc": "On a failure, your soul moves into the target's body, and the target's soul becomes trapped in the container. On a success, the target resists your efforts to possess it, and you can't attempt to possess it again for 24 hours."
+        }
+      },
+      {
+        "index": "maze",
+        "name": "Maze",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "mirror-image",
+        "name": "Mirror Image",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "move-earth",
+        "name": "Move Earth",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "passwall",
+        "name": "Passwall",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "phantom-steed",
+        "name": "Phantom Steed",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "resistance",
+        "name": "Resistance",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "speak-with-dead",
+        "name": "Speak with Dead",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "spider-climb",
+        "name": "Spider Climb",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "teleportation-circle",
+        "name": "Teleportation Circle",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "locate-object",
+        "name": "Locate Object",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "minor-illusion",
+        "name": "Minor Illusion",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "polymorph",
+        "name": "Polymorph",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "stone-shape",
+        "name": "Stone Shape",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "telekinesis",
+        "name": "Telekinesis",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "telepathic-bond",
+        "name": "Telepathic Bond",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "web",
+        "name": "Web",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "wish",
+        "name": "Wish",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "holy-aura",
+        "name": "Holy Aura",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "incendiary-cloud",
+        "name": "Incendiary Cloud",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "10d8",
+              "level": 8
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "meld-into-stone",
+        "name": "Meld Into Stone",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "insect-plague",
+        "name": "Insect Plague",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "4d10",
+              "level": 5
+            },
+            {
+              "damage": "5d10",
+              "level": 6
+            },
+            {
+              "damage": "6d10",
+              "level": 7
+            },
+            {
+              "damage": "7d10",
+              "level": 8
+            },
+            {
+              "damage": "8d10",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "piercing"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "mage-hand",
+        "name": "Mage Hand",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "inflict-wounds",
+        "name": "Inflict Wounds",
+        "attack_type": "MELEE",
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "3d10",
+              "level": 1
+            },
+            {
+              "damage": "4d10",
+              "level": 2
+            },
+            {
+              "damage": "5d10",
+              "level": 3
+            },
+            {
+              "damage": "6d10",
+              "level": 4
+            },
+            {
+              "damage": "7d10",
+              "level": 5
+            },
+            {
+              "damage": "8d10",
+              "level": 6
+            },
+            {
+              "damage": "9d10",
+              "level": 7
+            },
+            {
+              "damage": "10d10",
+              "level": 8
+            },
+            {
+              "damage": "11d10",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "necrotic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "hold-person",
+        "name": "Hold Person",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "mass-healing-word",
+        "name": "Mass Healing Word",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": [
+          {
+            "healing": "1d4 + MOD",
+            "level": 3
+          },
+          {
+            "healing": "2d4 + MOD",
+            "level": 4
+          },
+          {
+            "healing": "3d4 + MOD",
+            "level": 5
+          },
+          {
+            "healing": "4d4 + MOD",
+            "level": 6
+          },
+          {
+            "healing": "5d4 + MOD",
+            "level": 7
+          },
+          {
+            "healing": "6d4 + MOD",
+            "level": 8
+          },
+          {
+            "healing": "7d4 + MOD",
+            "level": 9
+          }
+        ],
+        "dc": null
+      },
+      {
+        "index": "mislead",
+        "name": "Mislead",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "nondetection",
+        "name": "Nondetection",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "reverse-gravity",
+        "name": "Reverse Gravity",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "OTHER",
+          "type": {
+            "index": "dex"
+          },
+          "desc": "A creature can make a dexterity saving throw to grab onto a fixed object it can reach, thus avoiding the fall."
+        }
+      },
+      {
+        "index": "shield-of-faith",
+        "name": "Shield of Faith",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "vicious-mockery",
+        "name": "Vicious Mockery",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": [
+            {
+              "damage": "1d4",
+              "level": 1
+            },
+            {
+              "damage": "2d4",
+              "level": 5
+            },
+            {
+              "damage": "3d4",
+              "level": 11
+            },
+            {
+              "damage": "4d4",
+              "level": 17
+            }
+          ],
+          "damage_at_slot_level": null,
+          "damage_type": {
+            "index": "psychic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "longstrider",
+        "name": "Longstrider",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "ray-of-frost",
+        "name": "Ray of Frost",
+        "attack_type": "RANGED",
+        "damage": {
+          "damage_at_character_level": [
+            {
+              "damage": "1d8",
+              "level": 1
+            },
+            {
+              "damage": "2d8",
+              "level": 5
+            },
+            {
+              "damage": "3d8",
+              "level": 11
+            },
+            {
+              "damage": "4d8",
+              "level": 17
+            }
+          ],
+          "damage_at_slot_level": null,
+          "damage_type": {
+            "index": "cold"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "scorching-ray",
+        "name": "Scorching Ray",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d6",
+              "level": 2
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "silence",
+        "name": "Silence",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "silent-image",
+        "name": "Silent Image",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "speak-with-animals",
+        "name": "Speak with Animals",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "suggestion",
+        "name": "Suggestion",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "instant-summons",
+        "name": "Instant Summons",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "sunbeam",
+        "name": "Sunbeam",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "6d8",
+              "level": 6
+            }
+          ],
+          "damage_type": {
+            "index": "radiant"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": "On a failed save, the creature is blinded until your next turn. On a successful save, it isn't blinded by this spell."
+        }
+      },
+      {
+        "index": "warding-bond",
+        "name": "Warding Bond",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "weird",
+        "name": "Weird",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "resilient-sphere",
+        "name": "Resilient Sphere",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "shillelagh",
+        "name": "Shillelagh",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "storm-of-vengeance",
+        "name": "Storm of Vengeance",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "thunder"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "con"
+          },
+          "desc": "On a failed save, a creature takes 2d6 thunder damage and becomes deafened for 5 minutes."
+        }
+      },
+      {
+        "index": "wall-of-thorns",
+        "name": "Wall of Thorns",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "7d8",
+              "level": 6
+            },
+            {
+              "damage": "8d8",
+              "level": 7
+            },
+            {
+              "damage": "9d8",
+              "level": 8
+            },
+            {
+              "damage": "10d8",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "piercing"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "water-breathing",
+        "name": "Water Breathing",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "meteor-swarm",
+        "name": "Meteor Swarm",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "20d6 + 20d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "plane-shift",
+        "name": "Plane Shift",
+        "attack_type": "MELEE",
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "cha"
+          },
+          "desc": "If the creature fails this save, it is transported to a random location on the plane of existence you specify. A creature so transported must find its own way back to your current plane of existence."
+        }
+      },
+      {
+        "index": "plant-growth",
+        "name": "Plant Growth",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "power-word-stun",
+        "name": "Power Word Stun",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "prismatic-spray",
+        "name": "Prismatic Spray",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "10d6",
+              "level": 7
+            }
+          ],
+          "damage_type": null
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "OTHER",
+          "type": {
+            "index": "dex"
+          },
+          "desc": "For each target, roll a d8 to determine which color ray affects it."
+        }
+      },
+      {
+        "index": "protection-from-energy",
+        "name": "Protection From Energy",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "protection-from-evil-and-good",
+        "name": "Protection from Evil and Good",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "reincarnate",
+        "name": "Reincarnate",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "sanctuary",
+        "name": "Sanctuary",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "scrying",
+        "name": "Scrying",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "sending",
+        "name": "Sending",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "shapechange",
+        "name": "Shapechange",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "true-resurrection",
+        "name": "True Resurrection",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "irresistible-dance",
+        "name": "Irresistible Dance",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "mind-blank",
+        "name": "Mind Blank",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "misty-step",
+        "name": "Misty Step",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "prismatic-wall",
+        "name": "Prismatic Wall",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "project-image",
+        "name": "Project Image",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "water-walk",
+        "name": "Water Walk",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "magic-mouth",
+        "name": "Magic Mouth",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "secret-chest",
+        "name": "Secret Chest",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "simulacrum",
+        "name": "Simulacrum",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "sleet-storm",
+        "name": "Sleet Storm",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "slow",
+        "name": "Slow",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": "On failed save, the creature is slowed."
+        }
+      },
+      {
+        "index": "tiny-hut",
+        "name": "Tiny Hut",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "true-polymorph",
+        "name": "True Polymorph",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "wall-of-stone",
+        "name": "Wall of Stone",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "locate-creature",
+        "name": "Locate Creature",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "programmed-illusion",
+        "name": "Programmed Illusion",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "shield",
+        "name": "Shield",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "speak-with-plants",
+        "name": "Speak with Plants",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "stinking-cloud",
+        "name": "Stinking Cloud",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "con"
+          },
+          "desc": "On a failed save, the creature spends its action that turn retching and reeling."
+        }
+      },
+      {
+        "index": "wind-wall",
+        "name": "Wind Wall",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "3d8",
+              "level": 3
+            }
+          ],
+          "damage_type": {
+            "index": "bludgeoning"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "str"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "identify",
+        "name": "Identify",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "magic-missile",
+        "name": "Magic Missile",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "1d4 + 1",
+              "level": 1
+            },
+            {
+              "damage": "1d4 + 1",
+              "level": 2
+            },
+            {
+              "damage": "1d4 + 1",
+              "level": 3
+            },
+            {
+              "damage": "1d4 + 1",
+              "level": 4
+            },
+            {
+              "damage": "1d4 + 1",
+              "level": 5
+            },
+            {
+              "damage": "1d4 + 1",
+              "level": 6
+            },
+            {
+              "damage": "1d4 + 1",
+              "level": 7
+            },
+            {
+              "damage": "1d4 + 1",
+              "level": 8
+            },
+            {
+              "damage": "1d4 + 1",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "force"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "lightning-bolt",
+        "name": "Lightning Bolt",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "8d6",
+              "level": 3
+            },
+            {
+              "damage": "9d6",
+              "level": 4
+            },
+            {
+              "damage": "10d6",
+              "level": 5
+            },
+            {
+              "damage": "11d6",
+              "level": 6
+            },
+            {
+              "damage": "12d6",
+              "level": 7
+            },
+            {
+              "damage": "13d6",
+              "level": 8
+            },
+            {
+              "damage": "14d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "lightning"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "raise-dead",
+        "name": "Raise Dead",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "rope-trick",
+        "name": "Rope Trick",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "wall-of-fire",
+        "name": "Wall of Fire",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "5d8",
+              "level": 4
+            }
+          ],
+          "damage_type": {
+            "index": "fire"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "wind-walk",
+        "name": "Wind Walk",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "ice-storm",
+        "name": "Ice Storm",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d8 + 4d6",
+              "level": 4
+            },
+            {
+              "damage": "3d8 + 4d6",
+              "level": 5
+            },
+            {
+              "damage": "4d8 + 4d6",
+              "level": 6
+            },
+            {
+              "damage": "5d8 + 4d6",
+              "level": 7
+            },
+            {
+              "damage": "6d8 + 4d6",
+              "level": 8
+            },
+            {
+              "damage": "7d8 + 4d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "bludgeoning"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "modify-memory",
+        "name": "Modify Memory",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "planar-binding",
+        "name": "Planar Binding",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "cha"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "regenerate",
+        "name": "Regenerate",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": [
+          {
+            "healing": "4d8 + 15",
+            "level": 7
+          }
+        ],
+        "dc": null
+      },
+      {
+        "index": "remove-curse",
+        "name": "Remove Curse",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "sacred-flame",
+        "name": "Sacred Flame",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": [
+            {
+              "damage": "1d8",
+              "level": 1
+            },
+            {
+              "damage": "2d8",
+              "level": 5
+            },
+            {
+              "damage": "3d8",
+              "level": 11
+            },
+            {
+              "damage": "4d8",
+              "level": 17
+            }
+          ],
+          "damage_at_slot_level": null,
+          "damage_type": {
+            "index": "radiant"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "dex"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "sequester",
+        "name": "Sequester",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "sleep",
+        "name": "Sleep",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "5d8",
+              "level": 1
+            }
+          ],
+          "damage_type": null
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "spiritual-weapon",
+        "name": "Spiritual Weapon",
+        "attack_type": "MELEE",
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "1d8 + MOD",
+              "level": 2
+            },
+            {
+              "damage": "1d8 + MOD",
+              "level": 3
+            },
+            {
+              "damage": "2d8 + MOD",
+              "level": 4
+            },
+            {
+              "damage": "2d8 + MOD",
+              "level": 5
+            },
+            {
+              "damage": "3d8 + MOD",
+              "level": 6
+            },
+            {
+              "damage": "3d8 + MOD",
+              "level": 7
+            },
+            {
+              "damage": "4d8 + MOD",
+              "level": 8
+            },
+            {
+              "damage": "4d8 + MOD",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "force"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "unseen-servant",
+        "name": "Unseen Servant",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "locate-animals-or-plants",
+        "name": "Locate Animals or Plants",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "vampiric-touch",
+        "name": "Vampiric Touch",
+        "attack_type": "MELEE",
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "3d6",
+              "level": 3
+            },
+            {
+              "damage": "4d6",
+              "level": 4
+            },
+            {
+              "damage": "5d6",
+              "level": 5
+            },
+            {
+              "damage": "6d6",
+              "level": 6
+            },
+            {
+              "damage": "7d6",
+              "level": 7
+            },
+            {
+              "damage": "8d6",
+              "level": 8
+            },
+            {
+              "damage": "9d6",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "necrotic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "jump",
+        "name": "Jump",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "knock",
+        "name": "Knock",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "levitate",
+        "name": "Levitate",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "magic-weapon",
+        "name": "Magic Weapon",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "magnificent-mansion",
+        "name": "Magnificent Mansion",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "major-image",
+        "name": "Major Image",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "mending",
+        "name": "Mending",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "pass-without-trace",
+        "name": "Pass Without Trace",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "phantasmal-killer",
+        "name": "Phantasmal Killer",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "4d10",
+              "level": 4
+            }
+          ],
+          "damage_type": {
+            "index": "psychic"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "purify-food-and-drink",
+        "name": "Purify Food and Drink",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "spare-the-dying",
+        "name": "Spare the Dying",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "stoneskin",
+        "name": "Stoneskin",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "thaumaturgy",
+        "name": "Thaumaturgy",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "mass-heal",
+        "name": "Mass Heal",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": [
+          {
+            "healing": "700",
+            "level": 9
+          }
+        ],
+        "dc": null
+      },
+      {
+        "index": "mass-suggestion",
+        "name": "Mass Suggestion",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "wis"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "message",
+        "name": "Message",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "planar-ally",
+        "name": "Planar Ally",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "poison-spray",
+        "name": "Poison Spray",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": [
+            {
+              "damage": "1d12",
+              "level": 1
+            },
+            {
+              "damage": "2d12",
+              "level": 5
+            },
+            {
+              "damage": "3d12",
+              "level": 11
+            },
+            {
+              "damage": "4d12",
+              "level": 17
+            }
+          ],
+          "damage_at_slot_level": null,
+          "damage_type": {
+            "index": "poison"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "NONE",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "power-word-kill",
+        "name": "Power Word Kill",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "teleport",
+        "name": "Teleport",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "thunderwave",
+        "name": "Thunderwave",
+        "attack_type": null,
+        "damage": {
+          "damage_at_character_level": null,
+          "damage_at_slot_level": [
+            {
+              "damage": "2d8",
+              "level": 1
+            },
+            {
+              "damage": "3d8",
+              "level": 2
+            },
+            {
+              "damage": "4d8",
+              "level": 3
+            },
+            {
+              "damage": "5d8",
+              "level": 4
+            },
+            {
+              "damage": "6d8",
+              "level": 5
+            },
+            {
+              "damage": "7d8",
+              "level": 6
+            },
+            {
+              "damage": "8d8",
+              "level": 7
+            },
+            {
+              "damage": "9d8",
+              "level": 8
+            },
+            {
+              "damage": "10d8",
+              "level": 9
+            }
+          ],
+          "damage_type": {
+            "index": "thunder"
+          }
+        },
+        "heal_at_slot_level": null,
+        "dc": {
+          "success": "HALF",
+          "type": {
+            "index": "con"
+          },
+          "desc": null
+        }
+      },
+      {
+        "index": "true-strike",
+        "name": "True Strike",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "word-of-recall",
+        "name": "Word of Recall",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      },
+      {
+        "index": "zone-of-truth",
+        "name": "Zone of Truth",
+        "attack_type": null,
+        "damage": null,
+        "heal_at_slot_level": null,
+        "dc": null
+      }
+    ]
+  }
+}
