@@ -23,57 +23,54 @@ export interface Mushroom extends BaseDocument {
 }
 
 /*
- * GraphQL TypeDefs
- */
-
-export const typeDefs = `#graphql
-  type Mushroom {
-    id: String!
-    name: String!
-  }
-
-  extend type Query {
-    mushrooms: [Mushroom]
-    mushroom(id: String!): Mushroom
-  }
-`;
-
-/*
- * GraphQL Resolvers
+ * Resolver Parameter Types
  */
 
 interface MushroomArgs {
   id: string;
 }
 
-export async function oneResolver(
-  _parent: unknown,
-  { id }: MushroomArgs,
-  { db }: ResolverContext,
-): Promise<Mushroom> {
-  return await db.get(ID, id);
-}
-
-export async function manyResolver(
-  _parent: unknown,
-  _args: never,
-  { db }: ResolverContext,
-): Promise<Mushroom[]> {
-  return await db.list(ID);
-}
-
 /*
- * Data
+ * Collection Definition
  */
 
-export default collection<Mushroom>(ID, [
-  {
-    id: "porcini",
-    name: "Porcini",
-  },
-]);
+export default collection<Mushroom>({
+  id: ID,
+  typeDefs: `#graphql
+    type Mushroom {
+      id: String!
+      name: String!
+    }
+
+    extend type Query {
+      mushrooms: [Mushroom]
+      mushroom(id: String!): Mushroom
+    }
+  `,
+  resolvers: {
+    async mushroom(
+      _parent: unknown,
+      { id }: MushroomArgs,
+      { db }: ResolverContext,
+    ): Promise<Mushroom> {
+      return await db.get(ID, id);
+    },
+    async mushrooms(
+      _parent: unknown,
+      _args: never,
+      { db }: ResolverContext,
+    ): Promise<Mushroom[]> {
+      return await db.list(ID);
+    }
+  }
+  entries: [
+    {
+      id: "porcini",
+      name: "Porcini",
+    },
+  ]
+});
 ```
 
 A new collection can be implemented by creating a file in the `collections/`
-directory, and then registering the collection in `collections/_index.ts`,
-`api/graphql/resolvers.ts`, and `api/graphql/typeDefs.ts`.
+directory, and then registering the collection in `collections/_index.ts`.
