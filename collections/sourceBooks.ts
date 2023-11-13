@@ -42,14 +42,14 @@ export default collection<SourceBook>({
       async sourceBook(
         _parent: unknown,
         { id }: SourceBookArgs,
-        { db }: ResolverContext
-      ): Promise<SourceBook> {
+        { db }: ResolverContext,
+      ): Promise<SourceBook | null> {
         return await db.get(ID, id);
       },
       async sourceBooks(
         _parent: unknown,
         _args: never,
-        { db }: ResolverContext
+        { db }: ResolverContext,
       ): Promise<SourceBook[]> {
         return await db.list(ID);
       },

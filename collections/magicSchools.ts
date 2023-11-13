@@ -47,14 +47,14 @@ export default collection<MagicSchool>({
       async magicSchool(
         _parent: unknown,
         { id }: MagicSchoolArgs,
-        { db }: ResolverContext
-      ): Promise<MagicSchool> {
+        { db }: ResolverContext,
+      ): Promise<MagicSchool | null> {
         return await db.get(ID, id);
       },
       async magicSchools(
         _parent: unknown,
         _args: never,
-        { db }: ResolverContext
+        { db }: ResolverContext,
       ): Promise<MagicSchool[]> {
         return await db.list(ID);
       },

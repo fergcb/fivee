@@ -32,14 +32,14 @@ export default collection<DamageType>({
       async damageType(
         _parent: unknown,
         { id }: DamageTypeArgs,
-        { db }: ResolverContext
-      ): Promise<DamageType> {
+        { db }: ResolverContext,
+      ): Promise<DamageType | null> {
         return await db.get(ID, id);
       },
       async damageTypes(
         _parent: unknown,
         _args: never,
-        { db }: ResolverContext
+        { db }: ResolverContext,
       ): Promise<DamageType[]> {
         return await db.list(ID);
       },
@@ -66,47 +66,56 @@ export default collection<DamageType>({
     {
       id: "thunder",
       name: "Thunder",
-      desc: "A concussive burst of sound, such as the effect of the thunderwave spell, deals thunder damage.",
+      desc:
+        "A concussive burst of sound, such as the effect of the thunderwave spell, deals thunder damage.",
     },
     {
       id: "necrotic",
       name: "Necrotic",
-      desc: "Necrotic damage, dealt by certain undead and a spell such as chill touch, withers matter and even the soul.",
+      desc:
+        "Necrotic damage, dealt by certain undead and a spell such as chill touch, withers matter and even the soul.",
     },
     {
       id: "bludgeoning",
       name: "Bludgeoning",
-      desc: "Blunt force attacks, falling, constriction, and the like deal bludgeoning damage.",
+      desc:
+        "Blunt force attacks, falling, constriction, and the like deal bludgeoning damage.",
     },
     {
       id: "radiant",
       name: "Radiant",
-      desc: "Radiant damage, dealt by a cleric's flame strike spell or an angel's smiting weapon, sears the flesh like fire and overloads the spirit with power.",
+      desc:
+        "Radiant damage, dealt by a cleric's flame strike spell or an angel's smiting weapon, sears the flesh like fire and overloads the spirit with power.",
     },
     {
       id: "cold",
       name: "Cold",
-      desc: "The infernal chill radiating from an ice devil's spear and the frigid blast of a white dragon's breath deal cold damage.",
+      desc:
+        "The infernal chill radiating from an ice devil's spear and the frigid blast of a white dragon's breath deal cold damage.",
     },
     {
       id: "force",
       name: "Force",
-      desc: "Force is pure magical energy focused into a damaging form. Most effects that deal force damage are spells, including magic missile and spiritual weapon.",
+      desc:
+        "Force is pure magical energy focused into a damaging form. Most effects that deal force damage are spells, including magic missile and spiritual weapon.",
     },
     {
       id: "acid",
       name: "Acid",
-      desc: "The corrosive spray of a black dragon's breath and the dissolving enzymes secreted by a black pudding deal acid damage.",
+      desc:
+        "The corrosive spray of a black dragon's breath and the dissolving enzymes secreted by a black pudding deal acid damage.",
     },
     {
       id: "piercing",
       name: "Piercing",
-      desc: "Puncturing and impaling attacks, including spears and monsters' bites, deal piercing damage.",
+      desc:
+        "Puncturing and impaling attacks, including spears and monsters' bites, deal piercing damage.",
     },
     {
       id: "lightning",
       name: "Lightning",
-      desc: "A lightning bolt spell and a blue dragon's breath deal lightning damage.",
+      desc:
+        "A lightning bolt spell and a blue dragon's breath deal lightning damage.",
     },
     {
       id: "slashing",
@@ -116,12 +125,14 @@ export default collection<DamageType>({
     {
       id: "poison",
       name: "Poison",
-      desc: "Venomous stings and the toxic gas of a green dragon's breath deal poison damage.",
+      desc:
+        "Venomous stings and the toxic gas of a green dragon's breath deal poison damage.",
     },
     {
       id: "fire",
       name: "Fire",
-      desc: "Red dragons breathe fire, and many spells conjure flames to deal fire damage.",
+      desc:
+        "Red dragons breathe fire, and many spells conjure flames to deal fire damage.",
     },
   ],
 });

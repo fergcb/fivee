@@ -50,14 +50,14 @@ export default collection<Skill>({
       async skill(
         _parent: unknown,
         { id }: SkillArgs,
-        { db }: ResolverContext
-      ): Promise<Skill> {
+        { db }: ResolverContext,
+      ): Promise<Skill | null> {
         return await db.get(ID, id);
       },
       async skills(
         _parent: unknown,
         _args: never,
-        { db }: ResolverContext
+        { db }: ResolverContext,
       ): Promise<Skill[]> {
         return await db.list(ID);
       },

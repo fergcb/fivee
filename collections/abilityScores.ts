@@ -52,14 +52,14 @@ export default collection<AbilityScore>({
       async abilityScore(
         _parent: unknown,
         { id }: AbilityScoreArgs,
-        { db }: ResolverContext
-      ): Promise<AbilityScore> {
+        { db }: ResolverContext,
+      ): Promise<AbilityScore | null> {
         return await db.get(ID, id);
       },
       async abilityScores(
         _parent: unknown,
         _args: never,
-        { db }: ResolverContext
+        { db }: ResolverContext,
       ): Promise<AbilityScore[]> {
         return await db.list(ID);
       },
