@@ -10,6 +10,7 @@ const router = Router();
 router.get("/:spellId", async (req: Request, res: Response) => {
   const spellId = req.params.spellId;
   const cssMode = req.query.cssMode as RenderConfig["cssMode"];
+  const twTheme = req.query.twTheme as RenderConfig["twTheme"] | undefined;
 
   const data = await db.get<Spell>("spells", spellId);
   if (data === null) {
@@ -69,7 +70,7 @@ router.get("/:spellId", async (req: Request, res: Response) => {
     .join("; or ");
 
   res.status(200);
-  res.send(await render("spellCard", { spell }, { cssMode }));
+  res.send(await render("spellCard", { spell }, { cssMode, twTheme }));
 });
 
 export default router;

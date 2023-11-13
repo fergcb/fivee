@@ -1,8 +1,9 @@
 import Handlebars from "npm:handlebars";
-import { BEM_CLASSES, TW_CLASSES } from "./class-names.ts";
+import { BEM_CLASSES, TW_THEMES, ThemeName } from "./class-names.ts";
 import * as helpers from "./helpers.ts";
 import * as path from "https://deno.land/std@0.188.0/path/mod.ts";
 import pretty from "npm:pretty";
+import merge from "npm:lodash.merge";
 
 const SNIPPETS_DIR = path.dirname(path.fromFileUrl(import.meta.url));
 const TEMPLATE_EXT = ".template.hbs";
@@ -16,10 +17,12 @@ Object.entries(helpers).forEach(([name, fn]) => {
 
 export type RenderConfig = {
   cssMode: "tw" | "bem";
+  twTheme: ThemeName;
 };
 
 const DEFAULT_RENDER_CONFIG: RenderConfig = {
   cssMode: "bem",
+  twTheme: "default",
 };
 
 export async function render(
@@ -37,11 +40,12 @@ export async function render(
     if (Deno.env.get("ENV") !== "dev") templateCache.set(view, template);
   }
 
-  const config = Object.assign({}, DEFAULT_RENDER_CONFIG, customConfig);
+  const config = merge({}, DEFAULT_RENDER_CONFIG, customConfig) as RenderConfig;
 
-  const classFn = config.cssMode === "tw" ? TW_CLASSES : BEM_CLASSES;
+  const classes =
+    config.cssMode === "tw" ? TW_THEMES[config.twTheme] : BEM_CLASSES;
 
-  context["class"] = classFn;
+  context["class"] = classes;
 
   return pretty(template(context));
 }

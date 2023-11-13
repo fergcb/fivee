@@ -1,5 +1,6 @@
 import Handlebars from "npm:handlebars";
 import * as marked from "npm:marked";
+import { ClassList } from "./class-names.ts";
 
 const PLURAL_RULES = new Intl.PluralRules("en", { type: "ordinal" });
 const ORDINAL_SUFFIXES = new Map([
@@ -9,18 +10,47 @@ const ORDINAL_SUFFIXES = new Map([
   ["other", "th"],
 ]);
 
+function createRenderer(classes: ClassList): marked.Renderer {
+  const renderer = new marked.Renderer();
+
+  renderer.list = function (body, ordered) {
+    const tag = ordered ? "ol" : "ul";
+    return `<${tag} class="${classes.list} ${classes["list-unordered"]}">${body}</${tag}>`;
+  };
+
+  renderer.listitem = function (body) {
+    return `<li class="${classes.list__item}">${body}</li>`;
+  };
+
+  renderer.paragraph = function (text) {
+    return `<p class="${classes.paragraph}">${text}</p>`;
+  };
+
+  return renderer;
+}
+
 /**
  * Render Markdown text as HTML
  */
-export function md(source: string): string {
-  return marked.parse(source);
+export function md(
+  // deno-lint-ignore no-explicit-any
+  this: any,
+  source: string
+): string {
+  return marked.parse(source, { renderer: createRenderer(this.class) });
 }
 
 /**
  * Render inline Markdown text as HTML
  */
-export function mdi(source: string): string {
-  return marked.parseInline(source) as string;
+export function mdi(
+  // deno-lint-ignore no-explicit-any
+  this: any,
+  source: string
+): string {
+  return marked.parseInline(source, {
+    renderer: createRenderer(this.class),
+  }) as string;
 }
 
 /**
@@ -38,11 +68,18 @@ export function ordinal(n: number): string {
 export function cn(
   // deno-lint-ignore no-explicit-any
   this: any,
-  name: string
+  names: string
 ): Handlebars.SafeString | undefined {
-  if (typeof this.class[name] !== "string" || this.class[name] === "")
-    return undefined;
-  return new Handlebars.SafeString(`class="${this.class[name]}"`);
+  const className = names
+    .split(/\s+/)
+    .map((name) => {
+      if (typeof this.class[name] !== "string" || this.class[name] === "") {
+        return name;
+      }
+      return this.class[name];
+    })
+    .join(" ");
+  return new Handlebars.SafeString(`class="${className}"`);
 }
 
 /**

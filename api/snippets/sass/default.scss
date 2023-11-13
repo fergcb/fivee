@@ -3,15 +3,21 @@
   --srd-font-sans: 'Gill Sans', Arial, sans-serif;
 }
 
-.srd {
+.fivee {
+  &__snippet {
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
   &__spell {
     max-width: 60ch;
+    padding: 1rem;
 
     &__name {
       font-size: 1.25em;
       font-weight: 600;
       color: var(--srd-col-primary);
       font-family: var(--srd-font-sans);
+      margin-top: 0;
       margin-bottom: 0.125em;
     }
 
