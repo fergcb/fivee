@@ -1,7 +1,8 @@
-import { SourceBook } from "./sourceBooks.ts";
+import { SourceBook } from "$collections/sourceBooks.ts";
 
 export interface BaseDocument {
   id: string;
+  name: string;
 }
 
 export interface Cost {

@@ -1,7 +1,7 @@
 import express from "npm:express@4.18.2";
 import cors from "npm:cors";
 import { graphqlMiddleware } from "$graphql/middleware.ts";
-import snippetsRouter from "./snippets/router.ts";
+import snippetsRouter from "$snippets/router.ts";
 import boxen from "npm:boxen";
 import dedent from "npm:dedent-js";
 import chalk from "npm:chalk";
@@ -24,7 +24,12 @@ const logger = morgan((tokens: any, req: Request, res: Response) => {
 async function start() {
   const app = express();
 
-  app.use("/graphql", cors(), express.json(), await graphqlMiddleware());
+  app.use(
+    "/graphql",
+    cors(),
+    express.json(),
+    await graphqlMiddleware(),
+  );
 
   app.use("/snippets", logger, cors(), snippetsRouter);
 
@@ -41,8 +46,8 @@ async function start() {
             padding: 1,
             borderColor: "blue",
             borderStyle: "double",
-          }
-        )
+          },
+        ),
     );
   });
 }

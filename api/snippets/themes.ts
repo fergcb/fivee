@@ -1,10 +1,21 @@
 const CLASS_NAMES = [
   "snippet",
+  // Markdown Elements
   "paragraph",
   "list",
   "list-ordered",
   "list-unordered",
   "list__item",
+  // Special
+  "dice",
+  "ref",
+  "ref-abilityScores",
+  "ref-damageTypes",
+  "ref-magicSchools",
+  "ref-skills",
+  "ref-sourceBooks",
+  "ref-spells",
+  // Spell Card
   "spell",
   "spell__name",
   "spell__level-school-ritual",
@@ -23,12 +34,12 @@ const CLASS_NAMES = [
   "spell__higher-levels",
 ] as const;
 
-type ClassName = (typeof CLASS_NAMES)[number];
+export type ClassName = (typeof CLASS_NAMES)[number];
 
-export type ClassList = Record<ClassName, string>;
+export type ClassList = Partial<Record<ClassName, string>>;
 
 export const BEM_CLASSES = Object.fromEntries(
-  CLASS_NAMES.map((cn) => [cn, "fivee__" + cn])
+  CLASS_NAMES.map((cn) => [cn, "fivee__" + cn]),
 ) as ClassList;
 
 export const THEME_NAMES = ["none", "default"] as const;
@@ -43,12 +54,6 @@ export function isValidTheme(theme: unknown): theme is ThemeName {
   );
 }
 
-interface ThemeConfig {
-  primaryColor: string;
-  textColor: string;
-  bgColor: string;
-}
-
 export const TW_THEMES: Record<ThemeName, ClassList> = {
   none: Object.fromEntries(CLASS_NAMES.map((c) => [c, ""])) as ClassList,
   default: {
@@ -57,22 +62,14 @@ export const TW_THEMES: Record<ThemeName, ClassList> = {
     list: "pl-4 my-2 space-y-1",
     "list-ordered": "list-decimal",
     "list-unordered": "list-disc",
-    list__item: "",
+    dice: "font-bold",
+    ref: "italic text-[#9c1910]",
     spell: `text-black rounded drop-shadow p-4 max-w-[calc(60ch+2rem)]`,
-    spell__name: `text-xl font-['Gill_Sans',Arial,sans-serif] font-semibold text-[#9c1910]`,
+    spell__name:
+      `text-xl font-['Gill_Sans',Arial,sans-serif] font-semibold text-[#9c1910]`,
     "spell__level-school-ritual": "italic text-stone-700",
-    spell__level: "",
-    spell__school: "",
-    spell__ritual: "",
     spell__metadata: "mt-3",
     spell__metadata__key: "inline font-bold after:content-[':']",
     spell__metadata__value: "inline m-0",
-    "spell__casting-time": "",
-    spell__range: "",
-    spell__components: "",
-    spell__materials: "",
-    spell__duration: "",
-    spell__description: "",
-    "spell__higher-levels": "",
   },
 };

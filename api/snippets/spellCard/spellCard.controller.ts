@@ -1,16 +1,18 @@
 // @deno-types="npm:@types/express@4.17.21"
-import { Router, Request, Response } from "npm:express@4.18.2";
+import { Request, Response, Router } from "npm:express@4.18.2";
 import db from "$db/database.ts";
-import { RenderConfig, render } from "../renderer.ts";
 import { Spell } from "$collections/spells/collection.ts";
-import { pluralize } from "../helpers.ts";
+import { render, RenderConfig } from "$snippets/renderer.ts";
+import { pluralize } from "$snippets/helpers.ts";
 
 const router = Router();
 
 router.get("/:spellId", async (req: Request, res: Response) => {
   const spellId = req.params.spellId;
-  const cssMode = req.query.cssMode as RenderConfig["cssMode"];
+  const cssMode = req.query.cssMode as RenderConfig["cssMode"] | undefined;
   const twTheme = req.query.twTheme as RenderConfig["twTheme"] | undefined;
+  const expressions = (req.query.expressions as RenderConfig["expressions"]) ??
+    "html";
 
   const data = await db.get<Spell>("spells", spellId);
   if (data === null) {
@@ -34,10 +36,12 @@ router.get("/:spellId", async (req: Request, res: Response) => {
   spell.range = ((range) => {
     switch (range.kind) {
       case "point":
-        return `${range.distance} ${pluralize(
-          range.unit,
-          range.distance != 1
-        )}`;
+        return `${range.distance} ${
+          pluralize(
+            range.unit,
+            range.distance != 1,
+          )
+        }`;
       case "self":
         if (!range.shape) return `Self`;
         return `${range.shape.size.distance} ${range.shape.size.unit} ${range.shape.kind}`;
@@ -69,8 +73,12 @@ router.get("/:spellId", async (req: Request, res: Response) => {
     })
     .join("; or ");
 
+  spell.materials = data.materials?.desc;
+
   res.status(200);
-  res.send(await render("spellCard", { spell }, { cssMode, twTheme }));
+  res.send(
+    await render("spellCard", { spell }, { cssMode, twTheme, expressions }),
+  );
 });
 
 export default router;

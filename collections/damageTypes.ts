@@ -1,6 +1,6 @@
-import { ResolverContext } from "$graphql/context.ts";
 import { collection } from "$collections/_collection.ts";
 import { BaseDocument } from "$collections/_common.ts";
+import { manyResolver, oneResolver } from "$collections/_resolvers.ts";
 
 export const ID = "damageTypes";
 
@@ -9,16 +9,7 @@ export const ID = "damageTypes";
  */
 
 export interface DamageType extends BaseDocument {
-  name: string;
   desc: string;
-}
-
-/*
- * Resolver Parameter Types
- */
-
-interface DamageTypeArgs {
-  id: string;
 }
 
 /*
@@ -29,20 +20,8 @@ export default collection<DamageType>({
   id: ID,
   resolvers: {
     Query: {
-      async damageType(
-        _parent: unknown,
-        { id }: DamageTypeArgs,
-        { db }: ResolverContext,
-      ): Promise<DamageType | null> {
-        return await db.get(ID, id);
-      },
-      async damageTypes(
-        _parent: unknown,
-        _args: never,
-        { db }: ResolverContext,
-      ): Promise<DamageType[]> {
-        return await db.list(ID);
-      },
+      damageType: oneResolver<DamageType>(ID),
+      damageTypes: manyResolver<DamageType>(ID),
     },
   },
   typeDefs: `#graphql

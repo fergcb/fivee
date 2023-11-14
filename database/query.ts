@@ -1,7 +1,6 @@
 import { defer, IResolvable, ResolverResult, value } from "$db/resolver.ts";
 import { Context } from "$db/context.ts";
-import { Document } from "$db/documents.ts";
-import { CollectionID } from "$collections/_index.ts";
+import { CollectionID, Document } from "$collections/_index.ts";
 
 export type FilterOperator = "==" | "!=" | "is";
 

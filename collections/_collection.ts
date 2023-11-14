@@ -1,5 +1,5 @@
-import { Entry } from "../database/resolver.ts";
-import { Document } from "$db/documents.ts";
+import { Entry } from "$db/resolver.ts";
+import { Document } from "$collections/_index.ts";
 import { ResolverContext } from "$graphql/context.ts";
 import { ApolloServerOptions } from "npm:@apollo/server@^4.9";
 
@@ -7,8 +7,10 @@ export class Collection<Doc extends Document> {
   constructor(
     public readonly id: string,
     public readonly typeDefs: ApolloServerOptions<ResolverContext>["typeDefs"],
-    public readonly resolvers: ApolloServerOptions<ResolverContext>["resolvers"],
-    public readonly entries: Entry<Doc>[]
+    public readonly resolvers: ApolloServerOptions<
+      ResolverContext
+    >["resolvers"],
+    public readonly entries: Entry<Doc>[],
   ) {}
 }
 

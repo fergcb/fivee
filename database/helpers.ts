@@ -1,19 +1,18 @@
 import dedent from "npm:dedent-js";
 import { Source } from "$collections/_common.ts";
-import { CollectionID } from "$collections/_index.ts";
-import { Document, SourceBook } from "$db/documents.ts";
+import { CollectionID, Document, SourceBook } from "$collections/_index.ts";
 import { Resolvable } from "$db/resolver.ts";
 import { QueryBuilder, QueryFirst } from "$db/query.ts";
 
 export function query<Doc extends Document>(
-  collectionId: CollectionID
+  collectionId: CollectionID,
 ): QueryBuilder<Doc> {
   return new QueryBuilder<Doc>(collectionId);
 }
 
 export function ref<Doc extends Document>(
   collectionId: CollectionID,
-  docId: string
+  docId: string,
 ): QueryFirst<Doc> {
   return new QueryFirst<Doc>(collectionId, [
     { field: "id", op: "==", value: docId },

@@ -1,7 +1,7 @@
-import { ResolverContext } from "$graphql/context.ts";
 import { collection } from "$collections/_collection.ts";
 import { BaseDocument, Source } from "$collections/_common.ts";
 import { md, ref } from "$helpers";
+import { manyResolver, oneResolver } from "$collections/_resolvers.ts";
 
 export const ID = "magicSchools";
 
@@ -10,17 +10,8 @@ export const ID = "magicSchools";
  */
 
 export interface MagicSchool extends BaseDocument {
-  name: string;
   desc: string;
   source: Source;
-}
-
-/*
- * Resolver Parameter Types
- */
-
-interface MagicSchoolArgs {
-  id: string;
 }
 
 /*
@@ -44,20 +35,8 @@ export default collection<MagicSchool>({
   `,
   resolvers: {
     Query: {
-      async magicSchool(
-        _parent: unknown,
-        { id }: MagicSchoolArgs,
-        { db }: ResolverContext,
-      ): Promise<MagicSchool | null> {
-        return await db.get(ID, id);
-      },
-      async magicSchools(
-        _parent: unknown,
-        _args: never,
-        { db }: ResolverContext,
-      ): Promise<MagicSchool[]> {
-        return await db.list(ID);
-      },
+      magicSchool: oneResolver<MagicSchool>(ID),
+      magicSchools: manyResolver<MagicSchool>(ID),
     },
   },
   entries: [

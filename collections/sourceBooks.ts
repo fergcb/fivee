@@ -1,6 +1,6 @@
-import { ResolverContext } from "$graphql/context.ts";
 import { collection } from "$collections/_collection.ts";
 import { BaseDocument } from "$collections/_common.ts";
+import { manyResolver, oneResolver } from "$collections/_resolvers.ts";
 
 export const ID = "sourceBooks";
 
@@ -8,20 +8,11 @@ export const ID = "sourceBooks";
  * TypeScript Types
  */
 
-export interface SourceBook extends BaseDocument {
-  name: string;
-}
+// deno-lint-ignore no-empty-interface
+export interface SourceBook extends BaseDocument {}
 
 /*
- * Resolver Parameter Types
- */
-
-interface SourceBookArgs {
-  id: string;
-}
-
-/*
- * Data
+ * Collection Definition
  */
 
 export default collection<SourceBook>({
@@ -39,20 +30,8 @@ export default collection<SourceBook>({
   `,
   resolvers: {
     Query: {
-      async sourceBook(
-        _parent: unknown,
-        { id }: SourceBookArgs,
-        { db }: ResolverContext,
-      ): Promise<SourceBook | null> {
-        return await db.get(ID, id);
-      },
-      async sourceBooks(
-        _parent: unknown,
-        _args: never,
-        { db }: ResolverContext,
-      ): Promise<SourceBook[]> {
-        return await db.list(ID);
-      },
+      sourceBook: oneResolver<SourceBook>(ID),
+      sourceBooks: manyResolver<SourceBook>(ID),
     },
   },
   entries: [

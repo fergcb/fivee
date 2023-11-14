@@ -1,10 +1,10 @@
-import { ResolverContext } from "$graphql/context.ts";
 import { collection } from "$collections/_collection.ts";
 import { BaseDocument, Cost, Range, Source } from "$collections/_common.ts";
 import { MagicSchool } from "$collections/magicSchools.ts";
 import { AbilityScore } from "$collections/abilityScores.ts";
 import { DamageType } from "$collections/damageTypes.ts";
 import { phbSpells } from "$collections/spells/phbSpells.ts";
+import { manyResolver, oneResolver } from "$collections/_resolvers.ts";
 
 export const ID = "spells";
 
@@ -15,12 +15,12 @@ export const ID = "spells";
 export type SpellRange =
   | (Range & { kind: "point" })
   | {
-      kind: "self";
-      shape?: {
-        kind: "sphere" | "radius" | "cone" | "line" | "hemisphere" | "cube";
-        size: Range;
-      };
-    }
+    kind: "self";
+    shape?: {
+      kind: "sphere" | "radius" | "cone" | "line" | "hemisphere" | "cube";
+      size: Range;
+    };
+  }
   | { kind: "touch" }
   | { kind: "special" }
   | { kind: "sight" }
@@ -35,15 +35,18 @@ export interface SpellMaterials {
 export type SpellDuration =
   | { kind: "instantaneous" }
   | { kind: "special" }
-  | ((
+  | (
+    & (
       | { kind: "permanent" }
       | {
-          kind: "time";
-          amount: number;
-          unit: "round" | "minute" | "hour" | "day" | "week";
-          concentration: boolean;
-        }
-    ) & { until?: ("dispelled" | "long rest" | "short rest" | "triggered")[] });
+        kind: "time";
+        amount: number;
+        unit: "round" | "minute" | "hour" | "day" | "week";
+        concentration: boolean;
+      }
+    )
+    & { until?: ("dispelled" | "long rest" | "short rest" | "triggered")[] }
+  );
 
 export interface CastingTime {
   amount: number;
@@ -60,38 +63,37 @@ export interface CastingTime {
 
 export type DamageProgression =
   | {
-      kind: "cantrip";
-      damageAtCharacterLevel: { [key: number]: string };
-    }
+    kind: "cantrip";
+    damageAtCharacterLevel: { [key: number]: string };
+  }
   | {
-      kind: "levelled";
-      damageAtSlotLevel: { [key: number]: string };
-    };
+    kind: "levelled";
+    damageAtSlotLevel: { [key: number]: string };
+  };
 
 export type SpellAttack =
   | {
-      kind: "ranged" | "melee";
-      damage?: {
-        damageType?: DamageType;
-        damageProgression: DamageProgression;
-      };
-    }
-  | {
-      kind: "savingThrow";
-      saveType: AbilityScore;
-      effectOnSave: "noEffect" | "halfDamage" | "special";
-      damage?: {
-        damageType?: DamageType;
-        damageProgression: DamageProgression;
-      };
-    }
-  | {
-      kind: "healing";
-      healingAtSlotLevel: { [key: number]: string };
+    kind: "ranged" | "melee";
+    damage?: {
+      damageType?: DamageType;
+      damageProgression: DamageProgression;
     };
+  }
+  | {
+    kind: "savingThrow";
+    saveType: AbilityScore;
+    effectOnSave: "noEffect" | "halfDamage" | "special";
+    damage?: {
+      damageType?: DamageType;
+      damageProgression: DamageProgression;
+    };
+  }
+  | {
+    kind: "healing";
+    healingAtSlotLevel: { [key: number]: string };
+  };
 
 export interface Spell extends BaseDocument {
-  name: string;
   level: number;
   school: MagicSchool;
   desc: string;
@@ -106,12 +108,8 @@ export interface Spell extends BaseDocument {
   source: Source;
 }
 
-interface SpellArgs {
-  id: string;
-}
-
 /*
- * Data
+ * Collection Definition
  */
 
 export default collection<Spell>({
@@ -119,20 +117,8 @@ export default collection<Spell>({
   typeDefs: Deno.readTextFileSync("./collections/spells/typeDefs.graphql"),
   resolvers: {
     Query: {
-      async spell(
-        _: unknown,
-        { id }: SpellArgs,
-        { db }: ResolverContext
-      ): Promise<Spell | null> {
-        return await db.get(ID, id);
-      },
-      async spells(
-        _: unknown,
-        _args: never,
-        { db }: ResolverContext
-      ): Promise<Spell[]> {
-        return await db.list(ID);
-      },
+      spell: oneResolver<Spell>(ID),
+      spells: manyResolver<Spell>(ID),
     },
     ISpellAttack: {
       __resolveType(attack: SpellAttack): string {

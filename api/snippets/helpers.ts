@@ -1,6 +1,6 @@
 import Handlebars from "npm:handlebars";
 import * as marked from "npm:marked";
-import { ClassList } from "./class-names.ts";
+import { ClassList } from "$snippets/themes.ts";
 
 const PLURAL_RULES = new Intl.PluralRules("en", { type: "ordinal" });
 const ORDINAL_SUFFIXES = new Map([
@@ -15,7 +15,10 @@ function createRenderer(classes: ClassList): marked.Renderer {
 
   renderer.list = function (body, ordered) {
     const tag = ordered ? "ol" : "ul";
-    return `<${tag} class="${classes.list} ${classes["list-unordered"]}">${body}</${tag}>`;
+    const subclass = ordered
+      ? classes["list-ordered"]
+      : classes["list-unordered"];
+    return `<${tag} class="${classes.list} ${subclass}">${body}</${tag}>`;
   };
 
   renderer.listitem = function (body) {
@@ -35,7 +38,7 @@ function createRenderer(classes: ClassList): marked.Renderer {
 export function md(
   // deno-lint-ignore no-explicit-any
   this: any,
-  source: string
+  source: string,
 ): string {
   return marked.parse(source, { renderer: createRenderer(this.class) });
 }
@@ -46,7 +49,7 @@ export function md(
 export function mdi(
   // deno-lint-ignore no-explicit-any
   this: any,
-  source: string
+  source: string,
 ): string {
   return marked.parseInline(source, {
     renderer: createRenderer(this.class),
@@ -68,14 +71,12 @@ export function ordinal(n: number): string {
 export function cn(
   // deno-lint-ignore no-explicit-any
   this: any,
-  names: string
+  names: string,
 ): Handlebars.SafeString | undefined {
   const className = names
     .split(/\s+/)
     .map((name) => {
-      if (typeof this.class[name] !== "string" || this.class[name] === "") {
-        return name;
-      }
+      if (typeof this.class[name] !== "string") return "";
       return this.class[name];
     })
     .join(" ");

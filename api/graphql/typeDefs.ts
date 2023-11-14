@@ -15,7 +15,7 @@ const commonTypeDefs = `#graphql
 `;
 
 const collectionTypeDefs = Object.values(collections).flatMap(
-  (col) => col.typeDefs ?? []
+  (col) => col.typeDefs ?? [],
 );
 
 export const typeDefs = [queryBase, commonTypeDefs, ...collectionTypeDefs];

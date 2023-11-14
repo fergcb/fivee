@@ -1,12 +1,14 @@
 {
   "tasks": {
-    "start": "deno run --unstable --allow-read --allow-env --allow-net main.ts",
-    "dev": "deno run --watch --unstable --allow-read --allow-env --allow-net main.ts"
+    "start": "deno run --unstable --allow-run --allow-read --allow-env --allow-net main.ts",
+    "dev": "deno run --watch --unstable --allow-run --allow-read --allow-env --allow-net main.ts"
   },
   "imports": {
     "$helpers": "./database/helpers.ts",
     "$collections/": "./collections/",
     "$db/": "./database/",
-    "$graphql/": "./api/graphql/"
+    "$graphql/": "./api/graphql/",
+    "$exprs/": "./expressions/",
+    "$snippets/": "./api/snippets/"
   }
 }

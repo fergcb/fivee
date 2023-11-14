@@ -9,7 +9,7 @@ import {
   VALUE,
   value,
 } from "$db/resolver.ts";
-import { Document } from "$db/documents.ts";
+import { Document } from "$collections/_index.ts";
 
 import { CollectionID, collections } from "$collections/_index.ts";
 
@@ -36,8 +36,9 @@ export class Database {
   }
 
   private async clear(): Promise<void> {
-    if (this.kv === null)
+    if (this.kv === null) {
       throw new Error("Database called before initialisation.");
+    }
     const records = this.kv.list({ prefix: [] });
     for await (const record of records) {
       this.kv.delete(record.key);
@@ -45,7 +46,7 @@ export class Database {
   }
 
   public async list<T extends Document>(
-    collectionId: CollectionID
+    collectionId: CollectionID,
   ): Promise<T[]> {
     if (this.kv === null) {
       throw new Error("Database called before initialisation.");
@@ -58,7 +59,7 @@ export class Database {
 
   public async get<T extends Document>(
     collectionId: CollectionID,
-    docId: string
+    docId: string,
   ): Promise<T | null> {
     if (this.kv === null) {
       throw new Error("Database called before initialisation.");
@@ -170,7 +171,7 @@ export class Database {
         if (incomplete) ctx.enqueue(ctx.path, obj, true);
         return value(resolved);
       },
-      true
+      true,
     );
   }
 }

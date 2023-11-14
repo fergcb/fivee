@@ -1,4 +1,4 @@
-import { ref, md, dice, source } from "$helpers";
+import { dice, md, ref, source } from "$helpers";
 import { Entry } from "$db/resolver.ts";
 import { Spell } from "$collections/spells/collection.ts";
 import { DamageType } from "$collections/damageTypes.ts";
@@ -175,7 +175,7 @@ export const phbSpells: Entry<Spell>[] = [
       can use your action to change your appearance in this way again.
 
       **Natural Weapons.** You grow claws, fangs, spines, horns, or a different natural weapon of
-      your choice. Your unarmed strikes deal {@dice 1d6} bludgeoning, piercing, or slashing damage,
+      your choice. Your unarmed strikes deal %{dice 1d6} bludgeoning, piercing, or slashing damage,
       as appropriate to the natural weapon you chose, and you are proficient with your unarmed
       strikes. Finally, the natural weapon is magic and you have a +1 bonus to the attack and damage
       rolls you make using it.
@@ -303,7 +303,7 @@ export const phbSpells: Entry<Spell>[] = [
     school: ref("magicSchools", "transmutation"),
     desc: md`
       Your magic turns others into beasts. Choose any number of willing creatures that you can see
-      within range. You transform each target into the form of a Large or smaller {@ref monsterTypes
+      within range. You transform each target into the form of a Large or smaller %{ref monsterTypes
       beast} with a challenge rating of 4 or lower. On subsequent turns, you can use your action to
       transform affected creatures into new forms.
 
@@ -642,7 +642,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "either a lump of alum soaked in vinegar for the antipathy effect or a drop of honey for the sympathy effect",
+      desc:
+        "either a lump of alum soaked in vinegar for the antipathy effect or a drop of honey for the sympathy effect",
       consumed: "no",
     },
     ritual: false,
@@ -758,7 +759,7 @@ export const phbSpells: Entry<Spell>[] = [
       duration. You and the creatures you designate when you cast this spell can open the object
       normally. You can also set a password that, when spoken within 5 feet of the object,
       suppresses this spell for 1 minute. Otherwise, it is impassable until it is broken or the
-      spell is dispelled or suppressed. Casting %{ref spells knock} on the object suppresses {@ref
+      spell is dispelled or suppressed. Casting %{ref spells knock} on the object suppresses %{ref
       spells arcaneLock} for 10 minutes.
 
       While affected by this spell, the object is more difficult to break or force open; the DC to
@@ -896,7 +897,7 @@ export const phbSpells: Entry<Spell>[] = [
       The spell ends for you and your companions when you use your action to dismiss it. When the
       spell ends, the affected creature returns to its physical body, and it awakens.
 
-      The spell might also end early for you or one of your companions. A successful {@ref spells
+      The spell might also end early for you or one of your companions. A successful %{ref spells
       dispelMagic} spell used against an astral or physical body ends the spell for that creature.
       If a creature's original body or its astral form drops to 0 hit points, the spell ends for
       that creature. If the spell ends and the silver cord is intact, the cord pulls the creature's
@@ -963,7 +964,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "specially marked sticks, bones, or similar tokens worth at least 25 gp",
+      desc:
+        "specially marked sticks, bones, or similar tokens worth at least 25 gp",
       consumed: "optional",
       cost: { amount: 25, currency: "gp" },
     },
@@ -1032,8 +1034,8 @@ export const phbSpells: Entry<Spell>[] = [
       Purifying energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the
       aura moves with you, centered on you. Each nonhostile creature in the aura (including you)
       can't become diseased, has resistance to poison damage, and has advantage on saving throws
-      against effects that cause any of the following conditions: %{ref conditions blinded}, {@ref
-      conditions charmed}, %{ref conditions deafened}, %{ref conditions frightened}, {@ref
+      against effects that cause any of the following conditions: %{ref conditions blinded}, %{ref
+      conditions charmed}, %{ref conditions deafened}, %{ref conditions frightened}, %{ref
       conditions paralyzed}, %{ref conditions poisoned}, and %{ref conditions stunned}.
     `,
     range: {
@@ -1527,7 +1529,7 @@ export const phbSpells: Entry<Spell>[] = [
       space is difficult terrain.
 
       When a creature enters the wall's area for the first time on a turn or starts its turn there,
-      the creature must make a Dexterity saving throw. On a failed save, the creature takes {@dice
+      the creature must make a Dexterity saving throw. On a failed save, the creature takes %{dice
       6d10} slashing damage. On a successful save, the creature takes half as much damage.
     `,
     range: {
@@ -2080,7 +2082,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a bit of fur; a piece of amber, glass, or a crystal rod; and three silver pins",
+      desc:
+        "a bit of fur; a piece of amber, glass, or a crystal rod; and three silver pins",
       consumed: "no",
     },
     ritual: false,
@@ -2369,7 +2372,7 @@ export const phbSpells: Entry<Spell>[] = [
       the sensor as if you were in its space. As your action, you can switch between seeing and
       hearing.
 
-      A creature that can see the sensor (such as a creature benefiting from {@ref spells
+      A creature that can see the sensor (such as a creature benefiting from %{ref spells
       seeInvisibility} or truesight) sees a luminous, intangible orb about the size of your fist.
     `,
     range: {
@@ -2379,7 +2382,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a focus worth at least 100 gp, either a jeweled horn for hearing or a glass eye for seeing",
+      desc:
+        "a focus worth at least 100 gp, either a jeweled horn for hearing or a glass eye for seeing",
       consumed: "optional",
       cost: { amount: 100, currency: "gp" },
     },
@@ -2424,7 +2428,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a diamond worth at least 1,000 gp and at least 1 cubic inch of flesh of the creature that is to be cloned, which the spell consumes, and a vessel worth at least 2,000 gp that has a sealable lid and is large enough to hold the creature being cloned, such as a huge urn, coffin, mud-filled cyst in the ground, or crystal container filled with salt water",
+      desc:
+        "a diamond worth at least 1,000 gp and at least 1 cubic inch of flesh of the creature that is to be cloned, which the spell consumes, and a vessel worth at least 2,000 gp that has a sealable lid and is large enough to hold the creature being cloned, such as a huge urn, coffin, mud-filled cyst in the ground, or crystal container filled with salt water",
       consumed: "yes",
       cost: { amount: 1000, currency: "gp" },
     },
@@ -3141,7 +3146,7 @@ export const phbSpells: Entry<Spell>[] = [
       You call forth an elemental servant. Choose an area of air, earth, fire, or water that fills a
       10-foot cube within range. An %{ref monsterTypes elemental} of challenge rating 5 or
       lower appropriate to the area you chose appears in an unoccupied space within 10 feet of it.
-      For example, a %{ref monsters fireElemental} emerges from a bonfire, and an {@ref monsters
+      For example, a %{ref monsters fireElemental} emerges from a bonfire, and an %{ref monsters
       earthElemental} rises up from the ground. The elemental disappears when it drops to 0 hit
       points or when the spell ends.
 
@@ -3168,7 +3173,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "burning incense for air, soft clay for earth, sulfur and phosphorus for fire, or water and sand for water",
+      desc:
+        "burning incense for air, soft clay for earth, sulfur and phosphorus for fire, or water and sand for water",
       consumed: "no",
     },
     ritual: false,
@@ -3507,7 +3513,7 @@ export const phbSpells: Entry<Spell>[] = [
       and that can target you. You cast that spell—called the contingent spell—as part of casting
       contingency, expending spell slots for both, but the contingent spell doesn't come into
       effect. Instead, it takes effect when a certain circumstance occurs. You describe that
-      circumstance when you cast the two spells. For example, a contingency cast with {@ref spells
+      circumstance when you cast the two spells. For example, a contingency cast with %{ref spells
       waterBreathing} might stipulate that %{ref spells waterBreathing} comes into effect when you
       are engulfed in water or a similar liquid.
 
@@ -3524,7 +3530,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a statuette of yourself carved from ivory and decorated with gems worth at least 1,500 gp",
+      desc:
+        "a statuette of yourself carved from ivory and decorated with gems worth at least 1,500 gp",
       consumed: "optional",
       cost: { amount: 1500, currency: "gp" },
     },
@@ -3763,7 +3770,7 @@ export const phbSpells: Entry<Spell>[] = [
     level: 2,
     school: ref("magicSchools", "transmutation"),
     desc: md`
-      You plant four pieces of nonmagical ammunition—%{ref items arrow|arrows} or {@ref items
+      You plant four pieces of nonmagical ammunition—%{ref items arrow|arrows} or %{ref items
       crossbowBolt|crossbow bolts}—in the ground within range and lay magic upon them to protect an
       area. Until the spell ends, whenever a creature other than you comes within 30 feet of the
       ammunition for the first time on a turn or ends its turn there, one piece of ammunition flies
@@ -3900,7 +3907,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a drop of water if creating water or a few grains of sand if destroying it",
+      desc:
+        "a drop of water if creating water or a few grains of sand if destroying it",
       consumed: "no",
     },
     ritual: false,
@@ -3945,9 +3953,9 @@ export const phbSpells: Entry<Spell>[] = [
     atHigherLevels: md`
       When you cast this spell using a 7th-level spell slot, you can animate or reassert control
       over four ghouls. When you cast this spell using an 8th-level spell slot, you can animate or
-      reassert control over five ghouls or two %{ref monsters ghast|ghasts} or {@ref monsters wight
+      reassert control over five ghouls or two %{ref monsters ghast|ghasts} or %{ref monsters wight
       |wights}. When you cast this spell using a 9th-level spell slot, you can animate or reassert
-      control over six %{ref monsters ghoul|ghouls}, three %{ref monsters ghast|ghasts} or {@ref
+      control over six %{ref monsters ghoul|ghouls}, three %{ref monsters ghast|ghasts} or %{ref
       monsters wight|wights}, or two %{ref monsters mummy|mummies}.
     `,
     range: {
@@ -3957,7 +3965,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "one clay pot filled with grave dirt, one clay pot filled with brackish water, and one 150 gp black onyx stone for each corpse",
+      desc:
+        "one clay pot filled with grave dirt, one clay pot filled with brackish water, and one 150 gp black onyx stone for each corpse",
       consumed: "optional",
       cost: { amount: 150, currency: "gp" },
     },
@@ -4015,7 +4024,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a tiny piece of matter of the same type of the item you plan to create",
+      desc:
+        "a tiny piece of matter of the same type of the item you plan to create",
       consumed: "no",
     },
     ritual: false,
@@ -4557,7 +4567,7 @@ export const phbSpells: Entry<Spell>[] = [
     desc: md`
       For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in
       this way, you can use your action to see a faint aura around any visible creature or object in
-      the area that bears magic, and you learn its %{query magicSchools|school of magic}, if any.
+      the area that bears magic, and you learn its school of magic, if any.
 
       The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common
       metal, a thin sheet of lead, or 3 feet of wood or dirt.
@@ -4974,7 +4984,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "incense and a sacrificial offering appropriate to your religion, together worth at least 25 gp, which the spell consumes",
+      desc:
+        "incense and a sacrificial offering appropriate to your religion, together worth at least 25 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 25, currency: "gp" },
     },
@@ -5331,7 +5342,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a handful of sand, a dab of ink, and a writing quill plucked from a sleeping bird",
+      desc:
+        "a handful of sand, a dab of ink, and a writing quill plucked from a sleeping bird",
       consumed: "no",
     },
     ritual: false,
@@ -5723,7 +5735,7 @@ export const phbSpells: Entry<Spell>[] = [
       terrain.
 
       A creature in the area when you cast the spell must succeed on a Strength saving throw or be
-      %{ref conditions restrained} by the entangling plants until the spell ends. A creature {@ref
+      %{ref conditions restrained} by the entangling plants until the spell ends. A creature %{ref
       conditions restrained} by the plants can use its action to make a Strength check against your
       spell save DC. On a success, it frees itself.
 
@@ -6144,7 +6156,7 @@ export const phbSpells: Entry<Spell>[] = [
     school: ref("magicSchools", "illusion"),
     desc: md`
       You project a phantasmal image of a creature's worst fears. Each creature in a 30-foot cone
-      must succeed on a Wisdom saving throw or drop whatever it is holding and become {@ref
+      must succeed on a Wisdom saving throw or drop whatever it is holding and become %{ref
       conditions frightened} for the duration.
 
       While %{ref conditions frightened} by this spell, a creature must take the Dash action
@@ -6248,7 +6260,7 @@ export const phbSpells: Entry<Spell>[] = [
       At the end of every 30 days, the creature can repeat its saving throw against this spell. If
       it succeeds on its saving throw, the spell ends.
 
-      The spell can also be ended by %{ref spells greaterRestoration}, %{ref spells heal}, or {@ref
+      The spell can also be ended by %{ref spells greaterRestoration}, %{ref spells heal}, or %{ref
       spells wish}.
     `,
     range: {
@@ -6336,10 +6348,10 @@ export const phbSpells: Entry<Spell>[] = [
     level: 1,
     school: ref("magicSchools", "conjuration"),
     desc: md`
-      You gain the service of a familiar, a spirit that takes an animal form you choose: {@ref
-      monsters bat}, %{ref monsters cat}, %{ref monsters crab}, %{ref monsters frog} (toad), {@ref
-      monsters hawk}, %{ref monsters lizard}, %{ref monsters octopus}, %{ref monsters owl}, {@ref
-      monsters poisonous snake}, fish (%{ref monsters quipper}), %{ref monsters rat}, {@ref monsters
+      You gain the service of a familiar, a spirit that takes an animal form you choose: %{ref
+      monsters bat}, %{ref monsters cat}, %{ref monsters crab}, %{ref monsters frog} (toad), %{ref
+      monsters hawk}, %{ref monsters lizard}, %{ref monsters octopus}, %{ref monsters owl}, %{ref
+      monsters poisonous snake}, fish (%{ref monsters quipper}), %{ref monsters rat}, %{ref monsters
       raven}, %{ref monsters seaHorse}, %{ref monsters spider}, or %{ref monsters weasel}.
       Appearing in an unoccupied space within range, the familiar has the statistics of the chosen
       form, though it is a celestial, fey, or fiend (your choice) instead of a beast.
@@ -6360,7 +6372,7 @@ export const phbSpells: Entry<Spell>[] = [
       While your familiar is within 100 feet of you, you can communicate with it telepathically.
       Additionally, as an action, you can see through your familiar's eyes and hear what it hears
       until the start of your next turn, gaining the benefits of any special senses that the
-      familiar has. During this time, you are %{ref conditions deafened|deaf} and {@ref conditions
+      familiar has. During this time, you are %{ref conditions deafened|deaf} and %{ref conditions
       blinded|blind} with regard to your own senses.
 
       You can't have more than one familiar at a time. If you cast this spell while you already have
@@ -6379,7 +6391,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "10 gp worth of charcoal, incense, and herbs that must be consumed by fire in a brass brazier",
+      desc:
+        "10 gp worth of charcoal, incense, and herbs that must be consumed by fire in a brass brazier",
       consumed: "yes",
       cost: { amount: 10, currency: "gp" },
     },
@@ -6468,7 +6481,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a set of divinatory tools—such as bones, ivory sticks, cards, teeth, or carved runes—worth 100 gp and an object from the location you wish to find",
+      desc:
+        "a set of divinatory tools—such as bones, ivory sticks, cards, teeth, or carved runes—worth 100 gp and an object from the location you wish to find",
       consumed: "optional",
       cost: { amount: 100, currency: "gp" },
     },
@@ -6499,7 +6513,7 @@ export const phbSpells: Entry<Spell>[] = [
       You sense the presence of any trap within range that is within line of sight. A trap, for the
       purpose of this spell, includes anything that would inflict a sudden or unexpected effect you
       consider harmful or undesirable, which was specifically intended as such by its creator. Thus,
-      the spell would sense an area affected by the %{ref spells alarm} spell, a {@ref spells
+      the spell would sense an area affected by the %{ref spells alarm} spell, a %{ref spells
       glyphOfWarding}, or a mechanical pit trap, but it would not reveal a natural weakness in the
       floor, an unstable ceiling, or a hidden sinkhole.
 
@@ -6537,7 +6551,7 @@ export const phbSpells: Entry<Spell>[] = [
       searing pain. The target must make a Constitution saving throw. It takes %{dice 7d8 + 30}
       necrotic damage on a failed save, or half as much damage on a successful one.
 
-      A humanoid killed by this spell rises at the start of your next turn as a {@ref monsters
+      A humanoid killed by this spell rises at the start of your next turn as a %{ref monsters
       zombie} that is permanently under your command, following your verbal orders to the best of
       its ability.
     `,
@@ -6909,7 +6923,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a bit of tallow, a pinch of brimstone, and a dusting of powdered iron",
+      desc:
+        "a bit of tallow, a pinch of brimstone, and a dusting of powdered iron",
       consumed: "no",
     },
     ritual: false,
@@ -7071,7 +7086,7 @@ export const phbSpells: Entry<Spell>[] = [
       to a height of 30 feet above the floor. For the duration, creatures can't teleport into the
       area or use portals, such as those created by the %{ref spells gate} spell, to enter the area. The
       spell proofs the area against planar travel, and therefore prevents creatures from accessing
-      the area by way of the Astral Plane, Ethereal Plane, Feywild, Shadowfell, or the {@ref spells
+      the area by way of the Astral Plane, Ethereal Plane, Feywild, Shadowfell, or the %{ref spells
       planeShift} spell.
 
       In addition, the spell damages types of creatures that you choose when you cast it. Choose one
@@ -7092,7 +7107,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a sprinkling of holy water, rare incense, and powdered ruby worth at least 1,000 gp",
+      desc:
+        "a sprinkling of holy water, rare incense, and powdered ruby worth at least 1,000 gp",
       consumed: "optional",
       cost: { amount: 1000, currency: "gp" },
     },
@@ -7264,7 +7280,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["S", "M"],
     materials: {
-      desc: "a small amount of makeup applied to the face as this spell is cast",
+      desc:
+        "a small amount of makeup applied to the face as this spell is cast",
       consumed: "no",
     },
     ritual: false,
@@ -7457,7 +7474,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a pinch of salt and one copper piece placed on each of the corpse's eyes, which must remain there for the duration",
+      desc:
+        "a pinch of salt and one copper piece placed on each of the corpse's eyes, which must remain there for the duration",
       consumed: "no",
     },
     ritual: true,
@@ -7485,7 +7503,7 @@ export const phbSpells: Entry<Spell>[] = [
     school: ref("magicSchools", "transmutation"),
     desc: md`
       You transform up to ten centipedes, three spiders, five wasps, or one scorpion within range
-      into giant versions of their natural forms for the duration. A centipede becomes a {@ref
+      into giant versions of their natural forms for the duration. A centipede becomes a %{ref
       monsters giantCentipede}, a spider becomes a %{ref monsters giantSpider}, a wasp becomes a
       %{ref monsters giantWasp}, and a scorpion becomes a %{ref monsters giantScorpion}.
 
@@ -7618,7 +7636,7 @@ export const phbSpells: Entry<Spell>[] = [
       object is moved more than 10 feet from where you cast this spell, the glyph is broken, and the
       spell ends without being triggered.
 
-      The glyph is nearly invisible and requires a successful Intelligence ({@ref skills
+      The glyph is nearly invisible and requires a successful Intelligence (%{ref skills
       investigation}) check against your spell save DC to be found.
 
       You decide what triggers the glyph when you cast the spell. For glyphs inscribed on a surface,
@@ -7662,7 +7680,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "incense and powdered diamond worth at least 200 gp, which the spell consumes",
+      desc:
+        "incense and powdered diamond worth at least 200 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 200, currency: "gp" },
     },
@@ -7974,7 +7993,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "burning incense, a small measure of brimstone and oil, a knotted string, a small amount of umber hulk blood, and a small silver rod worth at least 10 gp",
+      desc:
+        "burning incense, a small measure of brimstone and oil, a knotted string, a small amount of umber hulk blood, and a small silver rod worth at least 10 gp",
       consumed: "optional",
       cost: { amount: 10, currency: "gp" },
     },
@@ -8235,7 +8255,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "herbs, oils, and incense worth at least 1,000 gp, which the spell consumes",
+      desc:
+        "herbs, oils, and incense worth at least 1,000 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 1000, currency: "gp" },
     },
@@ -8444,7 +8465,7 @@ export const phbSpells: Entry<Spell>[] = [
     level: 1,
     school: ref("magicSchools", "evocation"),
     desc: md`
-      A creature of your choice that you can see within range regains hit points equal to {@dice
+      A creature of your choice that you can see within range regains hit points equal to %{dice
       1d4} + your spellcasting ability modifier. This spell has no effect on undead or constructs.
     `,
     atHigherLevels: md`
@@ -8634,7 +8655,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a gem-encrusted bowl worth at least 1,000 gp, which the spell consumes",
+      desc:
+        "a gem-encrusted bowl worth at least 1,000 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 1000, currency: "gp" },
     },
@@ -8845,7 +8867,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a tiny reliquary worth at least 1,000 gp containing a sacred relic, such as a scrap of cloth from a saint's robe or a piece of parchment from a religious text",
+      desc:
+        "a tiny reliquary worth at least 1,000 gp containing a sacred relic, such as a scrap of cloth from a saint's robe or a piece of parchment from a religious text",
       consumed: "optional",
       cost: { amount: 1000, currency: "gp" },
     },
@@ -8973,7 +8996,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["S", "M"],
     materials: {
-      desc: "a glowing stick of incense or a crystal vial filled with phosphorescent material",
+      desc:
+        "a glowing stick of incense or a crystal vial filled with phosphorescent material",
       consumed: "no",
     },
     ritual: false,
@@ -9212,7 +9236,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a vellum depiction or a carved statuette in the likeness of the target, and a special component that varies according to the version of the spell you choose, worth at least 500 gp per Hit Die of the target",
+      desc:
+        "a vellum depiction or a carved statuette in the likeness of the target, and a special component that varies according to the version of the spell you choose, worth at least 500 gp per Hit Die of the target",
       consumed: "optional",
       cost: { amount: 500, currency: "gp" },
     },
@@ -9485,7 +9510,7 @@ export const phbSpells: Entry<Spell>[] = [
     level: 2,
     school: ref("magicSchools", "transmutation"),
     desc: md`
-      Choose an object that you can see within range. The object can be a door, a box, a {@ref items
+      Choose an object that you can see within range. The object can be a door, a box, a %{ref items
       chest}, a set of %{ref items manacles}, a padlock, or another object that contains a
       mundane or magical means that prevents access.
 
@@ -9542,7 +9567,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "incense worth at least 250 gp, which the spell consumes, and four ivory strips worth at least 50 gp each",
+      desc:
+        "incense worth at least 250 gp, which the spell consumes, and four ivory strips worth at least 50 gp each",
       consumed: "yes",
       cost: { amount: 250, currency: "gp" },
     },
@@ -9586,7 +9612,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "an exquisite chest, 3 feet by 2 feet by 2 feet, constructed from rare materials worth at least 5,000 gp, and a Tiny replica made from the same materials worth at least 50 gp",
+      desc:
+        "an exquisite chest, 3 feet by 2 feet by 2 feet, constructed from rare materials worth at least 5,000 gp, and a Tiny replica made from the same materials worth at least 50 gp",
       consumed: "optional",
       cost: { amount: 5000, currency: "gp" },
     },
@@ -9709,7 +9736,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "either a small leather loop or a piece of golden wire bent into a cup shape with a long shank on one end",
+      desc:
+        "either a small leather loop or a piece of golden wire bent into a cup shape with a long shank on one end",
       consumed: "no",
     },
     ritual: false,
@@ -10137,7 +10165,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "holy water or powdered silver and iron worth at least 100 gp, which the spell consumes",
+      desc:
+        "holy water or powdered silver and iron worth at least 100 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 100, currency: "gp" },
     },
@@ -10211,7 +10240,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a gem, crystal, reliquary, or some other ornamental container worth at least 500 gp",
+      desc:
+        "a gem, crystal, reliquary, or some other ornamental container worth at least 500 gp",
       consumed: "optional",
       cost: { amount: 500, currency: "gp" },
     },
@@ -10302,7 +10332,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a small bit of honeycomb and jade dust worth at least 10 gp, which the spell consumes",
+      desc:
+        "a small bit of honeycomb and jade dust worth at least 10 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 10, currency: "gp" },
     },
@@ -10581,7 +10612,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "M"],
     materials: {
-      desc: "a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
+      desc:
+        "a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
       consumed: "no",
     },
     ritual: false,
@@ -10658,14 +10690,14 @@ export const phbSpells: Entry<Spell>[] = [
       you step into the stone at a point you can touch. Nothing of your presence remains visible or
       otherwise detectable by nonmagical senses.
 
-      While merged with the stone, you can't see what occurs outside it, and any Wisdom ({@ref
+      While merged with the stone, you can't see what occurs outside it, and any Wisdom (%{ref
       skills perception}) checks you make to hear sounds outside it are made with disadvantage. You
       remain aware of the passage of time and can cast spells on yourself while merged in the stone.
       You can use your movement to leave the stone where you entered it, which ends the spell. You
       otherwise can't move.
 
       Minor physical damage to the stone doesn't harm you, but its partial destruction or a change
-      in its shape (to the extent that you no longer fit within it) expels you and deals {@dice
+      in its shape (to the extent that you no longer fit within it) expels you and deals %{dice
       6d6} bludgeoning damage to you. The stone's complete destruction (or transmutation into a
       different substance) expels you and deals 50 bludgeoning damage to you. If expelled, you fall
       %{ref conditions prone} in an unoccupied space closest to where you first entered.
@@ -10881,7 +10913,7 @@ export const phbSpells: Entry<Spell>[] = [
     school: ref("magicSchools", "abjuration"),
     desc: md`
       Until the spell ends, one willing creature you touch is immune to psychic damage, any effect
-      that would sense its emotions or read its thoughts, divination spells, and the {@ref
+      that would sense its emotions or read its thoughts, divination spells, and the %{ref
       conditions charmed} condition. The spell even foils %{ref spells wish} spells and spells or effects
       of similar power used to affect the target's mind or to gain information about the target.
     `,
@@ -11012,7 +11044,7 @@ export const phbSpells: Entry<Spell>[] = [
       duplicates move with you and mimic your actions, shifting position so it's impossible to track
       which image is real. You can use your action to dismiss the illusory duplicates.
 
-      Each time a creature targets you with an attack during the spell's duration, roll a {@dice
+      Each time a creature targets you with an attack during the spell's duration, roll a %{dice
       d20} to determine whether the attack instead targets one of your duplicates.
 
       If you have three duplicates, you must roll a 6 or higher to change the attack's target to a
@@ -11215,7 +11247,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "several seeds of any moonseed plant and a piece of opalescent feldspar",
+      desc:
+        "several seeds of any moonseed plant and a piece of opalescent feldspar",
       consumed: "no",
     },
     ritual: false,
@@ -11351,7 +11384,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a miniature portal carved from ivory, a small piece of polished marble, and a tiny silver spoon, each item worth at least 5 gp",
+      desc:
+        "a miniature portal carved from ivory, a small piece of polished marble, and a tiny silver spoon, each item worth at least 5 gp",
       consumed: "optional",
       cost: { amount: 15, currency: "gp" },
     },
@@ -11409,7 +11443,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a thin sheet of lead, a piece of opaque glass, a wad of cotton or cloth, and powdered chrysolite",
+      desc:
+        "a thin sheet of lead, a piece of opaque glass, a wad of cotton or cloth, and powdered chrysolite",
       consumed: "no",
     },
     ritual: false,
@@ -11450,7 +11485,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a miniature platinum sword with a grip and pommel of copper and zinc, worth 250 gp",
+      desc:
+        "a miniature platinum sword with a grip and pommel of copper and zinc, worth 250 gp",
       consumed: "optional",
       cost: { amount: 250, currency: "gp" },
     },
@@ -11518,7 +11554,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "an iron blade and a small bag containing a mixture of soils—clay, loam, and sand",
+      desc:
+        "an iron blade and a small bag containing a mixture of soils—clay, loam, and sand",
       consumed: "no",
     },
     ritual: false,
@@ -11554,7 +11591,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a pinch of diamond dust worth 25 gp sprinkled over the target, which the spell consumes",
+      desc:
+        "a pinch of diamond dust worth 25 gp sprinkled over the target, which the spell consumes",
       consumed: "yes",
       cost: { amount: 25, currency: "gp" },
     },
@@ -11718,7 +11756,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a hemispherical piece of clear crystal and a matching hemispherical piece of gum arabic",
+      desc:
+        "a hemispherical piece of clear crystal and a matching hemispherical piece of gum arabic",
       consumed: "no",
     },
     ritual: false,
@@ -11877,7 +11916,7 @@ export const phbSpells: Entry<Spell>[] = [
       The phantasm includes sound, temperature, and other stimuli, also evident only to the
       creature.
 
-      The target can use its action to examine the phantasm with an Intelligence ({@ref skills
+      The target can use its action to examine the phantasm with an Intelligence (%{ref skills
       investigation}) check against your spell save DC. If the check succeeds, the target realizes
       that the phantasm is an illusion, and the spell ends.
 
@@ -12024,7 +12063,7 @@ export const phbSpells: Entry<Spell>[] = [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       You beseech an otherworldly entity for aid. The being must be known to you: a god, a
-      primordial, a demon prince, or some other being of cosmic power. That entity sends a {@ref
+      primordial, a demon prince, or some other being of cosmic power. That entity sends a %{ref
       monsterTypes celestial}, an %{ref monsterTypes elemental}, or a %{ref monsterTypes fiend}
       loyal to it to aid you, making the creature appear in an unoccupied space within range. If you
       know a specific creature's name, you can speak that name when you cast this spell to request
@@ -12083,7 +12122,7 @@ export const phbSpells: Entry<Spell>[] = [
     level: 5,
     school: ref("magicSchools", "abjuration"),
     desc: md`
-      With this spell, you attempt to bind a %{ref monsterTypes celestial}, an {@ref monsterTypes
+      With this spell, you attempt to bind a %{ref monsterTypes celestial}, an %{ref monsterTypes
       elemental}, a %{ref monsterTypes fey}, or a %{ref monsterTypes fiend} to your service. The
       creature must be within range for the entire casting of the spell. (Typically, the creature is
       first summoned into the center of an inverted %{ref spells magicCircle} in order to keep it
@@ -12168,7 +12207,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a forked, metal rod worth at least 250 gp, attuned to a particular plane of existence",
+      desc:
+        "a forked, metal rod worth at least 250 gp, attuned to a particular plane of existence",
       consumed: "optional",
       cost: { amount: 250, currency: "gp" },
     },
@@ -12241,7 +12281,7 @@ export const phbSpells: Entry<Spell>[] = [
     school: ref("magicSchools", "conjuration"),
     desc: md`
       You extend your hand toward a creature you can see within range and project a puff of noxious
-      gas from your palm. The creature must succeed on a Constitution saving throw or take {@dice
+      gas from your palm. The creature must succeed on a Constitution saving throw or take %{dice
       1d12} poison damage.
 
       This spell's damage increases by %{dice 1d12} when you reach 5th level (%{dice 2d12}), 11th
@@ -13193,7 +13233,7 @@ export const phbSpells: Entry<Spell>[] = [
     level: 7,
     school: ref("magicSchools", "transmutation"),
     desc: md`
-      You touch a creature and stimulate its natural healing ability. The target regains {@dice 4d8
+      You touch a creature and stimulate its natural healing ability. The target regains %{dice 4d8
 
       - 15} hit points. For the duration of the spell, the target regains 1 hit point at the start
         of each of its turns (10 hit points each minute).
@@ -13271,7 +13311,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "rare oils and unguents worth at least 1,000 gp, which the spell consumes",
+      desc:
+        "rare oils and unguents worth at least 1,000 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 1000, currency: "gp" },
     },
@@ -13697,7 +13738,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a focus worth at least 1,000 gp, such as a crystal ball, a silver mirror, or a font filled with holy water",
+      desc:
+        "a focus worth at least 1,000 gp, such as a crystal ball, a silver mirror, or a font filled with holy water",
       consumed: "optional",
       cost: { amount: 1000, currency: "gp" },
     },
@@ -13822,7 +13864,7 @@ export const phbSpells: Entry<Spell>[] = [
       spell to appear thinner than you are, the hand of someone who reaches out to touch you would
       bump into you while it was seemingly still in midair.
 
-      A creature can use its action to inspect a target and make an Intelligence ({@ref skills
+      A creature can use its action to inspect a target and make an Intelligence (%{ref skills
       investigation}) check against your spell save DC. If it succeeds, it becomes aware that the
       target is disguised.
     `,
@@ -13915,7 +13957,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a powder composed of diamond, emerald, ruby, and sapphire dust worth at least 5,000 gp, which the spell consumes",
+      desc:
+        "a powder composed of diamond, emerald, ruby, and sapphire dust worth at least 5,000 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 5000, currency: "gp" },
     },
@@ -13981,7 +14024,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a jade circlet worth at least 1,500 gp, which you must place on your head before you cast the spell",
+      desc:
+        "a jade circlet worth at least 1,500 gp, which you must place on your head before you cast the spell",
       consumed: "optional",
       cost: { amount: 1500, currency: "gp" },
     },
@@ -14336,7 +14380,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "snow or ice in quantities sufficient to make a life-size copy of the duplicated creature; some hair, fingernail clippings, or other piece of that creature's body placed inside the snow or ice; and powdered ruby worth 1,500 gp, sprinkled over the duplicate and consumed by the spell",
+      desc:
+        "snow or ice in quantities sufficient to make a life-size copy of the duplicated creature; some hair, fingernail clippings, or other piece of that creature's body placed inside the snow or ice; and powdered ruby worth 1,500 gp, sprinkled over the duplicate and consumed by the spell",
       consumed: "yes",
       cost: { amount: 1500, currency: "gp" },
     },
@@ -14718,7 +14763,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "seven sharp thorns or seven small twigs, each sharpened to a point",
+      desc:
+        "seven sharp thorns or seven small twigs, each sharpened to a point",
       consumed: "no",
     },
     ritual: false,
@@ -14958,7 +15004,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "soft clay, which must be worked into roughly the desired shape of the stone object",
+      desc:
+        "soft clay, which must be worked into roughly the desired shape of the stone object",
       consumed: "no",
     },
     ritual: false,
@@ -15111,7 +15158,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "M"],
     materials: {
-      desc: "a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
+      desc:
+        "a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
       consumed: "no",
     },
     ritual: false,
@@ -15360,7 +15408,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "mercury, phosphorus, and powdered diamond and opal with a total value of at least 1,000 gp, which the spell consumes",
+      desc:
+        "mercury, phosphorus, and powdered diamond and opal with a total value of at least 1,000 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 1000, currency: "gp" },
     },
@@ -15639,7 +15688,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "M"],
     materials: {
-      desc: "rare chalks and inks infused with precious gems worth 50 gp, which the spell consumes",
+      desc:
+        "rare chalks and inks infused with precious gems worth 50 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 50, currency: "gp" },
     },
@@ -15825,7 +15875,7 @@ export const phbSpells: Entry<Spell>[] = [
     school: ref("magicSchools", "evocation"),
     desc: md`
       A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating
-      from you must make a Constitution saving throw. On a failed save, a creature takes {@dice
+      from you must make a Constitution saving throw. On a failed save, a creature takes %{dice
       2d8} thunder damage and is pushed 10 feet away from you. On a successful save, the creature
       takes half as much damage and isn't pushed.
 
@@ -16127,7 +16177,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a sprinkle of holy water and diamonds worth at least 25,000 gp, which the spell consumes",
+      desc:
+        "a sprinkle of holy water and diamonds worth at least 25,000 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 25000, currency: "gp" },
     },
@@ -16235,7 +16286,7 @@ export const phbSpells: Entry<Spell>[] = [
 
       At the start of each of your turns after the wall appears, the wall, along with any creatures
       in it, moves 50 feet away from you. Any Huge or smaller creature inside the wall or whose
-      space the wall enters when it moves must succeed on a Strength saving throw or take {@dice
+      space the wall enters when it moves must succeed on a Strength saving throw or take %{dice
       5d10} bludgeoning damage. A creature can take this damage only once per round. At the end of
       the turn, the wall's height is reduced by 50 feet, and the damage creatures take from the
       spell on subsequent rounds is reduced by %{dice 1d10}. When the wall reaches 0 feet in height,
@@ -16748,7 +16799,8 @@ export const phbSpells: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: "a pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
+      desc:
+        "a pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
       consumed: "optional",
       cost: { amount: 100, currency: "gp" },
     },

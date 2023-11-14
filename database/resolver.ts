@@ -1,5 +1,5 @@
 import { Context } from "$db/context.ts";
-import { Document } from "$db/documents.ts";
+import { Document } from "$collections/_index.ts";
 
 export const ENQUEUE = Symbol("ENQUEUE");
 export const VALUE = Symbol("VALUE");

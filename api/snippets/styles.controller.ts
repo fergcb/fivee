@@ -1,5 +1,5 @@
 // @deno-types="npm:@types/express@4.17.21"
-import { Router, Request, Response } from "npm:express@4.18.2";
+import { Request, Response, Router } from "npm:express@4.18.2";
 import * as sass from "npm:sass";
 import * as path from "https://deno.land/std@0.188.0/path/mod.ts";
 

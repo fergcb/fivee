@@ -1,8 +1,8 @@
-import { ResolverContext } from "$graphql/context.ts";
 import { collection } from "$collections/_collection.ts";
 import { BaseDocument, Source } from "$collections/_common.ts";
 import { AbilityScore } from "$collections/abilityScores.ts";
 import { md, ref, source } from "$helpers";
+import { manyResolver, oneResolver } from "$collections/_resolvers.ts";
 
 export const ID = "skills";
 
@@ -11,18 +11,9 @@ export const ID = "skills";
  */
 
 export interface Skill extends BaseDocument {
-  name: string;
   desc: string;
   baseAbility: AbilityScore;
   source: Source;
-}
-
-/*
- * Resolver Parameter Types
- */
-
-interface SkillArgs {
-  id: string;
 }
 
 /*
@@ -47,20 +38,8 @@ export default collection<Skill>({
   `,
   resolvers: {
     Query: {
-      async skill(
-        _parent: unknown,
-        { id }: SkillArgs,
-        { db }: ResolverContext,
-      ): Promise<Skill | null> {
-        return await db.get(ID, id);
-      },
-      async skills(
-        _parent: unknown,
-        _args: never,
-        { db }: ResolverContext,
-      ): Promise<Skill[]> {
-        return await db.list(ID);
-      },
+      skill: oneResolver<Skill>(ID),
+      skills: manyResolver<Skill>(ID),
     },
   },
   entries: [
