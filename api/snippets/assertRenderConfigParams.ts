@@ -1,12 +1,11 @@
-// @deno-types="npm:@types/express@4.17.21"
-import { NextFunction, Request, Response } from "npm:express@4.18.2";
+import { express } from "$deps";
 import { isValidTheme, THEME_NAMES } from "$snippets/themes.ts";
 import { EXPRESSION_MODES, isValidExpressionMode } from "$exprs/parser.ts";
 
 export default function assertCssMode(
-  req: Request,
-  res: Response,
-  next: NextFunction,
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction,
 ) {
   const cssMode = req.query.cssMode ?? "bem";
   if (cssMode !== "tw" && cssMode !== "bem") {

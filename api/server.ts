@@ -1,7 +1,7 @@
-import express from "npm:express@4.18.2";
-import cors from "npm:cors";
+import { express } from "$deps";
 import { graphqlMiddleware } from "$graphql/middleware.ts";
 import snippetsRouter from "$snippets/router.ts";
+import cors from "npm:cors";
 import boxen from "npm:boxen";
 import dedent from "npm:dedent-js";
 import chalk from "npm:chalk";
@@ -10,16 +10,18 @@ import morgan from "npm:morgan";
 const PORT = Deno.env.get("PORT") ?? 8000;
 const BASE_URL = Deno.env.get("BASE_URL") ?? `http://localhost:${PORT}`;
 
-const logger = morgan((tokens: any, req: Request, res: Response) => {
-  const status = tokens.status(req, res);
+const logger = morgan(
+  (tokens: any, req: express.Request, res: express.Response) => {
+    const status = tokens.status(req, res);
 
-  return [
-    chalk.yellow(new Date().toISOString()),
-    chalk.blue(tokens.method(req, res)),
-    tokens.url(req, res),
-    status < 400 ? chalk.green(status) : chalk.red(status),
-  ].join(" ");
-});
+    return [
+      chalk.yellow(new Date().toISOString()),
+      chalk.blue(tokens.method(req, res)),
+      tokens.url(req, res),
+      status < 400 ? chalk.green(status) : chalk.red(status),
+    ].join(" ");
+  },
+);
 
 async function start() {
   const app = express();

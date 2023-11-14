@@ -1,13 +1,12 @@
-// @deno-types="npm:@types/express@4.17.21"
-import { Request, Response, Router } from "npm:express@4.18.2";
+import { express } from "$deps";
 import db from "$db/database.ts";
 import { Spell } from "$collections/spells/collection.ts";
 import { render, RenderConfig } from "$snippets/renderer.ts";
 import { pluralize } from "$snippets/helpers.ts";
 
-const router = Router();
+const router = express.Router();
 
-router.get("/:spellId", async (req: Request, res: Response) => {
+router.get("/:spellId", async (req: express.Request, res: express.Response) => {
   const spellId = req.params.spellId;
   const cssMode = req.query.cssMode as RenderConfig["cssMode"] | undefined;
   const twTheme = req.query.twTheme as RenderConfig["twTheme"] | undefined;
