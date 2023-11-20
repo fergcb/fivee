@@ -59,8 +59,6 @@
       }
     </style>
 
-    <link id="themeLink" rel="stylesheet" href="" />
-
     <link rel="stylesheet" href="./tw-reset.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -131,7 +129,6 @@
     <script>
       function handleChange() {
         const $output = document.querySelector("#output");
-        const $themeLink = document.querySelector("#themeLink");
         const $query = document.querySelector("#query");
 
         const form = new FormData($query);
@@ -150,11 +147,6 @@
           .then((res) => res.text())
           .then((html) => {
             $output.innerHTML = html;
-
-            if (cssMode === "bem") {
-              $themeLink.href =
-                theme === "none" ? "" : `${snippetsURL}/styles/${theme}.css`;
-            }
 
             $output.classList.toggle("tw-reset", cssMode === "tw");
           })

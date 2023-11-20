@@ -10,9 +10,9 @@ const router = Router();
 router.get("/:spellId", async (req: Request, res: Response) => {
   const spellId = req.params.spellId;
   const cssMode = req.query.cssMode as RenderConfig["cssMode"] | undefined;
-  const twTheme = req.query.twTheme as RenderConfig["twTheme"] | undefined;
-  const expressions = (req.query.expressions as RenderConfig["expressions"]) ??
-    "html";
+  const theme = req.query.twTheme as RenderConfig["theme"] | undefined;
+  const expressions =
+    (req.query.expressions as RenderConfig["expressions"]) ?? "html";
 
   const data = await db.get<Spell>("spells", spellId);
   if (data === null) {
@@ -36,12 +36,10 @@ router.get("/:spellId", async (req: Request, res: Response) => {
   spell.range = ((range) => {
     switch (range.kind) {
       case "point":
-        return `${range.distance} ${
-          pluralize(
-            range.unit,
-            range.distance != 1,
-          )
-        }`;
+        return `${range.distance} ${pluralize(
+          range.unit,
+          range.distance != 1
+        )}`;
       case "self":
         if (!range.shape) return `Self`;
         return `${range.shape.size.distance} ${range.shape.size.unit} ${range.shape.kind}`;
@@ -77,7 +75,7 @@ router.get("/:spellId", async (req: Request, res: Response) => {
 
   res.status(200);
   res.send(
-    await render("spellCard", { spell }, { cssMode, twTheme, expressions }),
+    await render("spellCard", { spell }, { cssMode, theme, expressions })
   );
 });
 

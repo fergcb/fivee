@@ -6,23 +6,23 @@ import { EXPRESSION_MODES, isValidExpressionMode } from "$exprs/parser.ts";
 export default function assertCssMode(
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ) {
   const cssMode = req.query.cssMode ?? "bem";
   if (cssMode !== "tw" && cssMode !== "bem") {
     res.status(400);
     res.send(
-      `The \`cssMode\` '${cssMode}' is not valid. Choose either 'bem' or 'tw'.`,
+      `The \`cssMode\` '${cssMode}' is not valid. Choose either 'bem' or 'tw'.`
     );
     return;
   }
 
-  const twTheme = req.query.twTheme;
-  if (twTheme !== undefined && !isValidTheme(twTheme)) {
+  const theme = req.query.theme;
+  if (theme !== undefined && !isValidTheme(theme)) {
     const validThemes = THEME_NAMES.map((t) => `'${t}'`).join(", ");
     res.status(400);
     res.send(
-      `The \`twTheme\` '${twTheme}' is not valid. Choose one of: ${validThemes}.`,
+      `The \`theme\` '${theme}' is not valid. Choose one of: ${validThemes}.`
     );
   }
 
@@ -31,7 +31,7 @@ export default function assertCssMode(
     const validModes = EXPRESSION_MODES.map((m) => `'${m}'`).join(", ");
     res.status(400);
     res.send(
-      `The \`expressions\` parameter value '${expressions}' is not valid. Choose one of: ${validModes}.`,
+      `The \`expressions\` parameter value '${expressions}' is not valid. Choose one of: ${validModes}.`
     );
   }
 
