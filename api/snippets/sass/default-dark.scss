@@ -1,0 +1,11 @@
+@use "./default-base";
+
+:root {
+  --fivee-col-primary: #f87171;
+  --fivee-col-txt: #a8a29e;
+  --fivee-col-bg: #1c1917;
+  --fivee-col-txt-muted: #78716c;
+
+  --fivee-font-title: 'Gill Sans', Arial, sans-serif;
+  --fivee-font-body: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}

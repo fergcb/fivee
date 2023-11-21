@@ -53,13 +53,10 @@
 
       #output {
         border: 2px solid black;
-        padding: 1rem;
         margin: 1rem;
         width: fit-content;
       }
     </style>
-
-    <link id="themeLink" rel="stylesheet" href="" />
 
     <link rel="stylesheet" href="./tw-reset.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -96,7 +93,7 @@
       <fieldset>
         <legend>CSS Mode:</legend>
         <label>
-          <input type="radio" id="cssModeBEM" name="cssMode" value="bem" />
+          <input type="radio" id="cssModeBEM" name="cssMode" value="bem" checked />
           BEM ("bem")
         </label>
         <label>
@@ -105,7 +102,6 @@
             id="cssModeTailwind"
             name="cssMode"
             value="tw"
-            checked
           />
           TailwindCSS ("tw")
         </label>
@@ -113,7 +109,9 @@
       <label>
         Theme:
         <select name="theme">
-          <option value="default" selected>Default</option>
+          <option value="default">Default</option>
+          <option value="default-dark" selected>Default Dark</option>
+          <option value="book">Book</option>
           <option value="none">None</option>
         </select>
       </label>
@@ -131,7 +129,6 @@
     <script>
       function handleChange() {
         const $output = document.querySelector("#output");
-        const $themeLink = document.querySelector("#themeLink");
         const $query = document.querySelector("#query");
 
         const form = new FormData($query);
@@ -150,11 +147,6 @@
           .then((res) => res.text())
           .then((html) => {
             $output.innerHTML = html;
-
-            if (cssMode === "bem") {
-              $themeLink.href =
-                theme === "none" ? "" : `${snippetsURL}/styles/${theme}.css`;
-            }
 
             $output.classList.toggle("tw-reset", cssMode === "tw");
           })
