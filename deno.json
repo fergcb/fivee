@@ -4,6 +4,7 @@
     "dev": "deno run --watch --unstable --allow-run --allow-read --allow-env --allow-net main.ts"
   },
   "imports": {
+    "std/": "https://deno.land/std@0.207.0/",
     "$deps": "./deps.ts",
     "$helpers": "./database/helpers.ts",
     "$collections/": "./collections/",

@@ -5,6 +5,7 @@ import * as path from "https://deno.land/std@0.188.0/path/mod.ts";
 import pretty from "npm:pretty";
 import merge from "npm:lodash.merge";
 import { ParserConfig, parseTextFields } from "$exprs/parser.ts";
+import { hex } from "$deps";
 
 const SNIPPETS_DIR = path.dirname(path.fromFileUrl(import.meta.url));
 const TEMPLATE_EXT = ".template.hbs";
@@ -32,16 +33,22 @@ const DEFAULT_RENDER_CONFIG: RenderConfig = {
   includeStylesheets: true,
 };
 
+function generateScopeId(): string {
+  const buffer = new Uint8Array(6);
+  crypto.getRandomValues(buffer);
+  return "fivee-" + hex.encodeHex(buffer);
+}
+
 export async function render(
   view: string,
   // deno-lint-ignore no-explicit-any
   context: Record<string, any>,
-  customConfig: Partial<RenderConfig> = {}
+  customConfig: Partial<RenderConfig> = {},
 ): Promise<string> {
   let template = templateCache.get(view);
   if (template === undefined) {
     const source = await Deno.readTextFile(
-      path.join(SNIPPETS_DIR, view, view + TEMPLATE_EXT)
+      path.join(SNIPPETS_DIR, view, view + TEMPLATE_EXT),
     );
     template = hb.compile(source);
     if (Deno.env.get("ENV") !== "dev") templateCache.set(view, template);
@@ -49,25 +56,29 @@ export async function render(
 
   const config = merge({}, DEFAULT_RENDER_CONFIG, customConfig) as RenderConfig;
 
-  const classes =
-    config.cssMode === "tw" ? TW_THEMES[config.theme] : BEM_CLASSES;
+  const scope = generateScopeId();
+
+  const theme = config.cssMode === "tw" ? TW_THEMES[config.theme] : BEM_CLASSES;
+  const classes = Object.fromEntries(
+    Object.entries(theme).map(([key, value]) => {
+      return [key, value + " " + scope];
+    }),
+  );
 
   context["theme"] = config.theme;
   context["class"] = classes;
 
-  const ctx =
-    config.expressions !== "raw"
-      ? await parseTextFields(context, { mode: config.expressions, classes })
-      : context;
+  const ctx = config.expressions !== "raw"
+    ? await parseTextFields(context, { mode: config.expressions, classes })
+    : context;
 
   const html = template(ctx);
 
-  const links =
-    config.includeStylesheets &&
-    config.theme !== "none" &&
-    config.cssMode === "bem"
-      ? `<link rel="stylesheet" href="${BASE_URL}/snippets/styles/${config.theme}.css"/>`
-      : "";
+  const links = config.includeStylesheets &&
+      config.theme !== "none" &&
+      config.cssMode === "bem"
+    ? `<link rel="stylesheet" href="${BASE_URL}/snippets/styles/${config.theme}.css?scope=${scope}"/>`
+    : "";
 
   return pretty(links + html);
 }

@@ -11,6 +11,7 @@ stylesRouter.get(
   "/:filename",
   (req: express.Request, res: express.Response) => {
     const cssFilename = req.params.filename;
+    const scope = req.query.scope;
 
     if (!cssFilename.endsWith(".css")) {
       res.status(400);
@@ -34,10 +35,18 @@ stylesRouter.get(
       return;
     }
 
-    const result = sass.compile(stylesheetPath);
+    const source = Deno.readTextFileSync(stylesheetPath);
+
+    let { css } = sass.compileString(source, {
+      loadPaths: ["api/snippets/sass"],
+    });
+
+    if (scope) {
+      css = css.replaceAll(".fivee__", `.${scope}.fivee__`);
+    }
 
     res.status(200);
     res.setHeader("Content-Type", "text/css");
-    res.send(result.css);
+    res.send(css);
   },
 );

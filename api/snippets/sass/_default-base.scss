@@ -1,15 +1,13 @@
-:root {
-  --fivee-col-primary: #9c1910;
-  --fivee-col-txt: #000;
-  --fivee-col-bg: #fff;
-  --fivee-col-txt-muted: #404040;
-
-  --fivee-font-title: 'Gill Sans', Arial, sans-serif;
-  --fivee-font-body: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-}
-
 .fivee {
   &__snippet {
+    --fivee-col-primary: #9c1910;
+    --fivee-col-txt: #000;
+    --fivee-col-bg: #fff;
+    --fivee-col-txt-muted: #404040;
+  
+    --fivee-font-title: 'Gill Sans', Arial, sans-serif;
+    --fivee-font-body: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
     font-family: var(--fivee-font-body);
     color: var(--fivee-col-txt);
     background-color: var(--fivee-col-bg);
