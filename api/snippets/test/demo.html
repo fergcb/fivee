@@ -142,7 +142,7 @@
         if (documentId === null || documentId === "") return;
 
         fetch(
-          `${snippetsURL}/${snippetType}/${documentId}?cssMode=${cssMode}&twTheme=${theme}&expressions=${expressions}`
+          `${snippetsURL}/${snippetType}/${documentId}?cssMode=${cssMode}&theme=${theme}&expressions=${expressions}`
         )
           .then((res) => res.text())
           .then((html) => {
