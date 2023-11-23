@@ -36,7 +36,7 @@ const DEFAULT_RENDER_CONFIG: RenderConfig = {
 function generateScopeId(): string {
   const buffer = new Uint8Array(6);
   crypto.getRandomValues(buffer);
-  return "fivee-" + hex.encodeHex(buffer);
+  return "__" + hex.encodeHex(buffer);
 }
 
 export async function render(
