@@ -11,7 +11,7 @@ export default function assertCssMode(
   if (cssMode !== "tw" && cssMode !== "bem") {
     res.status(400);
     res.send(
-      `The \`cssMode\` '${cssMode}' is not valid. Choose either 'bem' or 'tw'.`
+      `The \`cssMode\` '${cssMode}' is not valid. Choose either 'bem' or 'tw'.`,
     );
     return;
   }
@@ -21,16 +21,19 @@ export default function assertCssMode(
     const validThemes = THEME_NAMES.map((t) => `'${t}'`).join(", ");
     res.status(400);
     res.send(
-      `The \`theme\` '${theme}' is not valid. Choose one of: ${validThemes}.`
+      `The \`theme\` '${theme}' is not valid. Choose one of: ${validThemes}.`,
     );
   }
 
   const expressions = req.query.expressions;
-  if (expressions !== undefined && !isValidExpressionMode(expressions)) {
+  if (
+    expressions !== undefined && expressions !== "raw" &&
+    !isValidExpressionMode(expressions)
+  ) {
     const validModes = EXPRESSION_MODES.map((m) => `'${m}'`).join(", ");
     res.status(400);
     res.send(
-      `The \`expressions\` parameter value '${expressions}' is not valid. Choose one of: ${validModes}.`
+      `The \`expressions\` parameter value '${expressions}' is not valid. Choose one of: ${validModes}.`,
     );
   }
 
