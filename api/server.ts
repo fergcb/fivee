@@ -11,9 +11,9 @@ const BASE_URL = Deno.env.get("BASE_URL") ?? `http://localhost:${PORT}`;
 
 const links = boxen(
   Object.entries({
-    "Docs": "/docs",
-    "GraphQL": "/graphql",
-    "Snippets": "/snippets",
+    Docs: "/docs",
+    GraphQL: "/graphql",
+    Snippets: "/snippets",
   })
     .map(([title, path]) => `${title}: ${chalk.yellow(BASE_URL + path)}`)
     .join("\n"),
@@ -22,7 +22,7 @@ const links = boxen(
     padding: 1,
     borderColor: "blue",
     borderStyle: "double",
-  },
+  }
 );
 
 const logger = morgan(
@@ -35,20 +35,15 @@ const logger = morgan(
       tokens.url(req, res),
       status < 400 ? chalk.green(status) : chalk.red(status),
     ].join(" ");
-  },
+  }
 );
 
 async function start() {
   const app = express();
 
-  app.use("/docs", express.static("docs/build"));
+  app.use("/docs", express.static(`${Deno.cwd}/docs/build`));
 
-  app.use(
-    "/graphql",
-    cors(),
-    express.json(),
-    await graphqlMiddleware(),
-  );
+  app.use("/graphql", cors(), express.json(), await graphqlMiddleware());
 
   app.use("/snippets", logger, cors(), snippetsRouter);
 
