@@ -31,21 +31,21 @@
   src: url('/snippets/assets/Mr Eaves Small Caps.otf');
 }
 
-.fivee {
-  &__snippet {
-    --fivee-col-primary: #58180d;
-    --fivee-col-bg: #eee5ce;
-    --fivee-col-txt: #000;
-    --fivee-col-txt-muted: #000;
-    --fivee-font-body: "BookInsanity", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    --fivee-font-title: "Mr Eaves", var(--fivee-font-body);
-    
-    background-image: url('https://homebrewery.naturalcrit.com/assets/parchmentBackground.jpg');
-  }
+article.fivee__snippet {
+  --fivee-col-primary: #58180d;
+  --fivee-col-bg: #eee5ce;
+  --fivee-col-txt: #000;
+  --fivee-col-txt-muted: #000;
+  --fivee-font-body: "BookInsanity", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --fivee-font-title: "Mr Eaves", var(--fivee-font-body);
+  
+  background-image: url('https://homebrewery.naturalcrit.com/assets/parchmentBackground.jpg');
 
-  &__spell {
-    &__name {
-      font-size: 28px;
-    }
+  .fivee {
+    &__spell {
+      &__name {
+        font-size: 28px;
+      }
+   }
   }
 }
