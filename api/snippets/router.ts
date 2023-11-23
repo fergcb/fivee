@@ -10,6 +10,6 @@ snippets.use("/spell-card", spellCard);
 const router = express.Router();
 router.use(assertRenderConfigParams, snippets);
 router.use("/styles", stylesRouter);
-router.use("/assets", express.static(`${Deno.cwd}/api/snippets/assets`));
+router.use("/assets", express.static(`${Deno.cwd()}/api/snippets/assets`));
 
 export default router;
