@@ -73,14 +73,16 @@ export function cn(
   this: any,
   names: string,
 ): Handlebars.SafeString | undefined {
-  const className = names
-    .split(/\s+/)
-    .map((name) => {
+  const classNames = names
+    .split(/\s+/g)
+    .flatMap((name) => {
       if (typeof this.class[name] !== "string") return "";
-      return this.class[name];
+      return this.class[name].split(/\s+/g);
     })
-    .join(" ");
-  return new Handlebars.SafeString(`class="${className}"`);
+    .toSorted();
+  const uniqueClassnames = [...new Set(classNames)];
+  const classString = uniqueClassnames.join(" ");
+  return new Handlebars.SafeString(`class="${classString}"`);
 }
 
 /**
