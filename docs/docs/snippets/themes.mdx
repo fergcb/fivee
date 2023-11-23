@@ -1,0 +1,24 @@
+---
+title: Themes
+sidebar_position: 2
+---
+
+import Snippet from "@site/src/components/Snippet.jsx"
+
+# Themes
+
+When fetching a snippet, you can pass a `theme` query parameter with a string value representing
+the theme you want the API to use when styling your snippet. If you don't specify a value for this
+parameter, snippets will use the `"default"` theme.
+
+## `"default"`
+The default theme. Modelled after the D&D 5e System Reference Document PDF.
+<Snippet snippetType="spell-card" docId="fireBolt" theme="default" />
+
+## `"default-dark"`
+A dark-mode variation on the `"default"` theme.
+<Snippet snippetType="spell-card" docId="fireBolt" theme="default-dark" />
+
+## `"book"`
+Evocative of actual D&D source books.
+<Snippet snippetType="spell-card" docId="fireBolt" theme="book" />

@@ -1,7 +1,9 @@
 {
   "tasks": {
     "start": "deno run --unstable --allow-run --allow-read --allow-env --allow-net main.ts",
-    "dev": "deno run --watch --unstable --allow-run --allow-read --allow-env --allow-net main.ts"
+    "dev": "deno run --watch --unstable --allow-run --allow-read --allow-env --allow-net main.ts",
+    "docs:serve": "cd docs && npx docusaurus start",
+    "docs:build": "cd docs && npm ci && npm run build"
   },
   "imports": {
     "std/": "https://deno.land/std@0.207.0/",

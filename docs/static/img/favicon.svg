@@ -1,0 +1,57 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 368.64 368.64">
+    <style type="text/css">
+        .bg-fill {
+            fill: #ffffff;
+        }
+
+        .txt-fill {
+            fill: #1c1e21;
+        }
+
+        .primary-fill {
+            fill: #2f8ca1;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .bg-fill {
+                fill: #1b1b1d;
+            }
+    
+            .txt-fill {
+                fill: #ffffff;
+            }
+    
+            .primary-fill {
+                fill: #3aabc5;
+            }
+        }
+    </style>
+    <path
+        id="background-shape"
+        class="bg-fill"
+        transform="translate(3.5527136788005e-15, 6.3948846218409e-14)"
+        fill-rule="evenodd"
+        d="M73.44 1.42109e-14L295.2 0C335.76 2.48349e-15 368.64 32.8802 368.64 73.44L368.64 295.2C368.64 335.76 335.76 368.64 295.2 368.64L73.44 368.64C32.8802 368.64 9.24388e-15 335.76 1.42109e-14 295.2L0 73.44C4.96698e-15 32.8802 32.8802 1.17274e-14 73.44 1.42109e-14Z"
+    />
+    
+    <text
+        id="foreground-text"
+        transform="matrix(0.99999988079072 0 0 0.99999988079072 46.6626510450411 263.554343581873)"
+        font-family="Fira Code"
+        font-size="225"
+        font-size-adjust="0.438095"
+        font-weight="700"
+        letter-spacing="-75"
+    >
+    <tspan class="text">
+        <tspan class="txt-fill" x="0">5</tspan>
+        <tspan class="primary-fill">e</tspan>
+
+    </tspan>
+    </text>
+</svg>

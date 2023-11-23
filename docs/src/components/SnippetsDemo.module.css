@@ -1,0 +1,49 @@
+.demo form {
+  display: flex;
+  gap: 2rem;
+}
+
+.demo form section.padTop {
+  padding-top: 0.75rem;
+}
+
+.demo form hr {
+  background-color: var(--ifm-color-emphasis-200);
+  margin-block: 1rem;
+}
+
+.demo form label {
+  display: block;
+  font-weight: 600;
+  display: flex;
+  gap: 1ch;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.demo form label:has(> input[type="radio"]) {
+  font-weight: normal;
+  margin-bottom: 0.25rem;
+}
+
+.demo form fieldset {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  margin-bottom: 1rem;
+}
+
+.demo form fieldset legend {
+  background-color: var(--ifm-background-color);
+  padding-inline: 1ch;
+  font-weight: 600;
+}
+
+.demo form select,
+.demo form input:not([type="radio"]) {
+  font-family: var(--ifm-font-family);
+  font-size: 16px;
+  border-radius: calc(var(--ifm-global-radius) * 0.75);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.125rem 0.25rem;
+  background-color: var(--ifm-background-surface-color);
+}

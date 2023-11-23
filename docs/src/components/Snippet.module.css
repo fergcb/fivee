@@ -1,0 +1,54 @@
+.snippet {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  width: min(max-content, 100%);
+}
+
+.snippet .snippet__desc {
+  padding-block: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.snippet .snippet__desc p {
+  margin: 0;
+}
+
+.snippet .snippet__desc p+p {
+  margin-top: 1rem;
+}
+
+.snippet .snippet__req {
+  display: flex;
+}
+
+.snippet .snippet__req__method {
+  padding-block: 0.25rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: none;
+  background-color: var(--ifm-color-emphasis-200);
+  font-weight: bold;
+  padding-top: 0.3rem;
+}
+
+.snippet .snippet__req__url {
+  padding-block: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.snippet .snippet__tabs .snippet__tabs__item {
+  padding-block: 0.5rem;
+}
+
+.snippet .snippet__body {
+  padding-top: 0.5rem;
+}

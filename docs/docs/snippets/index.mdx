@@ -1,0 +1,118 @@
+---
+sidebar_position: 1
+---
+
+import Snippet from "@site/src/components/Snippet.jsx"
+
+# Snippets API
+
+The Snippets API serves pre-styled HTML components, allowing you to pipe D&D content directly into your web pages, without writing much code.
+
+Snippets are the perfect solution if you want to embed D&D content such as spell cards, monster stat blocks, or magic item info into a document such as a blog post, a DM screen, or even in your campaign notes in an app like Obsidian. The Snippets API provides a number of options for styling, with a range of built-in themes or options for you to bring your own styles. However, if want to build something more bespoke, or need to work with the data programmatically, consider using the [GraphQL API](/docs/graphql) instead.
+
+## Getting Started
+
+You can use the [Snippets Demo](/docs/snippets/demo) page to explore what kind of snippets are available, and the various options which are available to customise them, but here's a quick rundown:
+
+### Basic Usage
+
+All snippets can be fetched by making HTTP GET requests to `https://fivee.co/snippets/{snippet-type}/{id}`, where `{snippet-type}` is a string identifying the kind of snippet you want, such as `spell-card` or `statblock`, and `{id}` is the unique identifier of the entity (e.g. the spell or monster) that you want to fetch.
+
+<Snippet snippetType="spell-card" docId="fireBolt" />
+
+### Query Parameters
+
+The style of a snippet can be customised using query parameters. These are variables appended to the end of the request URL, after a `?` symbol. The available parameters are listed in the table below.
+
+<table>
+<thead>
+  <tr>
+    <th>Parameter</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>`cssMode`</td>
+    <td>`"bem"` \| `"tw"`</td>
+    <td>`"bem"`</td>
+    <td>
+      Determines the method used to style the snippet. Using `"bem"`, snippets will use [BEM](https://getbem.com/)-style
+      class names to annotate the returned HTML, and will include the necessary CSS to apply your chosen theme.
+
+      Using `"tw"`, the snippet use [TailwindCSS](https://tailwindcss.com/) utility classes to apply the theme.
+      **Note: Snippets do not include the necessary TailwindCSS scripts or CSS for the snippet to be rendered correctly.
+      You must provide the tailwind classes yourself.**
+    </td>
+  </tr>
+  <tr>
+    <td>`theme`</td>
+    <td>`string`</td>
+    <td>`"default"`</td>
+    <td>
+      Determines which theme to apply to the snippet. See the [Themes](/docs/snippets/themes) page for a list of themes.
+
+      Use `"none"` if you wish to provide your own styles. This is best combined with `cssMode=bem`, to simplify the selectors
+      needed to target the snippet's elements in your custom CSS.
+    </td>
+  </tr>
+  <tr>
+    <td>`includeStylesheets`</td>
+    <td>`boolean`</td>
+    <td>`true`</td>
+    <td>
+      Indicates whether `<link>` tags linking the stylesheets for the chosen theme should be included in the snippet.
+      If set to `false`, the stylesheet must be included elsewhere in your document for snippets to be themed correctly.
+
+      This parameter is ignored if `cssMode=tw`, as stylesheets are _never_ included in the snippet when using TailwindCSS.
+    </td>
+  </tr>
+  <tr>
+    <td>`expressions`</td>
+    <td>`"raw"` \| `"text"` \| `"html"` \| `"interactive"`</td>
+    <td>`html`</td>
+    <td>
+      Determines how expressions embedded in text fields should be evaluated. Expressions include things dice notation and references to other data items.
+      
+      - `"raw"`: provide the unevaluated expressions, e.g. `%{dice 1d4}`
+      - `"text"`: provide a text representation of the evaluated expression, e.g. `1d4`
+      - `"html"`: provide an HTML representation of the value, e.g. `<span class="fivee__dice">1d4</span>`
+      - `"interactive"`: coming soon
+    </td>
+  </tr>
+</tbody>
+</table>
+
+## Examples
+
+### Themed Snippets
+
+<Snippet snippetType="spell-card" docId="fireBolt" theme="default-dark">
+  The `"default-dark"` theme is a dark variant of the default theme.
+</Snippet>
+
+<Snippet snippetType="spell-card" docId="fireBolt" theme="book">
+  The `"book"` theme is reminiscent of real D&D source books.
+</Snippet>
+
+### Expressions
+<Snippet snippetType="spell-card" docId="fireBolt" expressions="text">
+  Notice that setting `expressions=text` means that expressions (such as the dice notation here) are
+  rendered as plain text, so they cannot be styled differently to the surrounding text.
+</Snippet>
+
+<Snippet snippetType="spell-card" docId="fireBolt" expressions="raw">
+  Setting `expressions=raw` tells the API not to render the expressions. This might be useful if you
+  want to write your own parser to handle expressions.
+</Snippet>
+
+### Using TailwindCSS
+<Snippet snippetType="spell-card" docId="fireBolt" cssMode="tw" defaultTab="source">
+  Setting the `cssMode` parameter to `"tw"` prompts the API to use TailwindCSS utility classes
+  instead of sending CSS to theme the components.
+
+  **Note**: You must provide the TailwindCSS stylesheets/tooling, as well as any fonts or other
+  assets that aren't included in the snippet in order for the output to be rendered correctly.
+</Snippet>
