@@ -41,7 +41,14 @@ const logger = morgan(
 async function start() {
   const app = express();
 
-  app.use("/docs", logger, express.static(`${Deno.cwd()}/docs/build`));
+  app.use(
+    "/docs",
+    logger,
+    express.static(`${Deno.cwd()}/docs/build`, {
+      etag: false,
+      lastModified: false,
+    })
+  );
 
   app.use("/graphql", cors(), express.json(), await graphqlMiddleware());
 
