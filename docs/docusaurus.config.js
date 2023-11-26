@@ -94,7 +94,7 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/fivee',
+                href: 'https://discord.gg/cVkQhm9QFm',
               },
             ],
           },
