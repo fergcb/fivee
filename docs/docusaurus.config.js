@@ -31,7 +31,7 @@ const config = {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
           editUrl:
-            'https://github.com/fergcb/fivee',
+            'https://github.com/fergcb/fivee/tree/main/docs',
         },
         theme: {
           customCss: './src/css/custom.css',
