@@ -1,5 +1,13 @@
 {
-  "deno.enable": true,
+  "deno.enablePaths": [
+    "deno.json",
+    "main.ts",
+    "deps.ts",
+    "api",
+    "collections",
+    "database",
+    "expressions"
+  ],
   "deno.lint": true,
   "deno.unstable": true,
   "editor.formatOnSave": true,
