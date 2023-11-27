@@ -16,37 +16,10 @@ import { CollectionID, collections } from "$collections/_index.ts";
 export class Database {
   private kv: Deno.Kv | null = null;
 
-  constructor(private readonly kvPath: string | undefined = undefined) {}
-
-  public async init() {
-    // Compile the data
-    const ctx = new Context();
-    const data = this.resolveAll(ctx);
-
-    // Populate the KV database
-    this.kv = await Deno.openKv(this.kvPath);
-    await this.clear();
-
-    for (const [path, value] of data) {
-      const key = path.split(".");
-      if (key.length != 2) continue;
-      const collectionId = key[0];
-      await this.kv!.set([collectionId, (value as Document).id], value);
-    }
-  }
-
-  private async clear(): Promise<void> {
-    if (this.kv === null) {
-      throw new Error("Database called before initialisation.");
-    }
-    const records = this.kv.list({ prefix: [] });
-    for await (const record of records) {
-      this.kv.delete(record.key);
-    }
-  }
+  constructor() {}
 
   public async list<T extends Document>(
-    collectionId: CollectionID,
+    collectionId: CollectionID
   ): Promise<T[]> {
     if (this.kv === null) {
       throw new Error("Database called before initialisation.");
@@ -59,7 +32,7 @@ export class Database {
 
   public async get<T extends Document>(
     collectionId: CollectionID,
-    docId: string,
+    docId: string
   ): Promise<T | null> {
     if (this.kv === null) {
       throw new Error("Database called before initialisation.");
@@ -68,7 +41,7 @@ export class Database {
     return record.value as T;
   }
 
-  private resolveAll(ctx: Context): Map<string, unknown> {
+  public resolveAll(ctx: Context): Map<string, unknown> {
     // Add all the collections to the queue as arrays of resolvable objects
     Object.values(collections).forEach((col) => {
       ctx.enqueue(col.id, col.entries);
@@ -171,7 +144,7 @@ export class Database {
         if (incomplete) ctx.enqueue(ctx.path, obj, true);
         return value(resolved);
       },
-      true,
+      true
     );
   }
 }

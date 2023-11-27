@@ -2,6 +2,8 @@
   "tasks": {
     "start": "deno run --unstable --allow-run --allow-read --allow-env --allow-net main.ts",
     "dev": "deno run --watch --unstable --allow-run --allow-read --allow-env --allow-net main.ts",
+    "build": "deno task db:init && deno task docs:build",
+    "db:init": "deno run --unstable --allow-read --allow-env --allow-net database/init.ts",
     "docs:serve": "cd docs && npx docusaurus start",
     "docs:build": "cd docs && npm ci && npm run build"
   },
