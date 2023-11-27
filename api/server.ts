@@ -54,6 +54,8 @@ async function start() {
 
   app.use("/snippets", logger, cors(), snippetsRouter);
 
+  app.get("/", (_, res) => res.redirect("/docs"));
+
   app.listen(PORT, () => {
     console.log("\n" + links);
   });
