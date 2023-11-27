@@ -65,7 +65,7 @@ purgeProgress.render(numDeleted, { text: "DONE" });
 ///////////////////////
 
 const progressBar = new ProgressBar({
-  title: "Writing old documents:",
+  title: "Writing new documents:",
   total: records.length,
   display: ":title :bar :completed/:total (:percent) :time/:eta :text",
 });
