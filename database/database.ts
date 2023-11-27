@@ -18,6 +18,10 @@ export class Database {
 
   constructor() {}
 
+  public async init() {
+    this.kv = await Deno.openKv();
+  }
+
   public async list<T extends Document>(
     collectionId: CollectionID
   ): Promise<T[]> {
@@ -149,4 +153,6 @@ export class Database {
   }
 }
 
-export default new Database();
+const db = new Database();
+await db.init();
+export default db;
