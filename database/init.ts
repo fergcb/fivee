@@ -8,19 +8,20 @@ import chalk from "npm:chalk";
 
 const DENO_KV_URL = Deno.env.get("DENO_KV_URL");
 
-if (!DENO_KV_URL) {
-  console.log("You must specify a DENO_KV_URL environment variable.");
-  Deno.exit(1);
-}
-
-if (!Deno.env.get("DENO_KV_ACCESS_TOKEN")) {
-  console.log("You must specify a DENO_KV_ACCESS_TOKEN environment variable.");
+if (DENO_KV_URL && !Deno.env.get("DENO_KV_ACCESS_TOKEN")) {
+  console.log(
+    "You must specify a DENO_KV_ACCESS_TOKEN environment variable when using a remote Deno KV.",
+  );
   Deno.exit(1);
 }
 
 // Connect to the database
 console.log(`Establishing connection to Deno KV...`);
-console.log(`DENO_KV_URL = ${DENO_KV_URL}`);
+if (DENO_KV_URL !== undefined) {
+  console.log(`DENO_KV_URL = ${DENO_KV_URL}`);
+} else {
+  console.log(`Using local Deno KV`);
+}
 const kv = await Deno.openKv(DENO_KV_URL);
 console.log("Connected.");
 
@@ -29,7 +30,7 @@ console.log("Compiling data...");
 const ctx = new Context();
 const data = database.resolveAll(ctx);
 const records = [...data.entries()].filter(
-  ([path, _]) => path.split(".").length === 2
+  ([path, _]) => path.split(".").length === 2,
 );
 console.log(`Compiled ${records.length} records.\n`);
 
@@ -75,11 +76,10 @@ const errors = [];
 
 // Write the records
 for (const [path, value] of records) {
-  progressBar.render(numWritten++, { text: path });
-
   const cacheKey = path.split(".");
   const collectionId = cacheKey[0];
   const key = [collectionId, (value as Document).id];
+  progressBar.render(numWritten++, { text: key.join(".") });
 
   try {
     await kv.set(key, value);
@@ -87,7 +87,7 @@ for (const [path, value] of records) {
     errors.push(err);
   }
 
-  progressBar.render(numWritten, { text: path });
+  progressBar.render(numWritten, { text: key.join(".") });
 }
 
 progressBar.render(numWritten, { text: "DONE" });
