@@ -1,0 +1,111 @@
+interface Item {
+  id: String!
+  name: String!
+  kind: String!
+  cost: Cost!
+  weight: Float!
+  tags: [String!]!
+  source: Source!
+}
+
+type MiscItem implements Item {
+  id: String!
+  name: String!
+  kind: String!
+  cost: Cost!
+  weight: Float!
+  tags: [String!]!
+  source: Source!
+}
+
+interface WeaponRange {
+  kind: String!
+  normal: Int!
+}
+
+type WeaponRangeMelee implements WeaponRange {
+  kind: String!
+  normal: Int!
+}
+
+type WeaponRangeRanged implements WeaponRange {
+  kind: String!
+  normal: Int!
+  long: Int!
+}
+
+interface WeaponProperty {
+  kind: String!
+}
+
+type WeaponThrownRange {
+    normal: Int!
+    long: Int!
+}
+
+type WeaponPropertyThrown implements WeaponProperty {
+  kind: String!
+  thrownRange: WeaponThrownRange
+}
+
+type WeaponPropertyVersatile implements WeaponProperty {
+  kind: String!
+  twoHandedDamage: String!
+}
+
+type WeaponPropertyOther implements WeaponProperty {
+  kind: String!
+}
+
+type WeaponItem implements Item {
+  id: String!
+  name: String!
+  kind: String!
+  cost: Cost!
+  weight: Float!
+  tags: [String!]!
+  source: Source!
+  category: String!
+  range: WeaponRange!
+  properties: [WeaponProperty!]!
+  damage: Damage!
+}
+
+interface ArmorArmorClass {
+  kind: String!
+}
+
+type ArmorArmorClassSet {
+  kind: String!
+  base: Int!
+}
+
+type ArmorArmorClassCompute {
+  kind: String!
+  base: Int!
+  modifier: AbilityScore!
+}
+
+type ArmorArmorClassAdd {
+  kind: String!
+  bonus: Int!
+}
+
+type ArmorItem implements Item {
+  id: String!
+  name: String!
+  kind: String!
+  cost: Cost!
+  weight: Float!
+  tags: [String!]!
+  source: Source!
+  category: String!
+  armorClass: ArmorArmorClass!
+  strengthRequirement: Int
+  stealthDisadvantage: Boolean!
+}
+
+extend type Query {
+  items: [Item]
+  item(id: String!, expressions: Boolean): Item
+}

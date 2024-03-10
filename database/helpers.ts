@@ -1,5 +1,5 @@
 import dedent from "npm:dedent-js";
-import { Source } from "$collections/_common.ts";
+import { Cost, Currency, Damage, Source } from "$collections/_common.ts";
 import { CollectionID, Document, SourceBook } from "$collections/_index.ts";
 import { Resolvable } from "$db/resolver.ts";
 import { QueryBuilder, QueryFirst } from "$db/query.ts";
@@ -22,6 +22,22 @@ export function ref<Doc extends Document>(
 export function dice(diceString: string): string {
   // TODO: validate dice notation
   return diceString;
+}
+
+type CostString = `${number} ${Currency}`;
+export function cost(costString: CostString): Cost {
+  const [amount, currency] = costString.split(" ");
+  return {
+    amount: parseInt(amount, 10),
+    currency,
+  } as Cost;
+}
+
+export function dmg(diceString: string, type: string): Resolvable<Damage> {
+  return {
+    dice: dice(diceString),
+    type: ref("damageTypes", type),
+  };
 }
 
 export function md(strings: TemplateStringsArray, ...args: unknown[]): string {

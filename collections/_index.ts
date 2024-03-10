@@ -11,6 +11,12 @@ import {
 } from "$collections/damageTypes.ts";
 
 import {
+  default as items,
+  ID as itemsID,
+  Item,
+} from "$collections/items/collection.ts";
+
+import {
   default as magicSchools,
   ID as magicSchoolsID,
   MagicSchool,
@@ -37,6 +43,7 @@ import {
 export type CollectionID =
   | typeof abilityScoresID
   | typeof damageTypesID
+  | typeof itemsID
   | typeof magicSchoolsID
   | typeof skillsID
   | typeof sourceBooksID
@@ -45,6 +52,7 @@ export type CollectionID =
 export const collections = {
   abilityScores,
   damageTypes,
+  items,
   magicSchools,
   skills,
   sourceBooks,
@@ -54,6 +62,7 @@ export const collections = {
 export type Document =
   | AbilityScore
   | DamageType
+  | Item
   | MagicSchool
   | Skill
   | SourceBook

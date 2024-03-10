@@ -3,13 +3,23 @@ import { collections } from "$collections/_index.ts";
 const queryBase = "type Query";
 
 const commonTypeDefs = `#graphql
+  type Cost {
+    currency: String!
+    amount: Int!
+  }
+
+  type Damage {
+    dice: String!
+    type: DamageType!
+  }
+
   type Range {
     amount: Int!
     unit: String!
   }
 
   type Source {
-    book: SourceBook!,
+    book: SourceBook!
     page: Int!
   }
 `;
