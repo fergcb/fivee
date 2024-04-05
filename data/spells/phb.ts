@@ -3,7 +3,7 @@ import { Entry } from "$db/resolver.ts";
 import { Spell } from "$collections/spells/collection.ts";
 import { DamageType } from "$collections/damageTypes.ts";
 
-export const phbSpells: Entry<Spell>[] = [
+export const phbEntries: Entry<Spell>[] = [
   {
     id: "acidSplash",
     name: "Acid Splash",

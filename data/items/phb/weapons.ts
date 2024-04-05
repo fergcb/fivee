@@ -7,7 +7,7 @@ const Range = {
   REACH: { kind: "melee", normal: 10 },
 } as const;
 
-export const phbItems: Entry<Item>[] = [
+export const weapons: Entry<Item>[] = [
   {
     id: "club",
     name: "Club",

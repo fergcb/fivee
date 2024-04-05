@@ -3,8 +3,8 @@ import { BaseDocument, Cost, Range, Source } from "$collections/_common.ts";
 import { MagicSchool } from "$collections/magicSchools.ts";
 import { AbilityScore } from "$collections/abilityScores.ts";
 import { DamageType } from "$collections/damageTypes.ts";
-import { phbSpells } from "$collections/spells/phbSpells.ts";
 import { manyResolver, oneResolver } from "$collections/_resolvers.ts";
+import { entries } from "$data/spells/entries.ts";
 
 export const ID = "spells";
 
@@ -114,6 +114,7 @@ export interface Spell extends BaseDocument {
 
 export default collection<Spell>({
   id: ID,
+  entries,
   typeDefs: Deno.readTextFileSync("./collections/spells/typeDefs.graphql"),
   resolvers: {
     Query: {
@@ -134,5 +135,4 @@ export default collection<Spell>({
       },
     },
   },
-  entries: phbSpells,
 });

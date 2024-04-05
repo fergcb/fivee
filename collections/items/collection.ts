@@ -1,6 +1,6 @@
 import { collection } from "$collections/_collection.ts";
 import { BaseDocument, Cost, Damage, Source } from "$collections/_common.ts";
-import { phbItems } from "$collections/items/phbItems.ts";
+import { entries } from "$data/items/entries.ts";
 import { manyResolver, oneResolver } from "$collections/_resolvers.ts";
 import { AbilityScore } from "$collections/abilityScores.ts";
 
@@ -74,6 +74,7 @@ export type Item = BaseItem & ItemVariant;
 
 export default collection<Item>({
   id: ID,
+  entries,
   typeDefs: Deno.readTextFileSync("./collections/items/typeDefs.graphql"),
   resolvers: {
     Query: {
@@ -127,5 +128,4 @@ export default collection<Item>({
       },
     },
   },
-  entries: phbItems,
 });

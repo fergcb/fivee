@@ -12,6 +12,7 @@
     "$deps": "./deps.ts",
     "$helpers": "./database/helpers.ts",
     "$collections/": "./collections/",
+    "$data/": "./data/",
     "$db/": "./database/",
     "$graphql/": "./api/graphql/",
     "$exprs/": "./expressions/",
