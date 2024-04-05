@@ -1,4 +1,4 @@
-import { phbEntries } from "./phb";
+import { phbEntries } from "./phb.ts";
 
 export const entries = [
   ...phbEntries,

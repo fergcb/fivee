@@ -1,5 +1,5 @@
-import { weapons } from "./weapons";
+import { weapons } from "./weapons.ts";
 
-export const phbEntries = {
+export const phbEntries = [
   ...weapons,
-};
+];
