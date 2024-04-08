@@ -69,6 +69,11 @@ export type DamageProgression =
   | {
     kind: "levelled";
     damageAtSlotLevel: { [key: number]: string };
+  }
+  | {
+    kind: "targets";
+    damagePerTarget: string;
+    targetsAtSlotLevel: { [key: number]: number };
   };
 
 export type SpellAttack =
@@ -83,6 +88,13 @@ export type SpellAttack =
     kind: "savingThrow";
     saveType: AbilityScore;
     effectOnSave: "noEffect" | "halfDamage" | "special";
+    damage?: {
+      damageType?: DamageType;
+      damageProgression: DamageProgression;
+    };
+  }
+  | {
+    kind: "auto";
     damage?: {
       damageType?: DamageType;
       damageProgression: DamageProgression;

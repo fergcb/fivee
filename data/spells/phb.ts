@@ -10298,6 +10298,27 @@ export const phbEntries: Entry<Spell>[] = [
         amount: 1,
       },
     ],
+    attack: {
+      kind: "auto",
+      damage: {
+        damageType: ref("damageTypes", "force"),
+        damageProgression: {
+          kind: "targets",
+          damagePerTarget: dice("1d4"),
+          targetsAtSlotLevel: {
+            1: 3,
+            2: 4,
+            3: 5,
+            4: 6,
+            5: 7,
+            6: 8,
+            7: 9,
+            8: 10,
+            9: 11,
+          },
+        },
+      },
+    },
     source: source("PHB", 257),
   },
 
