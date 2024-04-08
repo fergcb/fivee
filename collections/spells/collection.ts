@@ -133,6 +133,18 @@ export default collection<Spell>({
       spell: oneResolver<Spell>(ID),
       spells: manyResolver<Spell>(ID),
     },
+    IDamageProgression: {
+      __resolveType(prog: DamageProgression): string {
+        switch (prog.kind) {
+          case "cantrip":
+            return "CantripDamageProgression";
+          case "levelled":
+            return "LevelledDamageProgression";
+          case "targets":
+            return "TargetsDamageProgression";
+        }
+      },
+    },
     ISpellAttack: {
       __resolveType(attack: SpellAttack): string {
         switch (attack.kind) {
@@ -141,6 +153,8 @@ export default collection<Spell>({
             return "MeleeOrRangedSpellAttack";
           case "savingThrow":
             return "SavingThrowSpellAttack";
+          case "auto":
+            return "AutoSpellAttack";
           case "healing":
             return "HealingSpellAttack";
         }

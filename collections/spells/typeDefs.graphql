@@ -11,16 +11,31 @@ type CastingTime {
 }
 
 scalar DamageAtLevel
+scalar TargetsAtLevel
 
-type DamageProgression {
+interface IDamageProgression {
+  kind: String!
+}
+
+type CantripDamageProgression implements IDamageProgression {
+  kind: String!
+  damageAtCharacterLevel: DamageAtLevel
+}
+
+type LevelledDamageProgression implements IDamageProgression {
   kind: String!
   damageAtSlotLevel: DamageAtLevel
-  damageAtCharacterLevel: DamageAtLevel
+}
+
+type TargetsDamageProgression implements IDamageProgression {
+  kind: String!
+  damagePerTarget: String!
+  targetsAtSlotLevel: TargetsAtLevel!
 }
 
 type SpellDamage {
   damageType: DamageType
-  damageProgression: DamageProgression!
+  damageProgression: IDamageProgression!
 }
 
 interface ISpellAttack {
@@ -37,6 +52,11 @@ type SavingThrowSpellAttack implements ISpellAttack {
   damage: SpellDamage
   saveType: AbilityScore
   effectOnSave: String
+}
+
+type AutoSpellAttack implements ISpellAttack {
+  kind: String!
+  damage: SpellDamage
 }
 
 type HealingSpellAttack implements ISpellAttack {
