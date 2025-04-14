@@ -4,37 +4,36 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import { themes as prismThemes } from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Fivee',
-  tagline: 'A D&D 5e API',
-  favicon: '/docs/img/favicon.svg',
-  url: 'https://fivee.co',
-  baseUrl: '/docs/',
-  organizationName: 'fergcb',
-  projectName: 'fivee',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  title: "Fivee",
+  tagline: "A D&D 5e API",
+  favicon: "/docs/img/favicon.svg",
+  url: "https://fivee.co",
+  baseUrl: "/docs/",
+  organizationName: "fergcb",
+  projectName: "fivee",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         blog: false,
         docs: {
-          routeBasePath: '/',
-          sidebarPath: './sidebars.js',
-          editUrl:
-            'https://github.com/fergcb/fivee/tree/main/docs',
+          routeBasePath: "/",
+          sidebarPath: "./sidebars.js",
+          editUrl: "https://github.com/fergcb/fivee/tree/main/docs",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
@@ -43,67 +42,67 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/fivee-social-card.jpg',
+      image: "img/fivee-social-card.jpg",
       colorMode: {
-        defaultMode: 'dark'
+        defaultMode: "dark",
       },
       navbar: {
         logo: {
-          alt: 'Fivee Logo',
-          src: '/docs/img/fivee-logo.svg',
-          srcDark: '/docs/img/fivee-logo-dark.svg',
+          alt: "Fivee Logo",
+          src: "/docs/img/fivee-logo.svg",
+          srcDark: "/docs/img/fivee-logo-dark.svg",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'graphqlSidebar',
-            position: 'left',
-            label: 'GraphQL',
+            type: "docSidebar",
+            sidebarId: "graphqlSidebar",
+            position: "left",
+            label: "GraphQL",
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'snippetsSidebar',
-            position: 'left',
-            label: 'Snippets',
+            type: "docSidebar",
+            sidebarId: "snippetsSidebar",
+            position: "left",
+            label: "Snippets",
           },
           {
-            href: 'https://github.com/fergcb/fivee',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/fergcb/fivee",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'light',
+        style: "light",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'GraphQL',
-                to: '/docs/graphql',
+                label: "GraphQL",
+                to: "/docs/graphql",
               },
               {
-                label: 'Snippets',
-                to: '/docs/snippets',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Discord',
-                href: 'https://discord.gg/cVkQhm9QFm',
+                label: "Snippets",
+                to: "/docs/snippets",
               },
             ],
           },
           {
-            title: 'More',
+            title: "Community",
             items: [
               {
-                label: 'GitHub',
-                href: 'https://github.com/fergcb/fivee',
+                label: "Discord",
+                href: "https://discord.gg/cVkQhm9QFm",
+              },
+            ],
+          },
+          {
+            title: "More",
+            items: [
+              {
+                label: "GitHub",
+                href: "https://github.com/fergcb/fivee",
               },
             ],
           },

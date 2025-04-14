@@ -22,7 +22,7 @@ const links = boxen(
     padding: 1,
     borderColor: "blue",
     borderStyle: "double",
-  }
+  },
 );
 
 const logger = morgan(
@@ -35,7 +35,7 @@ const logger = morgan(
       tokens.url(req, res),
       status < 400 ? chalk.green(status) : chalk.red(status),
     ].join(" ");
-  }
+  },
 );
 
 async function start() {
@@ -47,7 +47,7 @@ async function start() {
     express.static(`${Deno.cwd()}/docs/build`, {
       etag: false,
       lastModified: false,
-    })
+    }),
   );
 
   app.use("/graphql", cors(), express.json(), await graphqlMiddleware());

@@ -37,7 +37,11 @@ export default collection<SourceBook>({
   entries: [
     {
       id: "PHB",
-      name: "Player's Handbook",
+      name: "Player's Handbook (2014)",
+    },
+    {
+      id: "PHB2024",
+      name: "Player's Handbook (2024)",
     },
     {
       id: "SRD",

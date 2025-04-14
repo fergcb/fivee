@@ -14,7 +14,7 @@
   margin: 0;
 }
 
-.snippet .snippet__desc p+p {
+.snippet .snippet__desc p + p {
   margin-top: 1rem;
 }
 

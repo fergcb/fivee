@@ -15,7 +15,7 @@ router.use(
   express.static(`${Deno.cwd()}/api/snippets/assets`, {
     etag: false,
     lastModified: false,
-  })
+  }),
 );
 
 export default router;

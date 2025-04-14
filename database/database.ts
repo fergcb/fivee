@@ -23,7 +23,7 @@ export class Database {
   }
 
   public async list<T extends Document>(
-    collectionId: CollectionID
+    collectionId: CollectionID,
   ): Promise<T[]> {
     if (this.kv === null) {
       throw new Error("Database called before initialisation.");
@@ -36,7 +36,7 @@ export class Database {
 
   public async get<T extends Document>(
     collectionId: CollectionID,
-    docId: string
+    docId: string,
   ): Promise<T | null> {
     if (this.kv === null) {
       throw new Error("Database called before initialisation.");
@@ -148,7 +148,7 @@ export class Database {
         if (incomplete) ctx.enqueue(ctx.path, obj, true);
         return value(resolved);
       },
-      true
+      true,
     );
   }
 }

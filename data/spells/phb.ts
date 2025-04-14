@@ -10301,7 +10301,7 @@ export const phbEntries: Entry<Spell>[] = [
     attack: {
       kind: "auto",
       damage: {
-        damageType: ref("damageTypes", "force"),
+        damageType: ref<DamageType>("damageTypes", "force"),
         damageProgression: {
           kind: "targets",
           damagePerTarget: dice("1d4 + 1"),
@@ -13717,7 +13717,7 @@ export const phbEntries: Entry<Spell>[] = [
     attack: {
       kind: "ranged",
       damage: {
-        damageType: ref("damageTypes", "fire"),
+        damageType: ref<DamageType>("damageTypes", "fire"),
         damageProgression: {
           kind: "targets",
           damagePerTarget: dice("2d6"),
@@ -14066,8 +14066,8 @@ export const phbEntries: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc:
-        "a jade circlet worth at least 1,500 gp, which you must place on your head before you cast the spell",
+      desc: "a jade circlet worth at least 1,500 gp," +
+        "which you must place on your head before you cast the spell",
       consumed: "optional",
       cost: { amount: 1500, currency: "gp" },
     },
@@ -14318,8 +14318,8 @@ export const phbEntries: Entry<Spell>[] = [
     desc: md`
       For the duration, no sound can be created within or pass through a 20-foot-radius sphere
       centered on a point you choose within range. Any creature or object entirely inside the sphere
-      is immune to thunder damage, and creatures are %{ref conditions deafened} while entirely inside it.
-      Casting a spell that includes a verbal component is impossible there.
+      is immune to thunder damage, and creatures are %{ref conditions deafened} while entirely
+      inside it. Casting a spell that includes a verbal component is impossible there.
     `,
     range: {
       kind: "point",
@@ -14423,7 +14423,9 @@ export const phbEntries: Entry<Spell>[] = [
     components: ["V", "S", "M"],
     materials: {
       desc:
-        "snow or ice in quantities sufficient to make a life-size copy of the duplicated creature; some hair, fingernail clippings, or other piece of that creature's body placed inside the snow or ice; and powdered ruby worth 1,500 gp, sprinkled over the duplicate and consumed by the spell",
+        "snow or ice in quantities sufficient to make a life-size copy of the duplicated creature;" +
+        "some hair, fingernail clippings, or other piece of that creature's body placed inside the snow or ice;" +
+        "and powdered ruby worth 1,500 gp, sprinkled over the duplicate and consumed by the spell",
       consumed: "yes",
       cost: { amount: 1500, currency: "gp" },
     },
@@ -14451,7 +14453,8 @@ export const phbEntries: Entry<Spell>[] = [
     desc: md`
       This spell sends creatures into a magical slumber. Roll %{dice 5d8}; the total is how many hit
       points of creatures this spell can affect. Creatures within 20 feet of a point you choose
-      within range are affected in ascending order of their current hit points (ignoring %{ref conditions unconscious} creatures).
+      within range are affected in ascending order of their current hit points (ignoring
+      %{ref conditions unconscious} creatures).
 
       Starting with the creature that has the lowest current hit points, each creature affected by
       this spell falls %{ref conditions unconscious} until the spell ends, the sleeper takes damage, or
@@ -15178,9 +15181,10 @@ export const phbEntries: Entry<Spell>[] = [
     desc: md`
       You suggest a course of activity (limited to a sentence or two) and magically influence a
       creature you can see within range that can hear and understand you. Creatures that can't be
-      %{ref conditions charmed} are immune to this effect. The suggestion must be worded in such a manner
-      as to make the course of action sound reasonable. Asking the creature to stab itself, throw
-      itself onto a spear, immolate itself, or do some other obviously harmful act ends the spell.
+      %{ref conditions charmed} are immune to this effect. The suggestion must be worded in such a
+      manner as to make the course of action sound reasonable. Asking the creature to stab itself,
+      throw itself onto a spear, immolate itself, or do some other obviously harmful act ends the
+      spell.
 
       The target must make a Wisdom saving throw. On a failed save, it pursues the course of action
       you described to the best of its ability. The suggested course of action can continue for the
@@ -15235,9 +15239,9 @@ export const phbEntries: Entry<Spell>[] = [
     desc: md`
       A beam of brilliant light flashes out from your hand in a 5-foot-wide, 60-foot-long line. Each
       creature in the line must make a Constitution saving throw. On a failed save, a creature takes
-      %{dice 6d8} radiant damage and is %{ref conditions blinded} until your next turn. On a successful
-      save, it takes half as much damage and isn't %{ref conditions blinded} by this spell. Undead and
-      oozes have disadvantage on this saving throw.
+      %{dice 6d8} radiant damage and is %{ref conditions blinded} until your next turn. On a
+      successful save, it takes half as much damage and isn't %{ref conditions blinded} by this
+      spell. Undead and oozes have disadvantage on this saving throw.
 
       You can create a new line of radiance as your action on any turn until the spell ends.
 
@@ -15297,11 +15301,11 @@ export const phbEntries: Entry<Spell>[] = [
       Brilliant sunlight flashes in a 60-foot radius centered on a point you choose within range.
       Each creature in that light must make a Constitution saving throw. On a failed save, a
       creature takes %{dice 12d6} radiant damage and is %{ref conditions blinded} for 1 minute. On a
-      successful save, it takes half as much damage and isn't %{ref conditions blinded} by this spell.
-      Undead and oozes have disadvantage on this saving throw.
+      successful save, it takes half as much damage and isn't %{ref conditions blinded} by this
+      spell. Undead and oozes have disadvantage on this saving throw.
 
-      A creature %{ref conditions blinded} by this spell makes another Constitution saving throw at the
-      end of each of its turns. On a successful save, it is no longer %{ref conditions blinded}.
+      A creature %{ref conditions blinded} by this spell makes another Constitution saving throw at
+      the end of each of its turns. On a successful save, it is no longer %{ref conditions blinded}.
 
       This spell dispels any darkness in its area that was created by a spell.
     `,
@@ -15451,7 +15455,8 @@ export const phbEntries: Entry<Spell>[] = [
     components: ["V", "S", "M"],
     materials: {
       desc:
-        "mercury, phosphorus, and powdered diamond and opal with a total value of at least 1,000 gp, which the spell consumes",
+        "mercury, phosphorus, and powdered diamond and opal with a total value of at least" +
+        "1,000 gp, which the spell consumes",
       consumed: "yes",
       cost: { amount: 1000, currency: "gp" },
     },
@@ -15479,9 +15484,9 @@ export const phbEntries: Entry<Spell>[] = [
     desc: md`
       A creature of your choice that you can see within range perceives everything as hilariously
       funny and falls into fits of laughter if this spell affects it. The target must succeed on a
-      Wisdom saving throw or fall %{ref conditions prone}, becoming %{ref conditions incapacitated} and unable
-      to stand up for the duration. A creature with an Intelligence score of 4 or less isn't
-      affected.
+      Wisdom saving throw or fall %{ref conditions prone}, becoming %{ref conditions incapacitated}
+      and unable to stand up for the duration. A creature with an Intelligence score of 4 or less
+      isn't affected.
 
       At the end of each of its turns, and each time it takes damage, the target can make another
       Wisdom saving throw. The target has advantage on the saving throw if it's triggered by damage.
@@ -15849,8 +15854,8 @@ export const phbEntries: Entry<Spell>[] = [
     desc: md`
       You create a long, vine-like whip covered in thorns that lashes out at your command toward a
       creature in range. Make a melee spell attack against the target. If the attack hits, the
-      creature takes %{dice 1d6} piercing damage, and if the creature is Large or smaller, you
-      pull the creature up to 10 feet closer to you.
+      creature takes %{dice 1d6} piercing damage, and if the creature is Large or smaller, you pull
+      the creature up to 10 feet closer to you.
 
       This spell's damage increases by %{dice 1d6} when you reach 5th level (%{dice 2d6}), 11th
       level (%{dice 3d6}), and 17th level (%{dice 4d6}).
@@ -15886,7 +15891,8 @@ export const phbEntries: Entry<Spell>[] = [
       The first time you hit with a melee weapon attack during this spell's duration, your weapon
       rings with thunder that is audible within 300 feet of you, and the attack deals an extra
       %{dice 2d6} thunder damage to the target. Additionally, if the target is a creature, it must
-      succeed on a Strength saving throw or be pushed 10 feet away from you and knocked %{ref conditions prone}.
+      succeed on a Strength saving throw or be pushed 10 feet away from you and knocked
+      %{ref conditions prone}.
     `,
     range: {
       kind: "self",
@@ -15917,9 +15923,9 @@ export const phbEntries: Entry<Spell>[] = [
     school: ref("magicSchools", "evocation"),
     desc: md`
       A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating
-      from you must make a Constitution saving throw. On a failed save, a creature takes %{dice
-      2d8} thunder damage and is pushed 10 feet away from you. On a successful save, the creature
-      takes half as much damage and isn't pushed.
+      from you must make a Constitution saving throw. On a failed save, a creature takes
+      %{dice 2d8} thunder damage and is pushed 10 feet away from you. On a successful save,
+      the creature takes half as much damage and isn't pushed.
 
       In addition, unsecured objects that are completely within the area of effect are automatically
       pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom
@@ -16254,10 +16260,9 @@ export const phbEntries: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc: `
-        an ointment for the eyes that costs 25 gp; is made from mushroom powder, saffron, and fat;
-        and is consumed by the spell
-      `,
+      desc: "an ointment for the eyes that costs 25 gp; " +
+        "is made from mushroom powder, saffron, and fat; " +
+        "and is consumed by the spell",
       consumed: "yes",
       cost: { amount: 25, currency: "gp" },
     },
@@ -16473,8 +16478,8 @@ export const phbEntries: Entry<Spell>[] = [
     desc: md`
       You unleash a string of insults laced with subtle enchantments at a creature you can see
       within range. If the target can hear you (though it need not understand you), it must succeed
-      on a Wisdom saving throw or take %{dice 1d4} psychic damage and have disadvantage on the
-      next attack roll it makes before the end of its next turn.
+      on a Wisdom saving throw or take %{dice 1d4} psychic damage and have disadvantage on the next
+      attack roll it makes before the end of its next turn.
 
       This spell's damage increases by %{dice 1d4} when you reach 5th level (%{dice 2d4}), 11th
       level (%{dice 3d4}), and 17th level (%{dice 4d4}).
@@ -16841,8 +16846,8 @@ export const phbEntries: Entry<Spell>[] = [
     },
     components: ["V", "S", "M"],
     materials: {
-      desc:
-        "a pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
+      desc: "a pair of platinum rings worth at least 50 gp each, " +
+        "which you and the target must wear for the duration",
       consumed: "optional",
       cost: { amount: 100, currency: "gp" },
     },
@@ -16953,11 +16958,12 @@ export const phbEntries: Entry<Spell>[] = [
       the start of your next turn. Webs layered over a flat surface have a depth of 5 feet.
 
       Each creature that starts its turn in the webs or that enters them during its turn must make a
-      Dexterity saving throw. On a failed save, the creature is %{ref conditions restrained} as long as
-      it remains in the webs or until it breaks free.
+      Dexterity saving throw. On a failed save, the creature is %{ref conditions restrained} as long
+      as it remains in the webs or until it breaks free.
 
-      A creature %{ref conditions restrained} by the webs can use its action to make a Strength check
-      against your spell save DC. If it succeeds, it is no longer %{ref conditions restrained}.
+      A creature %{ref conditions restrained} by the webs can use its action to make a Strength
+      check against your spell save DC. If it succeeds, it is no longer
+      %{ref conditions restrained}.
 
       The webs are flammable. Any 5-foot cube of webs exposed to fire burns away in 1 round, dealing
       %{dice 2d4} fire damage to any creature that starts its turn in the fire.
@@ -16996,10 +17002,10 @@ export const phbEntries: Entry<Spell>[] = [
       Drawing on the deepest fears of a group of creatures, you create illusory creatures in their
       minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of
       your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes
-      %{ref conditions frightened} for the duration. The illusion calls on the creature's deepest fears,
-      manifesting its worst nightmares as an implacable threat. At the end of each of the
-      %{ref conditions frightened} creature's turns, it must succeed on a Wisdom saving throw or take
-      %{dice 4d10} psychic damage. On a successful save, the spell ends for that creature.
+      %{ref conditions frightened} for the duration. The illusion calls on the creature's deepest
+      fears, manifesting its worst nightmares as an implacable threat. At the end of each of the
+      %{ref conditions frightened} creature's turns, it must succeed on a Wisdom saving throw or
+      take %{dice 4d10} psychic damage. On a successful save, the spell ends for that creature.
     `,
     range: {
       kind: "point",
@@ -17040,9 +17046,9 @@ export const phbEntries: Entry<Spell>[] = [
       duration, appearing as wisps of cloud. While in this cloud form, a creature has a flying speed
       of 300 feet and has resistance to damage from nonmagical weapons. The only actions a creature
       can take in this form are the Dash action or to revert to its normal form. Reverting
-      takes 1 minute, during which time a creature is %{ref conditions incapacitated} and can't move.
-      Until the spell ends, a creature can revert to cloud form, which also requires the 1-minute
-      transformation.
+      takes 1 minute, during which time a creature is %{ref conditions incapacitated} and can't
+      move. Until the spell ends, a creature can revert to cloud form, which also requires the
+      1-minute transformation.
 
       If a creature is in cloud form and flying when the effect ends, the creature descends 60 feet
       per round for 1 minute until it lands, which it does safely. If it can't land after 1 minute,
@@ -17290,9 +17296,9 @@ export const phbEntries: Entry<Spell>[] = [
     desc: md`
       The next time you hit with a melee weapon attack during this spell's duration, your attack
       deals an extra %{dice 1d6} psychic damage. Additionally, if the target is a creature, it
-      must make a Wisdom saving throw or be %{ref conditions frightened} of you until the spell ends. As
-      an action, the creature can make a Wisdom check against your spell save DC to steel its
-      resolve and end this spell.
+      must make a Wisdom saving throw or be %{ref conditions frightened} of you until the spell
+      ends. As an action, the creature can make a Wisdom check against your spell save DC to steel
+      its resolve and end this spell.
     `,
     range: {
       kind: "self",

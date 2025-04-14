@@ -39,7 +39,7 @@ export type ClassName = (typeof CLASS_NAMES)[number];
 export type ClassList = Partial<Record<ClassName, string>>;
 
 export const BEM_CLASSES = Object.fromEntries(
-  CLASS_NAMES.map((cn) => [cn, "fivee__" + cn])
+  CLASS_NAMES.map((cn) => [cn, "fivee__" + cn]),
 ) as ClassList;
 
 export const THEME_NAMES = ["none", "default", "default-dark", "book"] as const;
@@ -65,7 +65,8 @@ interface BasicThemeVars {
 
 function createBasicTheme(vars: BasicThemeVars): ClassList {
   return {
-    snippet: `font-${vars.fontBody} bg-${vars.colorBg} text-${vars.colorText} leading-tight`,
+    snippet:
+      `font-${vars.fontBody} bg-${vars.colorBg} text-${vars.colorText} leading-tight`,
     paragraph: "[&+p]:indent-4",
     list: "pl-4 my-2 space-y-1",
     "list-ordered": "list-decimal",
@@ -73,7 +74,8 @@ function createBasicTheme(vars: BasicThemeVars): ClassList {
     dice: "font-bold",
     ref: "italic text-[#9c1910]",
     spell: `p-4 max-w-[calc(60ch+2rem)]`,
-    spell__name: `text-xl font-${vars.fontTitle} text-${vars.colorPrimary} font-semibold`,
+    spell__name:
+      `text-xl font-${vars.fontTitle} text-${vars.colorPrimary} font-semibold`,
     "spell__level-school-ritual": `italic text-${vars.colorTextMuted}`,
     spell__metadata: "mt-3",
     spell__metadata__key: "inline font-bold after:content-[':']",

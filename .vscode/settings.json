@@ -6,10 +6,13 @@
     "api",
     "collections",
     "database",
+    "data",
     "expressions"
   ],
   "deno.lint": true,
-  "deno.unstable": true,
+  "deno.unstable": [
+    "kv"
+  ],
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "denoland.vscode-deno",
   "editor.rulers": [

@@ -1,34 +1,34 @@
 @use "./default-base";
 
 @font-face {
-  font-family: 'BookInsanity';
-  src: url('/snippets/assets/BookInsanity.otf');
+  font-family: "BookInsanity";
+  src: url("/snippets/assets/BookInsanity.otf");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'BookInsanity';
-  src: url('/snippets/assets/BookInsanity Bold.otf');
+  font-family: "BookInsanity";
+  src: url("/snippets/assets/BookInsanity Bold.otf");
   font-weight: 800;
 }
 
 @font-face {
-  font-family: 'BookInsanity';
-  src: url('/snippets/assets/BookInsanity Italic.otf');
+  font-family: "BookInsanity";
+  src: url("/snippets/assets/BookInsanity Italic.otf");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'BookInsanity';
-  src: url('/snippets/assets/BookInsanity Bold Italic.otf');
+  font-family: "BookInsanity";
+  src: url("/snippets/assets/BookInsanity Bold Italic.otf");
   font-weight: 800;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Mr Eaves';
-  src: url('/snippets/assets/Mr Eaves Small Caps.otf');
+  font-family: "Mr Eaves";
+  src: url("/snippets/assets/Mr Eaves Small Caps.otf");
 }
 
 article.fivee__snippet {
@@ -36,16 +36,17 @@ article.fivee__snippet {
   --fivee-col-bg: #eee5ce;
   --fivee-col-txt: #000;
   --fivee-col-txt-muted: #000;
-  --fivee-font-body: "BookInsanity", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --fivee-font-body:
+    "BookInsanity", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --fivee-font-title: "Mr Eaves", var(--fivee-font-body);
-  
-  background-image: url('https://homebrewery.naturalcrit.com/assets/parchmentBackground.jpg');
+
+  background-image: url("https://homebrewery.naturalcrit.com/assets/parchmentBackground.jpg");
 
   .fivee {
     &__spell {
       &__name {
         font-size: 28px;
       }
-   }
+    }
   }
 }

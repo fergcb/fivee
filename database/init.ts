@@ -44,22 +44,24 @@ for await (const record of kv.list({ prefix: [] })) {
   existingRecords.push(record);
 }
 
-const purgeProgress = new ProgressBar({
-  title: "Purging old documents:",
-  total: existingRecords.length,
-  complete: chalk.bgRed(" "),
-  display: ":title :bar :completed/:total (:percent) :time/:eta :text",
-});
+if (existingRecords.length > 0) {
+  const purgeProgress = new ProgressBar({
+    title: "Purging old documents:",
+    total: existingRecords.length,
+    complete: chalk.bgRed(" "),
+    display: ":title :bar :completed/:total (:percent) :time/:eta :text",
+  });
 
-// Delete existing records
-let numDeleted = 0;
-for (const record of existingRecords) {
-  purgeProgress.render(numDeleted++, { text: record.key.join(".") });
-  await kv.delete(record.key);
-  purgeProgress.render(numDeleted, { text: record.key.join(".") });
+  // Delete existing records
+  let numDeleted = 0;
+  for (const record of existingRecords) {
+    purgeProgress.render(numDeleted++, { text: record.key.join(".") });
+    await kv.delete(record.key);
+    purgeProgress.render(numDeleted, { text: record.key.join(".") });
+  }
+
+  purgeProgress.render(numDeleted, { text: "DONE" });
 }
-
-purgeProgress.render(numDeleted, { text: "DONE" });
 
 ///////////////////////
 // Write New Records //

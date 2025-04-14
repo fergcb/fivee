@@ -4,8 +4,9 @@ article.fivee__snippet {
   --fivee-col-bg: #fff;
   --fivee-col-txt-muted: #404040;
 
-  --fivee-font-title: 'Gill Sans', Arial, sans-serif;
-  --fivee-font-body: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --fivee-font-title: "Gill Sans", Arial, sans-serif;
+  --fivee-font-body:
+    ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
   font-family: var(--fivee-font-body);
   color: var(--fivee-col-txt);
@@ -46,7 +47,7 @@ article.fivee__snippet {
           display: inline;
 
           &::after {
-            content: ':'
+            content: ":";
           }
         }
 
