@@ -40,6 +40,12 @@ import {
   Spell,
 } from "$collections/spells/collection.ts";
 
+import {
+  default as weaponMasteries,
+  ID as weaponMasteriesID,
+  WeaponMastery,
+} from "$collections/weaponMasteries.ts";
+
 export type CollectionID =
   | typeof abilityScoresID
   | typeof damageTypesID
@@ -47,7 +53,8 @@ export type CollectionID =
   | typeof magicSchoolsID
   | typeof skillsID
   | typeof sourceBooksID
-  | typeof spellsID;
+  | typeof spellsID
+  | typeof weaponMasteriesID;
 
 export const collections = {
   abilityScores,
@@ -57,6 +64,7 @@ export const collections = {
   skills,
   sourceBooks,
   spells,
+  weaponMasteries,
 };
 
 export type Document =
@@ -66,6 +74,7 @@ export type Document =
   | MagicSchool
   | Skill
   | SourceBook
-  | Spell;
+  | Spell
+  | WeaponMastery;
 
 export type { AbilityScore, Skill, SourceBook };

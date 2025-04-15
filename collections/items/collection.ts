@@ -3,6 +3,7 @@ import { BaseDocument, Cost, Damage, Source } from "$collections/_common.ts";
 import { entries } from "$data/items/entries.ts";
 import { manyResolver, oneResolver } from "$collections/_resolvers.ts";
 import { AbilityScore } from "$collections/abilityScores.ts";
+import { WeaponMastery } from "$collections/weaponMasteries.ts";
 
 export const ID = "items";
 
@@ -19,11 +20,11 @@ export type WeaponProperty =
   | { kind: "light" }
   | { kind: "heavy" }
   | { kind: "finesse" }
-  | { kind: "twoHanded" }
+  | { kind: "twoHanded"; unlessMounted: boolean }
   | { kind: "thrown"; thrownRange: { normal: number; long: number } }
   | { kind: "reach" }
   | { kind: "versatile"; twoHandedDamage: string }
-  | { kind: "ammunition" }
+  | { kind: "ammunition"; ammunition: string }
   | { kind: "loading" }
   | { kind: "special" };
 
@@ -33,6 +34,7 @@ export interface WeaponItem {
   range: WeaponRange;
   properties: WeaponProperty[];
   damage: Damage;
+  mastery: WeaponMastery;
 }
 
 export type ArmorCategory = "light" | "medium" | "heavy" | "shield";
@@ -106,8 +108,12 @@ export default collection<Item>({
     WeaponProperty: {
       __resolveType(property: WeaponProperty): string {
         switch (property.kind) {
+          case "ammunition":
+            return "WeaponPropertyAmmunition";
           case "thrown":
             return "WeaponPropertyThrown";
+          case "twoHanded":
+            return "WeaponPropertyTwoHanded";
           case "versatile":
             return "WeaponPropertyVersatile";
           default:

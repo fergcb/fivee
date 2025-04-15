@@ -43,9 +43,19 @@ type WeaponThrownRange {
     long: Int!
 }
 
+type WeaponPropertyAmmunition implements WeaponProperty {
+  kind: String!
+  ammunition: String!
+}
+
 type WeaponPropertyThrown implements WeaponProperty {
   kind: String!
   thrownRange: WeaponThrownRange
+}
+
+type WeaponPropertyTwoHanded implements WeaponProperty {
+  kind: String!
+  unlessMounted: Boolean!
 }
 
 type WeaponPropertyVersatile implements WeaponProperty {
