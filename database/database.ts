@@ -99,7 +99,7 @@ export class Database {
           return;
       }
     } else if (Array.isArray(resolvable)) this.resolveArray(resolvable, ctx);
-    else if (typeof resolvable === "object") {
+    else if (typeof resolvable === "object" && resolvable !== null) {
       this.resolveObject(resolvable as object, ctx);
     } else {
       // console.log("GOT VALUE:", resolvable);

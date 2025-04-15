@@ -93,7 +93,7 @@ export async function parseValue<T extends object>(
     return await parse(value, config) as unknown as T;
   }
 
-  if (typeof value === "object" && !visited.has(value)) {
+  if (typeof value === "object" && value !== null && !visited.has(value)) {
     visited.add(value);
     return await parseTextFields(value, config, visited);
   }
