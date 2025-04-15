@@ -1,5 +1,5 @@
 import { Entry } from "$db/resolver.ts";
-import { Item } from "$collections/items/collection.ts";
+import { WeaponItem } from "$collections/items/collection.ts";
 import { cost, dice, dmg, ref, source } from "$helpers";
 
 const Range = {
@@ -7,7 +7,7 @@ const Range = {
   REACH: { kind: "melee", normal: 10 },
 } as const;
 
-export const weapons: Entry<Item>[] = [
+export const weapons: Entry<WeaponItem>[] = [
   {
     id: "club",
     name: "Club",
@@ -560,6 +560,113 @@ export const weapons: Entry<Item>[] = [
     ],
     mastery: ref("weaponMasteries", "slow"),
     tags: [],
+    source: source("PHB2024", 215),
+  },
+  {
+    id: "blowgun",
+    name: "Blowgun",
+    cost: cost("10 gp"),
+    weight: 1,
+    kind: "weapon",
+    category: "martial",
+    range: { kind: "ranged", normal: 25, long: 100 },
+    damage: dmg("1", "piercing"),
+    properties: [
+      { kind: "ammunition", ammunition: "Needle" },
+      { kind: "loading" },
+    ],
+    mastery: ref("weaponMasteries", "vex"),
+    tags: [],
+    source: source("PHB2024", 215),
+  },
+  {
+    id: "handCrossbow",
+    name: "Hand Crossbow",
+    cost: cost("75 gp"),
+    weight: 3,
+    kind: "weapon",
+    category: "martial",
+    range: { kind: "ranged", normal: 30, long: 120 },
+    damage: dmg("1d6", "piercing"),
+    properties: [
+      { kind: "ammunition", ammunition: "Bolt" },
+      { kind: "light" },
+      { kind: "loading" },
+    ],
+    mastery: ref("weaponMasteries", "vex"),
+    tags: [],
+    source: source("PHB2024", 215),
+  },
+  {
+    id: "heavyCrossbow",
+    name: "Heavy Crossbow",
+    cost: cost("50 gp"),
+    weight: 18,
+    kind: "weapon",
+    category: "martial",
+    range: { kind: "ranged", normal: 100, long: 400 },
+    damage: dmg("1d10", "piercing"),
+    properties: [
+      { kind: "ammunition", ammunition: "Bolt" },
+      { kind: "heavy" },
+      { kind: "loading" },
+      { kind: "twoHanded", unlessMounted: false },
+    ],
+    mastery: ref("weaponMasteries", "push"),
+    tags: [],
+    source: source("PHB2024", 215),
+  },
+  {
+    id: "longbow",
+    name: "Longbow",
+    cost: cost("50 gp"),
+    weight: 2,
+    kind: "weapon",
+    category: "martial",
+    range: { kind: "ranged", normal: 150, long: 600 },
+    damage: dmg("1d8", "piercing"),
+    properties: [
+      { kind: "ammunition", ammunition: "Arrow" },
+      { kind: "heavy" },
+      { kind: "twoHanded", unlessMounted: false },
+    ],
+    mastery: ref("weaponMasteries", "slow"),
+    tags: [],
+    source: source("PHB2024", 215),
+  },
+  {
+    id: "musket",
+    name: "Musket",
+    cost: cost("500 gp"),
+    weight: 10,
+    kind: "weapon",
+    category: "martial",
+    range: { kind: "ranged", normal: 40, long: 120 },
+    damage: dmg("1d12", "piercing"),
+    properties: [
+      { kind: "ammunition", ammunition: "Firearm Bullet" },
+      { kind: "loading" },
+      { kind: "twoHanded", unlessMounted: false },
+    ],
+    mastery: ref("weaponMasteries", "slow"),
+    tags: ["firearm"],
+    source: source("PHB2024", 215),
+  },
+  {
+    id: "pistol",
+    name: "Pistol",
+    cost: cost("250 gp"),
+    weight: 3,
+    kind: "weapon",
+    category: "martial",
+    range: { kind: "ranged", normal: 30, long: 90 },
+    damage: dmg("1d10", "piercing"),
+    properties: [
+      { kind: "ammunition", ammunition: "Firearm Bullet" },
+      { kind: "loading" },
+    ],
+    mastery: ref("weaponMasteries", "vex"),
+    tags: ["firearm"],
     source: source("PHB2024", 215),
   },
 ];

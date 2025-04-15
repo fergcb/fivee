@@ -85,18 +85,19 @@ interface ArmorArmorClass {
   kind: String!
 }
 
-type ArmorArmorClassSet {
+type ArmorArmorClassSet implements ArmorArmorClass {
   kind: String!
   base: Int!
 }
 
-type ArmorArmorClassCompute {
+type ArmorArmorClassCompute implements ArmorArmorClass {
   kind: String!
   base: Int!
   modifier: AbilityScore!
+  maxModifier: Int
 }
 
-type ArmorArmorClassAdd {
+type ArmorArmorClassAdd implements ArmorArmorClass {
   kind: String!
   bonus: Int!
 }

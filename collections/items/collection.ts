@@ -11,6 +11,13 @@ export const ID = "items";
  * TypeScript Types
  */
 
+export interface BaseItem extends BaseDocument {
+  cost: Cost;
+  weight: number;
+  tags: string[];
+  source: Source;
+}
+
 export type WeaponCategory = "simple" | "martial";
 export type WeaponRange =
   | { kind: "melee"; normal: number }
@@ -28,7 +35,7 @@ export type WeaponProperty =
   | { kind: "loading" }
   | { kind: "special" };
 
-export interface WeaponItem {
+export interface WeaponItem extends BaseItem {
   kind: "weapon";
   category: WeaponCategory;
   range: WeaponRange;
@@ -41,10 +48,15 @@ export type ArmorCategory = "light" | "medium" | "heavy" | "shield";
 
 export type ArmorArmorClass =
   | { kind: "set"; base: number }
-  | { kind: "compute"; base: number; modifier: AbilityScore }
+  | {
+    kind: "compute";
+    base: number;
+    modifier: AbilityScore;
+    maxModifier: number | null;
+  }
   | { kind: "add"; bonus: number };
 
-export interface ArmorItem {
+export interface ArmorItem extends BaseItem {
   kind: "armor";
   category: ArmorCategory;
   armorClass: ArmorArmorClass;
@@ -52,23 +64,14 @@ export interface ArmorItem {
   stealthDisadvantage: boolean;
 }
 
-export interface MiscItem {
+export interface MiscItem extends BaseItem {
   kind: "misc";
 }
 
-export type ItemVariant =
+export type Item =
   | WeaponItem
   | ArmorItem
   | MiscItem;
-
-export interface BaseItem extends BaseDocument {
-  cost: Cost;
-  weight: number;
-  tags: string[];
-  source: Source;
-}
-
-export type Item = BaseItem & ItemVariant;
 
 /*
  * Collection Definition
