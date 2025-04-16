@@ -116,6 +116,69 @@ type ArmorItem implements Item {
   stealthDisadvantage: Boolean!
 }
 
+enum ToolsKind {
+  artisans
+  other
+}
+
+type ToolUse {
+  desc: String!
+  dc: Int!
+}
+
+type ToolsItem implements Item {
+  id: String!
+  name: String!
+  kind: String!
+  cost: Cost!
+  weight: Float!
+  tags: [String!]!
+  source: Source!
+  toolsKind: ToolsKind!
+  ability: AbilityScore!
+  uses: [ToolUse!]!
+  craftables: [Item!]!
+}
+
+type GearItem implements Item {
+  id: String!
+  name: String!
+  kind: String!
+  cost: Cost!
+  weight: Float!
+  tags: [String!]!
+  source: Source!
+  desc: String!
+}
+
+type StackItem implements Item {
+  id: String!
+  name: String!
+  kind: String!
+  cost: Cost!
+  weight: Float!
+  tags: [String!]!
+  source: Source!
+  item: Item!
+  quantity: Int!
+}
+
+type ItemWithQuantity {
+  item: Item!
+  quantity: Int!
+}
+
+type PackItem implements Item {
+  id: String!
+  name: String!
+  kind: String!
+  cost: Cost!
+  weight: Float!
+  tags: [String!]!
+  source: Source!
+  contents: [ItemWithQuantity!]!
+}
+
 extend type Query {
   items: [Item]
   item(id: String!, expressions: Boolean): Item

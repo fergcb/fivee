@@ -145,7 +145,7 @@ export const weapons: Entry<WeaponItem>[] = [
       },
     ],
     mastery: ref("weaponMasteries", "topple"),
-    tags: [],
+    tags: ["Arcane Focus", "Druidic Focus", "Spellcasting Focus"],
     source: source("PHB2024", 215),
   },
   {

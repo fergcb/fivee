@@ -64,14 +64,42 @@ export interface ArmorItem extends BaseItem {
   stealthDisadvantage: boolean;
 }
 
-export interface MiscItem extends BaseItem {
-  kind: "misc";
+export interface ToolsUse {
+  desc: string;
+  dc: number;
+}
+
+export interface ToolsItem extends BaseItem {
+  kind: "tools";
+  toolsKind: "artisans" | "other";
+  ability: AbilityScore;
+  uses: ToolsUse[];
+  craftables: Item[];
+}
+
+export interface GearItem extends BaseItem {
+  kind: "gear";
+  desc: string;
+}
+
+export interface StackItem extends BaseItem {
+  kind: "stack";
+  quantity: number;
+  item: Item;
+}
+
+export interface PackItem extends BaseItem {
+  kind: "pack";
+  contents: { item: Item; quantity: number }[];
 }
 
 export type Item =
   | WeaponItem
   | ArmorItem
-  | MiscItem;
+  | ToolsItem
+  | GearItem
+  | PackItem
+  | StackItem;
 
 /*
  * Collection Definition
@@ -93,8 +121,14 @@ export default collection<Item>({
             return "WeaponItem";
           case "armor":
             return "ArmorItem";
-          case "misc":
-            return "MiscItem";
+          case "tools":
+            return "ToolsItem";
+          case "gear":
+            return "GearItem";
+          case "pack":
+            return "PackItem";
+          case "stack":
+            return "StackItem";
         }
       },
     },
