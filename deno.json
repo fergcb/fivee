@@ -5,7 +5,7 @@
     "build": "deno task db:init && deno task docs:build",
     "db:init": "deno run --unstable-kv -RENS database/init.ts",
     "docs:serve": "cd docs && npx docusaurus start",
-    "docs:build": "cd docs && npm ci && npm run build"
+    "docs:build": "cd docs && yarn && yarn build"
   },
   "imports": {
     "std/": "https://deno.land/std@0.207.0/",

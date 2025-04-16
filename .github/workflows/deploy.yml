@@ -26,7 +26,10 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: lts/*
+          node-version: 22.x
+
+      - name: Install Yarn
+        run: "npm i -g yarn"
 
       - name: Build step
         run: "deno task build"
