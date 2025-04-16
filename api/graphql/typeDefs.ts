@@ -5,7 +5,7 @@ const queryBase = "type Query";
 const commonTypeDefs = `#graphql
   type Cost {
     currency: String!
-    amount: Int!
+    amount: Float!
   }
 
   type Damage {
