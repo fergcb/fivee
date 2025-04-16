@@ -33,7 +33,7 @@ type Ident<T extends string> = T extends `${Char}${infer Rest}`
 
 type DropOrKeep = "d" | "D" | "k" | "K";
 type HighOrLow = "l" | "L" | "h" | "H";
-type DiceModifier = `${DropOrKeep}${HighOrLow}${number | ""}` | "";
+type DiceModifier = `${DropOrKeep}${HighOrLow}${number | ""}` | "!" | "";
 type DiceTerm<T extends string> =
   | `${number | ""}d${number}${DiceModifier}`
   | `${number}`
