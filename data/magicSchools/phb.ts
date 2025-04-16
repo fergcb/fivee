@@ -2,7 +2,7 @@ import { MagicSchool } from "../../collections/magicSchools.ts";
 import { Entry } from "$db/resolver.ts";
 import { md, ref } from "$helpers";
 
-export const phbEntries: Entry<MagicSchool> = [
+export const phbEntries: Entry<MagicSchool>[] = [
   {
     id: "abjuration",
     name: "Abjuration",
